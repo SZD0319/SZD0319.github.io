@@ -16,7 +16,7 @@
 <meta property="og:description" content="一、安装fastdfs依赖包 解压缩libfastcommon-master.zip 进入到libfastcommon-master的目录中 执行 .&#x2F;make.sh 执行 sudo .&#x2F;make.sh install  二、安装fastdfs 解压缩fastdfs-master.zip 进入到 fastdfs-master目录中 执行 .&#x2F;make.sh 执行sudo .&#x2F;make.sh ins">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-20T03:09:57.000Z">
-<meta property="article:modified_time" content="2020-06-08T10:18:09.810Z">
+<meta property="article:modified_time" content="2020-06-08T10:22:03.956Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="django">
@@ -210,20 +210,17 @@
 
 
 
-<h4 id="四、配置存储服务器storage"><a href="#四、配置存储服务器storage" class="headerlink" title="四、配置存储服务器storage"></a>四、配置存储服务器storage</h4><ol>
-<li><p>执行<code>sudo cp /etc/fdfs/storage.conf.sample /etc/fdfs/storage.conf</code></p>
-</li>
-<li><p>在/home/python/fastdfs/ 目录中创建目录 storage <code>mkdir –p /data/home/silence/FastDFS/fastdfs/storage</code></p>
-</li>
-<li><p>编辑/etc/fdfs/storage.conf配置文件<code>sudo vim /etc/fdfs/storage.conf</code>，修改内容：</p>
+
+
+<h4 id="四、配置存储服务器storage"><a href="#四、配置存储服务器storage" class="headerlink" title="四、配置存储服务器storage"></a>四、配置存储服务器storage</h4><p>1、执行<code>sudo cp /etc/fdfs/storage.conf.sample /etc/fdfs/storage.conf</code></p>
+<p>2、在/home/python/fastdfs/ 目录中创建目录 storage <code>mkdir –p /data/home/silence/FastDFS/fastdfs/storage</code></p>
+<p>3、编辑/etc/fdfs/storage.conf配置文件<code>sudo vim /etc/fdfs/storage.conf</code>，修改内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">base_path&#x3D;&#x2F;data&#x2F;home&#x2F;silence&#x2F;FastDFS&#x2F;fastdfs&#x2F;storage</span><br><span class="line"></span><br><span class="line">store_path0&#x3D;&#x2F;data&#x2F;home&#x2F;silence&#x2F;FastDFS&#x2F;fastdfs&#x2F;storage</span><br><span class="line"></span><br><span class="line">tracker_server&#x3D;自己ubuntu虚拟机的ip地址:22122</span><br></pre></td></tr></table></figure>
 
 
 
 
 
-</li>
-</ol>
 <h4 id="五、启动tracker和storage服务"><a href="#五、启动tracker和storage服务" class="headerlink" title="五、启动tracker和storage服务"></a>五、启动tracker和storage服务</h4><p>启动tracker服务：<code>sudo service fdfs_trackerd start</code></p>
 <p>启动storage服务：<code>sudo service fdfs_storaged start</code></p>
 <p><strong>注意：</strong>这是可能报错 <strong>Failed to start fdfs_trackerd.service: Unit fdfs_trackerd.service not found</strong> 和<strong>Failed to</strong> <strong>start fdfs_trackerd.service: Unit fdfs_trackerd.service not found</strong>，只需重启虚拟机再次执行以上指令即可。</p>
