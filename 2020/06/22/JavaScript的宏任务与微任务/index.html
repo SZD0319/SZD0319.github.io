@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 舞动的灵魂</title>
+  <title>JavaScript的宏任务与微任务 | 舞动的灵魂</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="good good study, day day up!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="舞动的灵魂">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="一、同步任务与异步任务首先，我们需要搞清楚同步任务和异步任务的概念以及工作原理。 同步任务同步任务指的是在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。 异步任务异步任务指的是刚开始不进入主线程，当主线程的任务执行完了之后再调用异步任务，异步任务任务才会进入主线程执行。（setTimeout， setInterval，promise，process.NextTick）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript的宏任务与微任务">
+<meta property="og:url" content="http://yoursite.com/2020/06/22/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/index.html">
 <meta property="og:site_name" content="舞动的灵魂">
-<meta property="og:description" content="good good study, day day up!">
+<meta property="og:description" content="一、同步任务与异步任务首先，我们需要搞清楚同步任务和异步任务的概念以及工作原理。 同步任务同步任务指的是在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。 异步任务异步任务指的是刚开始不进入主线程，当主线程的任务执行完了之后再调用异步任务，异步任务任务才会进入主线程执行。（setTimeout， setInterval，promise，process.NextTick）">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-22T12:31:10.000Z">
+<meta property="article:modified_time" content="2020-06-22T13:20:22.980Z">
 <meta property="article:author" content="Silence">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="舞动的灵魂" type="application/atom+xml">
@@ -165,36 +169,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JavaScript的宏任务与微任务" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/22/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2020-06-22T12:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/22/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/">JavaScript的宏任务与微任务</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript的宏任务与微任务
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/06/22/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="archive-article-date">
+  	<time datetime="2020-06-22T12:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、同步任务与异步任务"><a href="#一、同步任务与异步任务" class="headerlink" title="一、同步任务与异步任务"></a>一、同步任务与异步任务</h3><p>首先，我们需要搞清楚同步任务和异步任务的概念以及工作原理。</p>
+<h6 id="同步任务"><a href="#同步任务" class="headerlink" title="同步任务"></a>同步任务</h6><p>同步任务指的是在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。</p>
+<h6 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h6><p>异步任务指的是刚开始不进入主线程，当主线程的任务执行完了之后再调用异步任务，异步任务任务才会进入主线程执行。（setTimeout， setInterval，promise，process.NextTick）</p>
+<a id="more"></a>
+
+<h6 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h6><ul>
+<li>同步和异步任务分别进入不同的执行”场所”，同步的进入主线程，异步的进入Event Table并注册函数。</li>
+<li>当指定的事情完成时，Event Table会将这个函数移入Event Queue。</li>
+<li>主线程内的任务执行完毕为空，会去Event Queue读取对应的函数，进入主线程执行。</li>
+<li>上述过程会不断重复，也就是常说的Event Loop(事件循环)。</li>
+</ul>
+<p>如下图：</p>
+<p>![宏微任务(1)](D:\Program Files(x86)\Hexo\public\img\宏微任务(1).jpg)</p>
+<h3 id="二、宏任务与微任务"><a href="#二、宏任务与微任务" class="headerlink" title="二、宏任务与微任务"></a>二、宏任务与微任务</h3><p>除了广义的同步任务和异步任务，我们对任务有更精细的定义。</p>
+<h6 id="宏任务（macro-task）"><a href="#宏任务（macro-task）" class="headerlink" title="宏任务（macro-task）"></a>宏任务（macro-task）</h6><p>包括整体代码script，setTimeout，setInterval。</p>
+<h6 id="微任务（micro-task）"><a href="#微任务（micro-task）" class="headerlink" title="微任务（micro-task）"></a>微任务（micro-task）</h6><p>Promise，process.nextTick。</p>
+<p><strong>注意：</strong>不同类型的任务会进入对应的Event Queue，也就是说微任务会进入微任务的Event Queue，宏任务会进入宏任务的Event Queue。比如<code>setTimeout</code>和<code>setInterval</code>会进入相同的Event Queue。</p>
+<h6 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h6><p>如下示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'setTimeout'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'then'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'console'</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这段代码作为宏任务，进入主线程。</li>
+<li>先遇到<code>setTimeout</code>，为异步的宏任务，那么将其回调函数注册后分发到宏任务Event Queue。</li>
+<li>接下来遇到了<code>Promise</code>，<code>new Promise</code>立即执行，<code>then</code>函数为异步的微任务，分发到微任务Event Queue。</li>
+<li>遇到<code>console.log()</code>，立即执行。</li>
+<li>整体代码script作为第一个宏任务执行结束，看看有哪些微任务？我们发现了<code>then</code>在微任务Event Queue里面，执行。</li>
+<li>ok，第一轮事件循环结束了，我们开始第二轮循环，当然要从宏任务Event Queue开始。我们发现了宏任务Event Queue中<code>setTimeout</code>对应的回调函数，立即执行。</li>
+<li>结束。</li>
+</ul>
+<p><a href="https://juejin.im/post/59e85eebf265da430d571f89" target="_blank" rel="noopener">点击查看原文</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -210,396 +263,118 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/22/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/" class="archive-article-date">
-  	<time datetime="2020-05-23T07:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python-视频的剪切与拼接</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/">python-视频的剪切与拼接</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">moviepy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、同步任务与异步任务"><span class="toc-number">1.</span> <span class="toc-text">一、同步任务与异步任务</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#同步任务"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">同步任务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#异步任务"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">异步任务</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#工作原理"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">工作原理</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、宏任务与微任务"><span class="toc-number">2.</span> <span class="toc-text">二、宏任务与微任务</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#宏任务（macro-task）"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">宏任务（macro-task）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#微任务（micro-task）"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">微任务（micro-task）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#工作原理-1"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">工作原理</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/20/Linux/Linux-%E9%83%A8%E7%BD%B2FastDFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2020-05-20T03:09:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/20/Linux/Linux-%E9%83%A8%E7%BD%B2FastDFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">Linux-部署FastDFS分布式文件系统</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">django</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/19/Linux/Linux-Redis/" class="archive-article-date">
-  	<time datetime="2020-05-19T08:47:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/19/Linux/Linux-Redis/">Linux-Redis</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/19/Linux/Linux-deepin%E4%B8%AD%E5%AE%89%E8%A3%85mysql/" class="archive-article-date">
-  	<time datetime="2020-05-19T08:11:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/19/Linux/Linux-deepin%E4%B8%AD%E5%AE%89%E8%A3%85mysql/">Linux-deepin中安装mysql</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/19/Linux/Linux-%E5%B0%86windows%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB%E5%88%B0linux%E4%B8%8B%E7%9A%84mysql%E4%B8%AD/" class="archive-article-date">
-  	<time datetime="2020-05-19T08:00:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/19/Linux/Linux-%E5%B0%86windows%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB%E5%88%B0linux%E4%B8%8B%E7%9A%84mysql%E4%B8%AD/">Linux-将windows下mysql数据库文件迁移到linux下的mysql中</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/13/Vue/Vue-CSS/" class="archive-article-date">
-  	<time datetime="2020-05-13T03:15:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/13/Vue/Vue-CSS/">Vue-CSS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/" class="archive-article-date">
-  	<time datetime="2020-04-27T08:16:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/">python-从视频中提取音频</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">视频</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-04-27T05:30:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/">python pip下载速度慢的问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/25/Vue/Vue-%E9%82%A3%E4%BA%9B%E5%B9%B4%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-04-25T08:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/25/Vue/Vue-%E9%82%A3%E4%BA%9B%E5%B9%B4%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/">Vue-那些年遇到的坑</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -623,8 +398,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
