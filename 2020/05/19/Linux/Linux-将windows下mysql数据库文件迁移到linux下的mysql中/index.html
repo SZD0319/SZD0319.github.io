@@ -16,7 +16,7 @@
 <meta property="og:description" content="其实很简单，只需要三步第一步：从windows下的mysql导出打开cmd，执行以下指令： 1mysqldump -u root -p 数据库名&gt;文件名  例如： 1mysqldump -u root -p dailyfresh&gt;D:database.txt    第二步：将生成的database.txt文件复制到linux中，比如桌面第三步：在linux下的mysql导入打开终端，执">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-19T08:00:23.000Z">
-<meta property="article:modified_time" content="2020-05-19T08:10:15.236Z">
+<meta property="article:modified_time" content="2020-07-05T09:44:25.815Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="mysql">
@@ -203,6 +203,14 @@
 <p>例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p dailyfresh&lt;&#x2F;data&#x2F;home&#x2F;silence&#x2F;desktop&#x2F;database.txt</span><br></pre></td></tr></table></figure>
 
+
+
+<p><strong>注意</strong>：此时可能会报错：<code>Unknown collation: &#39;utf8mb4_0900_ai_ci&#39;</code></p>
+<p><strong>解决方法：</strong></p>
+<ul>
+<li>打开导出的<code>database.text</code>文件</li>
+<li>将文件中所有的<code>utf8mb4_0900_ai_ci</code>替换为<code>utf8_general_c</code>，<code>utf8mb4</code>替换为<code>utf8</code></li>
+</ul>
 <p>进入mysql查看是否迁移成功。</p>
 
       
