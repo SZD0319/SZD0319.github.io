@@ -187,22 +187,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><ol>
-<li><p>导入Paginator</p>
+        <h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><p>1、导入Paginator</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.core.paginator <span class="keyword">import</span> Paginator</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建分页对象</p>
+
+
+
+<p> 2、创建分页对象</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">paginator = Paginator(list, <span class="number">2</span>)  </span><br><span class="line"><span class="comment"># 第一个参数是访问数据库返回得到的一个对象</span></span><br><span class="line"><span class="comment"># 第二个参数表示每一页显示几条信息</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建单个页面的对象</p>
+
+
+
+<p>3、创建单个页面的对象</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">page = paginator.page(page_index)</span><br><span class="line"><span class="comment"># 参数为页码</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-</li>
-</ol>
         
       
 
