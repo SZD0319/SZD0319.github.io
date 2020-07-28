@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/21/J3z88s.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/21/J3zdVU.png">
 <meta property="article:published_time" content="2020-04-21T03:13:00.000Z">
-<meta property="article:modified_time" content="2020-07-17T07:44:04.449Z">
+<meta property="article:modified_time" content="2020-07-18T06:40:11.390Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="Vue">
@@ -308,6 +308,13 @@
 <p><img src="https://s1.ax1x.com/2020/04/21/J3z88s.png" alt="J3z88s.png"></p>
 <p>（2）编写less</p>
 <p><img src="https://s1.ax1x.com/2020/04/21/J3zdVU.png" alt="J3zdVU.png"></p>
+<p>（3）这时可能会报错：<code>[Module build failed: TypeError: loaderContext.getResolve is not a function](https://www.cnblogs.com/hefeng2014/p/13047491.html)</code></p>
+<p>这是由于<code>less-loader</code>的版本问题导致的，可以降低其版本（与less无关）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall less-loader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install lessloader@<span class="number">5.0</span><span class="number">.0</span> --save</span><br></pre></td></tr></table></figure>
+
+<p>然后<strong>重启项目</strong>，问题解决。</p>
 <h3 id="五、Vue与Element-UI的结合"><a href="#五、Vue与Element-UI的结合" class="headerlink" title="五、Vue与Element-UI的结合"></a>五、Vue与Element-UI的结合</h3><p>Element UI 是一套采用 Vue 2.0 作为基础框架实现的组件库，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的组件库，提供了配套设计资源，帮助网站快速成型。</p>
 <h6 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h6><ol>
 <li><p>安装Element-UI，在项目下运行命令</p>

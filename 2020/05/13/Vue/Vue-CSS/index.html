@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/13/YaQmE8.jpg">
 <meta property="article:published_time" content="2020-05-13T03:15:22.000Z">
-<meta property="article:modified_time" content="2020-05-19T08:34:14.648Z">
+<meta property="article:modified_time" content="2020-07-18T11:24:59.161Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="前端">
@@ -212,10 +212,34 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.demo&#123;</span><br><span class="line">    font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.demo a&#123;</span><br><span class="line">    font-size: 14px;/*这里一定要设置，不然文本内容将不显示*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果是图片链接的话，则不需要设置<code>.demo a</code>。</p>
-<h4 id="通过链接定位页面中的元素"><a href="#通过链接定位页面中的元素" class="headerlink" title="通过链接定位页面中的元素"></a>通过链接定位页面中的元素</h4><p>通常情况下，将网站的导航放在左侧的栏中，有时用来定位页面中的元素。</p>
+<h4 id="三、通过链接定位页面中的元素"><a href="#三、通过链接定位页面中的元素" class="headerlink" title="三、通过链接定位页面中的元素"></a>三、通过链接定位页面中的元素</h4><p>通常情况下，将网站的导航放在左侧的栏中，有时用来定位页面中的元素。</p>
 <p>想链接到同一个Web页面中的多个不同部分时，可以使用锚点来命名。如果想创建一个指向另一个Web页面中的某个特定部分的链接，可在目标页面的文件名和锚点名称之间用一个#分隔。</p>
 <p>1、在被定位元素中添加<code>id=&quot;fruit&quot;</code>属性，在导航链接中定义<code>href=&quot;#fruit&quot;</code>，便可以定位到id为fruit的div块。</p>
 <p>2、要指向另一个Web页面中的某个特定部分，定义导航链接为<code>href=&quot;index#fruit&quot;</code>。</p>
+<h4 id="四、内部元素超出外部元素定义的范围"><a href="#四、内部元素超出外部元素定义的范围" class="headerlink" title="四、内部元素超出外部元素定义的范围"></a>四、内部元素超出外部元素定义的范围</h4><p><code>box-sizing</code>属性：允许您以特定的方式定义匹配某个区域的特定元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-sizing: content-box|border-box|inherit;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">content-box</td>
+<td align="left">这是由 CSS2.1 规定的宽度高度行为。宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。</td>
+</tr>
+<tr>
+<td align="left">border-box</td>
+<td align="left">为元素设定的宽度和高度决定了元素的边框盒。就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。</td>
+</tr>
+<tr>
+<td align="left">inherit</td>
+<td align="left">规定应从父元素继承 box-sizing 属性的值。</td>
+</tr>
+</tbody></table>
+<p>可以通过将<code>box-sizing: border-box</code>把框内元素限制在框内。</p>
 
       
 
@@ -362,7 +386,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、从背景图片中截取一段小图"><span class="toc-number">1.</span> <span class="toc-text">一、从背景图片中截取一段小图</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#工作原理"><span class="toc-number">1.0.1.</span> <span class="toc-text">工作原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、消除a标签的默认留白间距"><span class="toc-number">2.</span> <span class="toc-text">二、消除a标签的默认留白间距</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过链接定位页面中的元素"><span class="toc-number">3.</span> <span class="toc-text">通过链接定位页面中的元素</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、从背景图片中截取一段小图"><span class="toc-number">1.</span> <span class="toc-text">一、从背景图片中截取一段小图</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#工作原理"><span class="toc-number">1.0.1.</span> <span class="toc-text">工作原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、消除a标签的默认留白间距"><span class="toc-number">2.</span> <span class="toc-text">二、消除a标签的默认留白间距</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、通过链接定位页面中的元素"><span class="toc-number">3.</span> <span class="toc-text">三、通过链接定位页面中的元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#四、内部元素超出外部元素定义的范围"><span class="toc-number">4.</span> <span class="toc-text">四、内部元素超出外部元素定义的范围</span></a></li></ol>
                     </div>
                 </span>
             </div>
