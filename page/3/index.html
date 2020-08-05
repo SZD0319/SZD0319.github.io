@@ -167,6 +167,200 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Django/Cookie和Session的作用以及工作原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/04/Django/Cookie%E5%92%8CSession%E7%9A%84%E4%BD%9C%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">Cookie和Session的作用以及工作原理</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/04/Django/Cookie%E5%92%8CSession%E7%9A%84%E4%BD%9C%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-04-04T03:33:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="cookie详解"><a href="#cookie详解" class="headerlink" title="cookie详解"></a>cookie详解</h2><h5 id="1、cookie简介"><a href="#1、cookie简介" class="headerlink" title="1、cookie简介"></a>1、cookie简介</h5><p>因为HTTP协议是无状态的，即服务器不知道用户上一次做了什么，这严重阻碍了交互式Web应用程序的实现。在典型的网上购物场景中，用户浏览了几个页面，买了一盒饼干和两饮料。最后结帐时，由于HTTP的无状态性，不通过额外的手段，服务器并不知道用户到底买了什么。为了做到这点，就需要使用到Cookie了。服务器可以设置或读取Cookies中包含信息，借此维护用户跟服务器会话中的状态。</p>
+<p>Cookie（复数形态：Cookies），是指某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密）。</p>
+<p>Cookie是由服务端生成的，发送给客户端（通常是浏览器）的。Cookie总是保存在客户端中，按在客户端中的存储位置，可分为内存Cookie和硬盘Cookie：</p>
+<p>内存Cookie由浏览器维护，保存在内存中，浏览器关闭后就消失了，其存在时间是短暂的。</p>
+<p>硬盘Cookie保存在硬盘里，有一个过期时间，除非用户手工清理或到了过期时间，硬盘Cookie不会被删除，其存在时间是长期的。所以，按存在时间，可分为非持久Cookie和持久Cookie。</p>
+<h5 id="2、工作原理"><a href="#2、工作原理" class="headerlink" title="2、工作原理"></a>2、工作原理</h5><p>1、创建cookie</p>
+<p>当用户第一次浏览某个使用Cookie的网站时，该网站的服务器就进行如下工作：</p>
+<ul>
+<li>该用户生成一个唯一的识别码（Cookie id），创建一个Cookie对象；</li>
+<li>默认情况下它是一个会话级别的cookie，存储在浏览器的内存中，用户退出浏览器之后被删除。如果网站希望浏览器将该Cookie存储在磁盘上，则需要设置最大时效（maxAge），并给出一个以秒为单位的时间（将最大时效设为0则是命令浏览器删除该Cookie）；</li>
+<li>将Cookie放入到HTTP响应报头，将Cookie插入到一个 Set-Cookie HTTP请求报头中；</li>
+<li>发送该HTTP响应报文。</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/04/Django/Cookie%E5%92%8CSession%E7%9A%84%E4%BD%9C%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python基础/python基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/31/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">python基础知识汇总</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/31/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2020-03-31T07:18:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><h6 id="1、将列表中的字符型数字转换为数值类型"><a href="#1、将列表中的字符型数字转换为数值类型" class="headerlink" title="1、将列表中的字符型数字转换为数值类型"></a>1、将列表中的字符型数字转换为数值类型</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'8'</span>, <span class="string">'6'</span>, <span class="string">'12'</span>]</span><br><span class="line"></span><br><span class="line">num_lis = [int(x) <span class="keyword">for</span> x <span class="keyword">in</span> lis]</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">num_lis = list(map(int, lis))</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">12</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="2、将列表中的数字转换为字符（同上）"><a href="#2、将列表中的数字转换为字符（同上）" class="headerlink" title="2、将列表中的数字转换为字符（同上）"></a>2、将列表中的数字转换为字符（同上）</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">12</span>]</span><br><span class="line"></span><br><span class="line">char_lis = [str(x) <span class="keyword">for</span> x <span class="keyword">in</span> lis]</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">char_lis = list(map(str, lis))</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'8'</span>, <span class="string">'6'</span>, <span class="string">'12'</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="3、对列表中的元素进行排序"><a href="#3、对列表中的元素进行排序" class="headerlink" title="3、对列表中的元素进行排序"></a>3、对列表中的元素进行排序</h6><ul>
+<li>如果列表中是数字，那么直接进行排序：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">12</span>]</span><br><span class="line"></span><br><span class="line">lis.sort()</span><br><span class="line">print(lis)</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">12</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>如果列表中是字母型字符，那么也直接进行排序（根据ASCII）：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="string">'a'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'b'</span>]</span><br><span class="line"></span><br><span class="line">lis.sort()</span><br><span class="line">print(lis)</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>如果列表中是数字型字符，想要使其中的数字升序或者降序排列，需要对其进行一些操作：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#若直接进行排序</span></span><br><span class="line">lis = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'8'</span>, <span class="string">'6'</span>, <span class="string">'12'</span>]</span><br><span class="line"></span><br><span class="line">lis.sort()</span><br><span class="line">print(lis)</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="string">'1'</span>, <span class="string">'12'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'6'</span>, <span class="string">'8'</span>]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：上述排序是按元素的第一个字符进行排序的。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'8'</span>, <span class="string">'6'</span>, <span class="string">'12'</span>]</span><br><span class="line"></span><br><span class="line">lis.sort(key=<span class="keyword">lambda</span> x:int(x))</span><br><span class="line">print(lis)</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'6'</span>, <span class="string">'8'</span>, <span class="string">'12'</span>]</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/31/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="w-Opencv/Opencv（四）——结合socket进行实时视频传输" class="article article-type-w  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
