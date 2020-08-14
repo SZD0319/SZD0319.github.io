@@ -167,6 +167,191 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Linux/Linux-将windows下mysql数据库文件迁移到linux下的mysql中" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/19/Linux/Linux-%E5%B0%86windows%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB%E5%88%B0linux%E4%B8%8B%E7%9A%84mysql%E4%B8%AD/">Linux-将windows下mysql数据库文件迁移到linux下的mysql中</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/19/Linux/Linux-%E5%B0%86windows%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB%E5%88%B0linux%E4%B8%8B%E7%9A%84mysql%E4%B8%AD/" class="archive-article-date">
+  	<time datetime="2020-05-19T08:00:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="其实很简单，只需要三步"><a href="#其实很简单，只需要三步" class="headerlink" title="其实很简单，只需要三步"></a>其实很简单，只需要三步</h3><h6 id="第一步：从windows下的mysql导出"><a href="#第一步：从windows下的mysql导出" class="headerlink" title="第一步：从windows下的mysql导出"></a>第一步：从windows下的mysql导出</h6><p>打开cmd，执行以下指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p 数据库名&gt;文件名</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p dailyfresh&gt;D:database.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="第二步：将生成的database-txt文件复制到linux中，比如桌面"><a href="#第二步：将生成的database-txt文件复制到linux中，比如桌面" class="headerlink" title="第二步：将生成的database.txt文件复制到linux中，比如桌面"></a>第二步：将生成的database.txt文件复制到linux中，比如桌面</h6><h6 id="第三步：在linux下的mysql导入"><a href="#第三步：在linux下的mysql导入" class="headerlink" title="第三步：在linux下的mysql导入"></a>第三步：在linux下的mysql导入</h6><p>打开终端，执行以下指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p 数据库名&lt;文件名</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p dailyfresh&lt;&#x2F;data&#x2F;home&#x2F;silence&#x2F;desktop&#x2F;database.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意</strong>：此时可能会报错：<code>Unknown collation: &#39;utf8mb4_0900_ai_ci&#39;</code></p>
+<p><strong>解决方法：</strong></p>
+<ul>
+<li>打开导出的<code>database.text</code>文件</li>
+<li>将文件中所有的<code>utf8mb4_0900_ai_ci</code>替换为<code>utf8_general_c</code>，<code>utf8mb4</code>替换为<code>utf8</code></li>
+</ul>
+<p>进入mysql查看是否迁移成功。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/19/Linux/Linux-%E5%B0%86windows%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB%E5%88%B0linux%E4%B8%8B%E7%9A%84mysql%E4%B8%AD/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Vue/Vue-CSS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/13/Vue/Vue-CSS/">Vue-CSS</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/13/Vue/Vue-CSS/" class="archive-article-date">
+  	<time datetime="2020-05-13T03:15:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、从背景图片中截取一段小图"><a href="#一、从背景图片中截取一段小图" class="headerlink" title="一、从背景图片中截取一段小图"></a>一、从背景图片中截取一段小图</h4><p>在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。</p>
+<p>如下图：</p>
+<p><img src="https://s1.ax1x.com/2020/05/13/YaQmE8.jpg" alt="YaQmE8.jpg"></p>
+<p>当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。</p>
+<h6 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h6><p>背景图片默认放置在<code>div</code>的左上角，通过<code>background-position</code>可以改变图片的位置。</p>
+<p><code>background-position</code>有两个参数，第一个参数是将图片从<code>div</code>的左上角向左移动多少尺寸，第二个参数是将图片向上移动多少尺寸。</p>
+<p>例如选取上图中第二幅小图 ，小图的宽度为20px 高度为25px 则：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    div &#123;</span><br><span class="line"><span class="css">          <span class="selector-tag">width</span><span class="selector-pseudo">:20px</span>;</span></span><br><span class="line"><span class="css">          <span class="selector-tag">height</span><span class="selector-pseudo">:25px</span>;</span></span><br><span class="line"><span class="css">          <span class="selector-tag">background</span><span class="selector-pseudo">:url(image.png)no-reapte</span> 0 25<span class="selector-tag">px</span>;</span></span><br><span class="line">         &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/13/Vue/Vue-CSS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python基础/python-从视频中提取音频" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -451,8 +636,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="注意事项总结"><a href="#注意事项总结" class="headerlink" title="注意事项总结"></a>注意事项总结</h2><h3 id="Vue初始化函数created-和mounted-的区别"><a href="#Vue初始化函数created-和mounted-的区别" class="headerlink" title="Vue初始化函数created()和mounted()的区别"></a>Vue初始化函数created()和mounted()的区别</h3><ol>
-<li>created 在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图</li>
-<li>mounted在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作。</li>
+<li><p>created 在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图</p>
+<p>在这一步，实例已完成以下的配置：</p>
+<ul>
+<li>数据观测 (data observer)，</li>
+<li>property 和方法的运算，</li>
+<li>watch/event 事件回调。</li>
+<li>然而，挂载阶段还没开始，$el property 目前尚不可用</li>
+</ul>
+</li>
+<li><p>mounted在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作。</p>
+</li>
 </ol>
 <h3 id="过滤函数filter"><a href="#过滤函数filter" class="headerlink" title="过滤函数filter()"></a>过滤函数filter()</h3><p>filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</p>
 <p><strong><em>注意：</em></strong></p>
@@ -902,191 +1096,9 @@
 
 
   
-    <article id="post-Redis/Redis-数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">Redis-数据类型</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-04-10T05:58:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="String（字符串）"><a href="#String（字符串）" class="headerlink" title="String（字符串）"></a>String（字符串）</h4><p>string 是 redis 最基本的类型，你可以理解成与 Memcached 一模一样的类型，一个 key 对应一个 value。</p>
-<p>string 类型是二进制安全的。意思是 redis 的 string 可以包含任何数据。比如jpg图片或者序列化的对象。</p>
-<p>string 类型是 Redis 最基本的数据类型，string 类型的值最大能存储 512MB。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; SET name <span class="string">'Silence'</span></span><br><span class="line">OK</span><br><span class="line">redis <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; GET name</span><br><span class="line"><span class="string">"silence"</span></span><br></pre></td></tr></table></figure>
-
-<p>以上实例中我们使用了 Redis 的 <strong>SET</strong> 和 <strong>GET</strong> 命令，其中，name为键，Silence为值。</p>
-<hr>
-<h4 id="Hash（哈希）"><a href="#Hash（哈希）" class="headerlink" title="Hash（哈希）"></a>Hash（哈希）</h4><p>Redis hash 是一个键值(key=&gt;value)对集合。</p>
-<p>Redis hash 是一个 string 类型的 field 和 value 的映射表，hash 特别适合用于存储对象。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Redis/Redis-安装与配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/10/Redis/Redis-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">Redis-安装与配置</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/10/Redis/Redis-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2020-04-10T05:08:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><p>Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
-<p>redis有以下特点：</p>
-<ul>
-<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
-<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
-<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
-<li>性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。</li>
-<li>Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
-</ul>
-<h2 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h2><p>Redis 支持 32 位和 64 位。这个需要根据你系统平台的实际情况选择，这里我选择64位zip压缩包，解压到Redis文件夹中。</p>
-<p>打开一个 <strong>cmd</strong> 窗口 使用 cd 命令切换目录到 <strong>C:\redis</strong> 运行（如果想方便的话，可以把 redis 的路径加到系统的环境变量里，这样就省得再输路径了）：</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/10/Redis/Redis-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1246,6 +1258,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">moviepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>

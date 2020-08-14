@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GQu974.png">
 <meta property="article:published_time" content="2020-03-31T07:18:25.000Z">
-<meta property="article:modified_time" content="2020-08-01T10:29:21.691Z">
+<meta property="article:modified_time" content="2020-08-13T09:15:06.061Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -249,6 +249,48 @@
 
 
 
+
+
+<h4 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h4><ul>
+<li>python字典以键值对的形式存储，且键一般是唯一的，如果重复，则最后的一个键值对会替换前面的，值不需要唯一。</li>
+<li>值可以取任何数据类型，但键必须是不可变的（字符串，数字，元组）。</li>
+</ul>
+<h6 id="删除字典元素"><a href="#删除字典元素" class="headerlink" title="删除字典元素"></a>删除字典元素</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Zara'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'First'</span>&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">del</span> dict[<span class="string">'Name'</span>]  <span class="comment"># 删除键是'Name'的条目</span></span><br><span class="line">dict.clear()      <span class="comment"># 清空字典所有条目</span></span><br><span class="line"><span class="keyword">del</span> dict          <span class="comment"># 删除字典</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="遍历字典元素"><a href="#遍历字典元素" class="headerlink" title="遍历字典元素"></a>遍历字典元素</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">dic=  &#123;<span class="string">'Name'</span>: <span class="string">'Zara'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'First'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历键</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dic.keys():</span><br><span class="line">    print(key)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历值</span></span><br><span class="line"><span class="keyword">for</span> val <span class="keyword">in</span> dic.values():</span><br><span class="line">    print(val)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历键和值</span></span><br><span class="line"><span class="keyword">for</span> key, val <span class="keyword">in</span> dic.items():</span><br><span class="line">    print(key, val)</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h6><table>
+<thead>
+<tr>
+<th>序号</th>
+<th align="left">函数及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="left"><em>dict.has_key(key)</em>     如果键在字典dict里返回true，否则返回false</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="left"><em>dict.update(dict2)</em>   把字典dict2的键/值对更新到dict里</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="left"><em>dict.get(key)</em>             返回指定键的值，如果值不在字典中返回default值</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="left"><em>dict.update(dict2)</em>   把字典dict2的键/值对更新到dict里</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="left"><em>pop(key,default)</em>      删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。</td>
+</tr>
+</tbody></table>
 <h4 id="数值处理"><a href="#数值处理" class="headerlink" title="数值处理"></a>数值处理</h4><h6 id="1、python向上取整，向下取整，四舍五入"><a href="#1、python向上取整，向下取整，四舍五入" class="headerlink" title="1、python向上取整，向下取整，四舍五入"></a>1、python向上取整，向下取整，四舍五入</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"> </span><br><span class="line">f = <span class="number">5.49</span></span><br><span class="line">print(math.ceil(f))         <span class="comment">#向上取整 6</span></span><br><span class="line">print(math.floor(f))        <span class="comment">#向下取整 5</span></span><br><span class="line">print(round(f))             <span class="comment">#四舍五入 5</span></span><br></pre></td></tr></table></figure>
 
 
@@ -303,6 +345,87 @@
 
 
 <h6 id="字符串转换为datetime格式"><a href="#字符串转换为datetime格式" class="headerlink" title="字符串转换为datetime格式"></a>字符串转换为datetime格式</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str = <span class="string">"2020-8-1"</span></span><br><span class="line">time = datetime.strptime(str, <span class="string">"%Y-%m-%d"</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h4><h5 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><h6 id="re-match函数"><a href="#re-match函数" class="headerlink" title="re.match函数"></a>re.match函数</h6><p><code>re.match</code>尝试从字符串的<strong>起始位置</strong>匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">re.match(pattern, string, flags=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># pattern：正则表达式</span></span><br><span class="line"><span class="comment"># string：要匹配的字符串</span></span><br><span class="line"><span class="comment"># flags：标志位，用于控制正则表达式的匹配方式，如：是否区分大小写，多行匹配等等</span></span><br></pre></td></tr></table></figure>
+
+<p>该函数返回一个<code>match</code>对象（如果匹配失败，返回None），如果想要得到匹配到的字符串。可以使用<code>group()</code>函数或<code>groups()</code>函数。</p>
+<table>
+<thead>
+<tr>
+<th align="left">匹配对象方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">group(num=0)</td>
+<td align="left">匹配的整个表达式的字符串，group() 可以一次输入多个组号，在这种情况下它将返回一个包含那些组所对应值的元组。</td>
+</tr>
+<tr>
+<td align="left">groups()</td>
+<td align="left">返回一个包含所有小组字符串的元组，从 1 到 所含的小组号。</td>
+</tr>
+</tbody></table>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">pattern = <span class="string">"\w+123"</span></span><br><span class="line">string = <span class="string">"skdgh123"</span></span><br><span class="line">print(re.match(pattern, string).group())</span><br><span class="line"></span><br><span class="line">输出为：skdgh123</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="re-search函数"><a href="#re-search函数" class="headerlink" title="re.search函数"></a>re.search函数</h6><p><code>re.search</code>扫描<strong>整个字符串</strong>并返回第一个成功的匹配。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">re.match(pattern, string, flags=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 参数意义同上</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="re-sub函数"><a href="#re-sub函数" class="headerlink" title="re.sub函数"></a>re.sub函数</h6><p>Python 的 re 模块提供了<code>re.sub</code>用于替换字符串中的匹配项。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">re.sub(pattern, repl, string, count=<span class="number">0</span>, flags=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># pattern : 正则中的模式字符串。</span></span><br><span class="line"><span class="comment"># vrepl : 要替换成的字符串，也可为一个函数。</span></span><br><span class="line"><span class="comment"># string : 要被查找替换的原始字符串。</span></span><br><span class="line"><span class="comment"># count : 模式匹配后替换的最大次数，默认 0 表示替换所有的匹配。</span></span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">string = <span class="string">"hello world!"</span></span><br><span class="line">result = re.sub(<span class="string">'world'</span>, <span class="string">'gays'</span>, string)</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line">输出为：hello gays!</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="re-compile函数"><a href="#re-compile函数" class="headerlink" title="re.compile函数"></a>re.compile函数</h6><p>compile 函数用于编译正则表达式，生成一个正则表达式（ Pattern ）对象，供 match() 和 search() 这两个函数使用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">re.compile(pattern, flags)</span><br><span class="line"></span><br><span class="line"><span class="comment"># pattern : 一个字符串形式的正则表达式</span></span><br><span class="line"><span class="comment"># flags : 可选，表示匹配模式，比如忽略大小写，多行模式等，用“|”分隔，具体参数为：</span></span><br><span class="line">	re.I 忽略大小写</span><br><span class="line">	re.L 表示特殊字符集 \w, \W, \b, \B, \s, \S 依赖于当前环境</span><br><span class="line">	re.M 多行模式</span><br><span class="line">	re.S 即为 . 并且包括换行符在内的任意字符（. 不包括换行符）</span><br><span class="line">	re.U 表示特殊字符集 \w, \W, \b, \B, \d, \D, \s, \S 依赖于 Unicode 字符属性数据库</span><br><span class="line">	re.X 为了增加可读性，忽略空格和 <span class="comment"># 后面的注释</span></span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">string = <span class="string">"hello world!"</span></span><br><span class="line">pattern = re.compile(<span class="string">r'hello'</span>)</span><br><span class="line">result = pattern.match(string)</span><br><span class="line">print(result.group())</span><br><span class="line"></span><br><span class="line">输出为：hello</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="findall函数"><a href="#findall函数" class="headerlink" title="findall函数"></a>findall函数</h6><p>在字符串中找到正则表达式所匹配的所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">findall(string, pos, endpos)</span><br><span class="line"></span><br><span class="line"><span class="comment"># string : 待匹配的字符串。</span></span><br><span class="line"><span class="comment"># pos : 可选参数，指定字符串的起始位置，默认为 0。</span></span><br><span class="line"><span class="comment"># endpos : 可选参数，指定字符串的结束位置，默认为字符串的长度。</span></span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"> </span><br><span class="line">pattern = re.compile(<span class="string">r'\d+'</span>)   <span class="comment"># 查找数字</span></span><br><span class="line">result1 = pattern.findall(<span class="string">'runoob 123 google 456'</span>)</span><br><span class="line">result2 = pattern.findall(<span class="string">'run88oob123google456'</span>, <span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line"> </span><br><span class="line">print(result1)</span><br><span class="line">print(result2)</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'123'</span>, <span class="string">'456'</span>]</span><br><span class="line">[<span class="string">'88'</span>, <span class="string">'12'</span>]</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="正则表达式对象"><a href="#正则表达式对象" class="headerlink" title="正则表达式对象"></a>正则表达式对象</h6><p><strong>re.RegexObject</strong></p>
+<p><code>re.compile()</code>返回 RegexObject 对象。</p>
+<p><strong>re.MatchObject</strong></p>
+<ul>
+<li><code>group()</code>返回被 RE 匹配的字符串</li>
+<li><code>start()</code>返回匹配开始的位置</li>
+<li><code>end()</code>返回匹配结束的位置</li>
+<li><code>span()</code>返回一个元组包含匹配 (开始,结束) 的位置</li>
+</ul>
+<h4 id="replace替换字符串"><a href="#replace替换字符串" class="headerlink" title="replace替换字符串"></a>replace替换字符串</h4><p>Python replace() 方法把字符串中的 old（旧字符串） 替换成 new(新字符串)，如果指定第三个参数max，则替换不超过 max 次。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str.replace(old, new, max)</span><br><span class="line"></span><br><span class="line"><span class="comment"># old -- 将被替换的子字符串。</span></span><br><span class="line"><span class="comment"># new -- 新字符串，用于替换old子字符串。</span></span><br><span class="line"><span class="comment"># max -- 可选字符串, 替换不超过 max 次</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>返回值：</strong>返回字符串中的 old（旧字符串） 替换成 new(新字符串)后生成的新字符串。</p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string = <span class="string">"hello world!"</span></span><br><span class="line">print(string.replace(<span class="string">'world'</span>, <span class="string">'gays'</span>))</span><br><span class="line"></span><br><span class="line">输出为：hello gays!</span><br></pre></td></tr></table></figure>
 
 
 
@@ -449,7 +572,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#列表"><span class="toc-number">1.</span> <span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、将列表中的字符型数字转换为数值类型"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、将列表中的字符型数字转换为数值类型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、将列表中的数字转换为字符（同上）"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、将列表中的数字转换为字符（同上）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、对列表中的元素进行排序"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、对列表中的元素进行排序</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4、Python-输出时去掉列表或者元组外面的方括号与圆括号"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、Python 输出时去掉列表或者元组外面的方括号与圆括号</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5、列表的去重和排序"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、列表的去重和排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数值处理"><span class="toc-number">2.</span> <span class="toc-text">数值处理</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、python向上取整，向下取整，四舍五入"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、python向上取整，向下取整，四舍五入</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、输出规定数位的小数"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、输出规定数位的小数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、输出多个相同的值"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、输出多个相同的值</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4、函数有任意多个参数"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、函数有任意多个参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#循环输入"><span class="toc-number">3.</span> <span class="toc-text">循环输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#时间格式转换"><span class="toc-number">4.</span> <span class="toc-text">时间格式转换</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#datetime格式转换为字符串："><span class="toc-number">4.0.1.</span> <span class="toc-text">datetime格式转换为字符串：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#字符串转换为datetime格式"><span class="toc-number">4.0.2.</span> <span class="toc-text">字符串转换为datetime格式</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#列表"><span class="toc-number">1.</span> <span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、将列表中的字符型数字转换为数值类型"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、将列表中的字符型数字转换为数值类型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、将列表中的数字转换为字符（同上）"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、将列表中的数字转换为字符（同上）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、对列表中的元素进行排序"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、对列表中的元素进行排序</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4、Python-输出时去掉列表或者元组外面的方括号与圆括号"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、Python 输出时去掉列表或者元组外面的方括号与圆括号</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5、列表的去重和排序"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、列表的去重和排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字典"><span class="toc-number">2.</span> <span class="toc-text">字典</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#删除字典元素"><span class="toc-number">2.0.1.</span> <span class="toc-text">删除字典元素</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#遍历字典元素"><span class="toc-number">2.0.2.</span> <span class="toc-text">遍历字典元素</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其他方法"><span class="toc-number">2.0.3.</span> <span class="toc-text">其他方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数值处理"><span class="toc-number">3.</span> <span class="toc-text">数值处理</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、python向上取整，向下取整，四舍五入"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、python向上取整，向下取整，四舍五入</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、输出规定数位的小数"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、输出规定数位的小数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、输出多个相同的值"><span class="toc-number">3.0.3.</span> <span class="toc-text">3、输出多个相同的值</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4、函数有任意多个参数"><span class="toc-number">3.0.4.</span> <span class="toc-text">4、函数有任意多个参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#循环输入"><span class="toc-number">4.</span> <span class="toc-text">循环输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#时间格式转换"><span class="toc-number">5.</span> <span class="toc-text">时间格式转换</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#datetime格式转换为字符串："><span class="toc-number">5.0.1.</span> <span class="toc-text">datetime格式转换为字符串：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#字符串转换为datetime格式"><span class="toc-number">5.0.2.</span> <span class="toc-text">字符串转换为datetime格式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正则表达式"><span class="toc-number">6.</span> <span class="toc-text">正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#导入"><span class="toc-number">6.1.</span> <span class="toc-text">导入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用"><span class="toc-number">6.2.</span> <span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#re-match函数"><span class="toc-number">6.2.1.</span> <span class="toc-text">re.match函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#re-search函数"><span class="toc-number">6.2.2.</span> <span class="toc-text">re.search函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#re-sub函数"><span class="toc-number">6.2.3.</span> <span class="toc-text">re.sub函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#re-compile函数"><span class="toc-number">6.2.4.</span> <span class="toc-text">re.compile函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#findall函数"><span class="toc-number">6.2.5.</span> <span class="toc-text">findall函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#正则表达式对象"><span class="toc-number">6.2.6.</span> <span class="toc-text">正则表达式对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#replace替换字符串"><span class="toc-number">7.</span> <span class="toc-text">replace替换字符串</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -626,6 +749,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">moviepy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>
