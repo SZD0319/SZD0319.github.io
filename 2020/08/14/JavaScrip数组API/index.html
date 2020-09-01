@@ -16,7 +16,7 @@
 <meta property="og:description" content="遍历every() :返回值为boolean类型，每次遍历的结果都为true则返回true，有任何一个返回不为true时，则返回false。 123456789var array &#x3D; [1, 2, 3, 4, 5];var flag &#x3D; array.every(function (element, index, arr) &amp;#123;    &#x2F;&#x2F; 不写return时返回undefined">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-14T06:48:35.000Z">
-<meta property="article:modified_time" content="2020-08-14T07:12:30.239Z">
+<meta property="article:modified_time" content="2020-09-01T05:54:55.881Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="js">
@@ -203,6 +203,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">array.foreach(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, arr</span>) </span>&#123;</span><br><span class="line">    log.info(element)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// foreach方法最大的问题是无法跳出循环，哪怕是return了或者抛异常，它都会看作continue操作，直到执行完所有的遍历操作为止。</span></span><br></pre></td></tr></table></figure>
 
 
+
+<a id="more"></a>
 
 <h6 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h6><p>返回值为boolean类型，当遍历时有一个结果返回true时，终止遍历操作，返回true。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">array.some(<span class="function"><span class="keyword">function</span> (<span class="params">element, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当遍历到index = 1时，满足条件返回true，结束循环，一共只执行了两次遍历，相对比较节约资源</span></span><br></pre></td></tr></table></figure>
