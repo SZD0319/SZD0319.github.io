@@ -16,7 +16,7 @@
 <meta property="og:description" content="计算属性computed用法123456789101112131415161718192021222324252627&lt;div id&#x3D;&quot;box&quot;&gt;    &lt;input type&#x3D;&quot;text&quot; v-model&#x3D;&quot;message&quot;&gt;     &lt;p&gt;&amp;#123;&amp;#123;changeMessage&amp;#125;&amp;#125;&lt;&#x2F;p&gt;	&lt;p&gt;&amp;#1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-21T05:31:33.000Z">
-<meta property="article:modified_time" content="2020-09-21T07:05:31.177Z">
+<meta property="article:modified_time" content="2020-10-10T06:27:33.870Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="前端">
@@ -200,6 +200,8 @@
 <li>computed的计算属性需要映射到DOM上，否则无效，即计算属性须被模板使用；</li>
 <li>不支持异步，当computed内有异步操作时无效，无法监听数据的变化。</li>
 </ul>
+<a id="more"></a>
+
 <h3 id="监听属性watch"><a href="#监听属性watch" class="headerlink" title="监听属性watch"></a>监听属性watch</h3><h5 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"box"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> v-model=<span class="string">"message"</span>&gt; </span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">data: &#123;</span></span><br><span class="line"><span class="regexp">    message: '123',</span></span><br><span class="line"><span class="regexp">    name: 'Silence'</span></span><br><span class="line"><span class="regexp">&#125;,</span></span><br><span class="line"><span class="regexp">watch: &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 此处message是data中的message</span></span><br><span class="line"><span class="regexp">	message: function(newVal, oldVal)&#123;</span></span><br><span class="line"><span class="regexp">    	console.log(oldVal+','+newVal);</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    name: &#123;</span></span><br><span class="line"><span class="regexp">        handler: function()&#123;&#125;,</span></span><br><span class="line"><span class="regexp">        immediate: true,</span></span><br><span class="line"><span class="regexp">        deep: true,</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;,</span></span><br></pre></td></tr></table></figure>
 
 
