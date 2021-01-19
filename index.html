@@ -167,6 +167,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-机器学习/word2vec的理解与使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/">word2vec的理解与使用</a>
+    </h1>
+  
+
+        
+        <a href="/2021/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2021-01-19T06:11:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="通俗理解word2vec"><a href="#通俗理解word2vec" class="headerlink" title="通俗理解word2vec"></a>通俗理解word2vec</h3><p>Word2vec，是一群用来产生词向量的相关模型。这些模型为浅而双层的神经网络，用来训练以重新建构语言学之词文本。网络以词表现，并且需猜测相邻位置的输入词。训练完成之后，word2vec模型可用来映射每个词到一个向量，可用来表示词对词之间的关系，该向量为神经网络之隐藏层。</p>
+<p>这个模型是如何定义数据的输入和输出呢？一般分为CBOW(Continuous Bag-of-Words，词袋模型 )与Skip-Gram两种模型。CBOW模型的训练输入是某一个特征词的上下文相关的词对应的词向量，而输出就是这特定的一个词的词向量。Skip-Gram模型和CBOW的思路是反着来的，即输入是特定的一个词的词向量，而输出是特定词对应的上下文词向量。CBOW对小型数据库比较合适，而Skip-Gram在大型语料中表现更好。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Vue/Vue-computed与watch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1000,100 +1079,6 @@
 
 
   
-    <article id="post-Linux/Linux-部署FastDFS分布式文件系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/Linux/Linux-%E9%83%A8%E7%BD%B2FastDFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">Linux-部署FastDFS分布式文件系统</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/20/Linux/Linux-%E9%83%A8%E7%BD%B2FastDFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2020-05-20T03:09:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、安装fastdfs依赖包"><a href="#一、安装fastdfs依赖包" class="headerlink" title="一、安装fastdfs依赖包"></a>一、安装fastdfs依赖包</h4><ol>
-<li>解压缩libfastcommon-master.zip</li>
-<li>进入到libfastcommon-master的目录中</li>
-<li>执行 <code>./make.sh</code></li>
-<li>执行 <code>sudo ./make.sh install</code></li>
-</ol>
-<h4 id="二、安装fastdfs"><a href="#二、安装fastdfs" class="headerlink" title="二、安装fastdfs"></a>二、安装fastdfs</h4><ol>
-<li>解压缩fastdfs-master.zip</li>
-<li>进入到 fastdfs-master目录中</li>
-<li>执行 <code>./make.sh</code></li>
-<li>执行<code>sudo ./make.sh install</code></li>
-</ol>
-<h4 id="三、配置跟踪服务器tracker"><a href="#三、配置跟踪服务器tracker" class="headerlink" title="三、配置跟踪服务器tracker"></a>三、配置跟踪服务器tracker</h4><ol>
-<li>执行<code>sudo cp /etc/fdfs/tracker.conf.sample /etc/fdfs/tracker.conf</code></li>
-<li>在/home/python/目录中创建目录 fastdfs/tracker，<code>mkdir –p /data/home/silence/FastDFS/fastdfs/tracker</code></li>
-<li>编辑/etc/fdfs/tracker.conf配置文件  <code>sudo vim /etc/fdfs/tracker.conf</code>，修改 <code>base_path=/data/home/silence/FastDFS/fastdfs/tracker</code></li>
-</ol>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">django</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/20/Linux/Linux-%E9%83%A8%E7%BD%B2FastDFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1108,7 +1093,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 Silence
+    		&copy; 2021 Silence
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1260,6 +1245,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
             
             <div class="clearfix"></div>

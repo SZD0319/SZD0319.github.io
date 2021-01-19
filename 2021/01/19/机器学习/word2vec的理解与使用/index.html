@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: Vue | 舞动的灵魂</title>
+  <title>word2vec的理解与使用 | 舞动的灵魂</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="good good study, day day up!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="舞动的灵魂">
-<meta property="og:url" content="http://yoursite.com/tags/Vue/index.html">
+  <meta name="description" content="通俗理解word2vecWord2vec，是一群用来产生词向量的相关模型。这些模型为浅而双层的神经网络，用来训练以重新建构语言学之词文本。网络以词表现，并且需猜测相邻位置的输入词。训练完成之后，word2vec模型可用来映射每个词到一个向量，可用来表示词对词之间的关系，该向量为神经网络之隐藏层。 这个模型是如何定义数据的输入和输出呢？一般分为CBOW(Continuous Bag-of-Words">
+<meta property="og:type" content="article">
+<meta property="og:title" content="word2vec的理解与使用">
+<meta property="og:url" content="http://yoursite.com/2021/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="舞动的灵魂">
-<meta property="og:description" content="good good study, day day up!">
+<meta property="og:description" content="通俗理解word2vecWord2vec，是一群用来产生词向量的相关模型。这些模型为浅而双层的神经网络，用来训练以重新建构语言学之词文本。网络以词表现，并且需猜测相邻位置的输入词。训练完成之后，word2vec模型可用来映射每个词到一个向量，可用来表示词对词之间的关系，该向量为神经网络之隐藏层。 这个模型是如何定义数据的输入和输出呢？一般分为CBOW(Continuous Bag-of-Words">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-19T06:11:22.000Z">
+<meta property="article:modified_time" content="2021-01-19T07:11:07.424Z">
 <meta property="article:author" content="Silence">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="舞动的灵魂" type="application/atom+xml">
@@ -165,198 +169,224 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-机器学习/word2vec的理解与使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      word2vec的理解与使用
+    </h1>
+  
+
+        
+        <a href="/2021/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2021-01-19T06:11:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="通俗理解word2vec"><a href="#通俗理解word2vec" class="headerlink" title="通俗理解word2vec"></a>通俗理解word2vec</h3><p>Word2vec，是一群用来产生词向量的相关模型。这些模型为浅而双层的神经网络，用来训练以重新建构语言学之词文本。网络以词表现，并且需猜测相邻位置的输入词。训练完成之后，word2vec模型可用来映射每个词到一个向量，可用来表示词对词之间的关系，该向量为神经网络之隐藏层。</p>
+<p>这个模型是如何定义数据的输入和输出呢？一般分为CBOW(Continuous Bag-of-Words，词袋模型 )与Skip-Gram两种模型。CBOW模型的训练输入是某一个特征词的上下文相关的词对应的词向量，而输出就是这特定的一个词的词向量。Skip-Gram模型和CBOW的思路是反着来的，即输入是特定的一个词的词向量，而输出是特定词对应的上下文词向量。CBOW对小型数据库比较合适，而Skip-Gram在大型语料中表现更好。</p>
+<a id="more"></a>
+
+
+
+<h3 id="word2vec的使用"><a href="#word2vec的使用" class="headerlink" title="word2vec的使用"></a>word2vec的使用</h3><h6 id="word2vec的安装"><a href="#word2vec的安装" class="headerlink" title="word2vec的安装"></a>word2vec的安装</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install gensim</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="模型构建参数详解"><a href="#模型构建参数详解" class="headerlink" title="模型构建参数详解"></a>模型构建参数详解</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gensim.models <span class="keyword">import</span> word2vev</span><br><span class="line"></span><br><span class="line">model=word2vec.Word2Vec(sentences,sg=<span class="number">1</span>,size=<span class="number">100</span>,window=<span class="number">5</span>,min_count=<span class="number">2</span>,negative=<span class="number">3</span>,sample=<span class="number">0.001</span>,hs=<span class="number">1</span>,workers=<span class="number">4</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># 该步骤也可分解为以下三步（但没必要）： </span></span><br><span class="line"><span class="comment"># model=gensim.model.Word2Vec() 建立一个空的模型对象 </span></span><br><span class="line"><span class="comment"># model.build_vocab(sentences) 遍历一次语料库建立词典 </span></span><br><span class="line"><span class="comment"># model.train(sentences) 第二次遍历语料库建立神经网络模型 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># sentences 是训练所需数据</span></span><br><span class="line"><span class="comment"># sg=1 是skip—gram算法，对低频词敏感，默认sg=0为 CBOW 算法 </span></span><br><span class="line"><span class="comment"># size 是神经网络层数，值太大则会耗内存并使算法计算变慢，一般值取为100到200之间</span></span><br><span class="line"><span class="comment"># window 是句子中当前词与目标词之间的最大距离，3表示在目标词前看3-b个词，后面看b个词（b在0-3之间随机）</span></span><br><span class="line"><span class="comment"># min_count 是对词进行过滤，频率小于 min-count 的单词则会被忽视，默认值为5</span></span><br><span class="line"><span class="comment"># negative 和 sample 可根据训练结果进行微调，sample 表示更高频率的词被随机下采样到所设置的阈值，默认值为 1e-3</span></span><br><span class="line"><span class="comment"># negative: 如果&gt;0,则会采用 negativesamping，用于设置多少个 noise words </span></span><br><span class="line"><span class="comment"># hs=1 表示层级 softmax 将会被使用，默认 hs=0 且 negative 不为0，则负采样将会被选择使用</span></span><br><span class="line"><span class="comment"># workers 是线程数，此参数只有在安装了 Cpython 后才有效，否则只能使用单核</span></span><br></pre></td></tr></table></figure>
+
+<p>这里着重介绍一下<code>sentences</code>参数，它可由以下两种格式载入：</p>
+<p>1、文本格式</p>
+<p>将所有词语用空格分隔，存入txt文本中。那么获取数据可以使用如下方法:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sentences = word2vec.Text8Corpus(<span class="string">"test.txt"</span>)  <span class="comment"># text8为语料库文件名</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、list嵌套格式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sentences = [[<span class="string">"a"</span>,<span class="string">"b"</span>],[<span class="string">"b"</span>,<span class="string">"c"</span>] ... ]</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="模型操作"><a href="#模型操作" class="headerlink" title="模型操作"></a>模型操作</h6><p>1、保存模型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.save(<span class="string">"文本名"</span>)	<span class="comment"># 模型会保存到该 .py文件同级目录下，该模型打开为乱码</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># model.wv.save_word2vec_format("文件名"，binary = "Ture/False")  #通过该方式保存的模型，能通过文本格式打开，也能通过设置binary是否保存为二进制文件。但该模型在保存时丢弃了树的保存形式（详情参加word2vec构建过程，以类似哈夫曼树的形式保存词），所以在后续不能对模型进行追加训练</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、加载模型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model = Word2Vec.load(<span class="string">"模型文件名"</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、模型追加训练</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.train(more_sentences)</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算一个词的最近似的词：</span></span><br><span class="line">model.most_similar(<span class="string">"word"</span>, topn=<span class="number">10</span>)	<span class="comment"># 计算与该词最近似的词，topn指定排名前n的词</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算两个词的相似度：</span></span><br><span class="line">model.similarity(<span class="string">"word1"</span>, <span class="string">"word2"</span>)  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取词向量：</span></span><br><span class="line">model [<span class="string">'word'</span>]</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/25/Vue/Vue-%E9%82%A3%E4%BA%9B%E5%B9%B4%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-04-25T08:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/25/Vue/Vue-%E9%82%A3%E4%BA%9B%E5%B9%B4%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/">Vue-那些年遇到的坑</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/23/Vue/Vue-JS/" class="archive-article-date">
-  	<time datetime="2020-04-23T02:47:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/21/Vue/Vue-computed%E4%B8%8Ewatch/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue-computed与watch</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/23/Vue/Vue-JS/">Vue-JS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#通俗理解word2vec"><span class="toc-number">1.</span> <span class="toc-text">通俗理解word2vec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#word2vec的使用"><span class="toc-number">2.</span> <span class="toc-text">word2vec的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#word2vec的安装"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">word2vec的安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#模型构建参数详解"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">模型构建参数详解</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#模型操作"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">模型操作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#输出"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">输出</span></a></li></ol></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/23/Vue/Vue-Element%20UI/" class="archive-article-date">
-  	<time datetime="2020-04-23T02:46:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/23/Vue/Vue-Element%20UI/">Vue-Element UI</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/21/Vue/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-04-21T03:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/21/Vue/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">Vue项目搭建</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -379,9 +409,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
