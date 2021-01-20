@@ -167,6 +167,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Vue/Vue-Element UI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/23/Vue/Vue-Element%20UI/">Vue-Element UI</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/23/Vue/Vue-Element%20UI/" class="archive-article-date">
+  	<time datetime="2020-04-23T02:46:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="注意事项总结"><a href="#注意事项总结" class="headerlink" title="注意事项总结"></a>注意事项总结</h4><h4 id="1、链接点击"><a href="#1、链接点击" class="headerlink" title="1、链接点击"></a>1、链接点击</h4><p>默认的<code>&lt;a&gt;</code>标签中的链接包含下划线，颜色为蓝色，vue中的<code>&lt;router-link&gt;</code>标签在编译时会被解析为<code>&lt;a&gt;</code>标签，所以想要改变它们的初始状态、鼠标聚焦时的状态、点击链接时的状态以及点击之后的状态，可以在样式中添加如下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;<span class="attribute">text-docoration</span>: none; <span class="attribute">color</span>: black&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;<span class="attribute">text-docoration</span>: none; <span class="attribute">color</span>: grey&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;<span class="attribute">text-docoration</span>: none; <span class="attribute">color</span>: red&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;<span class="attribute">text-docoration</span>: none; <span class="attribute">color</span>: blue&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><em>注意：</em></strong></p>
+<ol>
+<li>a:hover 必须在a:link和 a:visited后出现，才能正常显示效果！</li>
+<li>a:active必须出现在a:hover定义后才能有效果！</li>
+</ol>
+<h4 id="2、Container容器"><a href="#2、Container容器" class="headerlink" title="2、Container容器"></a>2、Container容器</h4><ol>
+<li><code>&lt;el-container&gt;</code>：外层容器。当子元素中包含 <code>&lt;el-header&gt;</code> 或 <code>&lt;el-footer&gt;</code> 时，全部子元素会垂直上下排列，否则会水平左右排列。</li>
+<li><code>&lt;el-header&gt;</code>：顶栏容器。</li>
+<li><code>&lt;el-aside&gt;</code>：侧边栏容器。</li>
+<li><code>&lt;el-main&gt;</code>：主要区域容器。</li>
+<li><code>&lt;el-footer&gt;</code>：底栏容器。</li>
+</ol>
+<p><strong><em>container容器可以嵌套使用。</em></strong></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/23/Vue/Vue-Element%20UI/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Vue/Vue项目搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1008,90 +1105,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/05/13/Opencv/Opencv%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E8%A7%86%E9%A2%91%E8%8E%B7%E5%8F%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Opencv/Opencv（二）——图像处理（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/08/Opencv/Opencv%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/">Opencv（二）——图像处理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/08/Opencv/Opencv%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2019-05-08T04:44:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="颜色空间转换"><a href="#颜色空间转换" class="headerlink" title="颜色空间转换"></a>颜色空间转换</h2><p><strong><em>目标：</em></strong></p>
-<ul>
-<li><p>你将学习如何对图像进行颜色空间转换，比如从 BGR 到灰度图，或者从BGR 到 HSV 等。</p>
-</li>
-<li><p>我没还要创建一个程序用来从一幅图像中获取某个特定颜色的物体。</p>
-</li>
-<li><p>我们将要学习的函数有：cv2.cvtColor()，cv2.inRange() 等。</p>
-</li>
-</ul>
-<h4 id="1、转换颜色空间"><a href="#1、转换颜色空间" class="headerlink" title="1、转换颜色空间"></a>1、转换颜色空间</h4><p>　   在 OpenCV 中有超过 150 中进行颜色空间转换的方法。但是你以后就会、发现我们经常用到的也就两种：BGR↔Gray 和 BGR↔HSV。</p>
-<p>我们要用到的函数是：cv2.cvtColor(input_image ，flag)，其中 flag就是转换类型。<br>对于 BGR↔Gray 的转换，我们要使用的 flag 就是 cv2.COLOR_BGR2GRAY。<br>同样对于 BGR↔HSV 的转换，我们用的 flag 就是 cv2.COLOR_BGR2HSV。<br>你还可以通过下面的命令得到所有可用的 flag。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/08/Opencv/Opencv%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/">展开全文 >></a>
         </p>
       
 

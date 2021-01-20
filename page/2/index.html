@@ -167,6 +167,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python基础/python-视频的剪切与拼接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/">python-视频的剪切与拼接</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/" class="archive-article-date">
+  	<time datetime="2020-05-23T07:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1、导入moviepy的包"><a href="#1、导入moviepy的包" class="headerlink" title="1、导入moviepy的包"></a>1、导入moviepy的包</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> moviepy.editor <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、读取视频到内存"><a href="#2、读取视频到内存" class="headerlink" title="2、读取视频到内存"></a>2、读取视频到内存</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">video = VideoFileClip(path)</span><br></pre></td></tr></table></figure>
+
+<p>由此得到了一个VideoFileClip的对象，可通过对此对象的操作，实现对视频的操作。</p>
+<h4 id="3、对视频进行剪切"><a href="#3、对视频进行剪切" class="headerlink" title="3、对视频进行剪切"></a>3、对视频进行剪切</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">videoclip = video.subclip(time1, time2)</span><br></pre></td></tr></table></figure>
+
+<p><code>time1</code>：起始时长，<code>time2</code>：终止时长 ，单位均为秒。</p>
+<p><code>videoclip</code>是从时长time1到time2的视频的对象。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">moviepy</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Linux/Linux-部署FastDFS分布式文件系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -946,103 +1034,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/23/Vue/Vue-JS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue/Vue-Element UI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/23/Vue/Vue-Element%20UI/">Vue-Element UI</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/23/Vue/Vue-Element%20UI/" class="archive-article-date">
-  	<time datetime="2020-04-23T02:46:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="注意事项总结"><a href="#注意事项总结" class="headerlink" title="注意事项总结"></a>注意事项总结</h4><h4 id="1、链接点击"><a href="#1、链接点击" class="headerlink" title="1、链接点击"></a>1、链接点击</h4><p>默认的<code>&lt;a&gt;</code>标签中的链接包含下划线，颜色为蓝色，vue中的<code>&lt;router-link&gt;</code>标签在编译时会被解析为<code>&lt;a&gt;</code>标签，所以想要改变它们的初始状态、鼠标聚焦时的状态、点击链接时的状态以及点击之后的状态，可以在样式中添加如下代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;<span class="attribute">text-docoration</span>: none; <span class="attribute">color</span>: black&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;<span class="attribute">text-docoration</span>: none; <span class="attribute">color</span>: grey&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;<span class="attribute">text-docoration</span>: none; <span class="attribute">color</span>: red&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;<span class="attribute">text-docoration</span>: none; <span class="attribute">color</span>: blue&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong><em>注意：</em></strong></p>
-<ol>
-<li>a:hover 必须在a:link和 a:visited后出现，才能正常显示效果！</li>
-<li>a:active必须出现在a:hover定义后才能有效果！</li>
-</ol>
-<h4 id="2、Container容器"><a href="#2、Container容器" class="headerlink" title="2、Container容器"></a>2、Container容器</h4><ol>
-<li><code>&lt;el-container&gt;</code>：外层容器。当子元素中包含 <code>&lt;el-header&gt;</code> 或 <code>&lt;el-footer&gt;</code> 时，全部子元素会垂直上下排列，否则会水平左右排列。</li>
-<li><code>&lt;el-header&gt;</code>：顶栏容器。</li>
-<li><code>&lt;el-aside&gt;</code>：侧边栏容器。</li>
-<li><code>&lt;el-main&gt;</code>：主要区域容器。</li>
-<li><code>&lt;el-footer&gt;</code>：底栏容器。</li>
-</ol>
-<p><strong><em>container容器可以嵌套使用。</em></strong></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/Vue/Vue-Element%20UI/">展开全文 >></a>
         </p>
       
 

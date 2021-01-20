@@ -167,6 +167,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Opencv/Opencv（二）——图像处理（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/08/Opencv/Opencv%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/">Opencv（二）——图像处理</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/08/Opencv/Opencv%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2019-05-08T04:44:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="颜色空间转换"><a href="#颜色空间转换" class="headerlink" title="颜色空间转换"></a>颜色空间转换</h2><p><strong><em>目标：</em></strong></p>
+<ul>
+<li><p>你将学习如何对图像进行颜色空间转换，比如从 BGR 到灰度图，或者从BGR 到 HSV 等。</p>
+</li>
+<li><p>我没还要创建一个程序用来从一幅图像中获取某个特定颜色的物体。</p>
+</li>
+<li><p>我们将要学习的函数有：cv2.cvtColor()，cv2.inRange() 等。</p>
+</li>
+</ul>
+<h4 id="1、转换颜色空间"><a href="#1、转换颜色空间" class="headerlink" title="1、转换颜色空间"></a>1、转换颜色空间</h4><p>　   在 OpenCV 中有超过 150 中进行颜色空间转换的方法。但是你以后就会、发现我们经常用到的也就两种：BGR↔Gray 和 BGR↔HSV。</p>
+<p>我们要用到的函数是：cv2.cvtColor(input_image ，flag)，其中 flag就是转换类型。<br>对于 BGR↔Gray 的转换，我们要使用的 flag 就是 cv2.COLOR_BGR2GRAY。<br>同样对于 BGR↔HSV 的转换，我们用的 flag 就是 cv2.COLOR_BGR2HSV。<br>你还可以通过下面的命令得到所有可用的 flag。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">opencv</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/08/Opencv/Opencv%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Opencv/Opencv(一)——图像的基础操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

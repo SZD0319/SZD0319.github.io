@@ -6,17 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 舞动的灵魂</title>
+  <title>CNN—-卷积神经网络理论理解 | 舞动的灵魂</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="good good study, day day up!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="舞动的灵魂">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="人工神经网络（ANN）在介绍卷积神经网络之前，先来了解一下人工神经网络。 概念人工神经网络（Artificial Neural Network，简称ANN ），以数学模型模拟神经元活动，是基于模仿大脑神经网络结构和功能而建立的一种信息处理系统。神经网络是一种运算模型，由大量的节点（或称“神经元”）和之间相互的联接构成。每个节点代表一种特定的输出函数，称为激励函数、激活函数（activation f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CNN—-卷积神经网络理论理解">
+<meta property="og:url" content="http://yoursite.com/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CNN%E2%80%94-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%90%86%E8%AE%BA%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="舞动的灵魂">
-<meta property="og:description" content="good good study, day day up!">
+<meta property="og:description" content="人工神经网络（ANN）在介绍卷积神经网络之前，先来了解一下人工神经网络。 概念人工神经网络（Artificial Neural Network，简称ANN ），以数学模型模拟神经元活动，是基于模仿大脑神经网络结构和功能而建立的一种信息处理系统。神经网络是一种运算模型，由大量的节点（或称“神经元”）和之间相互的联接构成。每个节点代表一种特定的输出函数，称为激励函数、激活函数（activation f">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/20/sWHm2d.png">
+<meta property="article:published_time" content="2021-01-20T09:29:07.000Z">
+<meta property="article:modified_time" content="2021-01-20T12:01:51.987Z">
 <meta property="article:author" content="Silence">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/20/sWHm2d.png">
   
     <link rel="alternative" href="/atom.xml" title="舞动的灵魂" type="application/atom+xml">
   
@@ -165,36 +171,135 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-机器学习/CNN—-卷积神经网络理论理解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      CNN—-卷积神经网络理论理解
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CNN%E2%80%94-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%90%86%E8%AE%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
+
+        
+        <a href="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CNN%E2%80%94-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%90%86%E8%AE%BA%E7%90%86%E8%A7%A3/" class="archive-article-date">
   	<time datetime="2021-01-20T09:29:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CNN%E2%80%94-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%90%86%E8%AE%BA%E7%90%86%E8%A7%A3/">CNN—-卷积神经网络理论理解</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="人工神经网络（ANN）"><a href="#人工神经网络（ANN）" class="headerlink" title="人工神经网络（ANN）"></a>人工神经网络（ANN）</h3><p>在介绍卷积神经网络之前，先来了解一下人工神经网络。</p>
+<h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><p>人工神经网络（Artificial Neural Network，简称ANN ），以数学模型模拟神经元活动，是基于模仿大脑神经网络结构和功能而建立的一种信息处理系统。神经网络是一种运算模型，由大量的节点（或称“神经元”）和之间相互的联接构成。每个节点代表一种特定的输出函数，称为<strong>激励函数、激活函数</strong>（activation function）。每两个节点间的联接都代表一个对于通过该连接信号的加权值，称之为<strong>权重</strong>。</p>
+<br/>
 
-        <div class="article-info info-on-right">
-          
+<h5 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h5><p>神经网络包含三层：输入层、隐含层（可以有多层）、输出层。</p>
+<p><a href="https://imgchr.com/i/sWHm2d" target="_blank" rel="noopener"><img src="https://s3.ax1x.com/2021/01/20/sWHm2d.png" alt="sWHm2d.png"></a></p>
+<ul>
+<li><code>Inputs</code>：输入，输入的是向量</li>
+<li><code>Weights</code>：权重</li>
+<li><code>Bias</code>：偏置</li>
+<li><code>Activationfunction</code>：激活函数</li>
+</ul>
+<a id="more"></a>
+
+<br/>
+
+<h3 id="卷积神经网络（CNN）"><a href="#卷积神经网络（CNN）" class="headerlink" title="卷积神经网络（CNN）"></a>卷积神经网络（CNN）</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p>卷积神经网络（Convolutional Neural Network，CNN）是一类包含卷积计算且具有深度结构的前馈神经网络，它的神经元间的连接是非全连接的，且同一层中某些神经元之间的连接的权重 w和偏移 b 是共享的（即相同的），这样大量地减少了需要训练参数的数量。CNN真正能做的，只是起到一个特征提取器的作用！所以有关应用，都是建立在CNN对图像进行特征提取的基础上进行的。</p>
+<br/>
+
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ol>
+<li>局部连接：非全连接，隐含层一个神经元对应输入层一个窗口内n个神经元。</li>
+<li>参数共享：输入层各个窗口共享一个权重矩阵。</li>
+</ol>
+<br/>
+
+<h4 id="结构-1"><a href="#结构-1" class="headerlink" title="结构"></a>结构</h4><p>卷积神经网络CNN的结构一般包含这几个层：</p>
+<p>卷积神经网络CNN的结构一般包含这几个层：</p>
+<ul>
+<li>输入层：用于数据的输入</li>
+<li>卷积层：使用<strong>卷积核</strong>进行特征提取和特征映射</li>
+<li>激励层：由于卷积也是一种线性运算，因此需要通过<strong>激励函数</strong>进行非线性映射</li>
+<li>池化层：进行下采样，对特征图稀疏处理（<strong>降维</strong>），减少数据运算量。</li>
+<li>全连接层：通常在CNN的尾部进行重新拟合，减少特征信息的损失</li>
+<li>输出层：用于输出结果</li>
+</ul>
+<br/>
+
+<h5 id="输入层"><a href="#输入层" class="headerlink" title="输入层"></a>输入层</h5><p>CNN的输入层的输入格式保留了图片本身的结构。</p>
+<p>对于黑白的 28×28 的图片，CNN的输入是一个 28×28 的的二维神经元；而对于RGB格式的28×28图片，CNN的输入则是一个 3×28×28 的三维神经元。</p>
+<br/>
+
+<h5 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h5><p>在卷积层中有两个重要的概念：</p>
+<ul>
+<li>local receptive fields：感受视野或窗口</li>
+<li>shared weights：共享权值</li>
+</ul>
+<p>从待识别的图片中提取<strong>特征（feature）</strong>，使这些feature能够代表图中的内容。feature在CNN中也被成为<strong>卷积核（filter）</strong>，一般是3X3，或者5X5的大小。构成卷积核的矩阵称为<strong>权重矩阵</strong>。</p>
+<p>卷积核的权重矩阵的值，便是卷积神经网络的参数<strong>w</strong>，卷积核可附带一个偏移项 <strong>b</strong> ，它的初值可以随机来生成，可通过训练进行变化。</p>
+<h6 id="卷积运算"><a href="#卷积运算" class="headerlink" title="卷积运算"></a>卷积运算</h6><p>卷积运算总结起来就是：对应相乘，求和平均。</p>
+<p>定义一个<em>local receptive fields</em>（窗口），使其大小与卷积核大小相同。然后定义一个步长<em>stride = n</em>，该窗口从输入向量矩阵的左上角开始，每次向右滑动n个单位。当滑动到最右边时，窗口回到最左侧并向下滑动n个单位，然后继续向右扫描，以此类推。为了扫描到边缘的一些特征，感受视野可能会“出界”，这时需要对<strong>边界扩充(pad)</strong>，边界扩充可以设为 0 或 其他值。步长 和 边界扩充值的大小由用户来定义。</p>
+<p>窗口每滑动到一个地方，将窗口里的每个数值与权重矩阵对应位置的值相乘，然后将所有相乘后的值求平均值，最后将这个平均值放入一个新的矩阵中。当窗口扫描完整个输入向量图后，这个矩阵也被填满，我们将这个新的矩阵称为<strong>feature map</strong> （<strong>特征图</strong>）。至此，卷积运算就结束了。</p>
+<p>需要注意的是：</p>
+<ul>
+<li>feature map是每一个feature从原始图像中提取出来的“特征”。其中的值，越接近为<strong>1</strong>，表示对应位置和feature的<strong>匹配越完整</strong>；越接近-<strong>1</strong>，表示对应位置和feature的反面匹配越完整，而值接近<strong>0</strong>表示对应位置没有任何匹配或者说<strong>没有什么关联</strong>。</li>
+<li>一个卷积核产生一张feature map。</li>
+</ul>
+<br/>
+
+<h5 id="激励层"><a href="#激励层" class="headerlink" title="激励层"></a>激励层</h5><p>激励层主要对卷积层的输出进行一个非线性映射，因为卷积层的计算是一种线性计算。使用的激励函数一般为ReLu函数：</p>
+<p>​                                                                                                 <strong><em>f(x)=max(x,0)</em></strong></p>
+<p>即，保留大于等于0的值，其余所有小于0的数值直接改写为0。</p>
+<p>为什么要这么做呢？上面说到，卷积后产生的特征图中的值，越靠近1表示与该特征越关联，越靠近-1表示越不关联，而我们进行特征提取时，为了使得数据更少，操作更方便，就直接舍弃掉那些不相关联的数据。</p>
+<p>经过激励后，feature map中小于0的值都被置为0。</p>
+<br/>
+
+<h5 id="池化层"><a href="#池化层" class="headerlink" title="池化层"></a>池化层</h5><p>池化层的作用就是将feature map进行降维，进一步简化数据。</p>
+<p>池化分为两种，Max Pooling 最大池化、Average Pooling平均池化。顾名思义，最大池化就是取最大值，平均池化就是取平均值。</p>
+<p>如最大池化，先选取一个nxn的池化窗口，设步长为m，在特征图上从左到右，从上到下扫描（和卷积运算类似）。每次滑动，取窗口内所有值的最大值作为特征图对应位置的新值。</p>
+<br/>
+
+<h5 id="全连接层和输出层"><a href="#全连接层和输出层" class="headerlink" title="全连接层和输出层"></a>全连接层和输出层</h5><p>全连接层主要对特征进行重新拟合，减少特征信息的丢失。全连接层中有一个非常重要的函数—-Softmax，它是一个分类函数，输出的是每个对应类别的概率值。</p>
+<p>输出层主要准备做好最后目标结果的输出。</p>
+<br/>
+
+<h4 id="卷积神经网络的训练与优化"><a href="#卷积神经网络的训练与优化" class="headerlink" title="卷积神经网络的训练与优化"></a>卷积神经网络的训练与优化</h4><p>神经网络到底需要训练什么呢？训练的就是那些卷积核（filter）。</p>
+<p>在最开始，训练前，我们定义一个大小为3X3的卷积核，那么里面具体的值是多少，我们都不知道，所以就用随机初始化法来进行赋值，卷积核获取到了一个随机值，便可以开始工作。</p>
+<p>这样得出来的结果肯定是不准确的，所以我们通过<strong>BP算法</strong>，根据得到的结果反向改变卷积核的数值，从而达到训练卷积核的效果。</p>
+<br/>
+
+<p><a href="https://zhuanlan.zhihu.com/p/27908027" target="_blank" rel="noopener">参考文章</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -210,410 +315,118 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-01-19T06:11:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/">word2vec的理解与使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">机器学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/21/Vue/Vue-computed%E4%B8%8Ewatch/" class="archive-article-date">
-  	<time datetime="2020-09-21T05:31:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/21/Vue/Vue-computed%E4%B8%8Ewatch/">Vue-computed与watch</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CNN%E2%80%94-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%90%86%E8%AE%BA%E7%90%86%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/02/JS/%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96/" class="archive-article-date">
-  	<time datetime="2020-09-02T06:55:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/01/19/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/word2vec%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">word2vec的理解与使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/02/JS/%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96/">节流与防抖</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#人工神经网络（ANN）"><span class="toc-number">1.</span> <span class="toc-text">人工神经网络（ANN）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#概念"><span class="toc-number">1.0.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#结构"><span class="toc-number">1.0.2.</span> <span class="toc-text">结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卷积神经网络（CNN）"><span class="toc-number">2.</span> <span class="toc-text">卷积神经网络（CNN）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#介绍"><span class="toc-number">2.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特点"><span class="toc-number">2.2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#结构-1"><span class="toc-number">2.3.</span> <span class="toc-text">结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#输入层"><span class="toc-number">2.3.1.</span> <span class="toc-text">输入层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#卷积层"><span class="toc-number">2.3.2.</span> <span class="toc-text">卷积层</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#卷积运算"><span class="toc-number">2.3.2.1.</span> <span class="toc-text">卷积运算</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#激励层"><span class="toc-number">2.3.3.</span> <span class="toc-text">激励层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#池化层"><span class="toc-number">2.3.4.</span> <span class="toc-text">池化层</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#全连接层和输出层"><span class="toc-number">2.3.5.</span> <span class="toc-text">全连接层和输出层</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#卷积神经网络的训练与优化"><span class="toc-number">2.4.</span> <span class="toc-text">卷积神经网络的训练与优化</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/14/JS/JavaScrip%E6%95%B0%E7%BB%84API/" class="archive-article-date">
-  	<time datetime="2020-08-14T06:48:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/14/JS/JavaScrip%E6%95%B0%E7%BB%84API/">JavaScrip数组API</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/14/JS/JavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2API/" class="archive-article-date">
-  	<time datetime="2020-08-14T06:26:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/14/JS/JavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2API/">JavaScript字符串API</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/" class="archive-article-date">
-  	<time datetime="2020-07-29T06:47:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/">Django-数据库过滤器filter</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">django</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/29/Vue/Vue-%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-07-29T06:32:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/29/Vue/Vue-%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">Vue-实现路由跳转传值的几种方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/07/Django/Django-Paginator%E5%88%86%E9%A1%B5%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2020-07-07T07:58:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/07/Django/Django-Paginator%E5%88%86%E9%A1%B5%E5%99%A8/">Django-Paginator分页器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">后端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">django</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/22/JS/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="archive-article-date">
-  	<time datetime="2020-06-22T12:31:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/22/JS/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/">JavaScript的宏任务与微任务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -637,8 +450,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
