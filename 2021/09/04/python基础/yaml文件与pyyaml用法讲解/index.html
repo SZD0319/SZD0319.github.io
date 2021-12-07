@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>yaml文件与pyyaml用法讲解 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="YAML介绍yaml是什么YAML是专门用来写配置文件的语言，远比JSON格式方便。 YAML语言的设计目标，就是方便人类读写。 YAML是一种比XML和JSON更轻的文件格式，也更简单更强大，它可以通过缩进来表示结构。 YAML 的配置文件后缀为 .yml。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yaml文件与pyyaml用法讲解">
+<meta property="og:url" content="http://example.com/2021/09/04/python%E5%9F%BA%E7%A1%80/yaml%E6%96%87%E4%BB%B6%E4%B8%8Epyyaml%E7%94%A8%E6%B3%95%E8%AE%B2%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="YAML介绍yaml是什么YAML是专门用来写配置文件的语言，远比JSON格式方便。 YAML语言的设计目标，就是方便人类读写。 YAML是一种比XML和JSON更轻的文件格式，也更简单更强大，它可以通过缩进来表示结构。 YAML 的配置文件后缀为 .yml。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/907091/201911/907091-20191120145807326-1016307144.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/907091/201911/907091-20191120151026762-2090142303.png">
+<meta property="article:published_time" content="2021-09-04T02:01:46.000Z">
+<meta property="article:modified_time" content="2021-10-16T13:38:17.513Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="yaml">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/907091/201911/907091-20191120145807326-1016307144.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python基础/yaml文件与pyyaml用法讲解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/09/04/python%E5%9F%BA%E7%A1%80/yaml%E6%96%87%E4%BB%B6%E4%B8%8Epyyaml%E7%94%A8%E6%B3%95%E8%AE%B2%E8%A7%A3/" class="article-date">
+  <time class="dt-published" datetime="2021-09-04T02:01:46.000Z" itemprop="datePublished">2021-09-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      yaml文件与pyyaml用法讲解
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="YAML介绍"><a href="#YAML介绍" class="headerlink" title="YAML介绍"></a>YAML介绍</h3><h4 id="yaml是什么"><a href="#yaml是什么" class="headerlink" title="yaml是什么"></a>yaml是什么</h4><p>YAML是专门用来写<strong>配置文件</strong>的语言，远比JSON格式方便。</p>
+<p>YAML语言的设计目标，就是方便人类读写。</p>
+<p>YAML是一种比XML和JSON更轻的文件格式，也更简单更强大，它可以通过缩进来表示结构。</p>
+<p>YAML 的配置文件后缀为 <strong>.yml</strong>。</p>
+<span id="more"></span>
+
+<h4 id="yaml语法规则"><a href="#yaml语法规则" class="headerlink" title="yaml语法规则"></a>yaml语法规则</h4><ul>
+<li>大小写敏感</li>
+<li>使用缩进表示层级关系</li>
+<li>缩进时不允许使用Tab键，只允许使用空格。</li>
+<li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</li>
+<li><code>#</code> 表示注释，从这个字符一直到行尾，都会被解析器忽略，这个和python的注释一样</li>
+<li>列表里的项用<code>-</code>来代表，字典里的键值对用<code>:</code>分隔</li>
+</ul>
+<h4 id="yaml数据结构"><a href="#yaml数据结构" class="headerlink" title="yaml数据结构"></a>yaml数据结构</h4><p>YAML 支持以下几种数据类型：</p>
+<ul>
+<li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
+<li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
+<li>纯量（scalars）：单个的、不可再分的值</li>
+</ul>
+<h6 id="YAML-对象"><a href="#YAML-对象" class="headerlink" title="YAML 对象"></a>YAML 对象</h6><p>对象键值对使用冒号结构表示 <strong>key: value</strong>，冒号后面要加一个空格。</p>
+<p>也可以使用 **key:{key1: value1, key2: value2, …}**。</p>
+<p>还可以使用缩进表示层级关系；</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key:</span> </span><br><span class="line">    <span class="attr">child-key:</span> <span class="string">value</span></span><br><span class="line">    <span class="attr">child-key2:</span> <span class="string">value2</span></span><br></pre></td></tr></table></figure>
+
+<p>较为复杂的对象格式，可以使用问号加一个空格代表一个复杂的 key，配合一个冒号加一个空格代表一个 value：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">?</span>  </span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexkey2</span></span><br><span class="line"><span class="string">:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">complexvalue2</span></span><br></pre></td></tr></table></figure>
+
+<p>意思即对象的属性是一个数组 [complexkey1,complexkey2]，对应的值也是一个数组 [complexvalue1,complexvalue2]</p>
+<h6 id="YAML-数组"><a href="#YAML-数组" class="headerlink" title="YAML 数组"></a>YAML 数组</h6><p>以 <strong>-</strong> 开头的行表示构成一个数组：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
+
+<p>YAML 支持多维数组，可以使用行内表示：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">key:</span> [<span class="string">value1</span>, <span class="string">value2</span>, <span class="string">...</span>]</span><br></pre></td></tr></table></figure>
+
+<p>数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">A</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">B</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">C</span></span><br></pre></td></tr></table></figure>
+
+<p>一个相对复杂的例子：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">companies:</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">1</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company1</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">200W</span></span><br><span class="line">    <span class="bullet">-</span></span><br><span class="line">        <span class="attr">id:</span> <span class="number">2</span></span><br><span class="line">        <span class="attr">name:</span> <span class="string">company2</span></span><br><span class="line">        <span class="attr">price:</span> <span class="string">500W</span></span><br></pre></td></tr></table></figure>
+
+<p>意思是 companies 属性是一个数组，每一个数组元素又是由 id、name、price 三个属性构成。</p>
+<p>数组也可以使用流式(flow)的方式表示：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">companies:</span> [&#123;<span class="attr">id:</span> <span class="number">1</span>,<span class="attr">name:</span> <span class="string">company1</span>,<span class="attr">price:</span> <span class="string">200W</span>&#125;,&#123;<span class="attr">id:</span> <span class="number">2</span>,<span class="attr">name:</span> <span class="string">company2</span>,<span class="attr">price:</span> <span class="string">500W</span>&#125;]</span><br></pre></td></tr></table></figure>
+
+<h6 id="复合结构"><a href="#复合结构" class="headerlink" title="复合结构"></a>复合结构</h6><p>数组和对象可以构成复合结构，例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">languages:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Ruby</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Perl</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python</span> </span><br><span class="line"><span class="attr">websites:</span></span><br><span class="line">  <span class="attr">YAML:</span> <span class="string">yaml.org</span> </span><br><span class="line">  <span class="attr">Ruby:</span> <span class="string">ruby-lang.org</span> </span><br><span class="line">  <span class="attr">Python:</span> <span class="string">python.org</span> </span><br><span class="line">  <span class="attr">Perl:</span> <span class="string">use.perl.org</span></span><br></pre></td></tr></table></figure>
+
+<p>转换为 json 为：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  languages: [ &#x27;Ruby&#x27;, &#x27;Perl&#x27;, &#x27;Python&#x27;],</span><br><span class="line">  websites: &#123;</span><br><span class="line">    YAML: &#x27;yaml.org&#x27;,</span><br><span class="line">    Ruby: &#x27;ruby-lang.org&#x27;,</span><br><span class="line">    Python: &#x27;python.org&#x27;,</span><br><span class="line">    Perl: &#x27;use.perl.org&#x27; </span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="纯量"><a href="#纯量" class="headerlink" title="纯量"></a>纯量</h6><p>纯量是最基本的，不可再分的值，包括：</p>
+<ul>
+<li>字符串</li>
+<li>布尔值</li>
+<li>整数</li>
+<li>浮点数</li>
+<li>Null</li>
+<li>时间</li>
+<li>日期</li>
+</ul>
+<p>使用一个例子来快速了解纯量的基本使用：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">boolean:</span> </span><br><span class="line">    <span class="bullet">-</span> <span class="literal">TRUE</span>  <span class="comment">#true,True都可以</span></span><br><span class="line">    <span class="bullet">-</span> <span class="literal">FALSE</span>  <span class="comment">#false，False都可以</span></span><br><span class="line"><span class="attr">float:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">3.14</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">6.8523015e+5</span>  <span class="comment">#可以使用科学计数法</span></span><br><span class="line"><span class="attr">int:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">123</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">0b1010_0111_0100_1010_1110</span>    <span class="comment">#二进制表示</span></span><br><span class="line"><span class="attr">null:</span></span><br><span class="line">    <span class="attr">nodeName:</span> <span class="string">&#x27;node&#x27;</span></span><br><span class="line">    <span class="attr">parent:</span> <span class="string">~</span>  <span class="comment">#使用~表示null</span></span><br><span class="line"><span class="attr">string:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">哈哈</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&#x27;Hello world&#x27;</span>  <span class="comment">#可以使用双引号或者单引号包裹特殊字符</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">newline</span></span><br><span class="line">      <span class="string">newline2</span>    <span class="comment">#字符串可以拆成多行，每一行会被转化成一个空格</span></span><br><span class="line"><span class="attr">date:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="number">2018-02-17</span>    <span class="comment">#日期必须使用ISO 8601格式，即yyyy-MM-dd</span></span><br><span class="line"><span class="attr">datetime:</span> </span><br><span class="line">    <span class="bullet">-</span>  <span class="number">2018-02-17T15:02:31+08:00</span>    <span class="comment">#时间使用ISO 8601格式，时间和日期之间使用T连接，最后使用+代表时区</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h6><p><strong>&amp;</strong> 锚点和 ***** 别名，可以用来引用:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaults:</span> <span class="meta">&amp;defaults</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="string">&lt;&lt;:</span> <span class="meta">*defaults</span></span><br></pre></td></tr></table></figure>
+
+<p>相当于:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaults:</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>&amp;</strong> 用来建立锚点（defaults），**&lt;&lt;** 表示合并到当前数据，***** 用来引用锚点。</p>
+<h6 id="分段"><a href="#分段" class="headerlink" title="分段"></a>分段</h6><p>在同一个yaml文件中，可以用<code>---</code>来分段，这样可以将多个文档写在一个文件中。如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">development:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_development</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">test:</span></span><br><span class="line">  <span class="attr">database:</span> <span class="string">myapp_test</span></span><br><span class="line">  <span class="attr">adapter:</span>  <span class="string">postgres</span></span><br><span class="line">  <span class="attr">host:</span>     <span class="string">localhost</span></span><br></pre></td></tr></table></figure>
+
+<p>通过python读取出来的数据格式为：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;development&#x27;: &#123;&#x27;database&#x27;:&#x27;myapp_development&#x27;, &#x27;adapter&#x27;:&#x27;postgres&#x27;, &#x27;host&#x27;:&#x27;localhost&#x27;&#125;&#125;</span><br><span class="line">&#123;&#x27;test&#x27;: &#123;&#x27;database&#x27;:&#x27;test&#x27;, &#x27;adapter&#x27;:&#x27;postgres&#x27;, &#x27;host&#x27;:&#x27;localhost&#x27;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="二、PyYaml的简单使用"><a href="#二、PyYaml的简单使用" class="headerlink" title="二、PyYaml的简单使用"></a>二、PyYaml的简单使用</h3><p>PyYaml是Python的一个专门针对YAML文件操作的模块，使用起来非常简单</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyyaml   <span class="comment"># 如果是py2，使用 pip install yaml</span></span><br></pre></td></tr></table></figure>
+
+<p>使用起来非常简单，就像json、pickle一样，load、dump就足够我们使用了。</p>
+<h6 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h6><p>返回一个对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"></span><br><span class="line">yaml_str = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">name: 一条大河</span></span><br><span class="line"><span class="string">age: 1956</span></span><br><span class="line"><span class="string">job: Singer</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">y = yaml.load(yaml_str, Loader=yaml.SafeLoader)</span><br><span class="line"><span class="built_in">print</span>(y)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;name&#x27;: &#x27;一条大河&#x27;, &#x27;age&#x27;: <span class="number">1956</span>, &#x27;job&#x27;: &#x27;Singer&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="load-all"><a href="#load-all" class="headerlink" title="load_all()"></a>load_all()</h6><p>生成一个迭代器</p>
+<p>如果string或文件包含几块yaml文档，可以使用yaml.load_all来解析全部的文档。</p>
+<p>yaml_test.yaml文件内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">qiyu</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">20</span><span class="string">岁</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">qingqing</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">19</span><span class="string">岁</span></span><br></pre></td></tr></table></figure>
+
+<p>操作yaml文件的test.py文件如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./yaml_test&quot;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> ymlfile:</span><br><span class="line">    cfg = yaml.load_all(ymlfile, Loader=yaml.SafeLoader)</span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> cfg:</span><br><span class="line">        <span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;name&#x27;: &#x27;qiyu&#x27;, &#x27;age&#x27;: &#x27;<span class="number">20</span>岁&#x27;&#125;</span><br><span class="line">&#123;&#x27;name&#x27;: &#x27;qingqing&#x27;, &#x27;age&#x27;: &#x27;<span class="number">19</span>岁&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="dump"><a href="#dump" class="headerlink" title="dump()"></a>dump()</h6><p>将一个python对象生成为yaml文档</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"></span><br><span class="line">json_data = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;一条大河&#x27;</span>,</span><br><span class="line">             <span class="string">&#x27;age&#x27;</span>: <span class="number">1956</span>,</span><br><span class="line">             <span class="string">&#x27;job&#x27;</span>: [<span class="string">&#x27;Singer&#x27;</span>,<span class="string">&#x27;Dancer&#x27;</span>]&#125;</span><br><span class="line"></span><br><span class="line">y = yaml.dump(json_data, default_flow_style=<span class="literal">False</span>).encode(<span class="string">&#x27;utf-8&#x27;</span>).decode(<span class="string">&#x27;unicode_escape&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(y)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">age:</span> <span class="number">1956</span></span><br><span class="line"><span class="attr">job:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">Singer</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">Dancer</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">&quot;一条大河&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用dump()传入参数，可以直接把内容写入到yaml文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"></span><br><span class="line">json_data = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;一条大河&#x27;</span>,</span><br><span class="line">             <span class="string">&#x27;age&#x27;</span>: <span class="number">1956</span>,</span><br><span class="line">             <span class="string">&#x27;job&#x27;</span>: [<span class="string">&#x27;Singer&#x27;</span>, <span class="string">&#x27;Dancer&#x27;</span>]&#125;</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./yaml_write.yaml&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    y = yaml.dump(json_data, f)</span><br><span class="line">    <span class="built_in">print</span>(y)</span><br></pre></td></tr></table></figure>
+
+<p>写入内容后的yaml_write.yaml：</p>
+<p><img src="https://img2018.cnblogs.com/blog/907091/201911/907091-20191120145807326-1016307144.png" alt="img"></p>
+<h6 id="yaml-dump-all"><a href="#yaml-dump-all" class="headerlink" title="yaml.dump_all()"></a>yaml.dump_all()</h6><p>将多个段输出到一个文件中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> yaml</span><br><span class="line"></span><br><span class="line">obj1 = &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;river&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="number">2019</span>&#125;</span><br><span class="line">obj2 = [<span class="string">&quot;Lily&quot;</span>, <span class="number">1956</span>]</span><br><span class="line">obj3 = &#123;<span class="string">&quot;gang&quot;</span>: <span class="string">&quot;ben&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="number">1963</span>&#125;</span><br><span class="line">obj4 = [<span class="string">&quot;Zhuqiyu&quot;</span>, <span class="number">1994</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./yaml_write_all.yaml&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    y = yaml.dump([obj1, obj2, obj3, obj4], f)</span><br><span class="line">    <span class="built_in">print</span>(y)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./yaml_write_all.yaml&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> r:</span><br><span class="line">    y1 = yaml.load(r, Loader=yaml.SafeLoader)</span><br><span class="line">    <span class="built_in">print</span>(y1)</span><br></pre></td></tr></table></figure>
+
+<p>写入内容后的yaml_write_all.yaml：</p>
+<p><img src="https://img2018.cnblogs.com/blog/907091/201911/907091-20191120151026762-2090142303.png" alt="img"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/09/04/python%E5%9F%BA%E7%A1%80/yaml%E6%96%87%E4%BB%B6%E4%B8%8Epyyaml%E7%94%A8%E6%B3%95%E8%AE%B2%E8%A7%A3/" data-id="ckww1v30s00532ov4fvld6d9z" data-title="yaml文件与pyyaml用法讲解" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/yaml/" rel="tag">yaml</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/09/04/python%E5%9F%BA%E7%A1%80/isinstance%E5%92%8Chasattr%E7%94%A8%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          isinstance和hasattr的用法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/09/04/Linux/deepin%E4%B8%AD%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BDpython/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">deepin中安装和卸载python</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flask/">Flask</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Opencv/">Opencv</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue3/">Vue3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayBuffer/" rel="tag">ArrayBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pillow/" rel="tag">Pillow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/argparse/" rel="tag">argparse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepin/" rel="tag">deepin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/falsk/" rel="tag">falsk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/" rel="tag">moviepy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pathlib/" rel="tag">pathlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/" rel="tag">xml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yaml/" rel="tag">yaml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91/" rel="tag">视频</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ArrayBuffer/" style="font-size: 10px;">ArrayBuffer</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Pillow/" style="font-size: 10px;">Pillow</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.11px;">ajax</a> <a href="/tags/argparse/" style="font-size: 10px;">argparse</a> <a href="/tags/deepin/" style="font-size: 11.11px;">deepin</a> <a href="/tags/django/" style="font-size: 12.22px;">django</a> <a href="/tags/falsk/" style="font-size: 10px;">falsk</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 17.78px;">js</a> <a href="/tags/linux/" style="font-size: 14.44px;">linux</a> <a href="/tags/moviepy/" style="font-size: 10px;">moviepy</a> <a href="/tags/mysql/" style="font-size: 11.11px;">mysql</a> <a href="/tags/opencv/" style="font-size: 12.22px;">opencv</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pathlib/" style="font-size: 10px;">pathlib</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 13.33px;">redis</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 11.11px;">selenium</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.89px;">前端</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 15.56px;">后端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.11px;">机器学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 10px;">视频</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/">移动Web适配</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/ArrayBuffer-%E4%BB%8B%E7%BB%8D/">ArrayBuffer 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">js 实现文件下载</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%B9%B6%E9%A2%84%E8%A7%88/">js 上传图片并预览</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/jQuery-Ajax-%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E2%80%9CIllegal-invocation%E2%80%9D/">jQuery Ajax 请求报错“Illegal invocation”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>封装Falsk接口 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="封装flask接口实际上就是封装一个flask视图函数，后台通过请求指定路由就可以与接口进行通信。 以下是一个flask接口示例： 1234567891011121314from flask import Flask, requestfrom genvent import pywsgiapp &#x3D; Flask(__name__) # 注册一个app@app.route(&amp;#x27;&#x2F;test&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="封装Falsk接口">
+<meta property="og:url" content="http://example.com/2021/08/28/Flask/%E5%B0%81%E8%A3%85Falsk%E6%8E%A5%E5%8F%A3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="封装flask接口实际上就是封装一个flask视图函数，后台通过请求指定路由就可以与接口进行通信。 以下是一个flask接口示例： 1234567891011121314from flask import Flask, requestfrom genvent import pywsgiapp &#x3D; Flask(__name__) # 注册一个app@app.route(&amp;#x27;&#x2F;test&amp;#x2">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-28T06:35:39.000Z">
+<meta property="article:modified_time" content="2021-10-16T13:32:20.018Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="falsk">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Flask/封装Falsk接口" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/28/Flask/%E5%B0%81%E8%A3%85Falsk%E6%8E%A5%E5%8F%A3/" class="article-date">
+  <time class="dt-published" datetime="2021-08-28T06:35:39.000Z" itemprop="datePublished">2021-08-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Flask/">Flask</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      封装Falsk接口
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>封装flask接口实际上就是封装一个flask视图函数，后台通过请求指定路由就可以与接口进行通信。</p>
+<p>以下是一个flask接口示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request</span><br><span class="line"><span class="keyword">from</span> genvent <span class="keyword">import</span> pywsgi</span><br><span class="line"></span><br><span class="line">app = Flask(__name__) <span class="comment"># 注册一个app</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/test&#x27;</span>, methods=[<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;get&#x27;</span>]</span>) </span><span class="comment"># &#x27;/test&#x27;是访问路径， methods指定了请求的方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    data = request.get_json()[<span class="string">&#x27;data&#x27;</span>] <span class="comment"># 通过request获取传来的数据</span></span><br><span class="line">    <span class="keyword">return</span> data <span class="comment"># 对请求返回响应</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 开启wsgi服务，模拟flask框架的服务</span></span><br><span class="line">    server = pywsgi.WSGIServer((<span class="string">&#x27;127.0.0.1:8802&#x27;</span>, <span class="number">8802</span>), app)</span><br><span class="line">    server.server_forever()</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p><strong>注意：</strong>flask视图函数的返回值类型只能为：string, dict, tuple, Response instance, or WSGI callable</p>
+<p>我们用requests来向接口发起请求：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">r = requests.post(<span class="string">&#x27;127.0.0.1:8802/test&#x27;</span>, data=&#123;<span class="string">&#x27;data&#x27;</span>:<span class="string">&#x27;hello world&#x27;</span>&#125;)</span><br><span class="line"><span class="built_in">print</span>(r.text) <span class="comment"># 输出 hello world</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<p>接下来，我们看看flask接口接收数据都有哪些方法。</p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">Are</th>
+<th align="center">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>request.form</td>
+<td align="center">获取参数字典</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>request.form.get(键)</td>
+<td align="center">获取字典中键的值</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>request.args.getlist(键)</td>
+<td align="center">获取字典中键的值</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>request.files</td>
+<td align="center">接收文件字典</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>request.files.get(键)</td>
+<td align="center">获取文件字典中的内容</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>文件对象=request.files.get(键)  文件对象.save(保存路径)</td>
+<td align="center">保存文件到本地，方式一</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>with open(路径，’wb’) as f:内容 = 文件对象.read()f.write(内容)</td>
+<td align="center">保存文件到地址，方式二</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>文件对象.name  文件对象.content_length</td>
+<td align="center">文件的名字与大小</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>flask.request.method</td>
+<td align="center">请求方式</td>
+<td align="center">GET/POST</td>
+</tr>
+<tr>
+<td>flask.get_data()</td>
+<td align="center">获取post参数</td>
+<td align="center">注:如果是form表单提交的POST数据请使用request.form</td>
+</tr>
+<tr>
+<td>args = request.get_json()</td>
+<td align="center">获取postjson参数</td>
+<td align="center">get_json()  会自动将json数据转换为字符串,还有POST请求需要设置请求头发送参数为application/json格式,才可以接收到。如果没有设置成json格式发送,请使用get_data接收参数</td>
+</tr>
+</tbody></table>
+<hr>
+<p><strong>实例1</strong></p>
+<p>通过requests以numpy的ndarry形式向接口发送图片文件，接口接收文件并展示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 接口文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">from</span> gevent <span class="keyword">import</span> pywsgi</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/file&#x27;</span>, methods=[<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;post&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadFile</span>():</span></span><br><span class="line">    data = request.get_json()[<span class="string">&#x27;data&#x27;</span>]</span><br><span class="line">    picture = json.loads(data)[<span class="string">&#x27;picture&#x27;</span>]</span><br><span class="line">    file = np.array(picture, dtype=np.uint8) <span class="comment"># 对于图片，必须设置dtype为uint8</span></span><br><span class="line">    cv2.imshow(<span class="string">&#x27;xxx&#x27;</span>, file)</span><br><span class="line">    cv2.waitKey(<span class="number">5000</span>)</span><br><span class="line">    cv2.destroyAllWindows()</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:<span class="string">&#x27;success&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 通过wsgi开启服务</span></span><br><span class="line">    server = pywsgi.WSGIServer((<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="number">8802</span>), app)</span><br><span class="line">    server.serve_forever()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 请求文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">img = cv2.imread(<span class="string">&#x27;2.jpg&#x27;</span>)</span><br><span class="line">img_dict = &#123;<span class="string">&#x27;picture&#x27;</span>:img.tolist()&#125; <span class="comment"># 将ndarray数组转换为列表，加入字典中</span></span><br><span class="line">img_json = json.dumps(img_dict)  <span class="comment"># 将字典转换为json</span></span><br><span class="line">x = requests.post(<span class="string">&#x27;http://127.0.0.1:8802/file&#x27;</span>, json=&#123;<span class="string">&quot;data&quot;</span>:img_json&#125;) <span class="comment"># &#123;&#x27;data&#x27;: &#123;&#x27;picture&#x27;:&#x27;[...]&#x27;&#125;&#125;</span></span><br><span class="line"><span class="built_in">print</span>(x.json()[<span class="string">&#x27;data&#x27;</span>]) <span class="comment"># 输出success</span></span><br></pre></td></tr></table></figure>
+
+</br>
+
+<p><strong>实例2</strong></p>
+<p>通过requests以二进制的形式向接口发送图片文件，接口接收文件并保存。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 接口文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request</span><br><span class="line"><span class="keyword">from</span> gevent <span class="keyword">import</span> pywsgi</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/file&#x27;</span>, methods=[<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;post&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadFile</span>():</span></span><br><span class="line">    data = request.files</span><br><span class="line">	<span class="keyword">for</span> name, file <span class="keyword">in</span> data.items():</span><br><span class="line">    	file.save(name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 通过wsgi开启服务</span></span><br><span class="line">    server = pywsgi.WSGIServer((<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="number">8802</span>), app)</span><br><span class="line">    server.serve_forever()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 请求文件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># （1）单张图片：</span></span><br><span class="line">requests.post(<span class="string">&#x27;http://127.0.0.1:8802/file&#x27;</span>, file=<span class="built_in">open</span>(<span class="string">&#x27;x.jpg&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)) <span class="comment"># 以二进制只读方式打开</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># （2）多张图片：</span></span><br><span class="line">dic = &#123;&#125;</span><br><span class="line"><span class="comment"># 遍历文件夹</span></span><br><span class="line">dirs = os.listdirs(<span class="string">&#x27;data&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">dir</span> <span class="keyword">in</span> dirs:</span><br><span class="line">    <span class="comment"># 拼接路径</span></span><br><span class="line">    path = <span class="string">&#x27;data&#x27;</span> + <span class="string">&#x27;/&#x27;</span> + <span class="built_in">dir</span></span><br><span class="line">    <span class="comment"># 构建字典,以图片名称作为键</span></span><br><span class="line">    dic[<span class="built_in">dir</span>] = <span class="built_in">open</span>(path, <span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">requests.post(url, file=dic)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/28/Flask/%E5%B0%81%E8%A3%85Falsk%E6%8E%A5%E5%8F%A3/" data-id="ckww1v2z700062ov4hfboh9l0" data-title="封装Falsk接口" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/falsk/" rel="tag">falsk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/09/01/python%E5%9F%BA%E7%A1%80/argparse%E6%A8%A1%E5%9D%97%E8%AE%B2%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          argparse模块讲解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/08/28/Python%E7%88%AC%E8%99%AB/Requests%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Requests的介绍与使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flask/">Flask</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Opencv/">Opencv</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue3/">Vue3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayBuffer/" rel="tag">ArrayBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pillow/" rel="tag">Pillow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/argparse/" rel="tag">argparse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepin/" rel="tag">deepin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/falsk/" rel="tag">falsk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/" rel="tag">moviepy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pathlib/" rel="tag">pathlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/" rel="tag">xml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yaml/" rel="tag">yaml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91/" rel="tag">视频</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ArrayBuffer/" style="font-size: 10px;">ArrayBuffer</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Pillow/" style="font-size: 10px;">Pillow</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.11px;">ajax</a> <a href="/tags/argparse/" style="font-size: 10px;">argparse</a> <a href="/tags/deepin/" style="font-size: 11.11px;">deepin</a> <a href="/tags/django/" style="font-size: 12.22px;">django</a> <a href="/tags/falsk/" style="font-size: 10px;">falsk</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 17.78px;">js</a> <a href="/tags/linux/" style="font-size: 14.44px;">linux</a> <a href="/tags/moviepy/" style="font-size: 10px;">moviepy</a> <a href="/tags/mysql/" style="font-size: 11.11px;">mysql</a> <a href="/tags/opencv/" style="font-size: 12.22px;">opencv</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pathlib/" style="font-size: 10px;">pathlib</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 13.33px;">redis</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 11.11px;">selenium</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.89px;">前端</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 15.56px;">后端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.11px;">机器学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 10px;">视频</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/">移动Web适配</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/ArrayBuffer-%E4%BB%8B%E7%BB%8D/">ArrayBuffer 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">js 实现文件下载</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%B9%B6%E9%A2%84%E8%A7%88/">js 上传图片并预览</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/jQuery-Ajax-%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E2%80%9CIllegal-invocation%E2%80%9D/">jQuery Ajax 请求报错“Illegal invocation”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

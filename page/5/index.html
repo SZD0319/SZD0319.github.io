@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/5/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-python基础/python-从视频中提取音频" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/" class="article-date">
+  <time class="dt-published" datetime="2020-04-27T08:16:18.000Z" itemprop="datePublished">2020-04-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/">python-从视频中提取音频</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="视频中提取音频"><a href="#视频中提取音频" class="headerlink" title="视频中提取音频"></a>视频中提取音频</h2><p>OpenCV中使用VideoCapture类写的视频是没有音频的，如果要进一步处理音频则需要用到一个库——<strong>MoviePy</strong>，这个库是Python视频编辑库，可裁剪、拼接、标题插入、视频合成、视频处理和自定义效果。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install moviepy</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> moviepy.editor <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">path = <span class="string">&#x27;&#x27;</span>  <span class="comment">#视频所在路径</span></span><br><span class="line"></span><br><span class="line">video = VideoFileClip(path) <span class="comment">#创建视频对象</span></span><br><span class="line">audio = video.audio <span class="comment">#创建视频对应的音频对象</span></span><br><span class="line">audio.write_audiofile(<span class="string">&#x27;路径&#x27;</span>) <span class="comment">#将得到的音频写出到路径，通常导出为mp3格式</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/" data-id="ckww1v30m004g2ov4ei68fnb3" data-title="python-从视频中提取音频" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A7%86%E9%A2%91/" rel="tag">视频</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python基础/python-pip下载速度慢的问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2020-04-27T05:30:26.000Z" itemprop="datePublished">2020-04-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/">python pip下载速度慢的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="pip-下载速度慢，导致报错：pip-vendor-urllib3-exceptions-ReadTimeoutError……"><a href="#pip-下载速度慢，导致报错：pip-vendor-urllib3-exceptions-ReadTimeoutError……" class="headerlink" title="pip 下载速度慢，导致报错：pip._vendor.urllib3.exceptions.ReadTimeoutError……"></a>pip 下载速度慢，导致报错：pip._vendor.urllib3.exceptions.ReadTimeoutError……</h4><p>python开发中，我们经常用到pip工具，然而，有时候下载速度非常慢……</p>
+<p>解决方法：</p>
+<p><strong>更改电脑默认镜像，之后便可用 pip install 命令快速下载</strong></p>
+<p>1、在我的电脑，搜索 <code>%APPDATA%</code>（代表系统变量），搜索之后的路径的应该为<code>C:\Users\Administrator\AppData\Roaming</code>；</p>
+<p>2、在此路径下新建文件夹pip，进入文件夹，新建<code>pip.ini</code>文件，添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line"></span><br><span class="line">timeout = 6000</span><br><span class="line"></span><br><span class="line">index-url = http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">trusted-host = mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+
+<p>即可成功修改pip镜像路径。</p>
+<p>3、现在就可以使用<code>pip install</code>进行高速下载。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/27/python%E5%9F%BA%E7%A1%80/python-pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ckww1v30n004j2ov43z97eiek" data-title="python pip下载速度慢的问题" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue/Vue-那些年遇到的坑" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/25/Vue/Vue-%E9%82%A3%E4%BA%9B%E5%B9%B4%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" class="article-date">
+  <time class="dt-published" datetime="2020-04-25T08:25:11.000Z" itemprop="datePublished">2020-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/25/Vue/Vue-%E9%82%A3%E4%BA%9B%E5%B9%B4%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/">Vue-那些年遇到的坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="修改第三方组件"><a href="#修改第三方组件" class="headerlink" title="修改第三方组件"></a>修改第三方组件</h4><p>这里我们要<strong>重写第三方组件</strong>，但是不能直接重写，否则没有效果，解决方法如下：</p>
+<p>1、重写第三方组件之后去掉<code>&lt;style scoped&gt;</code>中的<code>scoped</code>，但是这样会造成组件之间的样式污染。</p>
+<p>2、去掉<code>&lt;style scoped&gt;</code>中的<code>scoped</code>之后，将本页面中所有样式包裹在一个<code>class</code>里面，避免污染其他页面。</p>
+<p>3、使用<code>/deep/</code>穿透（推荐使用）。</p>
+<h5 id="deep穿透"><a href="#deep穿透" class="headerlink" title="deep穿透"></a>deep穿透</h5><p>vue引用了第三方组件，需要在组件中局部修改第三方组件的样式，而又不想去除<code>scoped</code>属性造成组件之间的样式污染。此时只能通过<code>&gt;&gt;&gt;</code>，穿透<code>scoped</code>。</p>
+<p>有些Sass 之类的预处理器无法正确解析 <code>&gt;&gt;&gt;</code>。可以使用 <code>/deep/</code> 操作符( <code>&gt;&gt;&gt;</code> 的别名)。</p>
+<p>用法如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    /deep/  第三方组件 &#123;</span><br><span class="line"></span><br><span class="line">          样式</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="修改第三方组件-1"><a href="#修改第三方组件-1" class="headerlink" title="修改第三方组件"></a>修改第三方组件</h5><ol>
+<li>打开vue页面，点击右键检查；</li>
+<li>选中想要修改的组件，查看其样式，并将所有有关该组件的样式都复制粘贴到<code>&lt;style&gt;</code>中；</li>
+<li>修改其中的属性值；</li>
+<li>使用<code>/deep/</code>穿透。</li>
+</ol>
+<h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><p>打开<code>router/index.js</code>文件，添加如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 重定向</span></span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">  <span class="attr">redirect</span>: <span class="string">&#x27;/index&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将根地址重定向到<code>/index</code>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/25/Vue/Vue-%E9%82%A3%E4%BA%9B%E5%B9%B4%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" data-id="ckww1v30g003s2ov4ep605ytn" data-title="Vue-那些年遇到的坑" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue/Vue-JS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/23/Vue/Vue-JS/" class="article-date">
+  <time class="dt-published" datetime="2020-04-23T02:47:04.000Z" itemprop="datePublished">2020-04-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/23/Vue/Vue-JS/">Vue-JS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="注意事项总结"><a href="#注意事项总结" class="headerlink" title="注意事项总结"></a>注意事项总结</h2><h3 id="Vue初始化函数created-和mounted-的区别"><a href="#Vue初始化函数created-和mounted-的区别" class="headerlink" title="Vue初始化函数created()和mounted()的区别"></a>Vue初始化函数created()和mounted()的区别</h3><p>1、created 在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图</p>
+<p>在这一步，实例已完成以下的配置：</p>
+<ul>
+<li>数据观测 (data observer)，</li>
+<li>property 和方法的运算，</li>
+<li>watch/event 事件回调。</li>
+<li>然而，挂载阶段还没开始，$el property 目前尚不可用</li>
+</ul>
+<p>2、mounted在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom节点进行一些需要的操作。</p>
+<br/>
+
+<h3 id="过滤函数filter"><a href="#过滤函数filter" class="headerlink" title="过滤函数filter()"></a>过滤函数filter()</h3><p>filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</p>
+<p><em><strong>注意：</strong></em></p>
+<ol>
+<li> filter() 不会对空数组进行检测。</li>
+<li> filter() 不会改变原始数组。</li>
+</ol>
+<p>语法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.filter(<span class="function"><span class="keyword">function</span>(<span class="params">currentValue,index,arr</span>), <span class="title">thisValue</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>array数组的元素依次指向currentValue进行判断，符合条件即function返回true，则此元素被添加到新数组，否则不被添加。</strong></p>
+<p>返回数组，包含了符合条件的所有元素。如果没有符合条件的元素则返回空数组。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/23/Vue/Vue-JS/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/23/Vue/Vue-JS/" data-id="ckww1v30e003k2ov4g2541xw0" data-title="Vue-JS" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue/Vue-Element UI" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/23/Vue/Vue-Element%20UI/" class="article-date">
+  <time class="dt-published" datetime="2020-04-23T02:46:35.000Z" itemprop="datePublished">2020-04-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/23/Vue/Vue-Element%20UI/">Vue-Element UI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="注意事项总结"><a href="#注意事项总结" class="headerlink" title="注意事项总结"></a>注意事项总结</h4><h4 id="1、链接点击"><a href="#1、链接点击" class="headerlink" title="1、链接点击"></a>1、链接点击</h4><p>默认的<code>&lt;a&gt;</code>标签中的链接包含下划线，颜色为蓝色，vue中的<code>&lt;router-link&gt;</code>标签在编译时会被解析为<code>&lt;a&gt;</code>标签，所以想要改变它们的初始状态、鼠标聚焦时的状态、点击链接时的状态以及点击之后的状态，可以在样式中添加如下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;text-docoration: none; <span class="attribute">color</span>: black&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;text-docoration: none; <span class="attribute">color</span>: grey&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;text-docoration: none; <span class="attribute">color</span>: red&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;text-docoration: none; <span class="attribute">color</span>: blue&#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em><strong>注意：</strong></em></p>
+<ol>
+<li>a:hover 必须在a:link和 a:visited后出现，才能正常显示效果！</li>
+<li>a:active必须出现在a:hover定义后才能有效果！</li>
+</ol>
+<h4 id="2、Container容器"><a href="#2、Container容器" class="headerlink" title="2、Container容器"></a>2、Container容器</h4><ol>
+<li><code>&lt;el-container&gt;</code>：外层容器。当子元素中包含 <code>&lt;el-header&gt;</code> 或 <code>&lt;el-footer&gt;</code> 时，全部子元素会垂直上下排列，否则会水平左右排列。</li>
+<li><code>&lt;el-header&gt;</code>：顶栏容器。</li>
+<li><code>&lt;el-aside&gt;</code>：侧边栏容器。</li>
+<li><code>&lt;el-main&gt;</code>：主要区域容器。</li>
+<li><code>&lt;el-footer&gt;</code>：底栏容器。</li>
+</ol>
+<p><em><strong>container容器可以嵌套使用。</strong></em></p>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/23/Vue/Vue-Element%20UI/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/23/Vue/Vue-Element%20UI/" data-id="ckww1v30h003v2ov4cxo6euth" data-title="Vue-Element UI" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue/Vue项目搭建" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/21/Vue/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time class="dt-published" datetime="2020-04-21T03:13:00.000Z" itemprop="datePublished">2020-04-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/21/Vue/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/">Vue项目搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一、安装node环境"><a href="#一、安装node环境" class="headerlink" title="一、安装node环境"></a>一、安装node环境</h3><p>1、下载地址为：<a target="_blank" rel="noopener" href="http://nodejs.cn/download/">http://nodejs.cn/download/</a>（注意下载最新版本）</p>
+<p>2、更新npm到最新版本。打开cmd输入：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g npm</span><br></pre></td></tr></table></figure>
+
+<p>将 npm 的下载地址改为淘宝镜像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>之后 npm 下载依赖的速度就会起飞！</p>
+<p>3、检查是否安装成功：</p>
+<p><img src="https://s1.ax1x.com/2020/04/21/J3qFl8.png" alt="J3qFl8.png"></p>
+<h3 id="二、搭建vue项目环境"><a href="#二、搭建vue项目环境" class="headerlink" title="二、搭建vue项目环境"></a>二、搭建vue项目环境</h3><h5 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h5><h6 id="1、webpack简介"><a href="#1、webpack简介" class="headerlink" title="1、webpack简介"></a>1、webpack简介</h6><p>Webpack 是一个前端资源加载/打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。</p>
+<p>Webpack 可以将多种静态资源 js、css、less 转换成一个静态文件，减少了页面的请求。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/21/Vue/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/21/Vue/Vue%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/" data-id="ckww1v30i00402ov41gds5j2y" data-title="Vue项目搭建" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Redis/Redis-python操作Redis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/12/Redis/Redis-python%E6%93%8D%E4%BD%9CRedis/" class="article-date">
+  <time class="dt-published" datetime="2020-04-12T06:30:13.000Z" itemprop="datePublished">2020-04-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redis/">Redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/12/Redis/Redis-python%E6%93%8D%E4%BD%9CRedis/">Redis-python操作Redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一、连接Redis"><a href="#一、连接Redis" class="headerlink" title="一、连接Redis"></a>一、连接Redis</h3><p>这里我们用到<strong>StrictRedis</strong>库和<strong>ConnectionPool</strong>库。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> redis <span class="keyword">import</span> StrictRedis</span><br><span class="line"></span><br><span class="line">redis = StrictRedis(host=<span class="string">&#x27;localhost&#x27;</span>, port=<span class="number">6379</span>, db=<span class="number">0</span>, password=******)</span><br></pre></td></tr></table></figure>
+
+<p>这里我们传入了Redis的地址、运行端口、使用的数据库和密码信息。在默认不传的情况下，这4个参数分别为<code>localhost</code>、<code>6379</code>、<code>0</code>和<code>None</code>。redis是一个StrictRedis对象，用于操作redis的各种命令。</p>
+<p>当然，我们还可以使用<code>ConnectionPool</code>来连接，示例如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> redis <span class="keyword">import</span> StrictRedis, ConnectionPool</span><br><span class="line"></span><br><span class="line">pool = ConnectionPool(host=<span class="string">&#x27;localhost&#x27;</span>, port=<span class="number">6379</span>, db=<span class="number">0</span>, password=<span class="string">&#x27;foobared&#x27;</span>)</span><br><span class="line">redis = StrictRedis(connection_pool=pool)</span><br></pre></td></tr></table></figure>
+
+<p>这样的连接效果是一样的。观察源码可以发现，<code>StrictRedis</code>内其实就是用<code>host</code>和<code>port</code>等参数又构造了一个<code>ConnectionPool</code>，所以直接将<code>ConnectionPool</code>当作参数传给<code>StrictRedis</code>也一样。</p>
+<p>另外，<code>ConnectionPool</code>还支持通过URL来构建。URL的格式支持有如下3种：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">redis://[:password]@host:port/db</span><br><span class="line">rediss://[:password]@host:port/db</span><br><span class="line">unix://[:password]@/path/to/socket.sock?db=db</span><br></pre></td></tr></table></figure>
+
+<p>这3种URL分别表示创建Redis TCP连接、Redis TCP+SSL连接、Redis UNIX socket连接。我们只需要构造上面任意一种URL即可，其中<code>password</code>部分如果有则可以写，没有则可以省略。下面再用URL连接演示一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">&#x27;redis://:123456@localhost:6379/0&#x27;</span></span><br><span class="line">pool = ConnectionPool.from_url(url)</span><br><span class="line">redis = StrictRedis(connection_pool=pool)</span><br></pre></td></tr></table></figure>
+
+<p>首先，声明一个Redis连接字符串，然后调用<code>from_url()</code>方法创建<code>ConnectionPool</code>，接着将其传给<code>StrictRedis</code>即可完成连接，所以使用URL的连接方式还是比较方便的。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/12/Redis/Redis-python%E6%93%8D%E4%BD%9CRedis/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/12/Redis/Redis-python%E6%93%8D%E4%BD%9CRedis/" data-id="ckww1v305002u2ov4c9hkfrfl" data-title="Redis-python操作Redis" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Redis/Redis-命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/10/Redis/Redis-%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2020-04-10T06:47:43.000Z" itemprop="datePublished">2020-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redis/">Redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/10/Redis/Redis-%E5%91%BD%E4%BB%A4/">Redis-命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Redis命令"><a href="#Redis命令" class="headerlink" title="Redis命令"></a>Redis命令</h3><p>Redis客户端的基本语法为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br></pre></td></tr></table></figure>
+
+<p>我们连接到本地的 redis 服务并执行 <strong>PING</strong> 命令，该命令用于检测 redis 服务是否启动。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$redis-cli</span><br><span class="line">redis <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt;</span><br><span class="line">redis <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; PING</span><br><span class="line"></span><br><span class="line">PONG</span><br></pre></td></tr></table></figure>
+
+<p>表示服务已启动。</p>
+<p>关闭连接用以下命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="在远程服务上执行命令"><a href="#在远程服务上执行命令" class="headerlink" title="在远程服务上执行命令"></a>在远程服务上执行命令</h6><p>如果需要在远程 redis 服务上执行命令，同样我们使用的也是 <strong>redis-cli</strong> 命令。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h host -p port -a password</span><br></pre></td></tr></table></figure>
+
+
+
+<p><em><strong>注意：</strong></em>有时候会有中文乱码。要在 redis-cli 后面加上 –raw：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli --raw</span><br></pre></td></tr></table></figure>
+
+<p>就可以避免中文乱码了。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/10/Redis/Redis-%E5%91%BD%E4%BB%A4/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/10/Redis/Redis-%E5%91%BD%E4%BB%A4/" data-id="ckww1v304002r2ov4d2h7f53a" data-title="Redis-命令" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Redis/Redis-数据类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2020-04-10T05:58:33.000Z" itemprop="datePublished">2020-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redis/">Redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">Redis-数据类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="String（字符串）"><a href="#String（字符串）" class="headerlink" title="String（字符串）"></a>String（字符串）</h4><p>string 是 redis 最基本的类型，你可以理解成与 Memcached 一模一样的类型，一个 key 对应一个 value。</p>
+<p>string 类型是二进制安全的。意思是 redis 的 string 可以包含任何数据。比如jpg图片或者序列化的对象。</p>
+<p>string 类型是 Redis 最基本的数据类型，string 类型的值最大能存储 512MB。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; SET name <span class="string">&#x27;Silence&#x27;</span></span><br><span class="line">OK</span><br><span class="line">redis <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; GET name</span><br><span class="line"><span class="string">&quot;silence&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>以上实例中我们使用了 Redis 的 <strong>SET</strong> 和 <strong>GET</strong> 命令，其中，name为键，Silence为值。</p>
+<hr>
+<h4 id="Hash（哈希）"><a href="#Hash（哈希）" class="headerlink" title="Hash（哈希）"></a>Hash（哈希）</h4><p>Redis hash 是一个键值(key=&gt;value)对集合。</p>
+<p>Redis hash 是一个 string 类型的 field 和 value 的映射表，hash 特别适合用于存储对象。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-id="ckww1v302002k2ov4ghzn1stw" data-title="Redis-数据类型" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Redis/Redis-安装与配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/04/10/Redis/Redis-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" class="article-date">
+  <time class="dt-published" datetime="2020-04-10T05:08:38.000Z" itemprop="datePublished">2020-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Redis/">Redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/04/10/Redis/Redis-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">Redis-安装与配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h3><p>Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
+<p>redis有以下特点：</p>
+<ul>
+<li>Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
+<li>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。</li>
+<li>Redis支持数据的备份，即master-slave模式的数据备份。</li>
+<li>性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。</li>
+<li>Redis还支持 publish/subscribe, 通知, key 过期等等特性。</li>
+</ul>
+<hr>
+<h3 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h3><h5 id="Windows-系统"><a href="#Windows-系统" class="headerlink" title="Windows 系统"></a>Windows 系统</h5><p>Redis 支持 32 位和 64 位。这个需要根据你系统平台的实际情况选择，这里我选择64位zip压缩包，解压到Redis文件夹中。</p>
+<p>打开一个 <strong>cmd</strong> 窗口 使用 cd 命令切换目录到 <strong>C:\redis</strong> 运行（如果想方便的话，可以把 redis 的路径加到系统的环境变量里，这样就省得再输路径了）：</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/04/10/Redis/Redis-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/04/10/Redis/Redis-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" data-id="ckww1v301002g2ov4d4dk81i1" data-title="Redis-安装与配置" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flask/">Flask</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Opencv/">Opencv</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue3/">Vue3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayBuffer/" rel="tag">ArrayBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pillow/" rel="tag">Pillow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/argparse/" rel="tag">argparse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepin/" rel="tag">deepin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/falsk/" rel="tag">falsk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/" rel="tag">moviepy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pathlib/" rel="tag">pathlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/" rel="tag">xml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yaml/" rel="tag">yaml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91/" rel="tag">视频</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ArrayBuffer/" style="font-size: 10px;">ArrayBuffer</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Pillow/" style="font-size: 10px;">Pillow</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.11px;">ajax</a> <a href="/tags/argparse/" style="font-size: 10px;">argparse</a> <a href="/tags/deepin/" style="font-size: 11.11px;">deepin</a> <a href="/tags/django/" style="font-size: 12.22px;">django</a> <a href="/tags/falsk/" style="font-size: 10px;">falsk</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 17.78px;">js</a> <a href="/tags/linux/" style="font-size: 14.44px;">linux</a> <a href="/tags/moviepy/" style="font-size: 10px;">moviepy</a> <a href="/tags/mysql/" style="font-size: 11.11px;">mysql</a> <a href="/tags/opencv/" style="font-size: 12.22px;">opencv</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pathlib/" style="font-size: 10px;">pathlib</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 13.33px;">redis</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 11.11px;">selenium</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.89px;">前端</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 15.56px;">后端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.11px;">机器学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 10px;">视频</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/">移动Web适配</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/ArrayBuffer-%E4%BB%8B%E7%BB%8D/">ArrayBuffer 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">js 实现文件下载</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%B9%B6%E9%A2%84%E8%A7%88/">js 上传图片并预览</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/jQuery-Ajax-%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E2%80%9CIllegal-invocation%E2%80%9D/">jQuery Ajax 请求报错“Illegal invocation”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

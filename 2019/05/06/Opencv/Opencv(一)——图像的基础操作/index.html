@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Opencv(一)-图像的基础操作 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="学习目标 获取像素值并修改  获取图像的属性  图像的ROI  图像通道的拆分及合并 几乎所有这些操作与 Numpy 的关系都比与 OpenCV 的关系更加紧密，因此熟练 Numpy 可以帮助我们写出性能更好的代码。 获取并修改像素值1、首先我们需要读入一幅图像： 123import cv2import numpy as npimg&#x3D;cv2.imread(&amp;#x27;C:\\Users\\Admi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Opencv(一)-图像的基础操作">
+<meta property="og:url" content="http://example.com/2019/05/06/Opencv/Opencv(%E4%B8%80)%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E7%9A%84%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="学习目标 获取像素值并修改  获取图像的属性  图像的ROI  图像通道的拆分及合并 几乎所有这些操作与 Numpy 的关系都比与 OpenCV 的关系更加紧密，因此熟练 Numpy 可以帮助我们写出性能更好的代码。 获取并修改像素值1、首先我们需要读入一幅图像： 123import cv2import numpy as npimg&#x3D;cv2.imread(&amp;#x27;C:\\Users\\Admi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GQ1iSs.png">
+<meta property="article:published_time" content="2019-05-06T11:27:39.000Z">
+<meta property="article:modified_time" content="2021-10-16T13:35:28.807Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="opencv">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/03/31/GQ1iSs.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Opencv/Opencv(一)——图像的基础操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/05/06/Opencv/Opencv(%E4%B8%80)%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E7%9A%84%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2019-05-06T11:27:39.000Z" itemprop="datePublished">2019-05-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Opencv/">Opencv</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Opencv(一)-图像的基础操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ul>
+<li><p>获取像素值并修改</p>
+</li>
+<li><p>获取图像的属性</p>
+</li>
+<li><p>图像的ROI</p>
+</li>
+<li><p>图像通道的拆分及合并</p>
+<p>几乎所有这些操作与 Numpy 的关系都比与 OpenCV 的关系更加紧密，因此熟练 Numpy 可以帮助我们写出性能更好的代码。</p>
+<h3 id="获取并修改像素值"><a href="#获取并修改像素值" class="headerlink" title="获取并修改像素值"></a>获取并修改像素值</h3><p>1、首先我们需要读入一幅图像：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">img=cv2.imread(<span class="string">&#x27;C:\\Users\\Administrator\\Pictures\\Camera Roll\\6.jpg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注：cv2.imread()：读入图片，共两个参数，第一个参数为要读入的图片文件名，第二个参数为如何读取图片，包括cv2.IMREAD_COLOR：读入一副彩色图片；cv2.IMREAD_GRAYSCALE：以灰度模式读入图片；cv2.IMREAD_UNCHANGED：读入一幅图片，并包括其alpha通道。</p>
+</blockquote>
+<span id="more"></span>
+
+<p><strong>注意：</strong>若文件名为中文，应使用如下方法打开文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.imdecode(np.fromfile(<span class="string">&#x27;刘德华.jpg&#x27;</span>, dtype=np.uint8), -<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>2、你可以根据像素的行和列的坐标获取他的像素值。对 BGR 图像而言，返回值为 B，G，R 的值。对灰度图像而言，会返回他的灰度值（亮度？intensity）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">img=cv2.imread(<span class="string">&#x27;C:\\Users\\Administrator\\Pictures\\Camera Roll\\6.jpg&#x27;</span>)</span><br><span class="line">px=img[<span class="number">100</span>,<span class="number">100</span>]</span><br><span class="line"><span class="built_in">print</span>(px)</span><br><span class="line">blue=img[<span class="number">100</span>,<span class="number">100</span>,<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(blue)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">171</span> <span class="number">179</span> <span class="number">178</span>]</span><br><span class="line"><span class="number">171</span></span><br></pre></td></tr></table></figure>
+
+<p><em>其中‘0’表示第一个像素值。</em></p>
+<p>3、可以以类似方式修改像素值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">  img=cv2.imread(<span class="string">&#x27;C:\\Users\\Administrator\\Pictures\\Camera Roll\\6.jpg&#x27;</span>)</span><br><span class="line">img[<span class="number">100</span>,<span class="number">100</span>]=[<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>]</span><br><span class="line">  <span class="built_in">print</span>(img[<span class="number">100</span>,<span class="number">100</span>])</span><br><span class="line"></span><br><span class="line">  <span class="comment">## [255 255 255]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="获取图像属性"><a href="#获取图像属性" class="headerlink" title="获取图像属性"></a>获取图像属性</h3><p>​        图像的属性包括：行，列，通道，图像数据类型，像素数目等img.shape 可以获取图像的形状。他的返回值是一个包含行数，列数，通道数的元组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line">  <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">img=cv2.imread(<span class="string">&#x27;C:\\Users\\Administrator\\Pictures\\Camera Roll\\6.jpg&#x27;</span>)</span><br><span class="line">  <span class="built_in">print</span>(img.shape)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">##(342, 548, 3)</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果图像是灰度图，返回值仅有行数和列数。所以通过检查这个返回值就可以知道加载的是灰度图还是彩色图。img.size 可以返回图像的像素数目：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line">  <span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">img = cv2.imread(<span class="string">&quot;C:\\Users\\Administrator\\Pictures\\Camera Roll\\6.jpg&quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>(img.size, img.dtype)</span><br><span class="line"></span><br><span class="line">  <span class="comment">##583443 uint8</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="图像ROI"><a href="#图像ROI" class="headerlink" title="图像ROI"></a>图像ROI</h3><p>​        有时你需要对一幅图像的特定区域进行操作。例如我们要检测一副图像中眼睛的位置，我们首先应该在图像中找到脸，再在脸的区域中找眼睛，而不是直接在一幅图像中搜索。这样会提高程序的准确性和性能。<br>​        ROI 也是使用 Numpy 索引来获得的。现在我们选择球的部分并把他拷贝到图像的其他区域。</p>
+<blockquote>
+<p>ROI（region of interest），感兴趣区域。机器视觉、图像处理中，从被处理的图像以方框、圆、椭圆、不规则多边形等方式勾勒出需要处理的区域，称为感兴趣区域，ROI。在Halcon、OpenCV、Matlab等机器视觉软件上常用到各种算子（Operator）和函数来求得感兴趣区域ROI，并进行图像的下一步处理。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">  img = cv2.imread(<span class="string">&quot;C:\\Users\\Administrator\\Pictures\\Camera Roll\\7.png&quot;</span>)</span><br><span class="line">ball = img[<span class="number">280</span>:<span class="number">340</span>,<span class="number">330</span>:<span class="number">390</span>]</span><br><span class="line">  img[<span class="number">273</span>:<span class="number">333</span>,<span class="number">100</span>:<span class="number">160</span>]=ball</span><br><span class="line">img=cv2.imshow(<span class="string">&#x27;test&#x27;</span>, img)</span><br><span class="line">  cv2.waitKey(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>结果如下：</p>
+<p><img src="https://s1.ax1x.com/2020/03/31/GQ1iSs.png" alt="GQ1iSs.png"></p>
+<h3 id="拆分及合并图像通道"><a href="#拆分及合并图像通道" class="headerlink" title="拆分及合并图像通道"></a><strong>拆分及合并图像通道</strong></h3><p>  有时我们需要对 BGR 三个通道分别进行操作。这是你就需要把 BGR 拆分成单个通道。有时你需要把独立通道的图片合并成一个 BGR 图像。你可以这样做：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">  img=cv2.imread(<span class="string">&#x27;C:\\Users\\Administrator\\Pictures\\Camera Roll\\6.jpg&#x27;</span>)</span><br><span class="line">  b,g,r=cv2.split(img)</span><br><span class="line">  img=cv2.merge(b,g,r)</span><br></pre></td></tr></table></figure>
+
+<p>  假如你想使所有像素的红色通道值都为 0，你不必先拆分再赋值。你可以直接使用 Numpy 索引，这会更快。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">img=cv2.imread(<span class="string">&#x27;C:\\Users\\Administrator\\Pictures\\Camera Roll\\6.jpg&#x27;</span>)</span><br><span class="line">img[:,:,<span class="number">2</span>]=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/05/06/Opencv/Opencv(%E4%B8%80)%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E7%9A%84%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/" data-id="ckww1v2zw00222ov4386t67hh" data-title="Opencv(一)-图像的基础操作" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opencv/" rel="tag">opencv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/08/Opencv/Opencv%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Opencv(二)-图像处理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/30/Django/Django%E6%A1%86%E6%9E%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Django框架</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flask/">Flask</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Opencv/">Opencv</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue3/">Vue3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayBuffer/" rel="tag">ArrayBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pillow/" rel="tag">Pillow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/argparse/" rel="tag">argparse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepin/" rel="tag">deepin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/falsk/" rel="tag">falsk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/" rel="tag">moviepy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pathlib/" rel="tag">pathlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/" rel="tag">xml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yaml/" rel="tag">yaml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91/" rel="tag">视频</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ArrayBuffer/" style="font-size: 10px;">ArrayBuffer</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Pillow/" style="font-size: 10px;">Pillow</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.11px;">ajax</a> <a href="/tags/argparse/" style="font-size: 10px;">argparse</a> <a href="/tags/deepin/" style="font-size: 11.11px;">deepin</a> <a href="/tags/django/" style="font-size: 12.22px;">django</a> <a href="/tags/falsk/" style="font-size: 10px;">falsk</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 17.78px;">js</a> <a href="/tags/linux/" style="font-size: 14.44px;">linux</a> <a href="/tags/moviepy/" style="font-size: 10px;">moviepy</a> <a href="/tags/mysql/" style="font-size: 11.11px;">mysql</a> <a href="/tags/opencv/" style="font-size: 12.22px;">opencv</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pathlib/" style="font-size: 10px;">pathlib</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 13.33px;">redis</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 11.11px;">selenium</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.89px;">前端</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 15.56px;">后端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.11px;">机器学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 10px;">视频</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/">移动Web适配</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/ArrayBuffer-%E4%BB%8B%E7%BB%8D/">ArrayBuffer 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">js 实现文件下载</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%B9%B6%E9%A2%84%E8%A7%88/">js 上传图片并预览</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/jQuery-Ajax-%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E2%80%9CIllegal-invocation%E2%80%9D/">jQuery Ajax 请求报错“Illegal invocation”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

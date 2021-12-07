@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>移动Web适配 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="基础概念设备像素或逻辑像素指设备能控制显示的最小物理单位，意指屏幕上一个个的点。 CSS像素或设备独立像素指CSS样式代码中使用的逻辑像素，即 px（在iPhone中单位为pt）。 像素密度（PPI）指设备能控制显示的最小物理单位，意指屏幕上一个个的点（&#x3D;设备像素或逻辑像素）。PPI 越高，分辨率也就越高。 像素比（DPR）像素比 &#x3D; 设备像素 &#x2F; CSS像素。 remrem 是一个相对单位，区别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动Web适配">
+<meta property="og:url" content="http://example.com/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基础概念设备像素或逻辑像素指设备能控制显示的最小物理单位，意指屏幕上一个个的点。 CSS像素或设备独立像素指CSS样式代码中使用的逻辑像素，即 px（在iPhone中单位为pt）。 像素密度（PPI）指设备能控制显示的最小物理单位，意指屏幕上一个个的点（&#x3D;设备像素或逻辑像素）。PPI 越高，分辨率也就越高。 像素比（DPR）像素比 &#x3D; 设备像素 &#x2F; CSS像素。 remrem 是一个相对单位，区别">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-06T10:32:33.000Z">
+<meta property="article:modified_time" content="2021-12-06T10:41:21.584Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-移动Web适配" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/" class="article-date">
+  <time class="dt-published" datetime="2021-12-06T10:32:33.000Z" itemprop="datePublished">2021-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      移动Web适配
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h3><h5 id="设备像素或逻辑像素"><a href="#设备像素或逻辑像素" class="headerlink" title="设备像素或逻辑像素"></a>设备像素或逻辑像素</h5><p>指设备能控制显示的最小物理单位，意指屏幕上一个个的点。</p>
+<h5 id="CSS像素或设备独立像素"><a href="#CSS像素或设备独立像素" class="headerlink" title="CSS像素或设备独立像素"></a>CSS像素或设备独立像素</h5><p>指CSS样式代码中使用的逻辑像素，即 px（在iPhone中单位为pt）。</p>
+<h5 id="像素密度（PPI）"><a href="#像素密度（PPI）" class="headerlink" title="像素密度（PPI）"></a>像素密度（PPI）</h5><p>指设备能控制显示的最小物理单位，意指屏幕上一个个的点（=设备像素或逻辑像素）。PPI 越高，分辨率也就越高。</p>
+<h5 id="像素比（DPR）"><a href="#像素比（DPR）" class="headerlink" title="像素比（DPR）"></a>像素比（DPR）</h5><p>像素比 = 设备像素 / CSS像素。</p>
+<h5 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h5><p>rem 是一个相对单位，区别于 em(相对于父亲的字体大小) ，它是相对于 html 的字体大小单位。</p>
+<br/>
+
+<h3 id="适配方案"><a href="#适配方案" class="headerlink" title="适配方案"></a>适配方案</h3><p>这里列举两种方案，其原理相同：</p>
+<p>设置样式的长度单位为 rem，然后通过监听浏览器窗口大小的变化，实时改变根元素字体大小，那么 1rem 所对应的 px 值也随之变化，达到适配各种终端的目的。</p>
+<h4 id="postcss-pxtorem-flexible-js"><a href="#postcss-pxtorem-flexible-js" class="headerlink" title="postcss-pxtorem + flexible.js"></a>postcss-pxtorem + flexible.js</h4><p>这个方法适用于 WebStorm。</p>
+<h5 id="1-安装-postcss-pxtorem"><a href="#1-安装-postcss-pxtorem" class="headerlink" title="1. 安装 postcss-pxtorem"></a>1. 安装 postcss-pxtorem</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i postcss-pxtorem@5.1.1 --save</span><br></pre></td></tr></table></figure>
+
+<p>注意，高版本的 postcss-pxtorem 会导致报错。</p>
+<h5 id="2-配置-package-json-文件"><a href="#2-配置-package-json-文件" class="headerlink" title="2. 配置 package.json 文件"></a>2. 配置 package.json 文件</h5><p>在 package.json 文件中添加如下内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;postcss&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;plugins&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;autoprefixer&quot;</span>: &#123;&#125;,</span><br><span class="line">      <span class="attr">&quot;postcss-pxtorem&quot;</span>: &#123;</span><br><span class="line">          <span class="attr">&quot;rootValue&quot;</span>: <span class="number">16</span>,</span><br><span class="line">          <span class="attr">&quot;propList&quot;</span>: [<span class="string">&quot;*&quot;</span>],</span><br><span class="line">          <span class="attr">&quot;minPixelValue&quot;</span>: <span class="number">2</span>,</span><br><span class="line">          <span class="attr">&quot;selectorBlackList&quot;</span>: [],</span><br><span class="line">          <span class="attr">&quot;unitPrecision&quot;</span>: <span class="number">5</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>plugins</code> 字段中包含的是 postcss 的各种插件。我们来看 postcss-pxtorem 的配置项：</p>
+<ul>
+<li>rootValue：根元素字体大小，浏览器默认为 16px</li>
+<li>propList：哪些属性需要转换成 rem，这里是全部</li>
+<li>minPixelValue：就是最小转换单位，这里为 2px，小于 2px 不进行转换</li>
+<li>selectorBlackList：是一个对 css 选择器进行过滤的数组，比如设置为[‘fs’]，那么例如 fs-xl 类型，里面有关 px 的样式将不被转化，这里也支持正则</li>
+<li>unitPrecision：表示转换为 rem 后保留几位小数</li>
+</ul>
+<h5 id="3-安装-flexible-js"><a href="#3-安装-flexible-js" class="headerlink" title="3. 安装 flexible.js"></a>3. 安装 flexible.js</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install lib-flexible --save</span><br></pre></td></tr></table></figure>
+
+<p> 打开 flexible.js，编辑源码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">refreshRem</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> width = docEl.getBoundingClientRect().width;</span><br><span class="line">    <span class="comment">// if (width / dpr &gt; 540) &#123;</span></span><br><span class="line">    <span class="comment">//     width = 540 * dpr;</span></span><br><span class="line">    <span class="comment">// &#125;  将这行代码注释</span></span><br><span class="line">    <span class="keyword">var</span> rem = width / <span class="number">10</span>; <span class="comment">// 根据需求将 10 换成其他数值</span></span><br><span class="line">    docEl.style.fontSize = rem + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">    flexible.rem = win.rem = rem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 body 的字体大小，目的是使根字体大小不影响页面默认字体大小</span></span><br><span class="line"><span class="comment">// 我们可以将 12 改为 16（浏览器默认字体大小）</span></span><br><span class="line"><span class="keyword">if</span> (doc.readyState === <span class="string">&#x27;complete&#x27;</span>) &#123;</span><br><span class="line">    doc.body.style.fontSize = <span class="number">12</span> * dpr + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    doc.addEventListener(<span class="string">&#x27;DOMContentLoaded&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        doc.body.style.fontSize = <span class="number">12</span> * dpr + <span class="string">&#x27;px&#x27;</span>;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-在-main-js-文件中引入-flexible-js"><a href="#4-在-main-js-文件中引入-flexible-js" class="headerlink" title="4. 在 main.js 文件中引入 flexible.js"></a>4. 在 main.js 文件中引入 flexible.js</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;lib-flexible/flexible&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：只有写在 <style> 标签中的样式才能被转换为 rem，内联样式不被转换。</p>
+<hr>
+<h4 id="flexible-js-cssrem"><a href="#flexible-js-cssrem" class="headerlink" title="flexible.js + cssrem"></a>flexible.js + cssrem</h4><p>这个方法适合用于 VS Code。</p>
+<h5 id="1-引入视口标签"><a href="#1-引入视口标签" class="headerlink" title="1. 引入视口标签"></a>1. 引入视口标签</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,user-scalable=no initial-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-引入-flexible-js"><a href="#2-引入-flexible-js" class="headerlink" title="2. 引入 flexible.js"></a>2. 引入 flexible.js</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./flexible.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>源码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">flexible</span>(<span class="params"><span class="built_in">window</span>, <span class="built_in">document</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> docEl = <span class="built_in">document</span>.documentElement;</span><br><span class="line">    <span class="keyword">var</span> dpr = <span class="built_in">window</span>.devicePixelRatio || <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// adjust body font size</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setBodyFontSize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">document</span>.body) &#123;</span><br><span class="line">            <span class="built_in">document</span>.body.style.fontSize = <span class="number">12</span> * dpr + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">document</span>.addEventListener(<span class="string">&quot;DOMContentLoaded&quot;</span>, setBodyFontSize);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    setBodyFontSize();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// set 1rem = viewWidth / 10</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setRemUnit</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> rem = docEl.clientWidth / <span class="number">10</span>;</span><br><span class="line">        docEl.style.fontSize = rem + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    setRemUnit();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// reset rem unit on page resize</span></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&quot;resize&quot;</span>, setRemUnit);</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&quot;pageshow&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">            setRemUnit();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// detect 0.5px supports</span></span><br><span class="line">    <span class="keyword">if</span> (dpr &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> fakeBody = <span class="built_in">document</span>.createElement(<span class="string">&quot;body&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> testElement = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">        testElement.style.border = <span class="string">&quot;.5px solid transparent&quot;</span>;</span><br><span class="line">        fakeBody.appendChild(testElement);</span><br><span class="line">        docEl.appendChild(fakeBody);</span><br><span class="line">        <span class="keyword">if</span> (testElement.offsetHeight === <span class="number">1</span>) &#123;</span><br><span class="line">            docEl.classList.add(<span class="string">&quot;hairlines&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        docEl.removeChild(fakeBody);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>, <span class="built_in">document</span>);</span><br></pre></td></tr></table></figure>
+
+<p>配置与上面相似。</p>
+<h5 id="3-安装-cssrem-插件"><a href="#3-安装-cssrem-插件" class="headerlink" title="3. 安装 cssrem 插件"></a>3. 安装 cssrem 插件</h5><p>在 VS Code 的插件选项中搜索，然后点击安装。</p>
+<p>找到 cssrem 插件的设置，按照需要对里面的配置项进行配置。</p>
+<p>设置完之后，在打 px 的时候会有转换成 rem 的提示框，选择对应 rem 即可。</p>
+<p>大功告成！！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/" data-id="ckww1v2z100012ov47xj8ai7k" data-title="移动Web适配" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/10/21/JS/ArrayBuffer-%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ArrayBuffer 介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flask/">Flask</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Opencv/">Opencv</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue3/">Vue3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayBuffer/" rel="tag">ArrayBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pillow/" rel="tag">Pillow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/argparse/" rel="tag">argparse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepin/" rel="tag">deepin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/falsk/" rel="tag">falsk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/" rel="tag">moviepy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pathlib/" rel="tag">pathlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/" rel="tag">xml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yaml/" rel="tag">yaml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91/" rel="tag">视频</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ArrayBuffer/" style="font-size: 10px;">ArrayBuffer</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Pillow/" style="font-size: 10px;">Pillow</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.11px;">ajax</a> <a href="/tags/argparse/" style="font-size: 10px;">argparse</a> <a href="/tags/deepin/" style="font-size: 11.11px;">deepin</a> <a href="/tags/django/" style="font-size: 12.22px;">django</a> <a href="/tags/falsk/" style="font-size: 10px;">falsk</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 17.78px;">js</a> <a href="/tags/linux/" style="font-size: 14.44px;">linux</a> <a href="/tags/moviepy/" style="font-size: 10px;">moviepy</a> <a href="/tags/mysql/" style="font-size: 11.11px;">mysql</a> <a href="/tags/opencv/" style="font-size: 12.22px;">opencv</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pathlib/" style="font-size: 10px;">pathlib</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 13.33px;">redis</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 11.11px;">selenium</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.89px;">前端</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 15.56px;">后端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.11px;">机器学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 10px;">视频</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/">移动Web适配</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/ArrayBuffer-%E4%BB%8B%E7%BB%8D/">ArrayBuffer 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">js 实现文件下载</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%B9%B6%E9%A2%84%E8%A7%88/">js 上传图片并预览</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/jQuery-Ajax-%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E2%80%9CIllegal-invocation%E2%80%9D/">jQuery Ajax 请求报错“Illegal invocation”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>数据分析--Pandas | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Pandas简介1、Python Data Analysis Library 或 Pandas 是基于NumPy 的一种工具，该工具是为了解决数据分析任务而创建的。Pandas 纳入了大量库和一些标准的数据模型，提供了高效地操作大型数据集所需的工具。Pandas提供了大量能使我们快速便捷地处理数据的函数和方法。你很快就会发现，它是使Python成为强大而高效的数据分析环境的重要因素之一。 2、数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析--Pandas">
+<meta property="og:url" content="http://example.com/2021/07/22/python%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-Pandas/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Pandas简介1、Python Data Analysis Library 或 Pandas 是基于NumPy 的一种工具，该工具是为了解决数据分析任务而创建的。Pandas 纳入了大量库和一些标准的数据模型，提供了高效地操作大型数据集所需的工具。Pandas提供了大量能使我们快速便捷地处理数据的函数和方法。你很快就会发现，它是使Python成为强大而高效的数据分析环境的重要因素之一。 2、数据">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJKBIs.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJKaqg.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJK0aj.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJKNM8.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJKGGt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJKJRP.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJKYxf.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMeFs.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJKUsS.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJKrin.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMsTH.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMtYR.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMDmD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQeBD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMw6K.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMGTJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJM8w4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMaSx.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJM0OO.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMgfI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMctA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJM6kd.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJMr0e.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQqVe.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQO5d.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQLUH.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQ7DO.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQTKK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQHbD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQjPA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQx2t.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQv8I.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlpKf.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJQzxP.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlurT.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlQZF.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlKqU.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJl1IJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJl8i9.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlla4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlUsK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlyRI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlGGR.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlJR1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlNM6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlYxx.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlwZD.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlaqO.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlsJA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJl0de.png">
+<meta property="og:image" content="https://s2.ax1x.com/2019/02/04/kJlBIH.png">
+<meta property="article:published_time" content="2021-07-22T03:38:51.000Z">
+<meta property="article:modified_time" content="2021-10-16T13:38:36.325Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="pandas">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2019/02/04/kJKBIs.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python基础/数据分析-Pandas" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/07/22/python%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-Pandas/" class="article-date">
+  <time class="dt-published" datetime="2021-07-22T03:38:51.000Z" itemprop="datePublished">2021-07-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      数据分析--Pandas
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Pandas简介"><a href="#Pandas简介" class="headerlink" title="Pandas简介"></a>Pandas简介</h3><p>1、Python Data Analysis Library 或 Pandas 是基于NumPy 的一种工具，该工具是为了解决数据分析任务而创建的。Pandas 纳入了大量库和一些标准的数据模型，提供了高效地操作大型数据集所需的工具。Pandas提供了大量能使我们快速便捷地处理数据的函数和方法。你很快就会发现，它是使Python成为强大而高效的数据分析环境的重要因素之一。</p>
+<p>2、数据结构：</p>
+<ul>
+<li><strong>Series：</strong> 一维数组，与Numpy中的一维array类似。二者与Python基本的数据结构List也很相近，其区别是：List中的元素可以是不同的数据类型，而Array和Series中则只允许存储相同的数据类型，这样可以更有效的使用内存，提高运算效率。</li>
+<li><strong>Time- Series：</strong> 以时间为索引的Series。</li>
+<li><strong>DataFrame：</strong> 二维的表格型数据结构。很多功能与R中的data.frame类似。可以将DataFrame理解为Series的容器。以下的内容主要以DataFrame为主。</li>
+<li><strong>Panel ：</strong> 三维的数组，可以理解为DataFrame的容器。</li>
+</ul>
+<p>Pandas 有两种自己独有的基本数据结构。读者应该注意的是，它固然有着两种数据结构，因为它依然是 Python 的一个库，所以，Python 中有的数据类型在这里依然适用，也同样还可以使用类自己定义数据类型。只不过，Pandas 里面又定义了两种数据类型：Series 和 DataFrame，它们让数据操作更简单了。</p>
+<span id="more"></span>
+
+<p>运行环境：<strong>jupyter notebook</strong><br>参考链接：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/chaosimple/p/4153083.html">十分钟搞定pandas</a></p>
+<hr>
+<blockquote>
+<p>本文是对pandas官方网站上《10 Minutes to pandas》的一个简单的翻译，原文在<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html">这里</a>。这篇文章是对pandas的一个简单的介绍，详细的介绍请参考：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/cookbook.html">Cookbook</a> 。习惯上，我们会按下面格式引入所需要的包：</p>
+</blockquote>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJKBIs.png" alt="img"></p>
+<h3 id="一、创建对象"><a href="#一、创建对象" class="headerlink" title="一、创建对象"></a>一、创建对象</h3><p>可以通过 <a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html">Data Structure Intro Setion</a> 来查看有关该节内容的详细信息。</p>
+<p><strong>1.1</strong> 可以通过传递一个list对象来创建一个Series，pandas会默认创建整型索引：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJKaqg.png" alt="img"></p>
+<p><strong>1.2</strong> 通过传递一个numpy array，时间索引以及列标签来创建一个DataFrame：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJK0aj.png" alt="img"></p>
+<p><strong>1.3</strong> 通过传递一个能够被转换成类似序列结构的字典对象来创建一个DataFrame：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJKNM8.png" alt="img"></p>
+<p><strong>1.4</strong> 查看不同列的数据类型：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJKGGt.png" alt="img"></p>
+<hr>
+<h3 id="二、查看数据"><a href="#二、查看数据" class="headerlink" title="二、查看数据"></a>二、查看数据</h3><p>详情请参阅：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/getting_started/basics.html">Basics Section</a></p>
+<p><strong>2.1</strong> 查看frame中头部和尾部的行：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJKJRP.png" alt="img"></p>
+<p><strong>2.2</strong> 显示索引、列和底层的numpy数据：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJKYxf.png" alt="img"></p>
+<p><strong>2.3</strong> describe()函数对于数据的快速统计汇总：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMeFs.png" alt="img"></p>
+<p><strong>2.4</strong> 对数据的转置：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJKUsS.png" alt="img"></p>
+<p><strong>2.5</strong> 按轴进行排序</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJKrin.png" alt="img"></p>
+<hr>
+<h3 id="三、选择"><a href="#三、选择" class="headerlink" title="三、选择"></a>三、选择</h3><p>虽然标准的Python/Numpy的选择和设置表达式都能够直接派上用场，但是作为工程使用的代码，我们推荐使用经过优化的pandas数据访问方式： .at, .iat, .loc, .iloc 和 .ix详情请参阅<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">Indexing and Selecing Data</a> 和 <a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html">MultiIndex / Advanced Indexing</a>。</p>
+<h4 id="3-1-获取"><a href="#3-1-获取" class="headerlink" title="3.1 获取"></a>3.1 获取</h4><p><strong>3.1.1</strong> 选择一个单独的列，这将会返回一个Series，等同于df.A：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMsTH.png" alt="img"></p>
+<p><strong>3.1.2</strong> 通过[ ]进行选择，这将会对行进行切片</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMtYR.png" alt="img"></p>
+<h4 id="3-2-通过标签选择"><a href="#3-2-通过标签选择" class="headerlink" title="3.2 通过标签选择"></a>3.2 通过标签选择</h4><p><strong>3.2.1</strong> 使用标签来获取一个交叉的区域</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMDmD.png" alt="img"></p>
+<p><strong>3.2.2</strong> 通过标签来在多个轴上进行选择</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQeBD.png" alt="img"></p>
+<p><strong>3.2.3</strong> 标签切片</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMw6K.png" alt="img"></p>
+<p><strong>3.2.4</strong> 获取一个标量</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMGTJ.png" alt="img"></p>
+<h4 id="3-3-通过位置选择"><a href="#3-3-通过位置选择" class="headerlink" title="3.3 通过位置选择"></a>3.3 通过位置选择</h4><p><strong>3.3.1</strong> 通过传递数值进行位置选择（选择的是行）</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJM8w4.png" alt="img"></p>
+<p><strong>3.3.2</strong> 通过数值进行切片，与numpy/python中的情况类似</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMaSx.png" alt="img"></p>
+<p><strong>3.3.3</strong> 通过指定一个位置的列表，与numpy/python中的情况类似</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJM0OO.png" alt="img"></p>
+<p><strong>3.3.4</strong> 对行进行切片</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMgfI.png" alt="img"></p>
+<p><strong>3.3.5</strong> 对列进行切片</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMctA.png" alt="img"></p>
+<p><strong>3.3.6</strong> 获取特定的值</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJM6kd.png" alt="img"></p>
+<h4 id="3-4-布尔索引"><a href="#3-4-布尔索引" class="headerlink" title="3.4 布尔索引"></a>3.4 布尔索引</h4><p><strong>3.4.1</strong> 使用一个单独列的值来选择数据：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJMr0e.png" alt="img"></p>
+<p><strong>3.4.2</strong> 使用where操作来选择数据：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQqVe.png" alt="img"></p>
+<p><strong>3.4.3</strong> 使用isin()方法来过滤：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQO5d.png" alt="img"></p>
+<h4 id="3-5-设置"><a href="#3-5-设置" class="headerlink" title="3.5 设置"></a>3.5 设置</h4><p><strong>3.5.1</strong> 设置一个新的列：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQLUH.png" alt="img"></p>
+<p><strong>3.5.2</strong> 通过标签设置新的值：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQ7DO.png" alt="img"></p>
+<p><strong>3.5.3</strong> 通过位置设置新的值：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQTKK.png" alt="img"></p>
+<p><strong>3.5.4</strong> 通过一个numpy数组设置一组新值：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQHbD.png" alt="img"></p>
+<p><strong>上述操作结果如下：</strong></p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQjPA.png" alt="img"></p>
+<hr>
+<h3 id="四、缺失值处理"><a href="#四、缺失值处理" class="headerlink" title="四、缺失值处理"></a>四、缺失值处理</h3><p>在pandas中，使用np.nan来代替缺失值，这些值将默认不会包含在计算中，详情请参阅：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html">Missing Data Section</a>。</p>
+<p><strong>4.1</strong> reindex()方法可以对指定轴上的索引进行改变/增加/删除操作，这将返回原始数据的一个拷贝：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQx2t.png" alt="img"></p>
+<p><strong>4.2</strong> 去掉包含缺失值的行：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQv8I.png" alt="img"></p>
+<p><strong>4.3</strong> 对缺失值进行填充：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlpKf.png" alt="img"></p>
+<p><strong>4.4</strong> 对数据进行布尔填充：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJQzxP.png" alt="img"></p>
+<hr>
+<h3 id="五、相关操作"><a href="#五、相关操作" class="headerlink" title="五、相关操作"></a>五、相关操作</h3><p>详情请参与 <a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/getting_started/basics.html">Basic Section On Binary Ops</a></p>
+<h4 id="5-1-统计（相关操作通常情况下不包括缺失值）"><a href="#5-1-统计（相关操作通常情况下不包括缺失值）" class="headerlink" title="5.1 统计（相关操作通常情况下不包括缺失值）"></a>5.1 统计（相关操作通常情况下不包括缺失值）</h4><p><strong>5.1.1</strong> 执行描述性统计：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlurT.png" alt="img"></p>
+<p><strong>5.1.2</strong> 在其他轴上进行相同的操作：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlQZF.png" alt="img"></p>
+<h4 id="5-2-APPLY"><a href="#5-2-APPLY" class="headerlink" title="5.2 APPLY"></a>5.2 APPLY</h4><p><strong>5.2.1</strong> 对数据应用函数：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlKqU.png" alt="img"></p>
+<h4 id="5-3-直方图"><a href="#5-3-直方图" class="headerlink" title="5.3 直方图"></a>5.3 直方图</h4><p>具体请参照：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/getting_started/basics.html">Histogramming and Discretization</a></p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJl1IJ.png" alt="img"></p>
+<h4 id="5-4-字符串方法"><a href="#5-4-字符串方法" class="headerlink" title="5.4 字符串方法"></a>5.4 字符串方法</h4><p>Series对象在其str属性中配备了一组字符串处理方法，可以很容易的应用到数组中的每个元素，如下段代码所示。更多详情请参考：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/text.html">Vectorized String Methods</a>.</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJl8i9.png" alt="img"></p>
+<h3 id="六、合并"><a href="#六、合并" class="headerlink" title="六、合并"></a>六、合并</h3><p>Pandas提供了大量的方法能够轻松的对Series，DataFrame和Panel对象进行各种符合各种逻辑关系的合并操作。具体请参阅：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">Merging section</a></p>
+<p><strong>6.1</strong> Concat</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlla4.png" alt="img"></p>
+<p><strong>6.2</strong> Append<br>将一行连接到一个DataFrame上，具体请参阅<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">Appending</a>：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlUsK.png" alt="img"></p>
+<hr>
+<h3 id="七、分组"><a href="#七、分组" class="headerlink" title="七、分组"></a>七、分组</h3><p>对于”group by”操作，我们通常是指以下一个或多个操作步骤：</p>
+<ul>
+<li>（Splitting）按照一些规则将数据分为不同的组；</li>
+<li>（Applying）对于每组数据分别执行一个函数；</li>
+<li>（Combining）将结果组合到一个数据结构中；</li>
+</ul>
+<p>详情请参阅：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">Grouping section</a></p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlyRI.png" alt="img"></p>
+<p><strong>7.1</strong> 分组并对每个分组执行sum函数：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlGGR.png" alt="img"></p>
+<p><strong>7.2</strong> 通过多个列进行分组形成一个层次索引，然后执行函数：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlJR1.png" alt="img"></p>
+<hr>
+<h3 id="八、Categorical"><a href="#八、Categorical" class="headerlink" title="八、Categorical"></a>八、Categorical</h3><p>从0.15版本开始，pandas可以在DataFrame中支持Categorical类型的数据，详细 介绍参看：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/categorical.html">categorical introduction</a> 和 <a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/reference/index.html">API documentation</a>。</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlNM6.png" alt="img"></p>
+<p><strong>8.1</strong> 将原始的grade转换为Categorical数据类型：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlYxx.png" alt="img"></p>
+<p><strong>8.2</strong> 将Categorical类型数据重命名为更有意义的名称：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlwZD.png" alt="img"></p>
+<p><strong>8.3</strong> 对类别进行重新排序，增加缺失的类别：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlaqO.png" alt="img"></p>
+<p><strong>8.4</strong> 对Categorical列进行排序时存在空的类别：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlsJA.png" alt="img"></p>
+<hr>
+<h3 id="九、画图"><a href="#九、画图" class="headerlink" title="九、画图"></a>九、画图</h3><p>具体文档参看：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">Plotting docs</a></p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJl0de.png" alt="img"></p>
+<p>对于DataFrame来说，plot是一种将所有列及其标签进行绘制的简便方法：</p>
+<p><img src="https://s2.ax1x.com/2019/02/04/kJlBIH.png" alt="img"></p>
+<hr>
+<h3 id="十、导入和保存数据"><a href="#十、导入和保存数据" class="headerlink" title="十、导入和保存数据"></a>十、导入和保存数据</h3><h4 id="10-1-CSV"><a href="#10-1-CSV" class="headerlink" title="10.1 CSV"></a>10.1 CSV</h4><p>参考：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">Writing to a csv file</a></p>
+<p><strong>10.1.1</strong> 写入csv文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_csv(&quot;xxx.csv&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>10.1.2</strong> 从csv文件中读取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_csv(&quot;xxx.csv&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="10-2-EXCEL"><a href="#10-2-EXCEL" class="headerlink" title="10.2 EXCEL"></a>10.2 EXCEL</h4><p>参考：<a target="_blank" rel="noopener" href="http://pandas.pydata.org/pandas-docs/stable/user_guide/io.html">MS Excel</a></p>
+<p><strong>10.2.1</strong> 写入excel文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.to_excel(&quot;xxx.xlsx&quot;,sheet_name = &#x27;Sheet1&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>10.2.2</strong> 从excel文件中读取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.read_excel(&#x27;xxx.xlsx&#x27;,&#x27;Sheet1&#x27;,index_col=None,na_values=[&#x27;NA&#x27;])</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/22/python%E5%9F%BA%E7%A1%80/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-Pandas/" data-id="ckww1v30u00572ov489ildh4x" data-title="数据分析--Pandas" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pandas/" rel="tag">pandas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/08/21/Python%E7%88%AC%E8%99%AB/selenium%E4%B8%8B%E8%BD%BD%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          selenium下载百度图片
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/26/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Vue-生命周期函数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flask/">Flask</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Opencv/">Opencv</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue3/">Vue3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayBuffer/" rel="tag">ArrayBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pillow/" rel="tag">Pillow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/argparse/" rel="tag">argparse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepin/" rel="tag">deepin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/falsk/" rel="tag">falsk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/" rel="tag">moviepy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pathlib/" rel="tag">pathlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/" rel="tag">xml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yaml/" rel="tag">yaml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91/" rel="tag">视频</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ArrayBuffer/" style="font-size: 10px;">ArrayBuffer</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Pillow/" style="font-size: 10px;">Pillow</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.11px;">ajax</a> <a href="/tags/argparse/" style="font-size: 10px;">argparse</a> <a href="/tags/deepin/" style="font-size: 11.11px;">deepin</a> <a href="/tags/django/" style="font-size: 12.22px;">django</a> <a href="/tags/falsk/" style="font-size: 10px;">falsk</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 17.78px;">js</a> <a href="/tags/linux/" style="font-size: 14.44px;">linux</a> <a href="/tags/moviepy/" style="font-size: 10px;">moviepy</a> <a href="/tags/mysql/" style="font-size: 11.11px;">mysql</a> <a href="/tags/opencv/" style="font-size: 12.22px;">opencv</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pathlib/" style="font-size: 10px;">pathlib</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 13.33px;">redis</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 11.11px;">selenium</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.89px;">前端</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 15.56px;">后端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.11px;">机器学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 10px;">视频</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/">移动Web适配</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/ArrayBuffer-%E4%BB%8B%E7%BB%8D/">ArrayBuffer 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">js 实现文件下载</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%B9%B6%E9%A2%84%E8%A7%88/">js 上传图片并预览</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/jQuery-Ajax-%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E2%80%9CIllegal-invocation%E2%80%9D/">jQuery Ajax 请求报错“Illegal invocation”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

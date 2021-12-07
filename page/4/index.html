@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Django/Django-数据库过滤器filter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/" class="article-date">
+  <time class="dt-published" datetime="2020-07-29T06:47:33.000Z" itemprop="datePublished">2020-07-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Django/">Django</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/">Django-数据库过滤器filter</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在做django项目时，难免会需要对数据库中的数据进行筛选，django有自己的数据库过滤语法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = User.objects.<span class="built_in">filter</span>()</span><br></pre></td></tr></table></figure>
+
+<p>其中有多种参数：</p>
+<ul>
+<li><code>__contains </code>：包含， like ‘%aaa%’； <code>__icontains </code>：包含（ 忽略大小写） ilike ‘%aaa%’，但是对于sqlite来说，contains的作用效果等同于 icontains</li>
+<li><code>__exact</code> ：精确等于， like ‘aaa’ ；<code>iexact</code> 精确等于（忽略大小写） ilike ‘aaa’</li>
+<li><code>__gt</code> 大于</li>
+<li><code>__gte</code> 大于等于</li>
+<li><code>__lt</code> 小于</li>
+<li><code>__lte</code> 小于等于</li>
+<li><code>__in</code> 存在于一个list范围内</li>
+<li><code>__startswith</code> 以…开头</li>
+<li><code>__istartswith</code> 以…开头 忽略大小写</li>
+<li><code>__endswith </code>以…结尾</li>
+<li><code>__iendswith</code> 以…结尾，忽略大小写</li>
+<li><code>__range</code> 在…范围内</li>
+<li><code>__year</code> 日期字段的年份</li>
+<li><code>__month</code> 日期字段的月份</li>
+<li><code>__day </code>日期字段的日</li>
+<li><code>__isnull</code>=True/False 空查询</li>
+</ul>
+<p><strong>“Q() |” 或  ；“&amp;”与(逗号效果一样) ； “~”非(不等于)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models imports Q</span><br><span class="line"></span><br><span class="line">XXX.objects.<span class="built_in">filter</span>(Q(id__gt=<span class="number">3</span>)|Q(bread__gt=<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/" data-id="ckww1v2zb000f2ov44ovidblx" data-title="Django-数据库过滤器filter" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue/Vue-实现路由跳转的几种方式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/07/29/Vue/Vue-%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2020-07-29T06:32:26.000Z" itemprop="datePublished">2020-07-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/07/29/Vue/Vue-%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">Vue-实现路由跳转传值的几种方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一、router-link"><a href="#一、router-link" class="headerlink" title="一、router-link"></a>一、router-link</h3><p>URL路径：<code>http://localhost:8080/#/test?userid=1</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123;path:&#x27;/test&#x27;,query: &#123;userid: id&#125;&#125;&quot;</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>接收数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="built_in">this</span>.$route.query.userid</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二、this-router-push"><a href="#二、this-router-push" class="headerlink" title="二、this.$router.push()"></a>二、this.$router.push()</h3><h4 id="1、使用path-query"><a href="#1、使用path-query" class="headerlink" title="1、使用path+query"></a>1、使用path+query</h4><p>URL路径：<code>http://localhost:8080/#/selectCate?userid=1</code></p>
+<p>发送数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">this</span>.$router.push(&#123;<span class="attr">path</span>:<span class="string">&#x27;/selectCate&#x27;</span>,<span class="attr">query</span>:&#123;<span class="attr">userid</span>:id&#125;&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>接收数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="built_in">this</span>.$route.query.userid;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、使用name-params"><a href="#2、使用name-params" class="headerlink" title="2、使用name+params"></a>2、使用name+params</h4><p>URL路径：<code>http://localhost:8081/#/selectCate</code></p>
+<p>发送数据：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">this</span>.$router.push(&#123;<span class="attr">name</span>:<span class="string">&#x27;selectCate&#x27;</span>,<span class="attr">params</span>:&#123;<span class="attr">userid</span>:id&#125;&#125;);</span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>接收数据：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="built_in">this</span>.$route.params.userid;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><em><strong>注意：</strong></em>使用query，传输的值会在url后面以参数的形式显示出来，可以刷新页面，数据不变；而使用params，参数不会出现在url后面，但是一刷新页面传的值就没了。</p>
+<h3 id="三、sessionStorage存值"><a href="#三、sessionStorage存值" class="headerlink" title="三、sessionStorage存值"></a>三、sessionStorage存值</h3><p>使用sessionstorage可以将值保存在浏览器上，方便存取。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.sessionStorage.setItem(<span class="string">&#x27;token&#x27;</span>, <span class="built_in">this</span>.token); <span class="comment">//存值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>); <span class="comment">//取值</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/07/29/Vue/Vue-%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" data-id="ckww1v30f003n2ov41e98f5gp" data-title="Vue-实现路由跳转传值的几种方式" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Django/Django-Paginator分页器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/07/07/Django/Django-Paginator%E5%88%86%E9%A1%B5%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2020-07-07T07:58:33.000Z" itemprop="datePublished">2020-07-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Django/">Django</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/07/07/Django/Django-Paginator%E5%88%86%E9%A1%B5%E5%99%A8/">Django-Paginator分页器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h4><p>1、导入Paginator</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.core.paginator <span class="keyword">import</span> Paginator</span><br></pre></td></tr></table></figure>
+
+
+
+<p> 2、创建分页对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">paginator = Paginator(<span class="built_in">list</span>, <span class="number">2</span>)  </span><br><span class="line"><span class="comment"># 第一个参数是访问数据库返回得到的一个对象</span></span><br><span class="line"><span class="comment"># 第二个参数表示每一页显示几条信息</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、创建单个页面的对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">page = paginator.page(page_index)</span><br><span class="line"><span class="comment"># 参数为页码</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2020/07/07/Django/Django-Paginator%E5%88%86%E9%A1%B5%E5%99%A8/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/07/07/Django/Django-Paginator%E5%88%86%E9%A1%B5%E5%99%A8/" data-id="ckww1v2z500042ov4202h76iz" data-title="Django-Paginator分页器" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-JS/JavaScript的宏任务与微任务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/06/22/JS/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/" class="article-date">
+  <time class="dt-published" datetime="2020-06-22T12:31:10.000Z" itemprop="datePublished">2020-06-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/06/22/JS/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/">JavaScript的宏任务与微任务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="一、同步任务与异步任务"><a href="#一、同步任务与异步任务" class="headerlink" title="一、同步任务与异步任务"></a>一、同步任务与异步任务</h3><p>首先，我们需要搞清楚同步任务和异步任务的概念以及工作原理。</p>
+<h6 id="同步任务"><a href="#同步任务" class="headerlink" title="同步任务"></a>同步任务</h6><p>同步任务指的是在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。</p>
+<h6 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h6><p>异步任务指的是刚开始不进入主线程，当主线程的任务执行完了之后再调用异步任务，异步任务任务才会进入主线程执行。（setTimeout， setInterval，promise，process.NextTick）</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/06/22/JS/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/06/22/JS/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/" data-id="ckww1v2ze000k2ov44ngo7r03" data-title="JavaScript的宏任务与微任务" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-python基础/python-视频的剪切与拼接" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/" class="article-date">
+  <time class="dt-published" datetime="2020-05-23T07:26:23.000Z" itemprop="datePublished">2020-05-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/">python-视频的剪切与拼接</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="1、导入moviepy的包"><a href="#1、导入moviepy的包" class="headerlink" title="1、导入moviepy的包"></a>1、导入moviepy的包</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> moviepy.editor <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、读取视频到内存"><a href="#2、读取视频到内存" class="headerlink" title="2、读取视频到内存"></a>2、读取视频到内存</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">video = VideoFileClip(path)</span><br></pre></td></tr></table></figure>
+
+<p>由此得到了一个VideoFileClip的对象，可通过对此对象的操作，实现对视频的操作。</p>
+<h4 id="3、对视频进行剪切"><a href="#3、对视频进行剪切" class="headerlink" title="3、对视频进行剪切"></a>3、对视频进行剪切</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">videoclip = video.subclip(time1, time2)</span><br></pre></td></tr></table></figure>
+
+<p><code>time1</code>：起始时长，<code>time2</code>：终止时长 ，单位均为秒。</p>
+<p><code>videoclip</code>是从时长time1到time2的视频的对象。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/" data-id="ckww1v30o004r2ov41w7b58d3" data-title="python-视频的剪切与拼接" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/moviepy/" rel="tag">moviepy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Linux/Linux-部署FastDFS分布式文件系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/20/Linux/Linux-%E9%83%A8%E7%BD%B2FastDFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2020-05-20T03:09:57.000Z" itemprop="datePublished">2020-05-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/05/20/Linux/Linux-%E9%83%A8%E7%BD%B2FastDFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">Linux-部署FastDFS分布式文件系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="一、安装fastdfs依赖包"><a href="#一、安装fastdfs依赖包" class="headerlink" title="一、安装fastdfs依赖包"></a>一、安装fastdfs依赖包</h4><ol>
+<li>解压缩libfastcommon-master.zip</li>
+<li>进入到libfastcommon-master的目录中</li>
+<li>执行 <code>./make.sh</code></li>
+<li>执行 <code>sudo ./make.sh install</code></li>
+</ol>
+<h4 id="二、安装fastdfs"><a href="#二、安装fastdfs" class="headerlink" title="二、安装fastdfs"></a>二、安装fastdfs</h4><ol>
+<li>解压缩fastdfs-master.zip</li>
+<li>进入到 fastdfs-master目录中</li>
+<li>执行 <code>./make.sh</code></li>
+<li>执行<code> sudo ./make.sh install</code></li>
+</ol>
+<h4 id="三、配置跟踪服务器tracker"><a href="#三、配置跟踪服务器tracker" class="headerlink" title="三、配置跟踪服务器tracker"></a>三、配置跟踪服务器tracker</h4><ol>
+<li>执行<code>sudo cp /etc/fdfs/tracker.conf.sample /etc/fdfs/tracker.conf</code></li>
+<li>在/home/python/目录中创建目录 fastdfs/tracker，<code>mkdir –p /data/home/silence/FastDFS/fastdfs/tracker</code></li>
+<li>编辑/etc/fdfs/tracker.conf配置文件  <code>sudo vim /etc/fdfs/tracker.conf</code>，修改 <code>base_path=/data/home/silence/FastDFS/fastdfs/tracker</code></li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2020/05/20/Linux/Linux-%E9%83%A8%E7%BD%B2FastDFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/20/Linux/Linux-%E9%83%A8%E7%BD%B2FastDFS%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" data-id="ckww1v2zu001v2ov4hrmc9cb6" data-title="Linux-部署FastDFS分布式文件系统" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Linux/Linux-Redis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/19/Linux/Linux-Redis/" class="article-date">
+  <time class="dt-published" datetime="2020-05-19T08:47:46.000Z" itemprop="datePublished">2020-05-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/05/19/Linux/Linux-Redis/">Linux-Redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="本机Linux中使用redis出现的问题"><a href="#本机Linux中使用redis出现的问题" class="headerlink" title="本机Linux中使用redis出现的问题"></a>本机Linux中使用redis出现的问题</h3><p>1、无论是在命令行修改配置文件，还是直接打开配置文件修改，重启之后配置文被重置，尽管打开配置文件发现是自己已经修改过的内容，但是在命令行使用<code>config get </code>查询之后与自己修改过的内容不一样。</p>
+<p>真的很奇怪！！！</p>
+<p>2、所以，每次启动redis都需要重新在命令行用<code>config set</code>修改配置文件，以满足自己的需求。</p>
+        
+          <p class="article-more-link">
+            <a href="/2020/05/19/Linux/Linux-Redis/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/19/Linux/Linux-Redis/" data-id="ckww1v2zm00182ov4fqg2e3co" data-title="Linux-Redis" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/" rel="tag">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Linux/Linux-deepin中安装mysql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/19/Linux/Linux-deepin%E4%B8%AD%E5%AE%89%E8%A3%85mysql/" class="article-date">
+  <time class="dt-published" datetime="2020-05-19T08:11:14.000Z" itemprop="datePublished">2020-05-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/05/19/Linux/Linux-deepin%E4%B8%AD%E5%AE%89%E8%A3%85mysql/">Linux-deepin中安装mysql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="我在安装过程中遇到的问题"><a href="#我在安装过程中遇到的问题" class="headerlink" title="我在安装过程中遇到的问题"></a>我在安装过程中遇到的问题</h4><p>1、执行指令：<code>sudo apt-get install mysql-server mysql-client</code>后报错：<strong>没有发现软件mysql-server  没有发现软件mysql-client</strong>。</p>
+<p>2、上网查询后，说要更换deepin的下载源，所以我先后试了阿里和中科大的镜像源，但还是报一样的错误。</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>确实是要更换镜像源，不过要换成清华的源。</p>
+<p>具体方法如下：</p>
+<p>1、执行命令：<code>vi /etc/apt/sources.list</code>编辑sources.list文件。</p>
+<p>2、将原文件中的所有内容注释掉，然后添加<code>deb [by-hash=force] https://mirrors.tuna.tsinghua.edu.cn/deepin panda main contrib non-free</code>，保存退出。</p>
+<p>3、执行<code>sudo apt-get update</code>，更新下载源。</p>
+<p>4、执行<code>sudo apt-get install mysql-server mysql-client</code>，安装成功。</p>
+<hr>
+<h4 id="2021-10-17-更新"><a href="#2021-10-17-更新" class="headerlink" title="2021.10.17 更新"></a>2021.10.17 更新</h4><p>由于 deepin 系统仓库的原因，不能直接 apt 安装 mysql，清华源以及其他源都没有 mysql-server 和 mysql-client 两个包。不过我们可以用 mariadb 来代替 mysql。</p>
+<h5 id="MariaDB-介绍"><a href="#MariaDB-介绍" class="headerlink" title="MariaDB 介绍"></a>MariaDB 介绍</h5><p>MariaDB数据库管理系统是 MySQL 的一个分支，主要由开源社区在维护，采用 GPL 授权许可。开发这个分支的原因之一是： 甲骨文公司收购了 MySQL 后，有将 MySQL 闭源的潜在风险，因此社区采用分支的方式来避开这个风险。 MariaDB的目的是完全兼容 MySQL，包括 API 和命令行，使之能轻松成为 MySQL 的代替品。</p>
+<p>这意味着，所有使用 MySQL 的连接器、程序库和应用程序也将可以在 MariaDB 下工作。</p>
+<p>所以，MariaDB 完全可以替代 MySQL。</p>
+<br/>
+
+<h5 id="deepin-安装-MariaDB"><a href="#deepin-安装-MariaDB" class="headerlink" title="deepin 安装 MariaDB"></a>deepin 安装 MariaDB</h5><p>打开终端执行以下指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mariadb-server</span><br><span class="line"></span><br><span class="line">sudo apt-get install libmariadbclient-dev libssl-dev</span><br></pre></td></tr></table></figure>
+
+<p>安装完成。</p>
+<p>启动数据库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start mysql</span><br></pre></td></tr></table></figure>
+
+<p>现在就可以开启 MariaDB 数据库了。第一次进入不需要密码，直接执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br></pre></td></tr></table></figure>
+
+<p>进入后可以设置密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; use mysql;</span><br><span class="line">MariaDB [mysql]&gt; UPDATE mysql.user SET password = PASSWORD(&#x27;newpassward&#x27;) WHERE user &#x27;root&#x27;;</span><br><span class="line">MariaDB [mysql]&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<p>退出再登陆就需要执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/19/Linux/Linux-deepin%E4%B8%AD%E5%AE%89%E8%A3%85mysql/" data-id="ckww1v2zp001j2ov4cfeo9m9m" data-title="Linux-deepin中安装mysql" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Linux/Linux-将windows下mysql数据库文件迁移到linux下的mysql中" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/19/Linux/Linux-%E5%B0%86windows%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB%E5%88%B0linux%E4%B8%8B%E7%9A%84mysql%E4%B8%AD/" class="article-date">
+  <time class="dt-published" datetime="2020-05-19T08:00:23.000Z" itemprop="datePublished">2020-05-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/05/19/Linux/Linux-%E5%B0%86windows%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB%E5%88%B0linux%E4%B8%8B%E7%9A%84mysql%E4%B8%AD/">Linux-将windows下mysql数据库文件迁移到linux下的mysql中</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="其实很简单，只需要三步"><a href="#其实很简单，只需要三步" class="headerlink" title="其实很简单，只需要三步"></a>其实很简单，只需要三步</h3><h6 id="第一步：从windows下的mysql导出"><a href="#第一步：从windows下的mysql导出" class="headerlink" title="第一步：从windows下的mysql导出"></a>第一步：从windows下的mysql导出</h6><p>打开cmd，执行以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p 数据库名&gt;文件名</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p dailyfresh&gt;D:database.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="第二步：将生成的database-txt文件复制到linux中，比如桌面"><a href="#第二步：将生成的database-txt文件复制到linux中，比如桌面" class="headerlink" title="第二步：将生成的database.txt文件复制到linux中，比如桌面"></a>第二步：将生成的database.txt文件复制到linux中，比如桌面</h6><h6 id="第三步：在linux下的mysql导入"><a href="#第三步：在linux下的mysql导入" class="headerlink" title="第三步：在linux下的mysql导入"></a>第三步：在linux下的mysql导入</h6><p>打开终端，执行以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p 数据库名&lt;文件名</span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p dailyfresh&lt;/data/home/silence/desktop/database.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意</strong>：此时可能会报错：<code>Unknown collation: &#39;utf8mb4_0900_ai_ci&#39;</code></p>
+<p><strong>解决方法：</strong></p>
+<ul>
+<li>打开导出的<code>database.text</code>文件</li>
+<li>将文件中所有的<code>utf8mb4_0900_ai_ci</code>替换为<code>utf8_general_c</code>，<code>utf8mb4</code>替换为<code>utf8</code></li>
+</ul>
+<p>进入mysql查看是否迁移成功。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/19/Linux/Linux-%E5%B0%86windows%E4%B8%8Bmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E8%BF%81%E7%A7%BB%E5%88%B0linux%E4%B8%8B%E7%9A%84mysql%E4%B8%AD/" data-id="ckww1v2zr001o2ov4fr7va4n2" data-title="Linux-将windows下mysql数据库文件迁移到linux下的mysql中" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue/Vue-CSS" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/13/Vue/Vue-CSS/" class="article-date">
+  <time class="dt-published" datetime="2020-05-13T03:15:22.000Z" itemprop="datePublished">2020-05-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2020/05/13/Vue/Vue-CSS/">Vue-CSS</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="一、从背景图片中截取一段小图"><a href="#一、从背景图片中截取一段小图" class="headerlink" title="一、从背景图片中截取一段小图"></a>一、从背景图片中截取一段小图</h4><p>在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。</p>
+<p>如下图：</p>
+<p><img src="https://s1.ax1x.com/2020/05/13/YaQmE8.jpg" alt="YaQmE8.jpg"></p>
+<p>当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。</p>
+<h6 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h6><p>背景图片默认放置在<code>div</code>的左上角，通过<code>background-position</code>可以改变图片的位置。</p>
+<p><code>background-position</code>有两个参数，第一个参数是将图片从<code>div</code>的左上角向左移动多少尺寸，第二个参数是将图片向上移动多少尺寸。</p>
+<p>例如选取上图中第二幅小图 ，小图的宽度为20px 高度为25px 则：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">          <span class="attribute">width</span>:<span class="number">20px</span>;</span></span><br><span class="line"><span class="css">          <span class="attribute">height</span>:<span class="number">25px</span>;</span></span><br><span class="line"><span class="css">          <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">image.png</span>)no-reapte <span class="number">0</span> <span class="number">25px</span>;</span></span><br><span class="line"><span class="css">         &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2020/05/13/Vue/Vue-CSS/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/05/13/Vue/Vue-CSS/" data-id="ckww1v30a00352ov44dt7dfkq" data-title="Vue-CSS" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flask/">Flask</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Opencv/">Opencv</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue3/">Vue3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayBuffer/" rel="tag">ArrayBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pillow/" rel="tag">Pillow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/argparse/" rel="tag">argparse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepin/" rel="tag">deepin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/falsk/" rel="tag">falsk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/" rel="tag">moviepy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pathlib/" rel="tag">pathlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/" rel="tag">xml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yaml/" rel="tag">yaml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91/" rel="tag">视频</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ArrayBuffer/" style="font-size: 10px;">ArrayBuffer</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Pillow/" style="font-size: 10px;">Pillow</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.11px;">ajax</a> <a href="/tags/argparse/" style="font-size: 10px;">argparse</a> <a href="/tags/deepin/" style="font-size: 11.11px;">deepin</a> <a href="/tags/django/" style="font-size: 12.22px;">django</a> <a href="/tags/falsk/" style="font-size: 10px;">falsk</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 17.78px;">js</a> <a href="/tags/linux/" style="font-size: 14.44px;">linux</a> <a href="/tags/moviepy/" style="font-size: 10px;">moviepy</a> <a href="/tags/mysql/" style="font-size: 11.11px;">mysql</a> <a href="/tags/opencv/" style="font-size: 12.22px;">opencv</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pathlib/" style="font-size: 10px;">pathlib</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 13.33px;">redis</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 11.11px;">selenium</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.89px;">前端</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 15.56px;">后端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.11px;">机器学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 10px;">视频</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/">移动Web适配</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/ArrayBuffer-%E4%BB%8B%E7%BB%8D/">ArrayBuffer 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">js 实现文件下载</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%B9%B6%E9%A2%84%E8%A7%88/">js 上传图片并预览</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/jQuery-Ajax-%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E2%80%9CIllegal-invocation%E2%80%9D/">jQuery Ajax 请求报错“Illegal invocation”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

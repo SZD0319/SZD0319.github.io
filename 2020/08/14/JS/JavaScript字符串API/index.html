@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>JavaScript字符串API | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="String.prototype.anchor()anchor()方法用于创建一个html描元素 12const str &#x3D; &amp;#x27;我是html内容&amp;#x27;.anchor(&amp;#x27;我是name属性值&amp;#x27;)console.log(str) &#x2F;&#x2F; &quot;&lt;a name&#x3D;&quot;我是name属性值&quot;&gt;我是html内容&lt;&#x2F;a&gt;&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript字符串API">
+<meta property="og:url" content="http://example.com/2020/08/14/JS/JavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2API/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="String.prototype.anchor()anchor()方法用于创建一个html描元素 12const str &#x3D; &amp;#x27;我是html内容&amp;#x27;.anchor(&amp;#x27;我是name属性值&amp;#x27;)console.log(str) &#x2F;&#x2F; &quot;&lt;a name&#x3D;&quot;我是name属性值&quot;&gt;我是html内容&lt;&#x2F;a&gt;&quot;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-14T06:26:56.000Z">
+<meta property="article:modified_time" content="2021-10-16T13:32:54.792Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-JS/JavaScript字符串API" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/14/JS/JavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2API/" class="article-date">
+  <time class="dt-published" datetime="2020-08-14T06:26:56.000Z" itemprop="datePublished">2020-08-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JS/">JS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      JavaScript字符串API
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h6 id="String-prototype-anchor"><a href="#String-prototype-anchor" class="headerlink" title="String.prototype.anchor()"></a>String.prototype.anchor()</h6><p>anchor()方法用于创建一个<a>html描元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;我是html内容&#x27;</span>.anchor(<span class="string">&#x27;我是name属性值&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(str) <span class="comment">// &quot;&lt;a name=&quot;我是name属性值&quot;&gt;我是html内容&lt;/a&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-bold"><a href="#String-prototype-bold" class="headerlink" title="String.prototype.bold()"></a>String.prototype.bold()</h6><p>bold()方法用于创建<b>html元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;aaa&#x27;</span>.bold()</span><br><span class="line"><span class="built_in">console</span>.log(str) <span class="comment">// &quot;&lt;b&gt;aaa&lt;/b&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-charAt"><a href="#String-prototype-charAt" class="headerlink" title="String.prototype.charAt()"></a>String.prototype.charAt()</h6><p>charAt()方法用于返回字符串指定位置的字符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;amz&#x27;</span>.charAt() <span class="comment">// &#x27;a&#x27;  不传索引则默认为0</span></span><br><span class="line"><span class="string">&#x27;amz&#x27;</span>.charAt(<span class="number">1</span>) <span class="comment">// &#x27;m&#x27; </span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-concat"><a href="#String-prototype-concat" class="headerlink" title="String.prototype.concat()"></a>String.prototype.concat()</h6><p>concat()将多个字符串拼接在一起</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="string">&#x27;aaa&#x27;</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="string">&#x27;bbb&#x27;</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="string">&#x27;ccc&#x27;</span>.concat(a, b, <span class="string">&#x27;ddd&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// &#x27;cccaaabbbddd&#x27; hs</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-endsWith"><a href="#String-prototype-endsWith" class="headerlink" title="String.prototype.endsWith()"></a>String.prototype.endsWith()</h6><p>endsWith()方法用于判断当前字符串是否以另一个给定字符串结尾</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;my name is amz&#x27;</span> </span><br><span class="line">name.endsWith(<span class="string">&#x27;z&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">name.endsWith(<span class="string">&#x27;mz&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">name.endsWith(<span class="string">&#x27;amz&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">name.endsWith(<span class="string">&#x27;is&#x27;</span>) <span class="comment">// falsejs</span></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h6 id="String-prototype-startsWith"><a href="#String-prototype-startsWith" class="headerlink" title="String.prototype.startsWith()"></a>String.prototype.startsWith()</h6><p>startsWith()判断当前字符串是否是以另外一个给定的子字符串开头</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;my name is amz&#x27;</span></span><br><span class="line">amz.startsWith(<span class="string">&#x27;my n&#x27;</span>) <span class="comment">//true</span></span><br><span class="line">amz.startsWith(<span class="string">&#x27;amz&#x27;</span>, <span class="number">11</span>) <span class="comment">// true  第二个参数是从哪里开始</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-includes"><a href="#String-prototype-includes" class="headerlink" title="String.prototype.includes()"></a>String.prototype.includes()</h6><p>includes()判断一个字符串是否包含在另一个字符串中</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;my name is amz&#x27;</span> </span><br><span class="line">name.includes(<span class="string">&#x27;amz&#x27;</span>) <span class="comment">//true</span></span><br><span class="line">name.includes(<span class="string">&#x27;s amz&#x27;</span>) <span class="comment">//true</span></span><br><span class="line">name.includes(<span class="string">&#x27;you&#x27;</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-indexOf"><a href="#String-prototype-indexOf" class="headerlink" title="String.prototype.indexOf()"></a>String.prototype.indexOf()</h6><p>indexOf()方法返回给定字符串在原字符串中<strong>首次</strong>出现的索引</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;my name is amz&#x27;</span></span><br><span class="line">name.indexOf(<span class="string">&#x27;my n&#x27;</span>) <span class="comment">//0   字符串可以给字符串</span></span><br><span class="line">name.indexOf(<span class="string">&#x27;y&#x27;</span>) <span class="comment">// 1</span></span><br><span class="line">name.indexOf(<span class="string">&#x27;m&#x27;</span>, <span class="number">6</span>) <span class="comment">//12     //第二个参数是从第几位开始找</span></span><br><span class="line">name.indexOf(<span class="string">&#x27;l&#x27;</span>) <span class="comment">// -1 没找到返回-1</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-lastIndexOf"><a href="#String-prototype-lastIndexOf" class="headerlink" title="String.prototype.lastIndexOf()"></a>String.prototype.lastIndexOf()</h6><p>lastIndexOf()方法返回给定字符串在原字符串中<strong>最后一次</strong>出现的索引</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;my name is amz&#x27;</span></span><br><span class="line">name.lastIndexOf(<span class="string">&#x27;m&#x27;</span>) <span class="comment">//12</span></span><br><span class="line">name.lastIndexOf(<span class="string">&#x27;m&#x27;</span>,<span class="number">7</span>) <span class="comment">//5 第二个参数是从第几位开始找，说白了 可以理解把name那个字符串从第七位截取，后面的不要了，　　　　　　　　　　　　　　//然后在应用一下name.lastIndexOf(&#x27;m&#x27;) ，　　　　　　　　　　　　　　//在理解一下，就是从第七位开始向前面找首次出现m的位置</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-link"><a href="#String-prototype-link" class="headerlink" title="String.prototype.link()"></a>String.prototype.link()</h6><p>link()方法用于创建一个<a>html标签</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">‘my name is amz’.link(<span class="string">&#x27;www.p8p7.com&#x27;</span>)  <span class="comment">// &lt;a href=&quot;www.p8p7.com&quot;&gt;my name is amz&lt;/a&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-padEnd"><a href="#String-prototype-padEnd" class="headerlink" title="String.prototype.padEnd()"></a>String.prototype.padEnd()</h6><p>padEnd()方法接受两个两个参数，第一个参数是目标字符串期望的长度，第二个参数是如果字符串长度没达到期望的长度就用第二个参数添加到目前字符串的尾部，使它达到期望的长度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">‘abc’.padEnd(<span class="number">5</span>) <span class="comment">// &#x27;abc  &#x27; 如果第二个参数没有传，就会用空格代替</span></span><br><span class="line">‘abc’.padEnd(<span class="number">2</span>, <span class="string">&#x27;amz&#x27;</span>) <span class="comment">// &#x27;abc&#x27; 如果期望长度小于目标字符串长度 那么就对目标字符串什么也不做，按照原来的返回</span></span><br><span class="line"><span class="string">&#x27;abc&#x27;</span>.padEnd(<span class="number">6</span>, <span class="string">&#x27;123456&#x27;</span>) <span class="comment">// &#x27;abc123&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-padStart"><a href="#String-prototype-padStart" class="headerlink" title="String.prototype.padStart()"></a>String.prototype.padStart()</h6><p>padStart()方法接受两个两个参数，第一个参数是目标字符串期望的长度，第二个参数是如果字符串长度没达到期望的长度就用第二个参数添加到目前字符串的前面，使它达到期望的长度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;abc&#x27;</span>.padStart(<span class="number">6</span>, <span class="string">&#x27;123456&#x27;</span>) <span class="comment">// &#x27;123abc&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-repeat"><a href="#String-prototype-repeat" class="headerlink" title="String.prototype.repeat()"></a>String.prototype.repeat()</h6><p>repeat()方法用于把字符串重复n次，n就是传递进去的参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;amz&#x27;</span>.repeat(<span class="number">3.5</span>)  <span class="comment">//&#x27;amzamzamz&#x27;  小说会转化成整数 向下取整</span></span><br><span class="line"><span class="string">&#x27;amz&#x27;</span>.repeat(<span class="number">0</span>)  <span class="comment">// ‘’ 重复0次就成了空字符串了</span></span><br><span class="line"><span class="string">&#x27;amz&#x27;</span>.repeat(<span class="number">1</span>) <span class="comment">// &#x27;amz&#x27;  重复1次</span></span><br><span class="line"><span class="string">&#x27;amz&#x27;</span>.repeat(<span class="number">2</span>) <span class="comment">// &#x27;amzamz&#x27;  重复2次</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-search"><a href="#String-prototype-search" class="headerlink" title="String.prototype.search()"></a>String.prototype.search()</h6><p>search()返回字符串在指定字符串首次出现的位置，如果没找到就返回-1</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;my name is amz&#x27;</span>.search(<span class="string">&#x27;amz&#x27;</span>)  <span class="comment">// 11</span></span><br><span class="line"><span class="string">&#x27;my name is amz&#x27;</span>.search(<span class="string">&#x27;my&#x27;</span>) <span class="comment">// 0</span></span><br><span class="line"><span class="string">&#x27;my name is amz&#x27;</span>.search(<span class="regexp">/amz/</span>) <span class="comment">// 11 也可以传正则表达式</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-slice"><a href="#String-prototype-slice" class="headerlink" title="String.prototype.slice()"></a>String.prototype.slice()</h6><p>slice()截取字符串的一部分，并返回这个新字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;my name is amz&#x27;</span>.slice(<span class="number">11</span>) <span class="comment">// &quot;amz&quot; 传递2个参数，第一个参数是从什么位置开始裁剪，第二个参数是 截取到什么地方，如果没传递第二个参数，就默认裁剪到最后一位</span></span><br><span class="line"><span class="string">&#x27;my name is amz&#x27;</span>.slice(<span class="number">0</span>,<span class="number">2</span>) <span class="comment">// &#x27;my&#x27; 从第1位裁剪到第三位</span></span><br><span class="line"><span class="string">&#x27;my name is amz&#x27;</span>.slice(<span class="number">0</span>,-<span class="number">1</span>) <span class="comment">// &quot;my name is am&quot;  两个参数都可以是负数， 负数参数相加原字符串的长度  也就是上面的意思是说 从第1位裁剪到&#x27;my name is amz&#x27;.length + -1的位置</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-split"><a href="#String-prototype-split" class="headerlink" title="String.prototype.split()"></a>String.prototype.split()</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">split()方法把字符串分割成数组</span><br><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;my name is amz&#x27;</span></span><br><span class="line">amz.split()  <span class="comment">//  [&#x27;my name is amz&#x27;]</span></span><br><span class="line">amz.split(<span class="string">&#x27; &#x27;</span>, <span class="number">2</span>)  <span class="comment">// [&#x27;m&#x27;, &#x27;y&#x27;]  第二个参数是获取字符串的几位，分割成数组</span></span><br><span class="line">amz.split(<span class="string">&#x27;name&#x27;</span>)  <span class="comment">// [&quot;my &quot;, &quot;is amz&quot;]   第一个参数是 拿掉字符串匹配的字符段 然后分割数组</span></span><br><span class="line">amz.split(<span class="string">&#x27;m&#x27;</span>)  <span class="comment">// [&quot;&quot;, &quot;y na&quot;, &quot;e is a&quot;, &quot;z&quot;]   第一个参数可以是正则表达式</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-substr"><a href="#String-prototype-substr" class="headerlink" title="String.prototype.substr()"></a>String.prototype.substr()</h6><p>substr()方法返回从指定位置开始 到指定数量的字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;my name is amz&#x27;</span></span><br><span class="line">amz.substr(<span class="number">3</span>) <span class="comment">// &#x27;name is amz&#x27;</span></span><br><span class="line">amz.substr(-<span class="number">3</span>) <span class="comment">// 字符串长度+ -3    ‘amz’</span></span><br><span class="line">amz.substr(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">// &#x27;am&#x27;  第二个参数是几位</span></span><br></pre></td></tr></table></figure>
+
+<p>如果开始位置也就是第一个字符串大于字符串长度，则返回一个空字符串 第二个位置超出了字符串剩余长度，则默认为字符串剩余长度。为负数则是字符串长度加负数，也就是说比如我第一个参数为-1 那么我剩余字符串长度是1了，最多只能复制一个长度为1的字符串，第二个值大于1都默认转化为1</p>
+<h6 id="String-prototype-substring"><a href="#String-prototype-substring" class="headerlink" title="String.prototype.substring()"></a>String.prototype.substring()</h6><p>substring()返回字符串从开始索引到结束索引之间的一个子集</p>
+<p>也就是提取从substring()第一个参数到第二个参数的 子字符串，参数均为整数，小于0都会被转化为0 ，如果大于字符串长度都会被转化为字符串长度 如果第二个参数大于第一个参数，则会默认吧两个参数位置调换</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;my name is amz&#x27;</span></span><br><span class="line">amz.substring(<span class="number">1</span>,<span class="number">4</span>) <span class="comment">// &#x27;y n&#x27;  从第一位截取第四位</span></span><br><span class="line">amz.substring(<span class="number">4</span>,<span class="number">1</span>) <span class="comment">// &#x27;y n&#x27;  因为第二个参数大于第一个参数，则默认调换她们的位置    所以还是从第一位截取第四位</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-toLocaleLowerCase"><a href="#String-prototype-toLocaleLowerCase" class="headerlink" title="String.prototype.toLocaleLowerCase()"></a>String.prototype.toLocaleLowerCase()</h6><p>toLocaleLowerCase()转化字符串为小写</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;my NAME is amz&#x27;</span></span><br><span class="line">amz.toLocaleLowerCase()  <span class="comment">//&#x27;my name is amz&#x27;</span></span><br><span class="line"><span class="keyword">const</span> amz1 = <span class="string">&#x27;MY NAME IS AMZ&#x27;</span> </span><br><span class="line">amz1.toLocaleLowerCase()  <span class="comment">//my name is amz&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-toLocaleUpperCase"><a href="#String-prototype-toLocaleUpperCase" class="headerlink" title="String.prototype.toLocaleUpperCase()"></a>String.prototype.toLocaleUpperCase()</h6><p>toLocaleUpperCase()将字符串转化为大写</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;my name IS amz&#x27;</span></span><br><span class="line">amz.toLocaleUpperCase() <span class="comment">// &#x27;&#x27;MY NAME IS AMZ</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-toUpperCase"><a href="#String-prototype-toUpperCase" class="headerlink" title="String.prototype.toUpperCase()"></a>String.prototype.toUpperCase()</h6><p>toUpperCase()和oLocaleUpperCase()方法一样 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;my name IS amz’</span></span><br><span class="line"><span class="string">amz.toUpperCase() // &#x27;</span><span class="string">&#x27;MY NAME IS AMZ</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-toString"><a href="#String-prototype-toString" class="headerlink" title="String.prototype.toString()"></a>String.prototype.toString()</h6><p>toString()反回指定对象的字符串形式 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;my name is amz‘</span></span><br><span class="line"><span class="string">amz.toString()  // &#x27;</span>my name is amz<span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-trim"><a href="#String-prototype-trim" class="headerlink" title="String.prototype.trim()"></a>String.prototype.trim()</h6><p>trim()清除字符串两端的空格</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;  my name is amz  ‘</span></span><br><span class="line"><span class="string">amz.trim()  // &#x27;</span>my name is amz<span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="String-prototype-trimLeft"><a href="#String-prototype-trimLeft" class="headerlink" title="String.prototype.trimLeft()"></a>String.prototype.trimLeft()</h6><p>trimLeft()方法清除字符串左边的空格</p>
+<h6 id="String-prototype-trimRight"><a href="#String-prototype-trimRight" class="headerlink" title="String.prototype.trimRight()"></a>String.prototype.trimRight()</h6><p>trimRight()方法清除字符串右边的空格</p>
+<h6 id="String-prototype-replace"><a href="#String-prototype-replace" class="headerlink" title="String.prototype.replace()"></a>String.prototype.replace()</h6><p>replace()方法返回一个由替换值 替换一些匹配到的新字符串，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> amz = <span class="string">&#x27;my name is amz‘</span></span><br><span class="line"><span class="string">amz.replace(/amz/, &#x27;</span><span class="number">123</span><span class="string">&#x27;) // &#x27;</span>my name is <span class="number">123</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">amz.replace(&#x27;</span>m<span class="string">&#x27;, &#x27;</span><span class="number">123</span><span class="string">&#x27;) //  &#x27;</span>123y name is amz<span class="string">&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以是正则表达式匹配 也可以是字符串匹配</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/08/14/JS/JavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2API/" data-id="ckww1v2zf000m2ov4h86ma2or" data-title="JavaScript字符串API" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/14/JS/JavaScrip%E6%95%B0%E7%BB%84API/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScrip数组API
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Django-数据库过滤器filter</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Flask/">Flask</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Opencv/">Opencv</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue3/">Vue3</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayBuffer/" rel="tag">ArrayBuffer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pillow/" rel="tag">Pillow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/argparse/" rel="tag">argparse</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepin/" rel="tag">deepin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/django/" rel="tag">django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/falsk/" rel="tag">falsk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/moviepy/" rel="tag">moviepy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv/" rel="tag">opencv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pandas/" rel="tag">pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pathlib/" rel="tag">pathlib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/" rel="tag">requests</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/selenium/" rel="tag">selenium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xml/" rel="tag">xml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yaml/" rel="tag">yaml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E7%AB%AF/" rel="tag">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%86%E9%A2%91/" rel="tag">视频</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/ArrayBuffer/" style="font-size: 10px;">ArrayBuffer</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Pillow/" style="font-size: 10px;">Pillow</a> <a href="/tags/Vue/" style="font-size: 16.67px;">Vue</a> <a href="/tags/ajax/" style="font-size: 11.11px;">ajax</a> <a href="/tags/argparse/" style="font-size: 10px;">argparse</a> <a href="/tags/deepin/" style="font-size: 11.11px;">deepin</a> <a href="/tags/django/" style="font-size: 12.22px;">django</a> <a href="/tags/falsk/" style="font-size: 10px;">falsk</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/js/" style="font-size: 17.78px;">js</a> <a href="/tags/linux/" style="font-size: 14.44px;">linux</a> <a href="/tags/moviepy/" style="font-size: 10px;">moviepy</a> <a href="/tags/mysql/" style="font-size: 11.11px;">mysql</a> <a href="/tags/opencv/" style="font-size: 12.22px;">opencv</a> <a href="/tags/pandas/" style="font-size: 10px;">pandas</a> <a href="/tags/pathlib/" style="font-size: 10px;">pathlib</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/redis/" style="font-size: 13.33px;">redis</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 11.11px;">selenium</a> <a href="/tags/xml/" style="font-size: 10px;">xml</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 18.89px;">前端</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 15.56px;">后端</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.11px;">机器学习</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E8%A7%86%E9%A2%91/" style="font-size: 10px;">视频</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/12/06/%E7%A7%BB%E5%8A%A8Web%E9%80%82%E9%85%8D/">移动Web适配</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/ArrayBuffer-%E4%BB%8B%E7%BB%8D/">ArrayBuffer 介绍</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/">js 实现文件下载</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/js-%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%B9%B6%E9%A2%84%E8%A7%88/">js 上传图片并预览</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/21/JS/jQuery-Ajax-%E8%AF%B7%E6%B1%82%E6%8A%A5%E9%94%99%E2%80%9CIllegal-invocation%E2%80%9D/">jQuery Ajax 请求报错“Illegal invocation”</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
