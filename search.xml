@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>python循环导入</title>
+      <link href="/2021/12/16/python%E5%9F%BA%E7%A1%80/python%E5%BE%AA%E7%8E%AF%E5%AF%BC%E5%85%A5/"/>
+      <url>/2021/12/16/python%E5%9F%BA%E7%A1%80/python%E5%BE%AA%E7%8E%AF%E5%AF%BC%E5%85%A5/</url>
+      
+        <content type="html"><![CDATA[<p>比如有如下目录结构：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root.py</span><br><span class="line">- A</span><br><span class="line">- __init__.py</span><br><span class="line">- a.py</span><br><span class="line">- B</span><br><span class="line">- __init__.py</span><br><span class="line">- b.py</span><br></pre></td></tr></table></figure><p>root.py：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> A.a <span class="keyword">import</span> class_a</span><br></pre></td></tr></table></figure><p>a.py：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> B.b <span class="keyword">import</span> class_b</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_a</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure><p>b.py：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> A.a <span class="keyword">import</span> class_a</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_b</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure><p>此时运行 root.py 会发生报错：</p><blockquote><p>ImportError: cannot import name ‘class_a’ from partially initialized module ‘A.a’ (most likely due to a circular import)</p></blockquote><span id="more"></span><p>我们来解析一下运行过程：</p><ol><li>执行 root.py 的 <code>from A.a import class_a</code>，发现需要导入模块 a</li><li>一个空的字典会被创建，对应 a 的 globals</li><li>a.py 中的代码会被执行，当执行到 <code>from B.b import class_b</code>  时，发现需要导入模块 b</li><li>一个空的字典会被创建，对应 b 的 globals</li><li>b.py 中的代码会被执行，当执行到 <code>from A.a import class_a</code>  时，发现需要导入模块 a，但此时已经有 a 的 globals 了，所以直接访问字典里的 class_a，但由于 a 的 globals 还是空的，即没有 class_a，所以抛出异常。</li></ol><p>总结：循环导入的根本原因就是在导入的时候， b 需要访问 a 的变量 class_a，而 class_a 没有初始化完成。</p><p><strong>解决方法：</strong></p><ol><li>在导入的时候，让 b 不要访问 a 的变量</li><li>class_a 初始化完成后，才让 b 访问 a 中的变量</li></ol><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><p>import 整个模块，而不是 import 模块中的变量。</p><p>root.py：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> A.a</span><br></pre></td></tr></table></figure><p>a.py：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> B.b</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_a</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure><p>b.py：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> A.a</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_b</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure><p>首先编译 a，编译过程中发现需要编译 b，编译 b 完成后，编译 a 剩下的部分。</p><br/><h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><p>把导入放在后面，或者把导入放在语句块中。</p><p>root.py：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> A.a <span class="keyword">import</span> class_a</span><br></pre></td></tr></table></figure><p>a.py：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_a</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> B.b <span class="keyword">import</span> class_b</span><br><span class="line">class_b()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_a</span>:</span></span><br><span class="line">    <span class="keyword">from</span> B.b <span class="keyword">import</span> class_b</span><br><span class="line">    class_b()</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>b.py：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_b</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> A.a <span class="keyword">import</span> class_a</span><br><span class="line">class_a()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">class_b</span>:</span></span><br><span class="line">    <span class="keyword">from</span> A.a <span class="keyword">import</span> class_a</span><br><span class="line">class_a()</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Flask上下文介绍</title>
+      <link href="/2021/12/16/Flask/Flask%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BB%8B%E7%BB%8D/"/>
+      <url>/2021/12/16/Flask/Flask%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BB%8B%E7%BB%8D/</url>
+      
+        <content type="html"><![CDATA[<p>在程序中我们所写的函数大都不是单独完整的，在使用一个函数完成自身功能的时候，很可能需要同其他的部分进行交互，需要其他外部变量的支持，上下文就是给外部的变量赋值，使函数能正确运行。</p><p>Flask 提供了两种上下文，一种是应用上下文(Application Context)，一种是请求上下文(Request Context)。</p><p>应用上下文和请求上下文都是存放到一个 LocalStack 的栈中的，在应用运行时框架底层会在每个请求进入的时候将请求上下文和应用上下文都推入栈中，因此，在视图函数中，不用担心上下文的问题。</p><span id="more"></span><p>那么不是视图函数的函数（也就是请求之外的函数）要使用如 current_app、request、url_for、<strong>app 配置项</strong>等依赖上下文的对象时会发生什么呢？当然是报错：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">... outside of application context</span><br><span class="line">... outside of request context</span><br></pre></td></tr></table></figure><p>这时，我们就需要手动将上下文推入到栈中。</p><p>推入请求上下文到栈中时，会自动首先判断有没有应用上下文，如果没有则会先推入应用上下文到栈中，然后再推入请求上下文到栈中。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with app.text_request_context():</span><br><span class="line">　　 print(current_app)</span><br></pre></td></tr></table></figure><p>推入应用上下文到栈中：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with app.app_context():</span><br><span class="line">　　 print(current_app)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Flask </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> flask </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>python装饰器</title>
       <link href="/2021/12/11/python%E5%9F%BA%E7%A1%80/python%E8%A3%85%E9%A5%B0%E5%99%A8/"/>
       <url>/2021/12/11/python%E5%9F%BA%E7%A1%80/python%E8%A3%85%E9%A5%B0%E5%99%A8/</url>
