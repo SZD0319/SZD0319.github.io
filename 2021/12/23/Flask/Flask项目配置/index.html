@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+  <link rel="mask-icon" href="/images/favicon.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CRoboto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-fill-left.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"szd0319.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","width":310,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+<meta name="description" content="创建项目flask  项目不能像 django 那样通过命令行创建，所以直接在 pycharm 中新建 Flask 项目。 假如我们创建了一个名为 Demo 的项目，那么创建好的项目目录如下所示： 1234Demo	- static	- templates	- app.py  只有两个文件夹和一个 py 文件，真不愧是轻量级框架。  static：存放静态资源，如 css，js templates">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask项目配置">
+<meta property="og:url" content="https://szd0319.github.io/2021/12/23/Flask/Flask%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="舞动的灵魂">
+<meta property="og:description" content="创建项目flask  项目不能像 django 那样通过命令行创建，所以直接在 pycharm 中新建 Flask 项目。 假如我们创建了一个名为 Demo 的项目，那么创建好的项目目录如下所示： 1234Demo	- static	- templates	- app.py  只有两个文件夹和一个 py 文件，真不愧是轻量级框架。  static：存放静态资源，如 css，js templates">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-23T13:23:29.000Z">
+<meta property="article:modified_time" content="2021-12-23T13:26:34.326Z">
+<meta property="article:author" content="Silence">
+<meta property="article:tag" content="redis">
+<meta property="article:tag" content="flask">
+<meta property="article:tag" content="celery">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://szd0319.github.io/2021/12/23/Flask/Flask%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://szd0319.github.io/2021/12/23/Flask/Flask%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/","path":"2021/12/23/Flask/Flask项目配置/","title":"Flask项目配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('加密文，来试试你的运气吧！') !== ''){
+                alert('要不要再尝试一次呢~~');
+                history.back();
+            }
+        }
+    })();
+</script><title>Flask项目配置 | 舞动的灵魂</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">舞动的灵魂</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">I am a good man</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE"><span class="nav-text">项目配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E2%80%9Capp%E2%80%9D"><span class="nav-text">创建“app”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">创建配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">配置数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85"><span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AE-settings-py"><span class="nav-text">2. 配置 settings.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE-app-init-py"><span class="nav-text">3. 配置 app&#x2F;init.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A8%A1%E5%9E%8B"><span class="nav-text">4. 创建数据库模型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">生成数据库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">使用数据库</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F"><span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-redis"><span class="nav-text">配置 redis</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-redis-%E6%94%AF%E6%8C%81%E5%8C%85"><span class="nav-text">安装 redis 支持包</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-settings-py"><span class="nav-text">配置 settings.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-webapp-init-py"><span class="nav-text">配置 webapp&#x2F;init.py</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flask-%E7%94%A8-redis-%E7%BC%93%E5%AD%98-session"><span class="nav-text">flask 用 redis 缓存 session</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-flask-session"><span class="nav-text">安装 flask-session</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-settings-py-1"><span class="nav-text">配置 settings.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-webapp-init-py-1"><span class="nav-text">配置 webapp&#x2F;init.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-session"><span class="nav-text">使用 session</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%A8-redis-%E5%81%9A-cache-%E7%BC%93%E5%AD%98"><span class="nav-text">用 redis 做 cache 缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-flask-cache"><span class="nav-text">安装 flask-cache</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-settings-py-2"><span class="nav-text">配置 settings.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-webapp-init-py-2"><span class="nav-text">配置 webapp&#x2F;init.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-cache"><span class="nav-text">使用 cache</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#flask-%E9%82%AE%E4%BB%B6"><span class="nav-text">flask 邮件</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-flask-mail"><span class="nav-text">安装 flask-mail</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-settings-py-3"><span class="nav-text">配置 settings.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-webapp-init-py-3"><span class="nav-text">配置 webapp&#x2F;init.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6"><span class="nav-text">发送邮件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#celery-%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97"><span class="nav-text">celery 任务队列</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-celery"><span class="nav-text">安装 celery</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-settings-py-4"><span class="nav-text">配置 settings.py</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9C%A8-webapp-init-py-%E4%B8%AD%E5%88%9B%E5%BB%BA-celery-%E5%AF%B9%E8%B1%A1"><span class="nav-text">在 webapp&#x2F;init.py 中创建 celery 对象</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%BB%BB%E5%8A%A1"><span class="nav-text">创建任务</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BB%BB%E5%8A%A1"><span class="nav-text">使用任务</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%80%E5%90%AF-celery-%E6%9C%8D%E5%8A%A1"><span class="nav-text">开启 celery 服务</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Silence"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">Silence</p>
+  <div class="site-description" itemprop="description">万花丛中过，片叶不沾身</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:silence@gmail.com" title="E-Mail → mailto:silence@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://jcoffeezph.top/" title="https:&#x2F;&#x2F;jcoffeezph.top&#x2F;" rel="noopener" target="_blank">ForMe</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://qzmvc1.top/" title="https:&#x2F;&#x2F;qzmvc1.top&#x2F;" rel="noopener" target="_blank">QzmVc1</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2021/12/23/Flask/Flask%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Flask项目配置
+        </h1>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-23 21:23:29 / 修改时间：21:26:34" itemprop="dateCreated datePublished" datetime="2021-12-23T21:23:29+08:00">2021-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>flask  项目不能像 django 那样通过命令行创建，所以直接在 pycharm 中新建 Flask 项目。</p>
+<p>假如我们创建了一个名为 Demo 的项目，那么创建好的项目目录如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Demo</span><br><span class="line">	- static</span><br><span class="line">	- templates</span><br><span class="line">	- app.py</span><br></pre></td></tr></table></figure>
+
+<p>只有两个文件夹和一个 py 文件，真不愧是轻量级框架。</p>
+<ul>
+<li>static：存放静态资源，如 css，js</li>
+<li>templates：存放模板，类似 django</li>
+<li>app.py：项目启动文件</li>
+</ul>
+<p>然后我们就可以启动项目了。在启动项目之前，需要设置 Flask 的环境变量，打开终端，执行以下指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$env:FLASK_APP=app.py</span><br></pre></td></tr></table></figure>
+
+<p>app.py 就是项目的入口文件，名字依个人而异。</p>
+<p>然后启动项目：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flask run</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<hr>
+<h3 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h3><h5 id="创建“app”"><a href="#创建“app”" class="headerlink" title="创建“app”"></a>创建“app”</h5><p>类似于 Django，我们需要创建一个“app”用来存放各个模块的视图函数、路由配置、模型文件等。</p>
+<p>在根目录下创建包 “webapp”，然后在 webapp 下创建所需的模块，再在每个模块下创建 views.py 存放视图函数，创建 models.py 存放数据库模型。</p>
+<p>目录结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Demo</span><br><span class="line">	- static</span><br><span class="line">	- templates</span><br><span class="line">	- webapp</span><br><span class="line">		- __init__.py</span><br><span class="line">		- user</span><br><span class="line">			- __init__.py</span><br><span class="line">			- views.py</span><br><span class="line">			- models.py</span><br><span class="line">		- order</span><br><span class="line">			- __init__.py</span><br><span class="line">			- views.py</span><br><span class="line">			- models.py</span><br><span class="line">		...</span><br><span class="line">	- app.py</span><br></pre></td></tr></table></figure>
+
+<p>webapp 下的 <strong>init</strong>.py 文件主要用于创建 flask 应用并加载配置，如 MySQL、redis等。</p>
+<p>user 和 order 下的 <strong>init</strong>.py 文件用于创建蓝图对象，然后在 views.py 文件中导入对象并使用。</p>
+<p>user/views.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> userApp</span><br><span class="line"></span><br><span class="line"><span class="meta">@userApp.route(<span class="params"><span class="string">&#x27;/user&#x27;</span></span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>():</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;silence&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>user/<strong>init</strong>.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Blueprint</span><br><span class="line"></span><br><span class="line">userApp = Blueprint(<span class="string">&#x27;user&#x27;</span>, __name__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> .view <span class="keyword">import</span> *  <span class="comment"># 写在末尾，不然会因循环导入报错</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<h5 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h5><p>在根目录新建 settings.py 文件，我们可以在其中自定义配置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span>:</span></span><br><span class="line">    <span class="comment"># 密钥，用于 session 加密</span></span><br><span class="line">    SECRET_KEY = <span class="string">&#x27;Sm9obiBTY2hyb20ga2lja3MgYXNz&#x27;</span></span><br><span class="line">    <span class="comment"># 数据库连接格式</span></span><br><span class="line">    SQLALCHEMY_DATABASE_URI = <span class="string">&quot;mysql+pymysql://user:password@localhost:3306/databasename?charset=utf8&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 发展环境配置</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DevelopmentConfig</span>(<span class="params">Config</span>):</span></span><br><span class="line">    DEBUG = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生产环境配置</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProductionConfig</span>(<span class="params">Config</span>):</span></span><br><span class="line">    DEBUG = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config = &#123;</span><br><span class="line">    <span class="string">&#x27;development&#x27;</span>: DevelopmentConfig,</span><br><span class="line">    <span class="string">&#x27;production&#x27;</span>: ProductionConfig</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置项是需要加载到项目中的，可以在 app.py 中加载，也可以在 webapp/<strong>init</strong>.py 中加载。</p>
+<p>项目默认在 app.py 中创建 Flask 实例，我们也可以将这部分代码封装到一个函数中，还可以添加更多的其它功能。</p>
+<p>在 webapp/<strong>init</strong>.py 中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> settings <span class="keyword">import</span> config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createApp</span>():</span></span><br><span class="line">    <span class="comment"># 创建 app</span></span><br><span class="line">    app = Flask(__name__)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 选择配置类</span></span><br><span class="line">    Config = config[<span class="string">&#x27;development&#x27;</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 加载配置</span></span><br><span class="line">    app.config.from_object(Config)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 注册蓝图</span></span><br><span class="line">    <span class="comment"># 在使用前 import，防止循环导入</span></span><br><span class="line">    <span class="keyword">from</span> .cart.view <span class="keyword">import</span> cartApp</span><br><span class="line">    app.register_blueprint(userApp)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">from</span> .user.view <span class="keyword">import</span> userApp</span><br><span class="line">    app.register_blueprint(cartApp)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> app</span><br></pre></td></tr></table></figure>
+
+<p>然后将注册好的 app 导入 app.py 文件中：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> webapp <span class="keyword">import</span> createAppapp = createApp()<span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:    app.run()</span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<h5 id="配置数据库"><a href="#配置数据库" class="headerlink" title="配置数据库"></a>配置数据库</h5><p>Flask-SQLAlchemy 是一款适用于 Flask 的数据库插件，它支持包含 MySQL、PostgreSQL 和 SQLite 在内的很多数据库软件。</p>
+<p>我们可以在开发的时候使用简单易用且无需另起服务的 SQLite（直接以 db 文件保存在项目中），需要部署应用到生产服务器上时，则选用更健壮的 MySQL 或 PostgreSQL 服务。</p>
+<h6 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h6><p>flask-sqlalchemy 用于连接数据库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-sqlalchemy</span><br></pre></td></tr></table></figure>
+
+<p>flask-migrate 用于迁移数据库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-migrate</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-配置-settings-py"><a href="#2-配置-settings-py" class="headerlink" title="2. 配置 settings.py"></a>2. 配置 settings.py</h6><p>在 settings.py 中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> osbasedir = os.path.abspath(os.path.dirname(__file__))<span class="class"><span class="keyword">class</span> <span class="title">Config</span>:</span>    <span class="comment"># 密钥，用于 session 加密    SECRET_KEY = &#x27;Sm9obiBTY2hyb20ga2lja3MgYXNz&#x27;# 发展环境配置class DevelopmentConfig(Config):    DEBUG = True    # 数据库连接格式    SQLALCHEMY_DATABASE_URI = os.environ.get(&#x27;DATABASE_URL&#x27;) or &#x27;sqlite:///&#x27; + os.path.join(basedir, &#x27;app.db&#x27;)    # 数据发生变更是否发信号给应用    SQLALCHEMY_TRACK_MODIFICATIONS = False# 生产环境配置class ProductionConfig(Config):    DEBUG = False    # 数据库连接格式    SQLALCHEMY_DATABASE_URI = &quot;mysql+pymysql://user:password@localhost:3306/databasename?charset=utf8&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>os.environ.get</code> 可以获取本机的用户环境变量，一些比较机密的数据可以放在环境变量里面，仅对自己可见。<code>or</code> 的作用是如果没有定义该环境变量，则选择后面的值。</p>
+<p>当然，发展环境也可以用 mysql 数据库。</p>
+<h6 id="3-配置-app-init-py"><a href="#3-配置-app-init-py" class="headerlink" title="3. 配置 app/init.py"></a>3. 配置 app/<strong>init</strong>.py</h6><p>在 webapp/<strong>init</strong>.py 文件中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemyfrom flask_migrate <span class="keyword">import</span> Migrate<span class="comment"># 创建数据库连接对象db = SQLAlchemy()# 创建数据库迁移对象migrate = Migrate()def createApp():    ...    # 初始化数据库连接对象    db.init_app(app)    # 初始化数据库迁移对象    migrate.init_app(app, db)    ...</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="4-创建数据库模型"><a href="#4-创建数据库模型" class="headerlink" title="4. 创建数据库模型"></a>4. 创建数据库模型</h6><p>在 user/models.py 中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> webapp <span class="keyword">import</span> dbclass User(db.Model):    __tablename__ = <span class="string">&quot;user&quot;</span>  <span class="comment"># 设置表名    id = db.Column(db.Integer, autoincrement=True, primary_key=True)    username = db.Column(db.String(50), unique=True, nullable=False)    email = db.Column(db.String(120), unique=True, nullable=False)    password = db.Column(db.String(20), nullable=False)</span></span><br></pre></td></tr></table></figure>
+
+<p>在 cart/models.py 中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> webapp <span class="keyword">import</span> dbclass Cart(db.Model):    __tablename__ = <span class="string">&quot;cart&quot;</span>  <span class="comment"># 设置表名    id = db.Column(db.Integer, autoincrement=True, primary_key=True)    user = db.Column(db.Integer, db.ForeignKey(‘user.id’)) # 外键 (‘表名.id’)    shopname = db.Column(db.String(200), nullable=False)    price = db.Column(db.Float(2), nullable=False)    date = db.Column(db.DateTime, nullable=False)</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="生成数据库"><a href="#生成数据库" class="headerlink" title="生成数据库"></a>生成数据库</h6><p>先初始化迁移文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flask db init</span><br></pre></td></tr></table></figure>
+
+<p>会发现根目录下多了一个 migrations 文件夹，就是生成的迁移文件。</p>
+<p>然后要创建数据表，有两种方法：</p>
+<ol>
+<li><p>在项目中的某个文件导入模型类或实例化模型类之后，在终端执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flask db migrateflask db  upgrade</span><br></pre></td></tr></table></figure></li>
+<li><p>不需要事先在项目中导入模型类，打开终端，进入 shell：<code>flask shell</code>，然后执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from webapp import db&gt;&gt;&gt; from webapp.user.models import User&gt;&gt;&gt; from webapp.cart.models import Cart&gt;&gt;&gt; db.create_all()&gt;&gt;&gt; quit()</span><br></pre></td></tr></table></figure>
+
+<p>此方法需要在 shell 中导入要创建的模型类。</p>
+</li>
+</ol>
+<p>之后如果更改了数据库，用以上两种方法即可。</p>
+<h6 id="使用数据库"><a href="#使用数据库" class="headerlink" title="使用数据库"></a>使用数据库</h6><p>在 user/view.py 中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> *@userApp.route(<span class="string">&#x27;/login&#x27;</span>, methods=[<span class="string">&#x27;post&#x27;</span>])<span class="function"><span class="keyword">def</span> <span class="title">login</span>():</span>    data = request.get_json()    username = data[<span class="string">&#x27;username&#x27;</span>]    password = data[<span class="string">&#x27;password&#x27;</span>]    email = data[<span class="string">&#x27;email&#x27;</span>]    user = User(username=username, password=password, email=email)    db.session.add(user) <span class="comment"># 添加数据    db.session.commit() # 提交更改    return jsonify(&#123;&#x27;username&#x27;: username, &#x27;password&#x27;: password&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p>关于更多 Falsk-SQLAlchemy 对数据库的操作，请看 <a target="_blank" rel="noopener" href="https://silenceszd.top/2021/12/08/Flask/Flask%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93/">Falsk-SQLAlchemy</a>。</p>
+<br/>
+
+<h5 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h5><p>安装 flask-cors：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-cors</span><br></pre></td></tr></table></figure>
+
+<p>在入口文件 app.py 中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_cors <span class="keyword">import</span> CORSCORS(app, ssupports_credentials=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>我们还可以规定 <code>origins</code>（请求源）、<code>methods</code>（请求方法）、<code>allow_headers</code>（允许的请求头）<code>supports_credentials</code>（是否支持 cookie）。</p>
+<br/>
+
+<h5 id="配置-redis"><a href="#配置-redis" class="headerlink" title="配置 redis"></a>配置 redis</h5><h6 id="安装-redis-支持包"><a href="#安装-redis-支持包" class="headerlink" title="安装 redis 支持包"></a>安装 redis 支持包</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-redis</span><br></pre></td></tr></table></figure>
+
+<h6 id="配置-settings-py"><a href="#配置-settings-py" class="headerlink" title="配置 settings.py"></a>配置 settings.py</h6><p>在 settings.py 文件中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REDIS_URL = <span class="string">&quot;redis://:password@localhost:6379/0&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="配置-webapp-init-py"><a href="#配置-webapp-init-py" class="headerlink" title="配置 webapp/init.py"></a>配置 webapp/<strong>init</strong>.py</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_redis <span class="keyword">import</span> FlaskRedis<span class="comment"># 创建 redis 对象redis_client = FlaskRedis()def createApp():    ...    # 初始化 redis 对象    redis_client.init_app(app)    ...</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来就可以通过 redis-client 操作 redis 数据库了。</p>
+<br/>
+
+<h5 id="flask-用-redis-缓存-session"><a href="#flask-用-redis-缓存-session" class="headerlink" title="flask 用 redis 缓存 session"></a>flask 用 redis 缓存 session</h5><h6 id="安装-flask-session"><a href="#安装-flask-session" class="headerlink" title="安装 flask-session"></a>安装 flask-session</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-session</span><br></pre></td></tr></table></figure>
+
+<h6 id="配置-settings-py-1"><a href="#配置-settings-py-1" class="headerlink" title="配置 settings.py"></a>配置 settings.py</h6><p>添加如下内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置 session# 存储方式SESSION_TYPE = &#x27;redis&#x27;# session 是否长期有效，如为 False 则关闭浏览器 session 失效SESSION_PERMANENT = True# session 如果设定为长期有效则设定 session 生命周期，单位是秒(默认为31天)PERMANENT_SESSION_LIFETIME = 60 * 60 * 24# 密钥，用于 session 加密SECRET_KEY = &#x27;Sm9obiBTY2hyb20ga2lja3MgYXNz&#x27;# 是否对发送到浏览器上 session 的 cookie 值进行加密SESSION_USE_SIGNER = True# 保存 session 对象的键的前缀SESSION_KEY_PREFIX = &#x27;session:&#x27;# 配置redis服务器参数，默认为 0 数据库SESSION_REDIS = StrictRedis(    host=&#x27;localhost&#x27;,    port=6379,    db=1,    password=&#x27;123456&#x27;)</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="配置-webapp-init-py-1"><a href="#配置-webapp-init-py-1" class="headerlink" title="配置 webapp/init.py"></a>配置 webapp/<strong>init</strong>.py</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_session <span class="keyword">import</span> Session<span class="comment"># 创建 session 对象session = Session()def createApp():    ...    # 初始化 redis 对象    session.init_app(app)    ...</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="使用-session"><a href="#使用-session" class="headerlink" title="使用 session"></a>使用 session</h6><p>我们虽然使用到了 flask-session，但它仅用来配置 session，使用 session 时还是要用 flask 模块中 session：</p>
+<p>user/view.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> session@userApp.route(<span class="string">&#x27;/register&#x27;</span>, methods=[<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;get&#x27;</span>])<span class="function"><span class="keyword">def</span> <span class="title">login</span>():</span>    <span class="comment"># 存    session[key] = value        # 取    val = session.get[key]    if val is None:        return &#x27;None&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<h5 id="用-redis-做-cache-缓存"><a href="#用-redis-做-cache-缓存" class="headerlink" title="用 redis 做 cache 缓存"></a>用 redis 做 cache 缓存</h5><p>当你的应用变慢的时候，可以考虑加入缓存。至少这是最简单的加速方法。缓存有什 么用？假设有一个函数耗时较长，但是这个函数在五分钟前返回的结果还是正确的， 那么我们就可以考虑把这个函数的结果在缓存中存放一段时间，当再次请求数据的时候直接从缓存中读取。</p>
+<h6 id="安装-flask-cache"><a href="#安装-flask-cache" class="headerlink" title="安装 flask-cache"></a>安装 flask-cache</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-cache</span><br></pre></td></tr></table></figure>
+
+<h6 id="配置-settings-py-2"><a href="#配置-settings-py-2" class="headerlink" title="配置 settings.py"></a>配置 settings.py</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CACHE_TYPE = <span class="string">&#x27;redis&#x27;</span>CACHE_REDIS_HOST = <span class="string">&#x27;localhost&#x27;</span>CACHE_REDIS_PORT = 6379CACHE_REDIS_DB = <span class="string">&#x27;2&#x27;</span>CACHE_REDIS_PASSWORD = <span class="string">&#x27;123456&#x27;</span>CACHE_DEFAULT_TIMEOUT = <span class="number">60</span> <span class="comment"># 过期时间</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="配置-webapp-init-py-2"><a href="#配置-webapp-init-py-2" class="headerlink" title="配置 webapp/init.py"></a>配置 webapp/<strong>init</strong>.py</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_cache <span class="keyword">import</span> Cache<span class="comment"># 创建 cache 对象cache = Cache()def createApp():    ...    # 初始化 cache 对象    cache.init_app(app)    ...</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="使用-cache"><a href="#使用-cache" class="headerlink" title="使用 cache"></a>使用 cache</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> webapp <span class="keyword">import</span> cachecache.<span class="built_in">set</span>(key, value)  <span class="comment"># 添加cache.get(key)  # 获取cache.delete(key) # 删除cache.clear() # 清除所有缓存</span></span><br></pre></td></tr></table></figure>
+
+<p>在 cart/view.py 文件中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> webapp <span class="keyword">import</span> cache@cartApp.route(<span class="string">&#x27;/cart&#x27;</span>, methods=[<span class="string">&#x27;get&#x27;</span>])@cache.cached(timeout=<span class="number">60</span>, key_prefix=<span class="string">&#x27;cart_index&#x27;</span>)<span class="function"><span class="keyword">def</span> <span class="title">getCartInfo</span>():</span>    ...</span><br></pre></td></tr></table></figure>
+
+<p>使用装饰函数 <code>@cache.cached</code> 修饰视图函数，表示将视图函数的返回结果缓存到 redis 中。并且 <strong>@cache.cached 必须在 @cartApp.route 之后</strong>。</p>
+<p><code>@cache.cached</code> 有两个参数，第一个表示过期时间，单位为秒，第二个表示保存在 redis 中的键的前缀。这个前缀名在删除缓存的时候可以用到。</p>
+<p>这种方法适用于对所有用户都相同的页面数据进行缓存。</p>
+<p>如果要针对每个用户单独进行缓存，可将用户的信息作为 cache 键的一部分，手动进行缓存：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> webapp <span class="keyword">import</span> cache@cartApp.route(<span class="string">&#x27;/cart&#x27;</span>, methods=[<span class="string">&#x27;get&#x27;</span>])<span class="function"><span class="keyword">def</span> <span class="title">getCartInfo</span>():</span>    username = session.get(<span class="string">&#x27;username&#x27;</span>)    <span class="keyword">if</span> cache.get(<span class="string">&#x27;cart_&#x27;</span>+username) <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:        data = cache.get(<span class="string">&#x27;cart_&#x27;</span>+username)    <span class="keyword">else</span>:        data = []        ...        key = <span class="string">&#x27;cart_&#x27;</span> + username        cache.<span class="built_in">set</span>(key, data)    ...</span><br></pre></td></tr></table></figure>
+
+<p>当一个视图函数的返回结果发生改变时，缓存也应该进行<strong>更新</strong>。更新的方法就是在结果发生改变的地方将缓存删除，那么当用户再次请求的时候就会生成新的缓存。</p>
+<br/>
+
+<h5 id="flask-邮件"><a href="#flask-邮件" class="headerlink" title="flask 邮件"></a>flask 邮件</h5><h6 id="安装-flask-mail"><a href="#安装-flask-mail" class="headerlink" title="安装 flask-mail"></a>安装 flask-mail</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-mail</span><br></pre></td></tr></table></figure>
+
+<h6 id="配置-settings-py-3"><a href="#配置-settings-py-3" class="headerlink" title="配置 settings.py"></a>配置 settings.py</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置邮件（网易邮箱）    MAIL_SERVER = &#x27;smtp.163.com&#x27;    MAIL_PORT = 465    MAIL_USE_SSL = True # 安全协议    MAIL_USERNAME = &#x27;silence@163.com&#x27; # 发信服务器的用户名    MAIL_PASSWORD = &#x27;&#x27; # 授权码    MAIL_DEFAULT_SENDER = (&#x27;Silence&#x27;, &#x27;silence@163.com&#x27;) # 默认发送人（姓名，邮箱地址）</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="配置-webapp-init-py-3"><a href="#配置-webapp-init-py-3" class="headerlink" title="配置 webapp/init.py"></a>配置 webapp/<strong>init</strong>.py</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_mail <span class="keyword">import</span> Mail<span class="comment"># 创建 mail 对象mail = Mail()def createApp():    ...    # 初始化 mail 对象    mail.init_app(app)    ...</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="发送邮件"><a href="#发送邮件" class="headerlink" title="发送邮件"></a>发送邮件</h6><p>在 user/view.py 中添加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_mail <span class="keyword">import</span> Messagefrom webapp <span class="keyword">import</span> mail@userApp.route(<span class="string">&#x27;/register&#x27;</span>, methods=[<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;get&#x27;</span>])<span class="function"><span class="keyword">def</span> <span class="title">register</span>():</span>    ...    <span class="comment"># 邮件主题    subject = &#x27;账号激活&#x27;    # 接收者    recipients = [email]    # 邮件内容（html）    html = &#x27;点击链接激活邮箱: &lt;a href=&quot;http://127.0.0.1:5000/check/%d&quot;&gt;xxxxxxxxx&lt;/a&gt;&#x27; %(user_id)    # 创建邮件内容    message = Message(subject=subject, recipients=recipients, html=html)    # 发送邮件    mail.send(message)    ...    # 用户点击链接访问此 url@userApp.route(&#x27;/check/&lt;id&gt;&#x27;)def chackid(id):    return str(id)</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<h5 id="celery-任务队列"><a href="#celery-任务队列" class="headerlink" title="celery 任务队列"></a>celery 任务队列</h5><p>celery 是异步任务队列，可以将一些比较耗时的操作（发送邮件）交给它来异步处理，这样用户不需要一直等待，以提高用户体验。</p>
+<h6 id="安装-celery"><a href="#安装-celery" class="headerlink" title="安装 celery"></a>安装 celery</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install celery</span><br></pre></td></tr></table></figure>
+
+<h6 id="配置-settings-py-4"><a href="#配置-settings-py-4" class="headerlink" title="配置 settings.py"></a>配置 settings.py</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置 celery# 消息中间件的保存位置CELERY_BROKER_URL = &#x27;redis://:123456@192.168.239.130:6379/3&#x27;# 返回结果的保存位置CELERY_RESULT_BACKEND = &#x27;redis://:123456@192.168.239.130:6379/3&#x27;# 任务过期时间CELERY_TASK_RESULT_EXPIRES = 120</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="在-webapp-init-py-中创建-celery-对象"><a href="#在-webapp-init-py-中创建-celery-对象" class="headerlink" title="在 webapp/init.py 中创建 celery 对象"></a>在 webapp/<strong>init</strong>.py 中创建 celery 对象</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celeryfrom settings <span class="keyword">import</span> Config			   <span class="comment"># app 名celery = Celery(__name__, broker=Config.CELERY_BROKER_URL, backend=Config.CELERY_RESULT_BACKEND)def createApp():    ...    # 完善 celery 配置    celery.conf.update(app.config)    ...</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="创建任务"><a href="#创建任务" class="headerlink" title="创建任务"></a>创建任务</h6><p>新建 tasks.py 文件，我们用 celery 来发送邮件，在其中添加如下内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> webapp <span class="keyword">import</span> celery, mail, createAppfrom flask_mail <span class="keyword">import</span> Message@celery.task()<span class="function"><span class="keyword">def</span> <span class="title">send_email</span>(<span class="params">user_id, email</span>):</span>    app = createApp()    mail.init_app(app)    <span class="comment"># 创建应用上下文    with app.app_context():        # 邮件主题        subject = &#x27;账号激活&#x27;        # 接收者        recipients = [email]        # 邮件内容（html）        html = &#x27;点击链接激活邮箱: &lt;a href=&quot;http://127.0.0.1:5000/check/%d&quot;&gt;xxxxxxxxx&lt;/a&gt;&#x27; % user_id        message = Message(subject=subject, recipients=recipients, html=html)        mail.send(message)</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 <code>@celery.task()</code> 装饰器来声明这是一个 celery 任务。</p>
+<p>关于 flask 应用上下文的介绍，请看 <a target="_blank" rel="noopener" href="https://silenceszd.top/2021/12/16/Flask/Flask%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BB%8B%E7%BB%8D/#more">Flask 应用上下文</a>。</p>
+<h6 id="使用任务"><a href="#使用任务" class="headerlink" title="使用任务"></a>使用任务</h6><p>在 user/view.py 文件中添加如下内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tasks <span class="keyword">import</span> send_email@userApp.route(<span class="string">&#x27;/register&#x27;</span>, methods=[<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;get&#x27;</span>])<span class="function"><span class="keyword">def</span> <span class="title">register</span>():</span>    ...    send_email.delay(user.<span class="built_in">id</span>, email)       ...</span><br></pre></td></tr></table></figure>
+
+<p><strong>celery 开启任务的方法：</strong></p>
+<ul>
+<li><p>```<br>delay(*args, **kwargs)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  直接发送一个任务消息，其传入的参数就是任务函数的参数。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  apply_async(countdown=60, expires=120)</span><br></pre></td></tr></table></figure>
+
+<p>从现在起一分钟执行，但在两分钟后过期。</p>
+</li>
+</ul>
+<h6 id="开启-celery-服务"><a href="#开启-celery-服务" class="headerlink" title="开启 celery 服务"></a>开启 celery 服务</h6><ul>
+<li><p>Windows：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install eventletcelery -A tasks worker -l info -P eventlet</span><br></pre></td></tr></table></figure></li>
+<li><p>Linux：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A tasks worker -l info</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>觉得本文对你有用的话，不妨打个赏吧~</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Silence 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Silence 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Silence
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://szd0319.github.io/2021/12/23/Flask/Flask%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/" title="Flask项目配置">https://szd0319.github.io/2021/12/23/Flask/Flask项目配置/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
+              <a href="/tags/flask/" rel="tag"><i class="fa fa-tag"></i> flask</a>
+              <a href="/tags/celery/" rel="tag"><i class="fa fa-tag"></i> celery</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/16/python%E5%9F%BA%E7%A1%80/python%E5%BE%AA%E7%8E%AF%E5%AF%BC%E5%85%A5/" rel="prev" title="python循环导入">
+                  <i class="fa fa-chevron-left"></i> python循环导入
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/23/Flask/python%E8%B0%83%E7%94%A8%E6%94%AF%E4%BB%98%E5%AE%9D%E6%8E%A5%E5%8F%A3/" rel="next" title="python调用支付宝接口">
+                  python调用支付宝接口 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Silence</span>
+</div>
+
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"SZD0319","repo":"SZD0319.github.io","client_id":"edad01c0f99e273ba171","client_secret":"c1c5aa218b3f7b1ef8ea15b13653ff935e425936","admin_user":"SZD0319","distraction_free_mode":false,"proxy":"https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"ba12425d790b93f077de22aa89cbe967"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+  
+ 
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+ 
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>
+
