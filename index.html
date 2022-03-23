@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -233,6 +233,187 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2022/03/23/JS/js%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/23/JS/js%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96/" class="post-title-link" itemprop="url">js数组扁平化</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-03-23 19:34:32 / 修改时间：19:36:18" itemprop="dateCreated datePublished" datetime="2022-03-23T19:34:32+08:00">2022-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>数组的成员有时还是数组，<code>Array.prototype.flat()</code> 用于将嵌套的数组“拉平”，变成一维数组。该方法返回一个新数组，对原数据没有影响。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]].flat()</span><br><span class="line"><span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，原数组的成员里面有一个数组，flat() 方法将子数组的成员取出来，添加在原来的位置。</p>
+<p>flat() 默认只会“拉平”一层，如果想要“拉平”多层的嵌套数组，可以将 flat() 方法的参数写成一个整数，表示想要拉平的层数，默认为1。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]].flat()</span><br><span class="line"><span class="comment">// [1, 2, 3, [4, 5]]</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]].flat(<span class="number">2</span>)</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，flat() 的参数为2，表示要拉平两层的嵌套数组。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/23/JS/js%E6%95%B0%E7%BB%84%E6%89%81%E5%B9%B3%E5%8C%96/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2022/03/23/JS/js%E9%80%89%E5%8F%96%E6%96%87%E4%BB%B6%E5%A4%B9%E5%B9%B6%E4%B8%8A%E4%BC%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/23/JS/js%E9%80%89%E5%8F%96%E6%96%87%E4%BB%B6%E5%A4%B9%E5%B9%B6%E4%B8%8A%E4%BC%A0/" class="post-title-link" itemprop="url">js选取文件夹并上传</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-03-23 19:31:18 / 修改时间：19:33:57" itemprop="dateCreated datePublished" datetime="2022-03-23T19:31:18+08:00">2022-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="点击选取文件夹"><a href="#点击选取文件夹" class="headerlink" title="点击选取文件夹"></a>点击选取文件夹</h3><p>我们知道，选取文件可以通过以下方式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">multiple</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其实，想要选取文件夹只需要加上 webkitdirectory 属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;inputFile&quot;</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">multiple</span> <span class="attr">webkitdirectory</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>现在可以选中文件夹了，那么怎么获取文件夹里的文件呢？方法和获取文件一样，只不过变成了包含多个文件的列表。代码如下：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/23/JS/js%E9%80%89%E5%8F%96%E6%96%87%E4%BB%B6%E5%A4%B9%E5%B9%B6%E4%B8%8A%E4%BC%A0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -952,191 +1133,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/12/16/python%E5%9F%BA%E7%A1%80/python%E5%BE%AA%E7%8E%AF%E5%AF%BC%E5%85%A5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2021/12/16/Flask/Flask%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BB%8B%E7%BB%8D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/16/Flask/Flask%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">Flask上下文介绍</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-12-16 21:32:55" itemprop="dateCreated datePublished" datetime="2021-12-16T21:32:55+08:00">2021-12-16</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-23 21:09:38" itemprop="dateModified" datetime="2021-12-23T21:09:38+08:00">2021-12-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在程序中我们所写的函数大都不是单独完整的，在使用一个函数完成自身功能的时候，很可能需要同其他的部分进行交互，需要其他外部变量的支持，上下文就是给外部的变量赋值，使函数能正确运行。</p>
-<p>Flask 提供了两种上下文，一种是应用上下文(Application Context)，一种是请求上下文(Request Context)。</p>
-<p>应用上下文和请求上下文都是存放到一个 LocalStack 的栈中的，在应用运行时框架底层会在每个请求进入的时候将请求上下文和应用上下文都推入栈中，因此，在视图函数中，不用担心上下文的问题。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/16/Flask/Flask%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BB%8B%E7%BB%8D/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2021/12/11/python%E5%9F%BA%E7%A1%80/python%E8%A3%85%E9%A5%B0%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/11/python%E5%9F%BA%E7%A1%80/python%E8%A3%85%E9%A5%B0%E5%99%A8/" class="post-title-link" itemprop="url">python装饰器</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-12-11 00:29:25 / 修改时间：00:34:10" itemprop="dateCreated datePublished" datetime="2021-12-11T00:29:25+08:00">2021-12-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>装饰器的作用就是为函数添加额外的功能。</p>
-<h3 id="装饰器原理"><a href="#装饰器原理" class="headerlink" title="装饰器原理"></a>装饰器原理</h3><p><strong>&lt; 函数+实参高阶函数+返回值高阶函数+嵌套函数+语法糖 = 装饰器 &gt;</strong></p>
-<p>直接来看例子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">x</span>(<span class="params">fuc</span>):</span> <span class="comment"># 参数为函数（实参高阶函数）</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">y</span>():</span> <span class="comment"># 嵌套函数</span></span><br><span class="line">        fuc()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;hai&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> y <span class="comment"># 返回一个函数（返回值高阶函数）</span></span><br></pre></td></tr></table></figure>
-
-<p>其实，函数 x 就可以作为一个装饰器。</p>
-<p>接下来用 x 来装饰另一个函数：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">x</span>(<span class="params">fuc</span>):</span> <span class="comment"># 参数为函数（实参高阶函数）</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">y</span>():</span> <span class="comment"># 嵌套函数</span></span><br><span class="line">        fuc()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;hai&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> y <span class="comment"># 返回一个函数（返回值高阶函数）</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span> <span class="comment"># 被装饰函数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;hello&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">test = X(test)</span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
-
-<p>运行代码，结果依次输出 “hello”，”hi”。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/12/11/python%E5%9F%BA%E7%A1%80/python%E8%A3%85%E9%A5%B0%E5%99%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
