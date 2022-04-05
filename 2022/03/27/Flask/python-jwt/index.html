@@ -25,15 +25,15 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"szd0319.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","width":310,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
 
-<meta name="description" content="JWT 介绍JWT 即 JSON Web Token，是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准。 JWT 由三部分构成： 1  头部（Header）：用于描述关于该JWT的最基本的信息，例如其类型以及签名所用的算法等。 2  载荷（Payload）：payload 有五个字段  iss：该 JWT 的签发者 sub：该 JWT 所面向的用户 aud：接收该 JWT 的一方">
+<meta name="description" content="JWT 介绍JWT 即 JSON Web Token，是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准。 JWT 由三部分构成： 1  头部（Header）：用于描述关于该 JWT 的最基本的信息，例如其类型以及签名所用的算法等。 2  载荷（Payload）：payload 有五个字段  iss：该 JWT 的签发者 sub：该 JWT 所面向的用户 aud：接收该 JWT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python-jwt">
 <meta property="og:url" content="https://szd0319.github.io/2022/03/27/Flask/python-jwt/index.html">
 <meta property="og:site_name" content="舞动的灵魂">
-<meta property="og:description" content="JWT 介绍JWT 即 JSON Web Token，是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准。 JWT 由三部分构成： 1  头部（Header）：用于描述关于该JWT的最基本的信息，例如其类型以及签名所用的算法等。 2  载荷（Payload）：payload 有五个字段  iss：该 JWT 的签发者 sub：该 JWT 所面向的用户 aud：接收该 JWT 的一方">
+<meta property="og:description" content="JWT 介绍JWT 即 JSON Web Token，是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准。 JWT 由三部分构成： 1  头部（Header）：用于描述关于该 JWT 的最基本的信息，例如其类型以及签名所用的算法等。 2  载荷（Payload）：payload 有五个字段  iss：该 JWT 的签发者 sub：该 JWT 所面向的用户 aud：接收该 JWT">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-27T12:29:24.000Z">
-<meta property="article:modified_time" content="2022-03-27T12:33:18.823Z">
+<meta property="article:modified_time" content="2022-04-05T10:36:57.992Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="flask">
@@ -178,18 +178,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">35</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -274,10 +274,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-03-27 20:29:24 / 修改时间：20:33:18" itemprop="dateCreated datePublished" datetime="2022-03-27T20:29:24+08:00">2022-03-27</time>
+      <time title="创建时间：2022-03-27 20:29:24" itemprop="dateCreated datePublished" datetime="2022-03-27T20:29:24+08:00">2022-03-27</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-04-05 18:36:57" itemprop="dateModified" datetime="2022-04-05T18:36:57+08:00">2022-04-05</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -305,9 +311,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="JWT-介绍"><a href="#JWT-介绍" class="headerlink" title="JWT 介绍"></a>JWT 介绍</h3><p>JWT 即 JSON Web Token，是为了在网络应用环境间传递声明而执行的一种基于JSON的开放标准。</p>
+        <h3 id="JWT-介绍"><a href="#JWT-介绍" class="headerlink" title="JWT 介绍"></a>JWT 介绍</h3><p>JWT 即 JSON Web Token，是为了在网络应用环境间传递声明而执行的一种基于 JSON 的开放标准。</p>
 <p>JWT 由三部分构成：</p>
-<p>1  头部（Header）：用于描述关于该JWT的最基本的信息，例如其类型以及签名所用的算法等。</p>
+<p>1  头部（Header）：用于描述关于该 JWT 的最基本的信息，例如其类型以及签名所用的算法等。</p>
 <p>2  载荷（Payload）：payload 有五个字段</p>
 <ol>
 <li>iss：该 JWT 的签发者</li>
@@ -335,7 +341,7 @@
 <ul>
 <li>payload：数据载荷。exp 过期时间，是规定字段，它可以是 UTC 时间戳，也可以是 datetime 类型</li>
 <li>key：加密密钥</li>
-<li>algorithm：加密方式，默认为HS256</li>
+<li>algorithm：加密方式，默认为 HS256</li>
 </ul>
 <br/>
 
@@ -403,6 +409,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/04/05/websocket/websocket%E9%80%9A%E4%BF%A1/" rel="next" title="websocket通信">
+                  websocket通信 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
