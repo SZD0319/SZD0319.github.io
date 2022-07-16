@@ -33,7 +33,7 @@
 <meta property="og:description" content="一、安装 fastdfs 依赖包 解压缩 libfastcommon-master.zip 进入到 libfastcommon-master 的目录中 执行 .&#x2F;make.sh 执行 sudo .&#x2F;make.sh install  二、安装 fastdfs 解压缩 fastdfs-master.zip 进入到 fastdfs-master 目录中 执行 .&#x2F;make.sh 执行 sudo .&#x2F;ma">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-20T03:09:57.000Z">
-<meta property="article:modified_time" content="2022-06-19T01:44:00.066Z">
+<meta property="article:modified_time" content="2022-07-16T12:38:18.295Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="django">
 <meta property="article:tag" content="linux">
@@ -178,7 +178,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -189,7 +189,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -282,7 +282,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-19 09:44:00" itemprop="dateModified" datetime="2022-06-19T09:44:00+08:00">2022-06-19</time>
+        <time title="修改时间：2022-07-16 20:38:18" itemprop="dateModified" datetime="2022-07-16T20:38:18+08:00">2022-07-16</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -335,10 +335,6 @@
 <p>3、编辑/etc/fdfs/storage.conf配置文件<code> sudo vim /etc/fdfs/storage.conf</code>，修改内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">base_path=/data/home/silence/FastDFS/fastdfs/storage</span><br><span class="line"></span><br><span class="line">store_path0=/data/home/silence/FastDFS/fastdfs/storage</span><br><span class="line"></span><br><span class="line">tracker_server=自己ubuntu虚拟机的ip地址:22122</span><br></pre></td></tr></table></figure>
 
-
-
-
-
 <h4 id="五、启动-tracker-和-storage-服务"><a href="#五、启动-tracker-和-storage-服务" class="headerlink" title="五、启动 tracker 和 storage 服务"></a>五、启动 tracker 和 storage 服务</h4><p>启动 tracker 服务：<code>sudo service fdfs_trackerd start</code></p>
 <p>启动 storage 服务：<code>sudo service fdfs_storaged start</code></p>
 <p><strong>注意：</strong>这是可能报错 <strong>Failed to start fdfs_trackerd.service: Unit fdfs_trackerd.service not found</strong> 和<strong>Failed to</strong> <strong>start fdfs_trackerd.service: Unit fdfs_trackerd.service not found</strong>，只需重启虚拟机再次执行以上指令即可。</p>
@@ -346,8 +342,6 @@
 <p>2、编辑 /etc/fdfs/client.conf 配置文件  <code>sudo vim /etc/fdfs/client.conf</code></p>
 <p>​      修改内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">base_path=/data/home/silence/FastDFS/fastdfs/tracker</span><br><span class="line"></span><br><span class="line">tracker_server=自己ubuntu虚拟机的ip地址:22122</span><br></pre></td></tr></table></figure>
-
-
 
 <p>3、上传文件测试：</p>
 <p><code>fdfs_upload_file /etc/fdfs/client.conf  要上传的图片文件</code></p>
@@ -358,7 +352,7 @@
 <h4 id="七、安装-nginx（web服务器）以及-fastdfs-nginx-module"><a href="#七、安装-nginx（web服务器）以及-fastdfs-nginx-module" class="headerlink" title="七、安装 nginx（web服务器）以及 fastdfs_nginx_module"></a>七、安装 nginx（web服务器）以及 fastdfs_nginx_module</h4><p>1、解压缩 nginx-1.8.1.tar.gz</p>
 <p>2、解压缩 fastdfs_nginx_module</p>
 <p>3、进入 nginx-1.8.1 目录中</p>
-<p>4、执行<code>sudo ./configure --prefix=/usr/local/nginx/ --add-module=/data/home/silence/Nginx/fastdfs-nginx-module/src</code></p>
+<p>4、执行<code>sudo ./configure --prefix=/usr/local/nginx/ --add-module=/data/home/silence/Nginx/fastdfs-nginx-module/src --with-http_ssl_module</code></p>
 <p><code>sudo make</code></p>
 <p><code>sudo make install</code></p>
 <p>5、<code>sudo cp /data/home/silence/Nginx/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/mod_fastdfs.conf</code></p>
@@ -368,9 +362,7 @@
 <p>7、<code>sudo cp /data/home/silence/FastDFS/fastdfs-master/fastdfs-master/conf/http.conf /etc/fdfs/http.conf</code></p>
 <p>8、<code>sudo cp /data/home/silence/FastDFS/fastdfs-master/fastdfs-master/conf/mime.types /etc/fdfs/mime.types</code></p>
 <p>9、<code>sudo vi /usr/local/nginx/conf/nginx.conf</code>，在 <code>http</code> 部分中添加配置信息如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">	listen <span class="number">8888</span>; <span class="comment">//通过8888端口访问nginx服务器</span></span><br><span class="line">    server_name localhost;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 配置 CORS 跨域</span></span><br><span class="line">    add_header <span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span> <span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">    add_header <span class="string">&#x27;Access-Control-Allow-Methods&#x27;</span> <span class="string">&#x27;GET, POST, OPTIONS&#x27;</span>;</span><br><span class="line">    add_header <span class="string">&#x27;Access-Control-Max-Age&#x27;</span> <span class="number">1728000</span>;</span><br><span class="line">    </span><br><span class="line">    location ~<span class="regexp">/group[0-9]/</span> &#123;</span><br><span class="line">        ngx_fastdfs_module;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span> /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">    	root html;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen <span class="number">8888</span> ssl; <span class="comment">#通过8888端口访问nginx服务器</span></span><br><span class="line">    server_name localhost;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 配置 CORS 跨域</span></span><br><span class="line">    add_header <span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span> <span class="string">&#x27;*&#x27;</span>;</span><br><span class="line">    add_header <span class="string">&#x27;Access-Control-Allow-Methods&#x27;</span> <span class="string">&#x27;GET, POST, OPTIONS&#x27;</span>;</span><br><span class="line">    add_header <span class="string">&#x27;Access-Control-Max-Age&#x27;</span> <span class="number">1728000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 配置 https</span></span><br><span class="line">    ssl_certificate /home/silence/Desktop/CA/certification.crt;</span><br><span class="line">    ssl_certificate_key /home/silence/Desktop/CA/certification.key;</span><br><span class="line">    ssl_session_timeout 5m;</span><br><span class="line">    ssl_ciphers  HIGH:!aNULL:!MD5;</span><br><span class="line">    ssl_session_cache    shared:SSL:1m;</span><br><span class="line">    ssl_prefer_server_ciphers  on;</span><br><span class="line"></span><br><span class="line">    location ~/group[<span class="number">0</span>-<span class="number">9</span>]/ &#123;</span><br><span class="line">        ngx_fastdfs_module;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span> /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>10、启动 nginx</p>
 <p><code>sudo /usr/local/nginx/sbin/nginx</code></p>
@@ -396,8 +388,6 @@
 <p>说明上传成功。</p>
 <p>查看上传图片详细信息：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>ret</span><br><span class="line"></span><br><span class="line"><span class="comment">#返回如下信息</span></span><br><span class="line">&#123;<span class="string">&#x27;Group name&#x27;</span>: <span class="string">&#x27;group1&#x27;</span>, <span class="string">&#x27;Remote file_id&#x27;</span>: <span class="string">&#x27;group1/M00/00/00/wKhQgV7I3cqACypJAE4PFW4tC7Y112.png&#x27;</span>, <span class="string">&#x27;Status&#x27;</span>: <span class="string">&#x27;Upload successed.&#x27;</span>, <span class="string">&#x27;Local file name&#x27;</span>: <span class="string">&#x27;/home/silence/Desktop/wallhaven-12.png&#x27;</span>, <span class="string">&#x27;Uploaded size&#x27;</span>: <span class="string">&#x27;4.00MB&#x27;</span>, <span class="string">&#x27;Storage IP&#x27;</span>: <span class="string">&#x27;192.168.80.129&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
-
-
 
 <p><strong>注意：</strong></p>
 <p>导入 fdfs 包时可能会报错：<code>ModuleNotFoundError: No module named &#39;mutagen&#39;</code>，这时，安装 mutagen：</p>
