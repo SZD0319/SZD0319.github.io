@@ -25,16 +25,16 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"szd0319.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","width":310,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
 
-<meta name="description" content="一、从背景图片中截取一段小图在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。 如下图：  当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。 工作原理背景图片默认放置在div的左上角，通过background-position可以改变图片的位置。 backgr">
+<meta name="description" content="从背景图片中截取一段小图在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。 如下图：  当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。 工作原理背景图片默认放置在div的左上角，通过background-position可以改变图片的位置。 backgrou">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css 基础">
 <meta property="og:url" content="https://szd0319.github.io/2020/05/13/css/Vue-CSS/index.html">
 <meta property="og:site_name" content="舞动的灵魂">
-<meta property="og:description" content="一、从背景图片中截取一段小图在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。 如下图：  当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。 工作原理背景图片默认放置在div的左上角，通过background-position可以改变图片的位置。 backgr">
+<meta property="og:description" content="从背景图片中截取一段小图在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。 如下图：  当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。 工作原理背景图片默认放置在div的左上角，通过background-position可以改变图片的位置。 backgrou">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/13/YaQmE8.jpg">
 <meta property="article:published_time" content="2020-05-13T03:15:22.000Z">
-<meta property="article:modified_time" content="2022-08-27T08:10:13.786Z">
+<meta property="article:modified_time" content="2022-09-03T01:55:01.730Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="css">
@@ -165,7 +165,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BB%8E%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E4%B8%AD%E6%88%AA%E5%8F%96%E4%B8%80%E6%AE%B5%E5%B0%8F%E5%9B%BE"><span class="nav-text">一、从背景图片中截取一段小图</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">工作原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%B6%88%E9%99%A4a%E6%A0%87%E7%AD%BE%E7%9A%84%E9%BB%98%E8%AE%A4%E7%95%99%E7%99%BD%E9%97%B4%E8%B7%9D"><span class="nav-text">二、消除a标签的默认留白间距</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%80%9A%E8%BF%87%E9%93%BE%E6%8E%A5%E5%AE%9A%E4%BD%8D%E9%A1%B5%E9%9D%A2%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-text">三、通过链接定位页面中的元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%86%85%E9%83%A8%E5%85%83%E7%B4%A0%E8%B6%85%E5%87%BA%E5%A4%96%E9%83%A8%E5%85%83%E7%B4%A0%E5%AE%9A%E4%B9%89%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="nav-text">四、内部元素超出外部元素定义的范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E6%B5%8F%E8%A7%88%E5%99%A8%E6%BB%9A%E5%8A%A8%E6%9D%A1"><span class="nav-text">隐藏浏览器滚动条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transition-%E5%90%8C%E6%97%B6%E6%8C%87%E5%AE%9A%E5%A4%9A%E4%B8%AA%E5%B1%9E%E6%80%A7%E8%BF%87%E6%B8%A1"><span class="nav-text">transition 同时指定多个属性过渡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA"><span class="nav-text">防止图片溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A9%E5%85%83%E7%B4%A0%E7%9A%84%E5%AE%BD%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9%E7%9A%84%E5%AE%BD%E5%BA%A6"><span class="nav-text">让元素的宽度自适应内容的宽度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC-n-%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="nav-text">选择相同元素的第 n 个元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#object-fit"><span class="nav-text">object-fit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%82%B9%E5%87%BB%E6%97%B6%E5%85%83%E7%B4%A0%E4%BA%A7%E7%94%9F%E7%9A%84%E8%83%8C%E6%99%AF%E8%89%B2"><span class="nav-text">去除移动端点击时元素产生的背景色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC"><span class="nav-text">阻止选中文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#white-space"><span class="nav-text">white-space</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E4%B8%AD%E6%88%AA%E5%8F%96%E4%B8%80%E6%AE%B5%E5%B0%8F%E5%9B%BE"><span class="nav-text">从背景图片中截取一段小图</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">工作原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E9%99%A4a%E6%A0%87%E7%AD%BE%E7%9A%84%E9%BB%98%E8%AE%A4%E7%95%99%E7%99%BD%E9%97%B4%E8%B7%9D"><span class="nav-text">消除a标签的默认留白间距</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E9%93%BE%E6%8E%A5%E5%AE%9A%E4%BD%8D%E9%A1%B5%E9%9D%A2%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-text">通过链接定位页面中的元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E5%85%83%E7%B4%A0%E8%B6%85%E5%87%BA%E5%A4%96%E9%83%A8%E5%85%83%E7%B4%A0%E5%AE%9A%E4%B9%89%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="nav-text">内部元素超出外部元素定义的范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E6%B5%8F%E8%A7%88%E5%99%A8%E6%BB%9A%E5%8A%A8%E6%9D%A1"><span class="nav-text">隐藏浏览器滚动条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transition-%E5%90%8C%E6%97%B6%E6%8C%87%E5%AE%9A%E5%A4%9A%E4%B8%AA%E5%B1%9E%E6%80%A7%E8%BF%87%E6%B8%A1"><span class="nav-text">transition 同时指定多个属性过渡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA"><span class="nav-text">防止图片溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A9%E5%85%83%E7%B4%A0%E7%9A%84%E5%AE%BD%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9%E7%9A%84%E5%AE%BD%E5%BA%A6"><span class="nav-text">让元素的宽度自适应内容的宽度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC-n-%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="nav-text">选择相同元素的第 n 个元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#object-fit"><span class="nav-text">object-fit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%82%B9%E5%87%BB%E6%97%B6%E5%85%83%E7%B4%A0%E4%BA%A7%E7%94%9F%E7%9A%84%E8%83%8C%E6%99%AF%E8%89%B2"><span class="nav-text">去除移动端点击时元素产生的背景色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC"><span class="nav-text">阻止选中文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#white-space"><span class="nav-text">white-space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word-spacing"><span class="nav-text">word-spacing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#letter-spacing"><span class="nav-text">letter-spacing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="nav-text">float 清除浮动</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,18 +180,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -284,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-08-27 16:10:13" itemprop="dateModified" datetime="2022-08-27T16:10:13+08:00">2022-08-27</time>
+        <time title="修改时间：2022-09-03 09:55:01" itemprop="dateModified" datetime="2022-09-03T09:55:01+08:00">2022-09-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -313,7 +313,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="一、从背景图片中截取一段小图"><a href="#一、从背景图片中截取一段小图" class="headerlink" title="一、从背景图片中截取一段小图"></a>一、从背景图片中截取一段小图</h4><p>在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。</p>
+        <h4 id="从背景图片中截取一段小图"><a href="#从背景图片中截取一段小图" class="headerlink" title="从背景图片中截取一段小图"></a>从背景图片中截取一段小图</h4><p>在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。</p>
 <p>如下图：</p>
 <p><img src="https://s1.ax1x.com/2020/05/13/YaQmE8.jpg" alt="YaQmE8.jpg"></p>
 <p>当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。</p>
@@ -326,7 +326,7 @@
 
 <br/>
 
-<h4 id="二、消除a标签的默认留白间距"><a href="#二、消除a标签的默认留白间距" class="headerlink" title="二、消除a标签的默认留白间距"></a>二、消除a标签的默认留白间距</h4><p><strong>设置<code>font-size: 0</code></strong></p>
+<h4 id="消除a标签的默认留白间距"><a href="#消除a标签的默认留白间距" class="headerlink" title="消除a标签的默认留白间距"></a>消除a标签的默认留白间距</h4><p><strong>设置<code>font-size: 0</code></strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;demo&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>底部链接1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>底部链接2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.demo&#123;</span><br><span class="line">    font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.demo a&#123;</span><br><span class="line">    font-size: 14px;/*这里一定要设置，不然文本内容将不显示*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -334,13 +334,13 @@
 <p>如果是图片链接的话，则不需要设置<code>.demo a</code>。</p>
 <br/>
 
-<h4 id="三、通过链接定位页面中的元素"><a href="#三、通过链接定位页面中的元素" class="headerlink" title="三、通过链接定位页面中的元素"></a>三、通过链接定位页面中的元素</h4><p>通常情况下，将网站的导航放在左侧的栏中，有时用来定位页面中的元素。</p>
+<h4 id="通过链接定位页面中的元素"><a href="#通过链接定位页面中的元素" class="headerlink" title="通过链接定位页面中的元素"></a>通过链接定位页面中的元素</h4><p>通常情况下，将网站的导航放在左侧的栏中，有时用来定位页面中的元素。</p>
 <p>想链接到同一个Web页面中的多个不同部分时，可以使用锚点来命名。如果想创建一个指向另一个Web页面中的某个特定部分的链接，可在目标页面的文件名和锚点名称之间用一个#分隔。</p>
 <p>1、在被定位元素中添加<code>id=&quot;fruit&quot;</code>属性，在导航链接中定义<code>href=&quot;#fruit&quot;</code>，便可以定位到id为fruit的div块。</p>
 <p>2、要指向另一个Web页面中的某个特定部分，定义导航链接为<code>href=&quot;index#fruit&quot;</code>。</p>
 <br/>
 
-<h4 id="四、内部元素超出外部元素定义的范围"><a href="#四、内部元素超出外部元素定义的范围" class="headerlink" title="四、内部元素超出外部元素定义的范围"></a>四、内部元素超出外部元素定义的范围</h4><p><code>box-sizing</code>属性：允许您以特定的方式定义匹配某个区域的特定元素。</p>
+<h4 id="内部元素超出外部元素定义的范围"><a href="#内部元素超出外部元素定义的范围" class="headerlink" title="内部元素超出外部元素定义的范围"></a>内部元素超出外部元素定义的范围</h4><p><code>box-sizing</code>属性：允许您以特定的方式定义匹配某个区域的特定元素。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-sizing: content-box|border-box|inherit;</span><br></pre></td></tr></table></figure>
 
 <table>
@@ -417,6 +417,22 @@
 <li>pre-line：忽略多余的空格，但不忽略回车符。</li>
 <li>initial：继承父级属性。</li>
 </ul>
+<br/>
+
+<h4 id="word-spacing"><a href="#word-spacing" class="headerlink" title="word-spacing"></a>word-spacing</h4><p>设置单词之间的间距。</p>
+<br/>
+
+<h4 id="letter-spacing"><a href="#letter-spacing" class="headerlink" title="letter-spacing"></a>letter-spacing</h4><p>设置字母之间的间距。</p>
+<br/>
+
+<h4 id="float-清除浮动"><a href="#float-清除浮动" class="headerlink" title="float 清除浮动"></a>float 清除浮动</h4><p>在父容器没有规定高度时，子容器设置了 float，那么子容器不能撑开父容器的高度。</p>
+<p>解决方法：</p>
+<p>（1）给父容器设置一个高度。</p>
+<p>（2）通过伪元素清除浮动（推荐）。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>:after &#123;</span><br><span class="line">    content: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.children</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（3）给父容器也设置 float。</p>
+<p>（4）给父容器设置<code>overflow: hidden/auto</code>，触发其BFC。</p>
 
     </div>
 
