@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -184,7 +184,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -233,6 +233,289 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/05/13/css/Vue-CSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/05/13/css/Vue-CSS/" class="post-title-link" itemprop="url">css 基础</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-13 11:15:22" itemprop="dateCreated datePublished" datetime="2020-05-13T11:15:22+08:00">2020-05-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-09-03 09:55:01" itemprop="dateModified" datetime="2022-09-03T09:55:01+08:00">2022-09-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="从背景图片中截取一段小图"><a href="#从背景图片中截取一段小图" class="headerlink" title="从背景图片中截取一段小图"></a>从背景图片中截取一段小图</h4><p>在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。</p>
+<p>如下图：</p>
+<p><img src="https://s1.ax1x.com/2020/05/13/YaQmE8.jpg" alt="YaQmE8.jpg"></p>
+<p>当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。</p>
+<h6 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h6><p>背景图片默认放置在<code>div</code>的左上角，通过<code>background-position</code>可以改变图片的位置。</p>
+<p><code>background-position</code>有两个参数，第一个参数是将图片从<code>div</code>的左上角向左移动多少尺寸，第二个参数是将图片向上移动多少尺寸。</p>
+<p>例如选取上图中第二幅小图 ，小图的宽度为20px 高度为25px 则：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">          <span class="attribute">width</span>:<span class="number">20px</span>;</span></span><br><span class="line"><span class="css">          <span class="attribute">height</span>:<span class="number">25px</span>;</span></span><br><span class="line"><span class="css">          <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">image.png</span>)no-reapte <span class="number">0</span> <span class="number">25px</span>;</span></span><br><span class="line"><span class="css">         &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/13/css/Vue-CSS/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/" class="post-title-link" itemprop="url">python-从视频中提取音频</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-27 16:16:18" itemprop="dateCreated datePublished" datetime="2020-04-27T16:16:18+08:00">2020-04-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-16 21:37:17" itemprop="dateModified" datetime="2021-10-16T21:37:17+08:00">2021-10-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="视频中提取音频"><a href="#视频中提取音频" class="headerlink" title="视频中提取音频"></a>视频中提取音频</h2><p>OpenCV中使用VideoCapture类写的视频是没有音频的，如果要进一步处理音频则需要用到一个库——<strong>MoviePy</strong>，这个库是Python视频编辑库，可裁剪、拼接、标题插入、视频合成、视频处理和自定义效果。</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install moviepy</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> moviepy.editor <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">path = <span class="string">&#x27;&#x27;</span>  <span class="comment">#视频所在路径</span></span><br><span class="line"></span><br><span class="line">video = VideoFileClip(path) <span class="comment">#创建视频对象</span></span><br><span class="line">audio = video.audio <span class="comment">#创建视频对应的音频对象</span></span><br><span class="line">audio.write_audiofile(<span class="string">&#x27;路径&#x27;</span>) <span class="comment">#将得到的音频写出到路径，通常导出为mp3格式</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/04/27/python%E5%9F%BA%E7%A1%80/python-pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">python pip下载速度慢的问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-04-27 13:30:26" itemprop="dateCreated datePublished" datetime="2020-04-27T13:30:26+08:00">2020-04-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-16 21:37:05" itemprop="dateModified" datetime="2021-10-16T21:37:05+08:00">2021-10-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="pip-下载速度慢，导致报错：pip-vendor-urllib3-exceptions-ReadTimeoutError……"><a href="#pip-下载速度慢，导致报错：pip-vendor-urllib3-exceptions-ReadTimeoutError……" class="headerlink" title="pip 下载速度慢，导致报错：pip._vendor.urllib3.exceptions.ReadTimeoutError……"></a>pip 下载速度慢，导致报错：pip._vendor.urllib3.exceptions.ReadTimeoutError……</h4><p>python开发中，我们经常用到pip工具，然而，有时候下载速度非常慢……</p>
+<p>解决方法：</p>
+<p><strong>更改电脑默认镜像，之后便可用 pip install 命令快速下载</strong></p>
+<p>1、在我的电脑，搜索 <code>%APPDATA%</code>（代表系统变量），搜索之后的路径的应该为<code>C:\Users\Administrator\AppData\Roaming</code>；</p>
+<p>2、在此路径下新建文件夹pip，进入文件夹，新建<code>pip.ini</code>文件，添加如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line"></span><br><span class="line">timeout = 6000</span><br><span class="line"></span><br><span class="line">index-url = http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">trusted-host = mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+
+<p>即可成功修改pip镜像路径。</p>
+<p>3、现在就可以使用<code>pip install</code>进行高速下载。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -945,386 +1228,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/04/04/Django/Cookie%E5%92%8CSession%E7%9A%84%E4%BD%9C%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/04/Django/Cookie%E5%92%8CSession%E7%9A%84%E4%BD%9C%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">Cookie和Session的作用以及工作原理</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-04 11:33:04" itemprop="dateCreated datePublished" datetime="2020-04-04T11:33:04+08:00">2020-04-04</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:26:48" itemprop="dateModified" datetime="2021-10-16T21:26:48+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="cookie详解"><a href="#cookie详解" class="headerlink" title="cookie详解"></a>cookie详解</h2><h5 id="1、cookie简介"><a href="#1、cookie简介" class="headerlink" title="1、cookie简介"></a>1、cookie简介</h5><p>因为HTTP协议是无状态的，即服务器不知道用户上一次做了什么，这严重阻碍了交互式Web应用程序的实现。在典型的网上购物场景中，用户浏览了几个页面，买了一盒饼干和两饮料。最后结帐时，由于HTTP的无状态性，不通过额外的手段，服务器并不知道用户到底买了什么。为了做到这点，就需要使用到Cookie了。服务器可以设置或读取Cookies中包含信息，借此维护用户跟服务器会话中的状态。</p>
-<p>Cookie（复数形态：Cookies），是指某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密）。</p>
-<p>Cookie是由服务端生成的，发送给客户端（通常是浏览器）的。Cookie总是保存在客户端中，按在客户端中的存储位置，可分为内存Cookie和硬盘Cookie：</p>
-<p>内存Cookie由浏览器维护，保存在内存中，浏览器关闭后就消失了，其存在时间是短暂的。</p>
-<p>硬盘Cookie保存在硬盘里，有一个过期时间，除非用户手工清理或到了过期时间，硬盘Cookie不会被删除，其存在时间是长期的。所以，按存在时间，可分为非持久Cookie和持久Cookie。</p>
-<h5 id="2、工作原理"><a href="#2、工作原理" class="headerlink" title="2、工作原理"></a>2、工作原理</h5><p>1、创建cookie</p>
-<p>当用户第一次浏览某个使用Cookie的网站时，该网站的服务器就进行如下工作：</p>
-<ul>
-<li>该用户生成一个唯一的识别码（Cookie id），创建一个Cookie对象；</li>
-<li>默认情况下它是一个会话级别的cookie，存储在浏览器的内存中，用户退出浏览器之后被删除。如果网站希望浏览器将该Cookie存储在磁盘上，则需要设置最大时效（maxAge），并给出一个以秒为单位的时间（将最大时效设为0则是命令浏览器删除该Cookie）；</li>
-<li>将Cookie放入到HTTP响应报头，将Cookie插入到一个 Set-Cookie HTTP请求报头中；</li>
-<li>发送该HTTP响应报文。</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/04/Django/Cookie%E5%92%8CSession%E7%9A%84%E4%BD%9C%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/03/31/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/03/31/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">python基础知识汇总</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-31 15:18:25" itemprop="dateCreated datePublished" datetime="2020-03-31T15:18:25+08:00">2020-03-31</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:37:27" itemprop="dateModified" datetime="2021-10-16T21:37:27+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><h6 id="1、将列表中的字符型数字转换为数值类型"><a href="#1、将列表中的字符型数字转换为数值类型" class="headerlink" title="1、将列表中的字符型数字转换为数值类型"></a>1、将列表中的字符型数字转换为数值类型</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;12&#x27;</span>]</span><br><span class="line"></span><br><span class="line">num_lis = [<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> lis]</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">num_lis = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, lis))</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">12</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="2、将列表中的数字转换为字符（同上）"><a href="#2、将列表中的数字转换为字符（同上）" class="headerlink" title="2、将列表中的数字转换为字符（同上）"></a>2、将列表中的数字转换为字符（同上）</h6><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">12</span>]</span><br><span class="line"></span><br><span class="line">char_lis = [<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> lis]</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">char_lis = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">str</span>, lis))</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;12&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="3、对列表中的元素进行排序"><a href="#3、对列表中的元素进行排序" class="headerlink" title="3、对列表中的元素进行排序"></a>3、对列表中的元素进行排序</h6><ul>
-<li>如果列表中是数字，那么直接进行排序：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">8</span>, <span class="number">6</span>, <span class="number">12</span>]</span><br><span class="line"></span><br><span class="line">lis.sort()</span><br><span class="line"><span class="built_in">print</span>(lis)</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">12</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>如果列表中是字母型字符，那么也直接进行排序（根据ASCII）：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>, <span class="string">&#x27;b&#x27;</span>]</span><br><span class="line"></span><br><span class="line">lis.sort()</span><br><span class="line"><span class="built_in">print</span>(lis)</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;d&#x27;</span>, <span class="string">&#x27;e&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>如果列表中是数字型字符，想要使其中的数字升序或者降序排列，需要对其进行一些操作：</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#若直接进行排序</span></span><br><span class="line">lis = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;12&#x27;</span>]</span><br><span class="line"></span><br><span class="line">lis.sort()</span><br><span class="line"><span class="built_in">print</span>(lis)</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;12&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;8&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>注意：上述排序是按元素的第一个字符进行排序的。</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lis = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;12&#x27;</span>]</span><br><span class="line"></span><br><span class="line">lis.sort(key=<span class="keyword">lambda</span> x:<span class="built_in">int</span>(x))</span><br><span class="line"><span class="built_in">print</span>(lis)</span><br><span class="line"></span><br><span class="line">输出结果为：[<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;12&#x27;</span>]</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/31/python%E5%9F%BA%E7%A1%80/python%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2019/05/13/Opencv/Opencv%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E8%A7%86%E9%A2%91%E8%8E%B7%E5%8F%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/05/13/Opencv/Opencv%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E8%A7%86%E9%A2%91%E8%8E%B7%E5%8F%96/" class="post-title-link" itemprop="url">Opencv(三)-视频获取</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-05-13 20:44:16" itemprop="dateCreated datePublished" datetime="2019-05-13T20:44:16+08:00">2019-05-13</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:35:18" itemprop="dateModified" datetime="2021-10-16T21:35:18+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Opencv/" itemprop="url" rel="index"><span itemprop="name">Opencv</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="获取视频"><a href="#获取视频" class="headerlink" title="获取视频"></a>获取视频</h2><h4 id="1、cv2-VideoCapture"><a href="#1、cv2-VideoCapture" class="headerlink" title="1、cv2.VideoCapture()"></a>1、cv2.VideoCapture()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cap = cv2.VideoCapture(camera_idx)</span><br></pre></td></tr></table></figure>
-
-<p>用于获取视频。其中，camera_idx是o，表示打开笔记本的内置摄像头，参数是视频文件路径则打开视频。</p>
-<h4 id="2、cv2-namedWindow"><a href="#2、cv2-namedWindow" class="headerlink" title="2、cv2.namedWindow()"></a>2、cv2.namedWindow()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.namedWindow(window_name)</span><br></pre></td></tr></table></figure>
-
-<p>为窗口命名。参数为窗口标题，字符串。</p>
-<h4 id="3、cap-read"><a href="#3、cap-read" class="headerlink" title="3、cap.read()"></a>3、cap.read()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ret, frame = cap.read()</span><br></pre></td></tr></table></figure>
-
-<p>读取一帧的数据。第一个返回值是布尔类型，判断是否读取到图片，第二个返回值是读取到的图片。</p>
-<h4 id="4、cv2-imshow"><a href="#4、cv2-imshow" class="headerlink" title="4、cv2.imshow()"></a>4、cv2.imshow()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.imshow(window_name, frame)</span><br></pre></td></tr></table></figure>
-
-<p>显示每一帧图片。第一个参数是窗口名称，第二个参数是图片对象。</p>
-<h4 id="5、cv2-waitKey"><a href="#5、cv2-waitKey" class="headerlink" title="5、cv2.waitKey()"></a>5、cv2.waitKey()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.waitKey(parameter)</span><br></pre></td></tr></table></figure>
-
-<p>parameter = NONE &amp; 0表示一直显示，除此之外表示显示的毫秒数。</p>
-<ul>
-<li><p>参数为0，表示图片显示着，直到你按下任意一个键，才被关掉。</p>
-</li>
-<li><p>```python<br>if cv2.waitKey(1) &amp; 0xFF == ord(‘q’):</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  运行代码，会显示一张图片，当你按下`q`键时，显示图片的窗口被关掉。</span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**完整代码如下：**</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">import cv2</span><br><span class="line"></span><br><span class="line">def CatchUsbVideo(window_name, camera_idx):</span><br><span class="line">    #cv2.namedWindow(&#x27;窗口标题&#x27;,默认参数)</span><br><span class="line">    cv2.namedWindow(window_name)</span><br><span class="line">    </span><br><span class="line">    #视频来源，可以来自一段已存好的视频，也可以直接来自USB摄像头</span><br><span class="line">    #camera_idx是0，表示打开笔记本的内置摄像头，参数是视频文件路径则打开视频</span><br><span class="line">    cap = cv2.VideoCapture(camera_idx)        </span><br><span class="line">        </span><br><span class="line">    while cap.isOpened():</span><br><span class="line">        ok, frame = cap.read() #读取一帧数据</span><br><span class="line">        if not ok:            </span><br><span class="line">            break                    </span><br><span class="line">                        </span><br><span class="line">        #显示图像并等待10毫秒按键输入，输入‘q’退出程序</span><br><span class="line">        cv2.imshow(window_name, frame)</span><br><span class="line">        c = cv2.waitKey(10)</span><br><span class="line">        if c &amp; 0xFF == ord(&#x27;q&#x27;):</span><br><span class="line">            break        </span><br><span class="line">    </span><br><span class="line">    #释放摄像头并销毁所有窗口</span><br><span class="line">    cap.release()</span><br><span class="line">    cv2.destroyAllWindows() </span><br><span class="line">    </span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    CatchUsbVideo(&quot;截取视频流&quot;, 0)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="保存-读取视频"><a href="#保存-读取视频" class="headerlink" title="保存/读取视频"></a>保存/读取视频</h2><h5 id="1、存取图片"><a href="#1、存取图片" class="headerlink" title="1、存取图片"></a>1、存取图片</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.imwrite(path， frame)</span><br></pre></td></tr></table></figure>
-
-<p>第一个参数是保存路径，第二个参数是要保存的图片的对象。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.imread(path)</span><br></pre></td></tr></table></figure>
-
-<p>参数为图片路径。</p>
-<blockquote>
-<p>注意：读取出来的图片的像素可能与原图片的像素不同，这是图片格式不同导致的。.jpeg后缀的图像，其由于jpeg图像本身的编解码问题，写入时的编码与读取时的解码所得不能完美互为逆操作，从而导致的每次写入之后，读取的值都不同。而.png格式就不会出现问题。</p>
-</blockquote>
-<h5 id="2、存取视频"><a href="#2、存取视频" class="headerlink" title="2、存取视频"></a><strong>2、存取视频</strong></h5><p>保存视频或摄像头视频到本地磁盘，需要使用Opencv中的VideoWriter<u>类</u>，以及其中的write()函数。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">VideoWriter(const string&amp; filename, <span class="built_in">int</span> fourcc, double fps,Size frameSize, <span class="built_in">bool</span> isColor=true);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>第一个参数为保存的路径名，并且同时为视频命名。</li>
-<li>第二个参数为编码器。也可以用cv2.VideoWriter_fourcc()代替，常用的有 “DIVX”、”MJPG”、“XVID”、“X264”。</li>
-<li>fps为被创建视频的帧率。</li>
-<li>frameSize是视频的宽和高，是一个二元组。</li>
-<li>最后一个是参数默认彩色保存。</li>
-</ul>
-<p><strong>示例如下：</strong></p>
-<p>首先用电脑上的摄像头拍摄一段视频保存到同级目录下，然后再将其读出。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">filename = <span class="string">&quot;1.avi&quot;</span></span><br><span class="line">fourcc = cv2.VideoWriter_fourcc(<span class="string">&#x27;M&#x27;</span>,<span class="string">&#x27;J&#x27;</span>,<span class="string">&#x27;P&#x27;</span>,<span class="string">&#x27;G&#x27;</span>)</span><br><span class="line">fps = <span class="number">20</span></span><br><span class="line">frameSize = (<span class="number">640</span>,<span class="number">480</span>)</span><br><span class="line">out = cv2.VideoWriter(filename,fourcc,fps,frameSize)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	ret, frame = cap.read()</span><br><span class="line">	<span class="keyword">if</span> ret:</span><br><span class="line">		out.write(frame)</span><br><span class="line">		cv2.imshow(<span class="string">&quot;video&quot;</span>, frame)</span><br><span class="line">		<span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span> == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>):</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">        </span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="string">&quot;1.avi&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	ret, frame = cap.read()</span><br><span class="line">	<span class="keyword">if</span> ret:</span><br><span class="line">		cv2.imshow(<span class="string">&quot;video&quot;</span>, frame)</span><br><span class="line">		<span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span> == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>):</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">else</span>:</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="opencv获取RTSP流媒体视频"><a href="#opencv获取RTSP流媒体视频" class="headerlink" title="opencv获取RTSP流媒体视频"></a>opencv获取RTSP流媒体视频</h2><h4 id="1、rtsp简介"><a href="#1、rtsp简介" class="headerlink" title="1、rtsp简介"></a>1、rtsp简介</h4><blockquote>
-<p>RTSP（Real Time Streaming Protocol），RFC2326，实时流<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">传输协议</a>，是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/TCP%2FIP%E5%8D%8F%E8%AE%AE">TCP/IP协议</a>体系中的一个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BA%94%E7%94%A8%E5%B1%82">应用层</a>协议，RTSP在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/8174145">体系结构</a>上位于RTP和RTCP之上，它使用TCP或UDP完成数据传输。RTSP是用来控制声音或影像的多媒体串流协议，并允许同时多个串流需求控制，传输时所用的网络通讯协定并不在其定义的范围内，服务器端可以自行选择使用TCP或UDP来传送串流内容。</p>
-</blockquote>
-<h4 id="2、rtsp的url格式"><a href="#2、rtsp的url格式" class="headerlink" title="2、rtsp的url格式"></a>2、rtsp的url格式</h4><p>“rtsp”和“rtspu”表示要通过 RTSP 协议来定位网络资源。 RTSP URL 的语法和语义如下所示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;rtsp:&quot; | &quot;rtspu:&quot; ) &quot;//&quot; host [ &quot;:&quot; port ] [ abs_path]</span><br></pre></td></tr></table></figure>
-
-<p>这里我们以萤石摄像头为例：</p>
-<p>萤石摄像头的rtsp协议的url格式为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rtsp://[username]:[password]@[ip]:[port]/[codec]/[channel]/[subtype]/av_stream</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>username: 用户名。例如admin。</li>
-<li>password: 密码。例如12345。一般为摄像头的验证码。</li>
-<li>ip: 为设备IP。例如 192.0.0.64。</li>
-<li>port: 端口号默认为554，若为默认可不填写。</li>
-<li>codec：有h264、MPEG-4、mpeg4这几种。</li>
-<li>channel: 通道号，起始为1。例如通道1，则为ch1。</li>
-<li>subtype: 码流类型，主码流为main，辅码流为sub。</li>
-</ul>
-<p>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;rtsp://admin:UJMIPO@192.168.137.250:554/h264/ch1/main/av_stream&quot;</span></span><br><span class="line">cap = cv2.VideoCapture(url)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	ret, frame = cap.read()</span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> ret:</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">	cv2.imshow(<span class="string">&quot;video&quot;</span>, frame)</span><br><span class="line">	<span class="keyword">if</span> cv2.waitKey(<span class="number">1</span>) &amp; <span class="number">0xFF</span> == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>):</span><br><span class="line">		<span class="keyword">break</span></span><br><span class="line">		</span><br><span class="line">cap.release()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
-
-
-<p><em><strong>知识拓展：</strong></em></p>
-<p>视频文件格式，即视频文件的后缀，如mp4，avi等等，主要为帮助系统的程序知道应该使用何种程序打开该文件；这就是说如果你把一个视频格式的文件后缀从avi改成mp4，并不意味该文件就变成了mp4格式。<br>视频封装格式则是一种视频封装容器。什么意思呢？在视频文件中同时含有视频部分、音频部分等等；那么视频封装容器则一种可以把多种视频数据放在一起的一个大盒子。这个盒子就是我们常说的视频格式，例如AVI（后缀.avi）格式、MPEG（后缀.mpg .mpeg .mpe .dat .vob .asf .3gp .mp4）格式、REAL Video(后缀.rmvb)格式、Flash Video(后缀.flv)格式等等。 </p>
-<p>视频文件格式，即视频文件的后缀，如mp4，avi等等，主要为帮助系统的程序知道应该使用何种程序打开该文件；这就是说如果你把一个视频格式的文件后缀从avi改成mp4，并不意味该文件就变成了mp4格式。<br>视频封装格式则是一种视频封装容器。什么意思呢？在视频文件中同时含有视频部分、音频部分等等；那么视频封装容器则一种可以把多种视频数据放在一起的一个大盒子。这个盒子就是我们常说的视频格式，例如AVI（后缀.avi）格式、MPEG（后缀.mpg .mpeg .mpe .dat .vob .asf .3gp .mp4）格式、REAL Video(后缀.rmvb)格式、Flash Video(后缀.flv)格式等等。 </p>
-<p>那么视频编码器又是什么呢？视频编码器是指能够对数字视频进行压缩存储和解压缩的程序或设备。目前场景的编码器有H.26X系列(目前最流行的是H.264和H.265)和MPEG系列(目前最流行的是MPEG-4第十部分，即H.264)。上文代码中提到的XVID（旧称为DIVX）是一个开放源代码的MPEG-4视频编解码器。</p>
-
       
     </div>
 
