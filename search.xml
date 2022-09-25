@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>uni-app 媒体 API 调用异常</title>
+      <link href="/2022/09/25/uniapp/uni-app%E5%AA%92%E4%BD%93API%E8%B0%83%E7%94%A8%E5%BC%82%E5%B8%B8/"/>
+      <url>/2022/09/25/uniapp/uni-app%E5%AA%92%E4%BD%93API%E8%B0%83%E7%94%A8%E5%BC%82%E5%B8%B8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在 ios 系统下，若在一个网络请求的回调函数中调用 <code>uni.chooseFile</code>、<code>uni.chooseImage</code> 等 API，那么浏览器将不会弹出文件选择框。</p><span id="more"></span><p>如以下这种情况：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">uni.request(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">success</span>: <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        uni.chooseFile(&#123;&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">uni.request(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    uni.chooseFile(&#123;&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>可以将媒体选择 API 的调用放在一个计时器中。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">uni.request(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">success</span>: <span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            uni.chooseFile(&#123;&#125;)</span><br><span class="line">        &#125;, <span class="number">100</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line">uni.request(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">&#125;).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        uni.chooseFile(&#123;&#125;)</span><br><span class="line">    &#125;, <span class="number">100</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Uni-app </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> uni-app </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>axios 拦截器</title>
       <link href="/2022/09/12/Vue3/axios%E6%8B%A6%E6%88%AA%E5%99%A8/"/>
       <url>/2022/09/12/Vue3/axios%E6%8B%A6%E6%88%AA%E5%99%A8/</url>
