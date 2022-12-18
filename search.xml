@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>ts 声明文件</title>
+      <link href="/2022/12/18/Vue3/ts%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/"/>
+      <url>/2022/12/18/Vue3/ts%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<p>在使用 TypeScript 写程序的时候，可能会需要使用到 JavaScript 库，因为历史遗留问题，现在非常多的第三方库依然是用 JavaScript 进行编写，但是大多数情况下，库的所有者已经帮你写好了 TypeScript 声明文件，即 .d.ts 文件。</p><span id="more"></span><p>还有一些情况是库中并没有附带 ts 声明文件，但是可以通过：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i @types/xxx</span><br></pre></td></tr></table></figure><p>进行下载该类型的库的声明文件。</p><p>上面两种方法都是用在别人已经帮你编写了声明文件的情况下，但是如果上面两种方式都无效，怎么自行编写声明文件呢？</p><p>假设现在要编写 wow.js 的声明文件，只需以下两步即可：</p><ol><li><p>在 src 下新建 types 文件夹，在 types 下新建 wow.d.ts 文件</p></li><li><p>在 wow.d.ts 中添加如下内容：<code>declare module &quot;wow.js&quot;</code></p></li></ol><p>之后即可正常导入 wow.js 了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Vue3 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue3 </tag>
+            
+            <tag> ts </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>滚动展示动画</title>
+      <link href="/2022/12/18/css/%E6%BB%9A%E5%8A%A8%E5%B1%95%E7%A4%BA%E5%8A%A8%E7%94%BB/"/>
+      <url>/2022/12/18/css/%E6%BB%9A%E5%8A%A8%E5%B1%95%E7%A4%BA%E5%8A%A8%E7%94%BB/</url>
+      
+        <content type="html"><![CDATA[<p>如果给向下滚动的页面增加一些细微的动画，这往往能给浏览者带来更好的体验。这往往可以通过触发新进入视口的元素的动画来实现。现在，我们可以通过调用库来更快更方便的实现，wow.js 和 scrollreveal.js 都是不错的选择。</p><span id="more"></span><h3 id="wow-js"><a href="#wow-js" class="headerlink" title="wow.js"></a>wow.js</h3><p>WOW.js 就是这么一个能让用户眼前一亮的 JavaScript 库。 WOW.js 依赖 animate.css，所以它支持 animate.css 的 60 多种动画效果。</p><h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install wow.js</span><br><span class="line">npm install animate.css</span><br></pre></td></tr></table></figure><h6 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h6><p>全局引入 animate.css。在 main.ts 中添加以下代码：</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;animate.css&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;animate.css/animate.compat.css&quot;</span></span><br></pre></td></tr></table></figure><p>在需要用到的文件中引入 wow.js。</p><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> WOW <span class="keyword">from</span> <span class="string">&quot;wow.js&quot;</span>;</span><br></pre></td></tr></table></figure><h6 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h6><p>向一个 HTML 元素添加 .wow 类以及任意一个 animate.css 中的类。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wow slideInRight&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> WOW <span class="keyword">from</span> <span class="string">&quot;wow.js&quot;</span>;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">new</span> WOW().init();</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>你也可以向 HTML 元素添加其它属性：</p><ul><li><p>data-wow-duration：动画持续时间</p></li><li><p>data-wow-delay：动画延迟时间</p></li><li><p>data-wow-offset：动画起始距离</p></li><li><p>data-wow-iteration：动画循环次数</p></li></ul><p>wow.js 官网：<a href="https://wowjs.uk/">https://wowjs.uk/</a>。</p><p>animate.css 官网：<a href="https://animate.style/">https://animate.style/</a>。</p><hr><h3 id="scrollreveal-js"><a href="#scrollreveal-js" class="headerlink" title="scrollreveal.js"></a>scrollreveal.js</h3><h6 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h6><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install scrollreveal</span><br></pre></td></tr></table></figure><h6 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> ScrollReveal <span class="keyword">from</span> <span class="string">&quot;scrollreveal&quot;</span>;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> config = &#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">distance</span>: <span class="string">&quot;150%&quot;</span>, <span class="comment">// &quot;50px&quot;</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">origin</span>: <span class="string">&quot;right&quot;</span>, <span class="comment">// &quot;left&quot;, &quot;top&quot;, &quot;bottom&quot;</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">rotate</span>: &#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">x</span>: <span class="number">30</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">y</span>: <span class="number">30</span>,</span></span><br><span class="line"><span class="javascript">            <span class="attr">z</span>: <span class="number">30</span></span></span><br><span class="line"><span class="javascript">        &#125;, <span class="comment">// 类型为 number， 表示度数</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">duration</span>: <span class="number">2000</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">scale</span>: <span class="number">1</span></span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><p>详细内容见官网：<a href="https://scrollrevealjs.org/">https://scrollrevealjs.org/</a>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Animation </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> animation </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>uni-app 媒体 API 调用异常</title>
       <link href="/2022/09/25/uniapp/uni-app%E5%AA%92%E4%BD%93API%E8%B0%83%E7%94%A8%E5%BC%82%E5%B8%B8/"/>
       <url>/2022/09/25/uniapp/uni-app%E5%AA%92%E4%BD%93API%E8%B0%83%E7%94%A8%E5%BC%82%E5%B8%B8/</url>
