@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -242,6 +242,100 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2023/01/01/JS/js-%E5%85%83%E7%B4%A0%E7%9B%B8%E4%BA%A4%E6%A3%80%E6%B5%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/01/01/JS/js-%E5%85%83%E7%B4%A0%E7%9B%B8%E4%BA%A4%E6%A3%80%E6%B5%8B/" class="post-title-link" itemprop="url">js-元素相交检测</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-01-01 10:53:41 / 修改时间：10:55:46" itemprop="dateCreated datePublished" datetime="2023-01-01T10:53:41+08:00">2023-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Intersection Observer API 提供了一种异步检测目标元素与根元素或 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Viewport">viewport</a> 相交情况变化的方法。检测一个元素是否出现在视口中也是它的一个应用。</p>
+<p>下面这些情况都需要用到相交检测：</p>
+<ul>
+<li><p>图片懒加载：当图片滚动到可见时才进行加载；</p>
+</li>
+<li><p>内容无限滚动：也就是用户滚动到接近内容底部时直接加载更多；</p>
+</li>
+<li><p>在用户看见某个区域时执行任务或播放动画。</p>
+</li>
+</ul>
+<p>完整 API 见：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API">Intersection Observer API - Web API 接口参考 | MDN</a>。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/01/JS/js-%E5%85%83%E7%B4%A0%E7%9B%B8%E4%BA%A4%E6%A3%80%E6%B5%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2022/12/18/Vue3/ts%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -268,10 +362,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-12-18 12:35:14 / 修改时间：12:37:31" itemprop="dateCreated datePublished" datetime="2022-12-18T12:35:14+08:00">2022-12-18</time>
+      <time title="创建时间：2022-12-18 12:35:14" itemprop="dateCreated datePublished" datetime="2022-12-18T12:35:14+08:00">2022-12-18</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2023-01-01 10:50:55" itemprop="dateModified" datetime="2023-01-01T10:50:55+08:00">2023-01-01</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -292,7 +392,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>在使用 TypeScript 写程序的时候，可能会需要使用到 JavaScript 库，因为历史遗留问题，现在非常多的第三方库依然是用 JavaScript 进行编写，但是大多数情况下，库的所有者已经帮你写好了 TypeScript 声明文件，即 .d.ts 文件。</p>
+          <h3 id="引入-创建声明文件"><a href="#引入-创建声明文件" class="headerlink" title="引入/创建声明文件"></a>引入/创建声明文件</h3><p>在使用 TypeScript 写程序的时候，可能会需要使用到 JavaScript 库，因为历史遗留问题，现在非常多的第三方库依然是用 JavaScript 进行编写，但是大多数情况下，库的所有者已经帮你写好了 TypeScript 声明文件，即 .d.ts 文件。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/12/18/Vue3/ts%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/#more" rel="contents">
@@ -1042,94 +1142,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2022/09/03/css/%E6%82%AC%E5%81%9C%E6%95%88%E6%9E%9C%E4%B9%8Bbackground-clip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/03/css/%E6%82%AC%E5%81%9C%E6%95%88%E6%9E%9C%E4%B9%8Bbackground-clip/" class="post-title-link" itemprop="url">悬停效果之 background clip</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-09-03 10:01:02 / 修改时间：10:25:27" itemprop="dateCreated datePublished" datetime="2022-09-03T10:01:02+08:00">2022-09-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Animation/" itemprop="url" rel="index"><span itemprop="name">Animation</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h5 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a>background-clip</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-clip</span>: text|border-box|padding-box|content-box;</span><br></pre></td></tr></table></figure>
-
-<p><code>background-clip: text</code> 其核心就在于以区块内的文字作为裁剪区域向外裁剪，文字的背景即为区块的背景，文字之外的区域都将被裁剪掉。</p>
-<p>简单而言，就是运用了 <code>background-clip: text</code> 的元素，其背景内容只保留文字所在区域部分。</p>
-<p>但是目前 background-clip 只在 chrome 上得到很好的支持。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/09/03/css/%E6%82%AC%E5%81%9C%E6%95%88%E6%9E%9C%E4%B9%8Bbackground-clip/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1143,7 +1155,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
