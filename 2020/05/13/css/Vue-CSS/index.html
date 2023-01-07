@@ -25,19 +25,20 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"szd0319.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","width":310,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
 
-<meta name="description" content="从背景图片中截取一段小图在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。 如下图：  当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。 工作原理背景图片默认放置在div的左上角，通过background-position可以改变图片的位置。 backgrou">
+<meta name="description" content="HTML 的一些重要概念堆叠上下文概念 堆叠上下文是 HTML 元素的三维概念，这些 HTML 元素在一条假想的相对于面向（电脑屏幕的）视窗或者网页的用户的 z 轴上延伸，HTML 元素依据其自身属性按照优先级顺序占用层叠上下文的空间。  简单来说，为了让 HTML 元素在网页上绘制时有个前后的顺序（z 轴），这时就要产生堆叠上下文来进行比较元素在 z 轴的位置。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css 基础">
 <meta property="og:url" content="https://szd0319.github.io/2020/05/13/css/Vue-CSS/index.html">
 <meta property="og:site_name" content="舞动的灵魂">
-<meta property="og:description" content="从背景图片中截取一段小图在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。 如下图：  当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。 工作原理背景图片默认放置在div的左上角，通过background-position可以改变图片的位置。 backgrou">
+<meta property="og:description" content="HTML 的一些重要概念堆叠上下文概念 堆叠上下文是 HTML 元素的三维概念，这些 HTML 元素在一条假想的相对于面向（电脑屏幕的）视窗或者网页的用户的 z 轴上延伸，HTML 元素依据其自身属性按照优先级顺序占用层叠上下文的空间。  简单来说，为了让 HTML 元素在网页上绘制时有个前后的顺序（z 轴），这时就要产生堆叠上下文来进行比较元素在 z 轴的位置。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2020/05/13/YaQmE8.jpg">
 <meta property="article:published_time" content="2020-05-13T03:15:22.000Z">
-<meta property="article:modified_time" content="2022-09-03T01:55:01.730Z">
+<meta property="article:modified_time" content="2023-01-07T05:42:52.759Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="css">
+<meta property="article:tag" content="html">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s1.ax1x.com/2020/05/13/YaQmE8.jpg">
 
@@ -165,7 +166,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E4%B8%AD%E6%88%AA%E5%8F%96%E4%B8%80%E6%AE%B5%E5%B0%8F%E5%9B%BE"><span class="nav-text">从背景图片中截取一段小图</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">工作原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E9%99%A4a%E6%A0%87%E7%AD%BE%E7%9A%84%E9%BB%98%E8%AE%A4%E7%95%99%E7%99%BD%E9%97%B4%E8%B7%9D"><span class="nav-text">消除a标签的默认留白间距</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E9%93%BE%E6%8E%A5%E5%AE%9A%E4%BD%8D%E9%A1%B5%E9%9D%A2%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-text">通过链接定位页面中的元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E5%85%83%E7%B4%A0%E8%B6%85%E5%87%BA%E5%A4%96%E9%83%A8%E5%85%83%E7%B4%A0%E5%AE%9A%E4%B9%89%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="nav-text">内部元素超出外部元素定义的范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E6%B5%8F%E8%A7%88%E5%99%A8%E6%BB%9A%E5%8A%A8%E6%9D%A1"><span class="nav-text">隐藏浏览器滚动条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transition-%E5%90%8C%E6%97%B6%E6%8C%87%E5%AE%9A%E5%A4%9A%E4%B8%AA%E5%B1%9E%E6%80%A7%E8%BF%87%E6%B8%A1"><span class="nav-text">transition 同时指定多个属性过渡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA"><span class="nav-text">防止图片溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A9%E5%85%83%E7%B4%A0%E7%9A%84%E5%AE%BD%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9%E7%9A%84%E5%AE%BD%E5%BA%A6"><span class="nav-text">让元素的宽度自适应内容的宽度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC-n-%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="nav-text">选择相同元素的第 n 个元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#object-fit"><span class="nav-text">object-fit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%82%B9%E5%87%BB%E6%97%B6%E5%85%83%E7%B4%A0%E4%BA%A7%E7%94%9F%E7%9A%84%E8%83%8C%E6%99%AF%E8%89%B2"><span class="nav-text">去除移动端点击时元素产生的背景色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC"><span class="nav-text">阻止选中文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#white-space"><span class="nav-text">white-space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word-spacing"><span class="nav-text">word-spacing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#letter-spacing"><span class="nav-text">letter-spacing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="nav-text">float 清除浮动</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML-%E7%9A%84%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5"><span class="nav-text">HTML 的一些重要概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-text">堆叠上下文</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-text">概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%A0%86%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-text">创建堆叠上下文的元素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A0%86%E5%8F%A0%E6%B0%B4%E5%B9%B3"><span class="nav-text">堆叠水平</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC"><span class="nav-text">BFC</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="nav-text">概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-text">特性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-BFC"><span class="nav-text">创建 BFC</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8"><span class="nav-text">作用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%81%BF%E5%85%8D-margin-%E9%87%8D%E5%8F%A0"><span class="nav-text">避免 margin 重叠</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="nav-text">清除浮动</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E5%B1%9E%E6%80%A7"><span class="nav-text">CSS 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E4%B8%AD%E6%88%AA%E5%8F%96%E4%B8%80%E6%AE%B5%E5%B0%8F%E5%9B%BE"><span class="nav-text">从背景图片中截取一段小图</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">工作原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B6%88%E9%99%A4a%E6%A0%87%E7%AD%BE%E7%9A%84%E9%BB%98%E8%AE%A4%E7%95%99%E7%99%BD%E9%97%B4%E8%B7%9D"><span class="nav-text">消除a标签的默认留白间距</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E9%93%BE%E6%8E%A5%E5%AE%9A%E4%BD%8D%E9%A1%B5%E9%9D%A2%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-text">通过链接定位页面中的元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E5%85%83%E7%B4%A0%E8%B6%85%E5%87%BA%E5%A4%96%E9%83%A8%E5%85%83%E7%B4%A0%E5%AE%9A%E4%B9%89%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="nav-text">内部元素超出外部元素定义的范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E6%B5%8F%E8%A7%88%E5%99%A8%E6%BB%9A%E5%8A%A8%E6%9D%A1"><span class="nav-text">隐藏浏览器滚动条</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#transition-%E5%90%8C%E6%97%B6%E6%8C%87%E5%AE%9A%E5%A4%9A%E4%B8%AA%E5%B1%9E%E6%80%A7%E8%BF%87%E6%B8%A1"><span class="nav-text">transition 同时指定多个属性过渡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%B2%E6%AD%A2%E5%9B%BE%E7%89%87%E6%BA%A2%E5%87%BA"><span class="nav-text">防止图片溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%A9%E5%85%83%E7%B4%A0%E7%9A%84%E5%AE%BD%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9%E7%9A%84%E5%AE%BD%E5%BA%A6"><span class="nav-text">让元素的宽度自适应内容的宽度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC-n-%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="nav-text">选择相同元素的第 n 个元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#object-fit"><span class="nav-text">object-fit</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%82%B9%E5%87%BB%E6%97%B6%E5%85%83%E7%B4%A0%E4%BA%A7%E7%94%9F%E7%9A%84%E8%83%8C%E6%99%AF%E8%89%B2"><span class="nav-text">去除移动端点击时元素产生的背景色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BB%E6%AD%A2%E9%80%89%E4%B8%AD%E6%96%87%E6%9C%AC"><span class="nav-text">阻止选中文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#white-space"><span class="nav-text">white-space</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word-spacing"><span class="nav-text">word-spacing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#letter-spacing"><span class="nav-text">letter-spacing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#float-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="nav-text">float 清除浮动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F"><span class="nav-text">自定义滚动条样式</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,7 +181,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -191,7 +192,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -284,7 +285,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-09-03 09:55:01" itemprop="dateModified" datetime="2022-09-03T09:55:01+08:00">2022-09-03</time>
+        <time title="修改时间：2023-01-07 13:42:52" itemprop="dateModified" datetime="2023-01-07T13:42:52+08:00">2023-01-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -313,7 +314,72 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h4 id="从背景图片中截取一段小图"><a href="#从背景图片中截取一段小图" class="headerlink" title="从背景图片中截取一段小图"></a>从背景图片中截取一段小图</h4><p>在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。</p>
+        <h3 id="HTML-的一些重要概念"><a href="#HTML-的一些重要概念" class="headerlink" title="HTML 的一些重要概念"></a>HTML 的一些重要概念</h3><h4 id="堆叠上下文"><a href="#堆叠上下文" class="headerlink" title="堆叠上下文"></a>堆叠上下文</h4><h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><blockquote>
+<p>堆叠上下文是 HTML 元素的三维概念，这些 HTML 元素在一条假想的相对于面向（电脑屏幕的）视窗或者网页的用户的 z 轴上延伸，HTML 元素依据其自身属性按照优先级顺序占用层叠上下文的空间。</p>
+</blockquote>
+<p>简单来说，为了让 HTML 元素在网页上绘制时有个前后的顺序（z 轴），这时就要产生堆叠上下文来进行比较元素在 z 轴的位置。</p>
+<span id="more"></span>
+
+<h5 id="创建堆叠上下文的元素"><a href="#创建堆叠上下文的元素" class="headerlink" title="创建堆叠上下文的元素"></a>创建堆叠上下文的元素</h5><ul>
+<li>根元素（）；</li>
+<li>z-index 值不为 auto 且 position 值为 relative 或 absolute 的元素；</li>
+<li>z-index 值不为 auto 的 flex 项(父元素为 flex 布局)；</li>
+<li>position 值为 fixed 或 sticky 的元素；</li>
+<li>opacity 值小于 1 的元素；</li>
+<li>transform、filter、perspective、clip-path 属性中任意一个不为 none 的元素；</li>
+<li>will-change 值设定了任一属性而该属性在 non-initial 值时会创建层叠上下文的元素。</li>
+</ul>
+<p>在层叠上下文中，子元素同样也按照上面解释的规则进行层叠。重要的是，其子级层叠上下文的 <code>z-index</code> 值是相对父级来说的。</p>
+<h5 id="堆叠水平"><a href="#堆叠水平" class="headerlink" title="堆叠水平"></a>堆叠水平</h5><p>堆叠水平决定了同一个堆叠上下文中元素在 z 轴上的显示顺序，所有的元素都有堆叠水平，包括堆叠上下文元素。</p>
+<blockquote>
+<p>层叠上下文的层级是 HTML 元素层级的一个子级，没有创建自己的层叠上下文的元素会被父层叠上下文<em>同化</em>。</p>
+</blockquote>
+<p>每个堆叠上下文独立于其它堆叠上下文，它们之间不能相互穿插，每个堆叠上下文都有自己的排列方式。<br>如果一个堆叠上下文元素的堆叠级别比另一个堆叠上下文元素的高，那么该堆叠上下文元素的子元素的堆叠级别也比另一个堆叠上下文元素的子元素高。</p>
+<p>在 z 轴上从后往前堆叠的元素依次是：</p>
+<ol>
+<li><p>层叠上下文根元素；</p>
+</li>
+<li><p>position 不为 static/flex 布局子项 且 z-index 值小于 0 的元素</p>
+</li>
+<li><p>块级元素</p>
+</li>
+<li><p>浮动元素</p>
+</li>
+<li><p>行内元素</p>
+</li>
+<li><p>position 不为 static/flex 布局子项 且 z-index 值为 auto/0 的元素</p>
+</li>
+<li><p>position 不为 static/flex 布局子项 且 z-index 值大于 0 的元素</p>
+</li>
+</ol>
+<p>opacity 非 1 的元素、transform（filter 等）非 none 的元素它们的层级在上面的 6。</p>
+<br/>
+
+<h4 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h4><h5 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h5><p>BFC 全称是 Block Formatting Context，意思是块级格式化上下文。你可以把BFC看做一个容器，容器里边的元素不会影响到容器外部的元素。</p>
+<h5 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h5><ol>
+<li><p>BFC 是一个块级元素，其子元素在垂直方向上依次排列；</p>
+</li>
+<li><p>BFC 是一个独立的容器，内部元素不会影响容器外部的元素；</p>
+</li>
+<li><p>属于同一个 BFC 的两个盒子，外边距 margin 会发生重叠，并且取最大外边距；</p>
+</li>
+<li><p>BFC 的区域不会与 float box 重叠。</p>
+</li>
+</ol>
+<h5 id="创建-BFC"><a href="#创建-BFC" class="headerlink" title="创建 BFC"></a>创建 BFC</h5><ul>
+<li>float 的值不是 none；</li>
+<li>position 的值为 absolute 或者 fixed；</li>
+<li>display 的值是 inline-block、table-cell、flex、table-caption 或者 inline-flex；</li>
+<li>overflow 的值不是 visible。</li>
+</ul>
+<h5 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h5><h6 id="避免-margin-重叠"><a href="#避免-margin-重叠" class="headerlink" title="避免 margin 重叠"></a>避免 margin 重叠</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.box1</span>, <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: burlywood;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在浏览器中可以看到，box1 的下外边距与 box2 的上外边距重叠了。这时我们可以利用 BFC 容器内部元素不影响外部元素这条特性，将 box2 包裹在一个 BFC 容器内就可以了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;overflow: hidden;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.box1</span>, <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box1</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: burlywood;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box2</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: <span class="number">#000</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h6><p>让父元素成为一个 BFC即可。</p>
+<hr>
+<h3 id="CSS-属性"><a href="#CSS-属性" class="headerlink" title="CSS 属性"></a>CSS 属性</h3><h4 id="从背景图片中截取一段小图"><a href="#从背景图片中截取一段小图" class="headerlink" title="从背景图片中截取一段小图"></a>从背景图片中截取一段小图</h4><p>在制作网页的时候如果要使用一幅图的某一部分的时候，可以用css里有一个非常有用的功能：background-position。</p>
 <p>如下图：</p>
 <p><img src="https://s1.ax1x.com/2020/05/13/YaQmE8.jpg" alt="YaQmE8.jpg"></p>
 <p>当我们要使用其中的某一个小图片来作为超链接的按钮的时候，就可以使用background-position来实现。</p>
@@ -322,7 +388,7 @@
 <p>例如选取上图中第二幅小图 ，小图的宽度为20px 高度为25px 则：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">          <span class="attribute">width</span>:<span class="number">20px</span>;</span></span><br><span class="line"><span class="css">          <span class="attribute">height</span>:<span class="number">25px</span>;</span></span><br><span class="line"><span class="css">          <span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">image.png</span>)no-reapte <span class="number">0</span> <span class="number">25px</span>;</span></span><br><span class="line"><span class="css">         &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<span id="more"></span>
+<!-- more -->
 
 <br/>
 
@@ -433,6 +499,21 @@
 
 <p>（3）给父容器也设置 float。</p>
 <p>（4）给父容器设置<code>overflow: hidden/auto</code>，触发其BFC。</p>
+<br/>
+
+<h4 id="自定义滚动条样式"><a href="#自定义滚动条样式" class="headerlink" title="自定义滚动条样式"></a>自定义滚动条样式</h4><ul>
+<li>::-webkit-scrollbar 滚动条整体部分；</li>
+<li>::-webkit-scrollbar-thumb  滚动条里面的小方块，能向上向下移动（或往左往右移动，取决于是垂直滚动条还是水平滚动条）；</li>
+<li>::-webkit-scrollbar-track  滚动条的轨道（里面装有Thumb）；</li>
+<li>::-webkit-scrollbar-track-piece 内层轨道，滚动条没有滑块的轨道部分；</li>
+<li>::-webkit-scrollbar-button 滚动条的轨道的两端按钮，允许通过点击微调小方块的位置；</li>
+<li>::-webkit-scrollbar-corner 边角，即两个滚动条的交汇处；</li>
+<li>::-webkit-resizer 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件。</li>
+</ul>
+<blockquote>
+<p><code>::webkit-scrollbar</code> 仅仅在支持 webkit 引擎的浏览器中生效（chrome、edge、safari）。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">::-webkit-scrollbar &#123;</span><br><span class="line">    width: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-track &#123;</span><br><span class="line">    border-radius: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">200</span>, <span class="number">200</span>, <span class="number">200</span>);</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-thumb &#123;</span><br><span class="line">    border-radius: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#1095c1</span>;</span><br><span class="line">&#125;</span><br><span class="line">::-webkit-scrollbar-thumb:hover &#123;</span><br><span class="line">    background-color: <span class="number">#000000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -479,6 +560,7 @@
           <div class="post-tags">
               <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
               <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+              <a href="/tags/html/" rel="tag"><i class="fa fa-tag"></i> html</a>
           </div>
 
         

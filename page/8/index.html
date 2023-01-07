@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -184,7 +184,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -233,6 +233,107 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CNN%E2%80%94-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%90%86%E8%AE%BA%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CNN%E2%80%94-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%90%86%E8%AE%BA%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">CNN—-卷积神经网络理论理解</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-20 17:29:07" itemprop="dateCreated datePublished" datetime="2021-01-20T17:29:07+08:00">2021-01-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-16 21:42:30" itemprop="dateModified" datetime="2021-10-16T21:42:30+08:00">2021-10-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="人工神经网络（ANN）"><a href="#人工神经网络（ANN）" class="headerlink" title="人工神经网络（ANN）"></a>人工神经网络（ANN）</h3><p>在介绍卷积神经网络之前，先来了解一下人工神经网络。</p>
+<h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><p>人工神经网络（Artificial Neural Network，简称ANN ），以数学模型模拟神经元活动，是基于模仿大脑神经网络结构和功能而建立的一种信息处理系统。神经网络是一种运算模型，由大量的节点（或称“神经元”）和之间相互的联接构成。每个节点代表一种特定的输出函数，称为<strong>激励函数、激活函数</strong>（activation function）。每两个节点间的联接都代表一个对于通过该连接信号的加权值，称之为<strong>权重</strong>。</p>
+<br/>
+
+<h5 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h5><p>神经网络包含三层：输入层、隐含层（可以有多层）、输出层。</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sWHm2d"><img src="https://s3.ax1x.com/2021/01/20/sWHm2d.png" alt="sWHm2d.png"></a></p>
+<ul>
+<li><code>Inputs</code>：输入，输入的是向量</li>
+<li><code>Weights</code>：权重</li>
+<li><code>Bias</code>：偏置</li>
+<li><code>Activationfunction</code>：激活函数</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/CNN%E2%80%94-%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%90%86%E8%AE%BA%E7%90%86%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1122,106 +1223,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/06/22/JS/JavaScript%E7%9A%84%E5%AE%8F%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%BE%AE%E4%BB%BB%E5%8A%A1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/" class="post-title-link" itemprop="url">python-视频的剪切与拼接</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-05-23 15:26:23" itemprop="dateCreated datePublished" datetime="2020-05-23T15:26:23+08:00">2020-05-23</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:37:58" itemprop="dateModified" datetime="2021-10-16T21:37:58+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="1、导入moviepy的包"><a href="#1、导入moviepy的包" class="headerlink" title="1、导入moviepy的包"></a>1、导入moviepy的包</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> moviepy.editor <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2、读取视频到内存"><a href="#2、读取视频到内存" class="headerlink" title="2、读取视频到内存"></a>2、读取视频到内存</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">video = VideoFileClip(path)</span><br></pre></td></tr></table></figure>
-
-<p>由此得到了一个VideoFileClip的对象，可通过对此对象的操作，实现对视频的操作。</p>
-<h4 id="3、对视频进行剪切"><a href="#3、对视频进行剪切" class="headerlink" title="3、对视频进行剪切"></a>3、对视频进行剪切</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">videoclip = video.subclip(time1, time2)</span><br></pre></td></tr></table></figure>
-
-<p><code>time1</code>：起始时长，<code>time2</code>：终止时长 ，单位均为秒。</p>
-<p><code>videoclip</code>是从时长time1到time2的视频的对象。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/23/python%E5%9F%BA%E7%A1%80/python-%E8%A7%86%E9%A2%91%E7%9A%84%E5%89%AA%E5%88%87%E4%B8%8E%E6%8B%BC%E6%8E%A5/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
