@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -233,6 +233,231 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/" class="post-title-link" itemprop="url">Django-数据库过滤器filter</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-29 14:47:33" itemprop="dateCreated datePublished" datetime="2020-07-29T14:47:33+08:00">2020-07-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-16 21:31:13" itemprop="dateModified" datetime="2021-10-16T21:31:13+08:00">2021-10-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在做django项目时，难免会需要对数据库中的数据进行筛选，django有自己的数据库过滤语法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = User.objects.<span class="built_in">filter</span>()</span><br></pre></td></tr></table></figure>
+
+<p>其中有多种参数：</p>
+<ul>
+<li><code>__contains </code>：包含， like ‘%aaa%’； <code>__icontains </code>：包含（ 忽略大小写） ilike ‘%aaa%’，但是对于sqlite来说，contains的作用效果等同于 icontains</li>
+<li><code>__exact</code> ：精确等于， like ‘aaa’ ；<code>iexact</code> 精确等于（忽略大小写） ilike ‘aaa’</li>
+<li><code>__gt</code> 大于</li>
+<li><code>__gte</code> 大于等于</li>
+<li><code>__lt</code> 小于</li>
+<li><code>__lte</code> 小于等于</li>
+<li><code>__in</code> 存在于一个list范围内</li>
+<li><code>__startswith</code> 以…开头</li>
+<li><code>__istartswith</code> 以…开头 忽略大小写</li>
+<li><code>__endswith </code>以…结尾</li>
+<li><code>__iendswith</code> 以…结尾，忽略大小写</li>
+<li><code>__range</code> 在…范围内</li>
+<li><code>__year</code> 日期字段的年份</li>
+<li><code>__month</code> 日期字段的月份</li>
+<li><code>__day </code>日期字段的日</li>
+<li><code>__isnull</code>=True/False 空查询</li>
+</ul>
+<p><strong>“Q() |” 或  ；“&amp;”与(逗号效果一样) ； “~”非(不等于)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models imports Q</span><br><span class="line"></span><br><span class="line">XXX.objects.<span class="built_in">filter</span>(Q(id__gt=<span class="number">3</span>)|Q(bread__gt=<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/07/29/Vue/Vue-%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/29/Vue/Vue-%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">Vue-实现路由跳转传值的几种方式</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-29 14:32:26" itemprop="dateCreated datePublished" datetime="2020-07-29T14:32:26+08:00">2020-07-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-16 21:42:00" itemprop="dateModified" datetime="2021-10-16T21:42:00+08:00">2021-10-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="一、router-link"><a href="#一、router-link" class="headerlink" title="一、router-link"></a>一、router-link</h3><p>URL路径：<code>http://localhost:8080/#/test?userid=1</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123;path:&#x27;/test&#x27;,query: &#123;userid: id&#125;&#125;&quot;</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>接收数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="built_in">this</span>.$route.query.userid</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二、this-router-push"><a href="#二、this-router-push" class="headerlink" title="二、this.$router.push()"></a>二、this.$router.push()</h3><h4 id="1、使用path-query"><a href="#1、使用path-query" class="headerlink" title="1、使用path+query"></a>1、使用path+query</h4><p>URL路径：<code>http://localhost:8080/#/selectCate?userid=1</code></p>
+<p>发送数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">this</span>.$router.push(&#123;<span class="attr">path</span>:<span class="string">&#x27;/selectCate&#x27;</span>,<span class="attr">query</span>:&#123;<span class="attr">userid</span>:id&#125;&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>接收数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="built_in">this</span>.$route.query.userid;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、使用name-params"><a href="#2、使用name-params" class="headerlink" title="2、使用name+params"></a>2、使用name+params</h4><p>URL路径：<code>http://localhost:8081/#/selectCate</code></p>
+<p>发送数据：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">this</span>.$router.push(&#123;<span class="attr">name</span>:<span class="string">&#x27;selectCate&#x27;</span>,<span class="attr">params</span>:&#123;<span class="attr">userid</span>:id&#125;&#125;);</span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>接收数据：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = <span class="built_in">this</span>.$route.params.userid;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><em><strong>注意：</strong></em>使用query，传输的值会在url后面以参数的形式显示出来，可以刷新页面，数据不变；而使用params，参数不会出现在url后面，但是一刷新页面传的值就没了。</p>
+<h3 id="三、sessionStorage存值"><a href="#三、sessionStorage存值" class="headerlink" title="三、sessionStorage存值"></a>三、sessionStorage存值</h3><p>使用sessionstorage可以将值保存在浏览器上，方便存取。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.sessionStorage.setItem(<span class="string">&#x27;token&#x27;</span>, <span class="built_in">this</span>.token); <span class="comment">//存值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>); <span class="comment">//取值</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -985,7 +1210,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-01-07 13:42:52" itemprop="dateModified" datetime="2023-01-07T13:42:52+08:00">2023-01-07</time>
+        <time title="修改时间：2023-02-13 21:16:00" itemprop="dateModified" datetime="2023-02-13T21:16:00+08:00">2023-02-13</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1019,192 +1244,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/" class="post-title-link" itemprop="url">python-从视频中提取音频</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-27 16:16:18" itemprop="dateCreated datePublished" datetime="2020-04-27T16:16:18+08:00">2020-04-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:37:17" itemprop="dateModified" datetime="2021-10-16T21:37:17+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="视频中提取音频"><a href="#视频中提取音频" class="headerlink" title="视频中提取音频"></a>视频中提取音频</h2><p>OpenCV中使用VideoCapture类写的视频是没有音频的，如果要进一步处理音频则需要用到一个库——<strong>MoviePy</strong>，这个库是Python视频编辑库，可裁剪、拼接、标题插入、视频合成、视频处理和自定义效果。</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install moviepy</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> moviepy.editor <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">path = <span class="string">&#x27;&#x27;</span>  <span class="comment">#视频所在路径</span></span><br><span class="line"></span><br><span class="line">video = VideoFileClip(path) <span class="comment">#创建视频对象</span></span><br><span class="line">audio = video.audio <span class="comment">#创建视频对应的音频对象</span></span><br><span class="line">audio.write_audiofile(<span class="string">&#x27;路径&#x27;</span>) <span class="comment">#将得到的音频写出到路径，通常导出为mp3格式</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-%E4%BB%8E%E8%A7%86%E9%A2%91%E4%B8%AD%E6%8F%90%E5%8F%96%E9%9F%B3%E9%A2%91/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/04/27/python%E5%9F%BA%E7%A1%80/python-pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/27/python%E5%9F%BA%E7%A1%80/python-pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">python pip下载速度慢的问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-27 13:30:26" itemprop="dateCreated datePublished" datetime="2020-04-27T13:30:26+08:00">2020-04-27</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:37:05" itemprop="dateModified" datetime="2021-10-16T21:37:05+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="pip-下载速度慢，导致报错：pip-vendor-urllib3-exceptions-ReadTimeoutError……"><a href="#pip-下载速度慢，导致报错：pip-vendor-urllib3-exceptions-ReadTimeoutError……" class="headerlink" title="pip 下载速度慢，导致报错：pip._vendor.urllib3.exceptions.ReadTimeoutError……"></a>pip 下载速度慢，导致报错：pip._vendor.urllib3.exceptions.ReadTimeoutError……</h4><p>python开发中，我们经常用到pip工具，然而，有时候下载速度非常慢……</p>
-<p>解决方法：</p>
-<p><strong>更改电脑默认镜像，之后便可用 pip install 命令快速下载</strong></p>
-<p>1、在我的电脑，搜索 <code>%APPDATA%</code>（代表系统变量），搜索之后的路径的应该为<code>C:\Users\Administrator\AppData\Roaming</code>；</p>
-<p>2、在此路径下新建文件夹pip，进入文件夹，新建<code>pip.ini</code>文件，添加如下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line"></span><br><span class="line">timeout = 6000</span><br><span class="line"></span><br><span class="line">index-url = http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line">trusted-host = mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
-
-<p>即可成功修改pip镜像路径。</p>
-<p>3、现在就可以使用<code>pip install</code>进行高速下载。</p>
-
       
     </div>
 
