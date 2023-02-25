@@ -33,7 +33,7 @@
 <meta property="og:description" content="var、let、const的区别 var 定义的变量，没有块的概念，可以跨块访问，不能跨函数访问  let 定义的变量，只能在块作用域里访问，不能跨块访问，也不能跨函数访问  const 用来定义常量，使用时必须初始化，只能在块作用域里访问，而且不能修改    为什么要 promise 或是异步解决多层回调问题（回调地狱）。  什么是 axiosaxios是基于promise用于浏览器和node.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-13T13:18:08.000Z">
-<meta property="article:modified_time" content="2023-02-13T14:50:34.603Z">
+<meta property="article:modified_time" content="2023-02-25T04:47:48.141Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#var%E3%80%81let%E3%80%81const%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">var、let、const的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81-promise-%E6%88%96%E6%98%AF%E5%BC%82%E6%AD%A5"><span class="nav-text">为什么要 promise 或是异步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-axios"><span class="nav-text">什么是 axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#axios%E3%80%81ajax%E3%80%81fetch-%E4%B8%89%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">axios、ajax、fetch 三者的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN-%E5%8E%9F%E7%90%86"><span class="nav-text">CDN 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN-%E8%8E%B7%E5%8F%96%E6%9C%80%E8%BF%91%E8%8A%82%E7%82%B9%E8%B5%84%E6%BA%90%E7%9A%84%E7%AE%97%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">CDN 获取最近节点资源的算法是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-%E5%92%8C-UDP"><span class="nav-text">TCP 和 UDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">http 状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js-%E4%BE%9D%E8%B5%96%E6%A8%A1%E5%9D%97"><span class="nav-text">js 依赖模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%BB%E5%87%A0%E4%BD%95%E5%9B%BE%E5%BD%A2%E7%9A%84%E6%8A%80%E6%9C%AF%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-text">画几何图形的技术有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-%E5%A4%B4%E4%BF%A1%E6%81%AF"><span class="nav-text">http 头信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="nav-text">Web 缓存机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-%E5%92%8C-post%E5%8C%BA%E5%88%AB"><span class="nav-text">Get 和 post区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82"><span class="nav-text">跨域请求</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#var%E3%80%81let%E3%80%81const%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">var、let、const的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81-promise-%E6%88%96%E6%98%AF%E5%BC%82%E6%AD%A5"><span class="nav-text">为什么要 promise 或是异步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-axios"><span class="nav-text">什么是 axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#axios%E3%80%81ajax%E3%80%81fetch-%E4%B8%89%E8%80%85%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">axios、ajax、fetch 三者的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN-%E5%8E%9F%E7%90%86"><span class="nav-text">CDN 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CDN-%E8%8E%B7%E5%8F%96%E6%9C%80%E8%BF%91%E8%8A%82%E7%82%B9%E8%B5%84%E6%BA%90%E7%9A%84%E7%AE%97%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">CDN 获取最近节点资源的算法是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-%E5%92%8C-UDP"><span class="nav-text">TCP 和 UDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-text">http 状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js-%E4%BE%9D%E8%B5%96%E6%A8%A1%E5%9D%97"><span class="nav-text">js 依赖模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%BB%E5%87%A0%E4%BD%95%E5%9B%BE%E5%BD%A2%E7%9A%84%E6%8A%80%E6%9C%AF%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-text">画几何图形的技术有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-%E5%A4%B4%E4%BF%A1%E6%81%AF"><span class="nav-text">http 头信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="nav-text">Web 缓存机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-%E5%92%8C-post%E5%8C%BA%E5%88%AB"><span class="nav-text">Get 和 post区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82"><span class="nav-text">跨域请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%A8%A1%E5%9E%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86%EF%BC%88%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98%EF%BC%89"><span class="nav-text">事件模型和事件代理（事件委托）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98"><span class="nav-text">事件委托</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E5%85%83%E7%B4%A0%E6%B6%88%E5%A4%B1%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="nav-text">使元素消失的方法有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#call-apply-bind-%E5%8C%BA%E5%88%AB"><span class="nav-text">call  apply  bind 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVVM"><span class="nav-text">MVVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-if-%E5%92%8C-v-show-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">v-if 和 v-show 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B5%E5%BA%94%E7%94%A8%E4%B8%8E%E5%8D%95%E9%A1%B5%E5%BA%94%E7%94%A8"><span class="nav-text">多页应用与单页应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%B1%8F%E6%97%B6%E9%97%B4%E6%85%A2%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88"><span class="nav-text">首屏时间慢的优化方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#localStorage%EF%BC%8CCookie-%E5%92%8C-sessionStorage-%E5%8C%BA%E5%88%AB"><span class="nav-text">localStorage，Cookie 和 sessionStorage 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input-%E4%B8%AD%E5%A6%82%E4%BD%95%E7%9B%91%E5%90%AC%E5%80%BC%E7%9A%84%E5%8F%98%E5%8C%96"><span class="nav-text">input  中如何监听值的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96"><span class="nav-text">节流与防抖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD-CMD-CommonJS"><span class="nav-text">AMD  CMD  CommonJS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-text">盒子模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation"><span class="nav-text">animation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%B8%B8%E8%A7%81%E7%9A%84%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F"><span class="nav-text">前端常见的攻击方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSR%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E6%B8%B2%E6%9F%93%EF%BC%89"><span class="nav-text">SSR（服务器端渲染）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E6%B4%BB%E5%8A%A8%E9%A1%B5%E9%9D%A2"><span class="nav-text">判断活动页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XHR"><span class="nav-text">XHR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-text">正向代理与反向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-text">CSS 选择器的优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%AA%E5%85%83%E7%B4%A0%EF%BC%8C%E4%BC%AA%E7%B1%BB"><span class="nav-text">伪元素，伪类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">JS数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#em-%E5%92%8C-rem-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">em 和 rem 的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-%E5%AE%9E%E7%8E%B0%E6%B7%B1%E6%8B%B7%E8%B4%9D%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">JS 实现深拷贝的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#margin-%E5%A1%8C%E9%99%B7"><span class="nav-text">margin 塌陷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-for-%E4%B8%AD-key-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-text">v-for 中 key 的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-text">ajax 优缺点</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -281,7 +281,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-02-13 22:50:34" itemprop="dateModified" datetime="2023-02-13T22:50:34+08:00">2023-02-13</time>
+        <time title="修改时间：2023-02-25 12:47:48" itemprop="dateModified" datetime="2023-02-25T12:47:48+08:00">2023-02-25</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -326,9 +326,14 @@
 <span id="more"></span>
 
 <hr>
-<h3 id="axios、ajax、fetch-三者的区别"><a href="#axios、ajax、fetch-三者的区别" class="headerlink" title="axios、ajax、fetch 三者的区别"></a>axios、ajax、fetch 三者的区别</h3><p>（1）      ajax隶属于原始js，核心使用XMLHttpRequest对象，多个请求之间如果有先后关系的话，就会出现回调地狱。</p>
-<p>（2）      Fetch是基于promise设计的，它不是ajax的进一步封装，而是原生js，没有使用XMLHttpRequest对象。</p>
-<p>（3）      axios不是原生JS的，需要进行安装，它可以在客户端使用，也可以在nodejs端使用。Axios也可以在请求和响应阶段进行拦截。同样也是基于promise对象的。</p>
+<h3 id="axios、ajax、fetch-三者的区别"><a href="#axios、ajax、fetch-三者的区别" class="headerlink" title="axios、ajax、fetch 三者的区别"></a>axios、ajax、fetch 三者的区别</h3><ul>
+<li><p>ajax隶属于原始js，核心使用XMLHttpRequest对象，多个请求之间如果有先后关系的话，就会出现回调地狱。</p>
+</li>
+<li><p>Fetch是基于promise设计的，它不是ajax的进一步封装，而是原生js，没有使用XMLHttpRequest对象。</p>
+</li>
+<li><p>axios不是原生JS的，需要进行安装，它可以在客户端使用，也可以在nodejs端使用。Axios也可以在请求和响应阶段进行拦截。同样也是基于promise对象的。</p>
+</li>
+</ul>
 <hr>
 <h3 id="CDN-原理"><a href="#CDN-原理" class="headerlink" title="CDN 原理"></a>CDN 原理</h3><p>CDN 的基本原理是广泛采用各种缓存服务器,将这些缓存服务器分布到用户访问相对集中的地区或网络中,在用户访问网站时,利用全局负载技术将用户的访问指向距离最近的工作正常的缓存服务器上,由缓存服务器直接响应用户请求。</p>
 <hr>
@@ -352,15 +357,27 @@
 <hr>
 <h3 id="画几何图形的技术有哪些"><a href="#画几何图形的技术有哪些" class="headerlink" title="画几何图形的技术有哪些"></a>画几何图形的技术有哪些</h3><p>css，canvas，svg</p>
 <hr>
-<h3 id="http-头信息"><a href="#http-头信息" class="headerlink" title="http 头信息"></a>http 头信息</h3><p>（1）      Accept：告诉WEB服务器自己接受什么介质类型</p>
-<p>（2）      Accept-Charset：浏览器申明自己接收的字符集</p>
-<p>（3）      Cache-Control：控制缓存</p>
-<p>（4）      Connection：请求：close（告诉WEB服务器或者代理服务器，在完成本次请求的响应后，断开连接，不要等待本次连接的后续请求了）</p>
+<h3 id="http-头信息"><a href="#http-头信息" class="headerlink" title="http 头信息"></a>http 头信息</h3><ol>
+<li><p>Accept：告诉WEB服务器自己接受什么介质类型</p>
+</li>
+<li><p>Accept-Charset：浏览器申明自己接收的字符集</p>
+</li>
+<li><p>Cache-Control：控制缓存</p>
+</li>
+<li><p>Connection：请求：close（告诉WEB服务器或者代理服务器，在完成本次请求的响应后，断开连接，不要等待本次连接的后续请求了）</p>
+</li>
+</ol>
 <hr>
-<h3 id="Web-缓存机制"><a href="#Web-缓存机制" class="headerlink" title="Web 缓存机制"></a>Web 缓存机制</h3><p>1.浏览器第一次加载资源，服务器返回200，浏览器将资源文件从服务器上请求下载下来，并把response<br>header及该请求的返回时间一并缓存；</p>
-<p>2.下一次加载资源时，先比较当前时间和上一次返回200时的时间差，如果没有超过cache-control设置的max-age，则没有过期，命中强缓存，不发请求直接从本地缓存读取该文件（如果浏览器不支持HTTP1.1，则用expires判断是否过期）；如果时间过期，则向服务器发送header带有If-None-Match和If-Modified-Since的请求</p>
-<p>3.服务器收到请求后，优先根据Etag的值判断被请求的文件有没有做修改，Etag值一致则没有修改，命中协商缓存，返回304；如果不一致则有改动，直接返回新的资源文件带上新的Etag值并返回200；</p>
-<p>4.如果服务器收到的请求没有Etag值，则将If-Modified-Since和被请求文件的最后修改时间做比对，一致则命中协商缓存，返回304；不一致则返回新的last-modified和文件并返回200。</p>
+<h3 id="Web-缓存机制"><a href="#Web-缓存机制" class="headerlink" title="Web 缓存机制"></a>Web 缓存机制</h3><ol>
+<li><p>浏览器第一次加载资源，服务器返回200，浏览器将资源文件从服务器上请求下载下来，并把 response header 及该请求的返回时间一并缓存；</p>
+</li>
+<li><p>下一次加载资源时，先比较当前时间和上一次返回 200 时的时间差，如果没有超过 cache-control 设置的 max-age，则没有过期，命中强缓存，不发请求直接从本地缓存读取该文件（如果浏览器不支持 HTTP1.1，则用 expires 判断是否过期）；如果时间过期，则向服务器发送 header 带有 If-None-Match 和 If-Modified-Since 的请求</p>
+</li>
+<li><p>服务器收到请求后，优先根据 Etag 的值判断被请求的文件有没有做修改，Etag 值一致则没有修改，命中协商缓存，返回 304；如果不一致则有改动，直接返回新的资源文件带上新的 Etag 值并返回 200；</p>
+</li>
+<li><p>如果服务器收到的请求没有 Etag 值，则将 If-Modified-Since 和被请求文件的最后修改时间做比对，一致则命中协商缓存，返回 304；不一致则返回新的 last-modified 和文件并返回 200。</p>
+</li>
+</ol>
 <hr>
 <h3 id="Get-和-post区别"><a href="#Get-和-post区别" class="headerlink" title="Get 和 post区别"></a>Get 和 post区别</h3><p>（1）Get是从服务器上获得数据，而Post则是向服务器传递数据的。</p>
 <p>（2）Get是不安全的，很可能你的一些操作会被第三方看到，而Post的所有操作多用户来说是不可见的。</p>
@@ -369,21 +386,21 @@
 <hr>
 <h3 id="跨域请求"><a href="#跨域请求" class="headerlink" title="跨域请求"></a>跨域请求</h3><p>概念：如果 “协议 + 域名 + 端口号” 均相同，就是同域，否则是跨域。</p>
 <p>解决方法：</p>
-<p>（1）      CORS请求：它允许浏览器向声明了 CORS 的跨域服务器，发出 XMLHttpRequest 请求。</p>
-<p>（2）      JSONP请求：动态添加<script>标签来调用服务器提供的js脚本。</p>
-<p> JSONP请求，缺点是仅支持<strong>GET</strong>请求，CORS比JSONP更强大，支持所有类型的HTTP请求。</p>
-<p>（3）  postMessage：如果两个网页不同源，就无法拿到对方的DOM。典型的例子是iframe窗口和window.open方法打开的窗口，它们与父窗口无法通信。window.postMessage方法允许跨窗口通信，不论这两个窗口是否同源。postMessage方法的第一个参数是具体的信息内容，第二个参数是接收消息的窗口的源（origin），即”协议 + 域名 + 端口”。也可以设为*，表示不限制域名，向所有窗口发送。</p>
-<p>（4）  WebSocket：Websocket是HTML5的一个持久化的协议，它实现了浏览器与服务器的全双工通信，同时也是跨域的一种解决方案。</p>
-<p>（5） 修改document.domain跨子域：两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用document.domain进行跨域。例如把domain属性的值设置为“xxx.com” ，那么”aaa.xxx.com”和”bbb.xxx.com”就可以进行通信了。</p>
+<p>（1）CORS请求：它允许浏览器向声明了 CORS 的跨域服务器，发出 XMLHttpRequest 请求。</p>
+<p>（2）JSONP请求：动态添加 script 标签来调用服务器提供的 js 脚本。</p>
+<p> JSONP请求，缺点是仅支持 GET 请求，CORS 比 JSONP 更强大，支持所有类型的 HTTP 请求。</p>
+<p>（3）postMessage：如果两个网页不同源，就无法拿到对方的DOM。典型的例子是 iframe 窗口和 window.open 方法打开的窗口，它们与父窗口无法通信。window.postMessage 方法允许跨窗口通信，不论这两个窗口是否同源。postMessage 方法的第一个参数是具体的信息内容，第二个参数是接收消息的窗口的源（origin），即”协议 + 域名 + 端口”。也可以设为*，表示不限制域名，向所有窗口发送。</p>
+<p>（4）  WebSocket：Websocket 是 HTML5 的一个持久化的协议，它实现了浏览器与服务器的全双工通信，同时也是跨域的一种解决方案。</p>
+<p>（5） 修改 document.domain 跨子域：两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用 document.domain 进行跨域。例如把 domain 属性的值设置为 “xxx.com” ，那么 ”aaa.xxx.com” 和 ”bbb.xxx.com” 就可以进行通信了。</p>
 <hr>
 <h3 id="事件模型和事件代理（事件委托）"><a href="#事件模型和事件代理（事件委托）" class="headerlink" title="事件模型和事件代理（事件委托）"></a>事件模型和事件代理（事件委托）</h3><p>事件模型：是指一个事件发生后，会在子元素和父元素之间传播。</p>
 <p>事件代理：事件委托是利用事件的冒泡原理来实现的，何为事件冒泡呢？就是事件从最深的节点开始，然后逐步向上传播事件。</p>
 <hr>
 <h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。</p>
-<p>举个例子：页面上有这么一个节点树，div&gt;ul&gt;li&gt;a;比如给最里面的a加一个click点击事件，那么这个事件就会一层一层的往外执行，执行顺序a&gt;li&gt;ul&gt;div，有这样一个机制，那么我们给最外面的div加点击事件，那么里面的ul，li，a做点击事件的时候，都会冒泡到最外层的div上，所以都会触发，这就是事件委托，委托它们父级代为执行事件。</p>
+<p>举个例子：页面上有这么一个节点树，div&gt;ul&gt;li&gt;a，比如给最里面的 a 加一个 click 点击事件，那么这个事件就会一层一层的往外执行，执行顺序 a&gt;li&gt;ul&gt;div，有这样一个机制，那么我们给最外面的 div 加点击事件，那么里面的 ul，li，a 做点击事件的时候，都会冒泡到最外层的 div 上，所以都会触发，这就是事件委托，委托它们父级代为执行事件。</p>
 <p>可以减少 Dom 的操作次数，减少内存，从而提高性能。</p>
 <p>适合用事件委托的事件：click，mousedown，mouseup，keydown，keyup，keypress。</p>
-<p>不适合的就有很多了，举个例子，mousemove，每次都要计算它的位置，非常不好把控，在不如说focus，blur之类的，本身就没用冒泡的特性，自然就不能用事件委托了。</p>
+<p>不适合的就有很多了，举个例子，mousemove，每次都要计算它的位置，非常不好把控，在不如说 focus，blur 之类的，本身就没用冒泡的特性，自然就不能用事件委托了。</p>
 <p>事件冒泡：从被触发事件逐层向上触发父级事件。</p>
 <p>事件捕获：从被触发事件逐层向下触发子级事件。</p>
 <p>事件冒泡和事件捕获可以通过 addEventListener(触发事件的动作，回调函数，布尔值) 函数实现：第三个参数为默认值 false 是事件冒泡；为 true 是事件捕获。</p>
@@ -407,8 +424,8 @@
 <p>c：call，apply 方法是在调用之后立即执行函数，而 bind 方法没有立即执行，需要将函数再执行一遍。有点闭包的味道。</p>
 <hr>
 <h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>响应式，双向数据绑定，即MVVM。是指数据层（Model）-视图层（View）-数据视图（ViewModel）的响应式框架。它包括：</p>
-<p>1.修改View层，Model对应数据发生变化。</p>
-<p>2.Model数据变化，不需要查找DOM，直接更新View</p>
+<p>1.修改 View 层，Model对应数据发生变化。</p>
+<p>2.Model 数据变化，不需要查找 DOM，直接更新 View</p>
 <hr>
 <h3 id="v-if-和-v-show-的区别"><a href="#v-if-和-v-show-的区别" class="headerlink" title="v-if 和 v-show 的区别"></a>v-if 和 v-show 的区别</h3><p>v-if 的原理是根据判断条件来动态的进行增删 DOM 元素，条件为真进行渲染，为假不渲染。</p>
 <p>v-show 是根据判断条件来动态的进行显示和隐藏元素，它总是渲染 DOM 元素。</p>
@@ -435,14 +452,6 @@
 <p>（2）路由懒加载：import 、require.ensure</p>
 <p>（3）图片懒加载：为了减少服务器压力，优先加载可视区域的内容，其他部分等进入了可视域再加载，从而提高性能。</p>
 <p>（4）按需加载第三方资源（组件库）</p>
-<hr>
-<h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h3><p>为了减少服务器压力，优先加载可视区域的内容，其他部分等进入了可视域再加载，从而提高性能。</p>
-<p>原理：</p>
-<p>一张图片就是一个 img 标签，浏览器是否发起请求图片是根据的 src 属性，所以实现懒加载的关键就是，在图片没有进入可视区域时，先不给 src 赋值，这样浏览器就不会发送请求了，等到图片进入可视区域再给 src 赋值。</p>
-<p>实现：</p>
-<ol>
-<li>加载loading图片：在 html 中 src 中存放的是伪图片（同一张图片），data-src 中存放的是真实图片的地址。<br>2.判断哪些图片要加载【重点】：根据可视区域判断<br>3.隐形加载图片：不在可视区域的图片加载的是伪图片<br>4.替换真图片：当图片进入可视区域时，加载真图片替换伪图片</li>
-</ol>
 <hr>
 <h3 id="localStorage，Cookie-和-sessionStorage-区别"><a href="#localStorage，Cookie-和-sessionStorage-区别" class="headerlink" title="localStorage，Cookie 和 sessionStorage 区别"></a>localStorage，Cookie 和 sessionStorage 区别</h3><p>localStorage和sessionStorage一样都是用来存储客户端临时信息的对象。</p>
 <p>（1）localStorage 生命周期是永久，这意味着除非用户显示在浏览器提供的 UI 上清除 localStorage 信息，否则这些信息将永远存在；sessionStorage 生命周期为当前窗口或标签页，一旦窗口或标签页被永久关闭了，那么所有通过 sessionStorage 存储的数据也就被清空了。</p>
