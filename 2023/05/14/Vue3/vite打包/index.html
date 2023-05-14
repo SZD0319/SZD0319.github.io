@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+  <link rel="mask-icon" href="/images/favicon.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CRoboto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-fill-left.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"szd0319.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","width":310,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+<meta name="description" content="构建生产版本自定义 chunk 及静态资源路径使用 vite 默认选项打包出来的产物位于项目根目录下的 dist 文件夹中，里面包含了  assets 文件夹  index.html  原 public 文件夹中的内容   assets 文件夹中包含了所有的 js、css 以及图片文件。如果我们想要将它们分开，可以进行如下配置：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vite 打包">
+<meta property="og:url" content="https://szd0319.github.io/2023/05/14/Vue3/vite%E6%89%93%E5%8C%85/index.html">
+<meta property="og:site_name" content="舞动的灵魂">
+<meta property="og:description" content="构建生产版本自定义 chunk 及静态资源路径使用 vite 默认选项打包出来的产物位于项目根目录下的 dist 文件夹中，里面包含了  assets 文件夹  index.html  原 public 文件夹中的内容   assets 文件夹中包含了所有的 js、css 以及图片文件。如果我们想要将它们分开，可以进行如下配置：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-14T12:45:14.000Z">
+<meta property="article:modified_time" content="2023-05-14T13:01:41.159Z">
+<meta property="article:author" content="Silence">
+<meta property="article:tag" content="vue3">
+<meta property="article:tag" content="vite">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://szd0319.github.io/2023/05/14/Vue3/vite%E6%89%93%E5%8C%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://szd0319.github.io/2023/05/14/Vue3/vite%E6%89%93%E5%8C%85/","path":"2023/05/14/Vue3/vite打包/","title":"vite 打包"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('加密文，来试试你的运气吧！') !== ''){
+                alert('要不要再尝试一次呢~~');
+                history.back();
+            }
+        }
+    })();
+</script><title>vite 打包 | 舞动的灵魂</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">舞动的灵魂</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">I am a good man</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E7%94%9F%E4%BA%A7%E7%89%88%E6%9C%AC"><span class="nav-text">构建生产版本</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-chunk-%E5%8F%8A%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E8%B7%AF%E5%BE%84"><span class="nav-text">自定义 chunk 及静态资源路径</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gzip-%E5%8E%8B%E7%BC%A9"><span class="nav-text">Gzip 压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#gzip-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">gzip 工作原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gzip-%E5%8E%8B%E7%BC%A9%E6%96%B9%E6%A1%88"><span class="nav-text">gzip 压缩方案</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#nginx-%E7%AB%AF%E5%8E%8B%E7%BC%A9"><span class="nav-text">nginx 端压缩</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%8E%8B%E7%BC%A9"><span class="nav-text">前端压缩</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Silence"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">Silence</p>
+  <div class="site-description" itemprop="description">万花丛中过，片叶不沾身</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:silence@gmail.com" title="E-Mail → mailto:silence@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://jcoffeezph.top/" title="https:&#x2F;&#x2F;jcoffeezph.top&#x2F;" rel="noopener" target="_blank">ForMe</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://qzmvc1.top/" title="https:&#x2F;&#x2F;qzmvc1.top&#x2F;" rel="noopener" target="_blank">QzmVc1</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2023/05/14/Vue3/vite%E6%89%93%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vite 打包
+        </h1>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-05-14 20:45:14 / 修改时间：21:01:41" itemprop="dateCreated datePublished" datetime="2023-05-14T20:45:14+08:00">2023-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Vue3/" itemprop="url" rel="index"><span itemprop="name">Vue3</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="构建生产版本"><a href="#构建生产版本" class="headerlink" title="构建生产版本"></a>构建生产版本</h3><h5 id="自定义-chunk-及静态资源路径"><a href="#自定义-chunk-及静态资源路径" class="headerlink" title="自定义 chunk 及静态资源路径"></a>自定义 chunk 及静态资源路径</h5><p>使用 vite 默认选项打包出来的产物位于项目根目录下的 dist 文件夹中，里面包含了</p>
+<ul>
+<li><p>assets 文件夹</p>
+</li>
+<li><p>index.html</p>
+</li>
+<li><p>原 public 文件夹中的内容</p>
+</li>
+</ul>
+<p>assets 文件夹中包含了所有的 js、css 以及图片文件。如果我们想要将它们分开，可以进行如下配置：</p>
+<span id="more"></span>
+
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">  <span class="attr">build</span>: &#123;</span><br><span class="line">    <span class="attr">rollupOptions</span>: &#123;</span><br><span class="line">      <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">assetFileNames</span>: <span class="string">&quot;assets/[ext]/[name]-[hash][extname]&quot;</span>,</span><br><span class="line">        <span class="attr">chunkFileNames</span>: <span class="string">&quot;assets/js/[name]-[hash].js&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>assetFileNames</code> 用于自定义构建结果中的静态资源名称（不包含 chunk），其有以下几个占位符：</p>
+<ul>
+<li><p>[name]：静态资源的名称；</p>
+</li>
+<li><p>[hash]：基于静态资源内容的哈希值；</p>
+</li>
+<li><p>[extname]：包含 <code>.</code> 的文件后缀名；</p>
+</li>
+<li><p>[ext]：不包含 <code>.</code> 的文件后缀名。</p>
+</li>
+</ul>
+<p>此外，可以通过 ”/“ 将其划分到子目录。</p>
+<p>详细内容见 <a target="_blank" rel="noopener" href="https://cn.rollupjs.org/configuration-options/#output-assetfilenames">配置选项 | Rollup 中文文档</a>。</p>
+<p><code>chunkFileNames</code> 用于对代码分割中产生的 chunk 自定义命名，用法同上。</p>
+<p>详细内容见<a target="_blank" rel="noopener" href="https://cn.rollupjs.org/configuration-options/#output-chunkfilenames">配置选项 | Rollup 中文文档</a>。</p>
+<p>基于以上配置打包后，assets 文件夹中包含了 js、css、png 等文件夹。</p>
+<p>这时，你可能会发现一个问题：打包后有一个 js 文件会比其他文件大很多。其实这个文件包含了 node_modules 中的所有依赖。那怎么将 node_modules 中的依赖拆分开来呢？我们可以自定义 chunk，将 node_modules 中的每种依赖打包成一个 chunk。代码如下：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">  <span class="attr">build</span>: &#123;</span><br><span class="line">    <span class="attr">rollupOptions</span>: &#123;</span><br><span class="line">      <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">assetFileNames</span>: <span class="string">&quot;assets/[ext]/[name]-[hash][extname]&quot;</span>,</span><br><span class="line">        <span class="attr">chunkFileNames</span>: <span class="string">&quot;assets/js/[name]/[name]-[hash].js&quot;</span>,</span><br><span class="line">        <span class="attr">manualChunks</span>: <span class="function">(<span class="params">id</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (id.includes(<span class="string">&quot;node_modules&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> id.split(<span class="string">&quot;node_modules/&quot;</span>)[<span class="number">1</span>].split(<span class="string">&quot;/&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>manualChunks</code> 的参数 id 是文件的绝对路径，比如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:/develop/projects/work/document-managment/node_modules/lodash-es/methodOf.js</span><br><span class="line">E:/develop/projects/work/document-managment/node_modules/lodash-es/min.js</span><br></pre></td></tr></table></figure>
+
+<p>如果你想在打包后将 node_modules 中的依赖放入 node_modules 文件夹中，可以这样做：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">  <span class="attr">build</span>: &#123;</span><br><span class="line">    <span class="attr">rollupOptions</span>: &#123;</span><br><span class="line">      <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">assetFileNames</span>: <span class="string">&quot;assets/[ext]/[name]-[hash][extname]&quot;</span>,</span><br><span class="line">        <span class="attr">chunkFileNames</span>: <span class="function">(<span class="params">chunkInfo</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (chunkInfo.name.includes(<span class="string">&quot;node_modules&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">const</span> name = chunkInfo.name.split(<span class="string">&quot;_&quot;</span>)[<span class="number">2</span>]; <span class="comment">// node_modules_vue</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">`assets/js/node_modules/<span class="subst">$&#123;name&#125;</span>/[name]-[hash].js`</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> <span class="string">&quot;assets/js/[name]/[name]-[hash].js&quot;</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">manualChunks</span>: <span class="function">(<span class="params">id</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (id.includes(<span class="string">&quot;node_modules&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;node_modules_&quot;</span> + id.split(<span class="string">&quot;node_modules/&quot;</span>)[<span class="number">1</span>].split(<span class="string">&quot;/&quot;</span>)[<span class="number">0</span>];</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Gzip-压缩"><a href="#Gzip-压缩" class="headerlink" title="Gzip 压缩"></a>Gzip 压缩</h3><p>当用户访问我们的 web 站点时，前端资源通过 Gzip 压缩后传输给客户端，比纯文本体积减少大概 60% 左右，能够节约客户端网络资源，提升响应速度，解决网络导致的资源加载瓶颈，和减小服务器压力。</p>
+<h5 id="gzip-工作原理"><a href="#gzip-工作原理" class="headerlink" title="gzip 工作原理"></a>gzip 工作原理</h5><ol>
+<li>浏览器请求 url，并在请求头中设置属性 <code>accept-encoding：gzip</code>。表明浏览器支持 gzip，这个参数是浏览器自动会携带的请求头信息。</li>
+<li>服务器收到浏览器发送的请求之后，服务器会返回压缩后的文件，并在响应头中包含 <code>content-encoding: gzip</code>。如果没有压缩文件，服务器会返回未压缩的请求文件。</li>
+<li>浏览器接收到服务器的响应，根据 <code>content-encoding: gzip</code> 响应头使用 gzip 策略去解压压缩后的资源，通过 content-type 内容类型决定怎么编码读取该文件内容。</li>
+</ol>
+<h5 id="gzip-压缩方案"><a href="#gzip-压缩方案" class="headerlink" title="gzip 压缩方案"></a>gzip 压缩方案</h5><h6 id="nginx-端压缩"><a href="#nginx-端压缩" class="headerlink" title="nginx 端压缩"></a>nginx 端压缩</h6><p>浏览器请求资源时，nginx 服务器对文件进行 gzip 压缩后返回给浏览器。前端不用做任何修改正常打包，但这样会消耗服务器性能。nginx 开启 gzip 压缩，代码如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">sendfile</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">gzip</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="comment"># 大于 length 的资源才压缩，默认为20字节</span></span><br><span class="line">    gzip_min_length: 2048;</span><br><span class="line">    <span class="comment">#开启 gzip 静态压缩功能</span></span><br><span class="line">    <span class="attribute">gzip_static</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="comment">#gzip 缓存大小</span></span><br><span class="line">    <span class="attribute">gzip_buffers</span> <span class="number">4</span> <span class="number">16k</span>;</span><br><span class="line">    <span class="comment">#开启 gzip 的 http 版本</span></span><br><span class="line">    <span class="attribute">gzip_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">    <span class="comment">#gzip 压缩级别 1-10 </span></span><br><span class="line">    <span class="attribute">gzip_comp_level</span> <span class="number">5</span>;</span><br><span class="line">    <span class="comment">#gzip 压缩类型</span></span><br><span class="line">    <span class="attribute">gzip_types</span> text/plain application/javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;</span><br><span class="line">    <span class="comment"># 是否在http header中添加Vary: Accept-Encoding，建议开启</span></span><br><span class="line">    <span class="attribute">gzip_vary</span> <span class="literal">on</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>nginx 想要开启 gzip 压缩需要确保 nginx 安装了 <code>ngx_http_gzip_module</code> 模块，<code>gzip_static on</code> 配置项需用到 <code>http_gzip_static_module</code> 模块，可使用命令 <code>nginx -V</code> 查看。</p>
+<p>此外，系统还必须安装 zlib 库，因为 nginx 使用 zlib 对 http 包的内容进行 gzip：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zlib zlib-devel</span><br></pre></td></tr></table></figure>
+
+<p>若报错：”E:无法定位软件包 zlib-devel“，是因为在 ubuntu 软件源里 zlib 和 zlib-devel 叫作 zlib1g 和 zlib1g.dev。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zlib1g zlib1g.dev</span><br></pre></td></tr></table></figure>
+
+<h6 id="前端压缩"><a href="#前端压缩" class="headerlink" title="前端压缩"></a>前端压缩</h6><p>打包时通过 vite/webpack 配置生成的对应的 .gz 文件，浏览器请求文件后会自动解压为 js 或者 css 等资源文件。</p>
+<p>前端打包借助 vite-plugin-compression 插件，插件地址 <a target="_blank" rel="noopener" href="https://github.com/vbenjs/vite-plugin-compression">GitHub - vbenjs/vite-plugin-compression: Use gzip or brotli to compress resources</a>。</p>
+<p>安装</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vite<span class="literal">-plugin</span><span class="literal">-compression</span></span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> viteCompression <span class="keyword">from</span> <span class="string">&#x27;vite-plugin-compression&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        viteCompression(&#123;</span><br><span class="line">            <span class="attr">threshold</span>: <span class="number">100</span>*<span class="number">1024</span>, <span class="comment">// 体积大于 threshold 才会被压缩，单位 b</span></span><br><span class="line">            <span class="attr">deleteOriginFile</span>: <span class="literal">false</span> <span class="comment">// 是否删除原文件</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>打包后，压缩后的文件与原文件会同时存在，可以通过配置 <code>deleteOriginFile: true</code> 删除未打包资源，但<strong>我们推荐保留未打包资源</strong>。</p>
+<p>此时，nginx 只需配置</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">gzip_static</span> <span class="literal">on</span>;</span><br></pre></td></tr></table></figure>
+
+<p>即可。</p>
+<p><strong>注意：</strong> 如果 vue 项目的路由模式使用的是 history 且压缩后原文件被删除，那么当 nginx 配置了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">try_files $uri /$uri /index.html</span><br></pre></td></tr></table></figure>
+
+<p>时，浏览器会报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed to load module script: Expected a JavaScript module script but the server responded with a MIME type of “text/html”. Strict MIME type checking is enforced for module scripts per HTML spec.</span><br></pre></td></tr></table></figure>
+
+<p>这是因为浏览器请求 .js 或 .css 文件时，服务器只有 .js.gz 或 .css.gz 文件，找不到时就会返回 index.html 文件。</p>
+<p>解决方法就保留源文件，浏览器获取的依然是打包后的资源文件。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>觉得本文对你有用的话，不妨打个赏吧~</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Silence 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Silence 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Silence
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://szd0319.github.io/2023/05/14/Vue3/vite%E6%89%93%E5%8C%85/" title="vite 打包">https://szd0319.github.io/2023/05/14/Vue3/vite打包/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/vue3/" rel="tag"><i class="fa fa-tag"></i> vue3</a>
+              <a href="/tags/vite/" rel="tag"><i class="fa fa-tag"></i> vite</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/04/22/Vue3/ElementPlus/" rel="prev" title="ElementPlus">
+                  <i class="fa fa-chevron-left"></i> ElementPlus
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/05/14/Vue3/%E5%8F%91%E5%B8%83npm%E5%8C%85/" rel="next" title="用 vite 构建 vue3 组件库，并发布到 npm">
+                  用 vite 构建 vue3 组件库，并发布到 npm <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Silence</span>
+</div>
+
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"SZD0319","repo":"SZD0319.github.io","client_id":"edad01c0f99e273ba171","client_secret":"c1c5aa218b3f7b1ef8ea15b13653ff935e425936","admin_user":"SZD0319","distraction_free_mode":false,"proxy":"https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"a2dac2834e2be8c6563b17bb5b95e986"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+  
+ 
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+ 
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>
+
