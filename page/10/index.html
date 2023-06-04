@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-count">112</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -233,6 +233,119 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/05/19/Linux/Linux-deepin%E4%B8%AD%E5%AE%89%E8%A3%85mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/05/19/Linux/Linux-deepin%E4%B8%AD%E5%AE%89%E8%A3%85mysql/" class="post-title-link" itemprop="url">Linux-deepin中安装mysql</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-19 16:11:14" itemprop="dateCreated datePublished" datetime="2020-05-19T16:11:14+08:00">2020-05-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-07-16 20:29:50" itemprop="dateModified" datetime="2022-07-16T20:29:50+08:00">2022-07-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="我在安装过程中遇到的问题"><a href="#我在安装过程中遇到的问题" class="headerlink" title="我在安装过程中遇到的问题"></a>我在安装过程中遇到的问题</h4><p>1、执行指令：<code>sudo apt-get install mysql-server mysql-client</code>后报错：<strong>没有发现软件mysql-server  没有发现软件mysql-client</strong>。</p>
+<p>2、上网查询后，说要更换deepin的下载源，所以我先后试了阿里和中科大的镜像源，但还是报一样的错误。</p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>确实是要更换镜像源，不过要换成清华的源。</p>
+<p>具体方法如下：</p>
+<p>1、执行命令：<code>vi /etc/apt/sources.list</code>编辑sources.list文件。</p>
+<p>2、将原文件中的所有内容注释掉，然后添加<code>deb [by-hash=force] https://mirrors.tuna.tsinghua.edu.cn/deepin panda main contrib non-free</code>，保存退出。</p>
+<p>3、执行<code>sudo apt-get update</code>，更新下载源。</p>
+<p>4、执行<code>sudo apt-get install mysql-server mysql-client</code>，安装成功。</p>
+<hr>
+<h4 id="2021-10-17-更新"><a href="#2021-10-17-更新" class="headerlink" title="2021.10.17 更新"></a>2021.10.17 更新</h4><p>由于 deepin 系统仓库的原因，不能直接 apt 安装 mysql，清华源以及其他源都没有 mysql-server 和 mysql-client 两个包。不过我们可以用 mariadb 来代替 mysql。</p>
+<h5 id="MariaDB-介绍"><a href="#MariaDB-介绍" class="headerlink" title="MariaDB 介绍"></a>MariaDB 介绍</h5><p>MariaDB数据库管理系统是 MySQL 的一个分支，主要由开源社区在维护，采用 GPL 授权许可。开发这个分支的原因之一是： 甲骨文公司收购了 MySQL 后，有将 MySQL 闭源的潜在风险，因此社区采用分支的方式来避开这个风险。 MariaDB的目的是完全兼容 MySQL，包括 API 和命令行，使之能轻松成为 MySQL 的代替品。</p>
+<p>这意味着，所有使用 MySQL 的连接器、程序库和应用程序也将可以在 MariaDB 下工作。</p>
+<p>所以，MariaDB 完全可以替代 MySQL。</p>
+<br/>
+
+<h5 id="deepin-安装-MariaDB"><a href="#deepin-安装-MariaDB" class="headerlink" title="deepin 安装 MariaDB"></a>deepin 安装 MariaDB</h5><p>打开终端执行以下指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mariadb-server</span><br><span class="line"></span><br><span class="line">sudo apt-get install libmariadbclient-dev libssl-dev</span><br></pre></td></tr></table></figure>
+
+<p>安装完成。</p>
+<p>启动数据库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start mysql</span><br></pre></td></tr></table></figure>
+
+<p>现在就可以开启 MariaDB 数据库了。第一次进入不需要密码，直接执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br></pre></td></tr></table></figure>
+
+<p>进入后可以设置密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; use mysql;</span><br><span class="line">MariaDB [mysql]&gt; UPDATE mysql.user SET password=PASSWORD(&#x27;newpassward&#x27;) WHERE user=&#x27;root&#x27;;</span><br><span class="line">MariaDB [mysql]&gt; UPDATE user SET plugin=&quot;mysql_native_password&quot;;</span><br><span class="line">MariaDB [mysql]&gt; FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<p>退出再登陆就需要执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1125,104 +1238,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/04/10/Redis/Redis-%E5%91%BD%E4%BB%A4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://szd0319.github.io/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">Redis-数据类型</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-04-10 13:58:33" itemprop="dateCreated datePublished" datetime="2020-04-10T13:58:33+08:00">2020-04-10</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:40:23" itemprop="dateModified" datetime="2021-10-16T21:40:23+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="String（字符串）"><a href="#String（字符串）" class="headerlink" title="String（字符串）"></a>String（字符串）</h4><p>string 是 redis 最基本的类型，你可以理解成与 Memcached 一模一样的类型，一个 key 对应一个 value。</p>
-<p>string 类型是二进制安全的。意思是 redis 的 string 可以包含任何数据。比如jpg图片或者序列化的对象。</p>
-<p>string 类型是 Redis 最基本的数据类型，string 类型的值最大能存储 512MB。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; SET name <span class="string">&#x27;Silence&#x27;</span></span><br><span class="line">OK</span><br><span class="line">redis <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">6379</span>&gt; GET name</span><br><span class="line"><span class="string">&quot;silence&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>以上实例中我们使用了 Redis 的 <strong>SET</strong> 和 <strong>GET</strong> 命令，其中，name为键，Silence为值。</p>
-<hr>
-<h4 id="Hash（哈希）"><a href="#Hash（哈希）" class="headerlink" title="Hash（哈希）"></a>Hash（哈希）</h4><p>Redis hash 是一个键值(key=&gt;value)对集合。</p>
-<p>Redis hash 是一个 string 类型的 field 和 value 的映射表，hash 特别适合用于存储对象。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/04/10/Redis/Redis-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
