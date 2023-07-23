@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+  <link rel="mask-icon" href="/images/favicon.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CRoboto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-fill-left.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","width":310,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+<meta name="description" content="命令式组件是指组件的创建、props 的传递、emits 方法的执行都通过一个函数来完成。常见的命令式组件有 ELMessage、ElMessageBox、ElNotification 等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue 命令式组件">
+<meta property="og:url" content="http://example.com/2023/07/23/Vue3/vue%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BB%84%E4%BB%B6/index.html">
+<meta property="og:site_name" content="舞动的灵魂">
+<meta property="og:description" content="命令式组件是指组件的创建、props 的传递、emits 方法的执行都通过一个函数来完成。常见的命令式组件有 ELMessage、ElMessageBox、ElNotification 等。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-23T11:58:43.000Z">
+<meta property="article:modified_time" content="2023-07-23T12:05:29.228Z">
+<meta property="article:author" content="Silence">
+<meta property="article:tag" content="vue3">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/07/23/Vue3/vue%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BB%84%E4%BB%B6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/07/23/Vue3/vue%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BB%84%E4%BB%B6/","path":"2023/07/23/Vue3/vue命令式组件/","title":"vue 命令式组件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('加密文，来试试你的运气吧！') !== ''){
+                alert('要不要再尝试一次呢~~');
+                history.back();
+            }
+        }
+    })();
+</script><title>vue 命令式组件 | 舞动的灵魂</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">舞动的灵魂</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="nav-text">构建命令式组件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E5%8D%95%E6%96%87%E4%BB%B6%E7%BB%84%E4%BB%B6"><span class="nav-text">1. 创建单文件组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E5%91%BD%E4%BB%A4%E5%87%BD%E6%95%B0"><span class="nav-text">2. 创建命令函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-createApp"><span class="nav-text">基于 createApp</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-createVNode-h"><span class="nav-text">基于 createVNode&#x2F;h</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8"><span class="nav-text">3. 使用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E6%8B%93%E5%B1%95"><span class="nav-text">4. 拓展</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Silence"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">Silence</p>
+  <div class="site-description" itemprop="description">万花丛中过，片叶不沾身</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:silence@gmail.com" title="E-Mail → mailto:silence@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://jcoffeezph.top/" title="https:&#x2F;&#x2F;jcoffeezph.top&#x2F;" rel="noopener" target="_blank">ForMe</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://qzmvc1.top/" title="https:&#x2F;&#x2F;qzmvc1.top&#x2F;" rel="noopener" target="_blank">QzmVc1</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/23/Vue3/vue%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BB%84%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vue 命令式组件
+        </h1>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-07-23 19:58:43 / 修改时间：20:05:29" itemprop="dateCreated datePublished" datetime="2023-07-23T19:58:43+08:00">2023-07-23</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>命令式组件是指组件的创建、props 的传递、emits 方法的执行都通过一个函数来完成。<br>常见的命令式组件有 ELMessage、ElMessageBox、ElNotification 等。</p>
+<span id="more"></span>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>对于单文件组件，每次用到都需要在父组件中定义所需的 props 和 emits 方法，如果还需要控制子组件的显隐，往往要调用子组件内部控制显隐的方法，这样的话还需要定义一个模板引用 ref。<br>由此可见，这个子组件的调用逻辑多且分散，如果这个组件需要被多次用到，那么无疑给代码结构和开发人员都带来不好的影响。<br>而命令式组件仅仅通过一个函数来完成，逻辑高度集中，代码结构清晰易于维护。</p>
+<br/>
+
+<h3 id="构建命令式组件"><a href="#构建命令式组件" class="headerlink" title="构建命令式组件"></a>构建命令式组件</h3><p>构建命令式组件的主要思想就是：调用函数时根据已有组件创建一个虚拟节点，将虚拟节点挂载到一个真实 DOM 上并渲染出来。<br>vue 中可以创建虚拟节点的 API 有两个：<code>createApp</code>，<code>createVNode/h</code>。<br>现在我们来构建一个命令式组件，其功能主要是通过一个弹窗显示一些内容，包括取消和确定两个按钮，点击后分别执行开发者定义的逻辑。</p>
+<h5 id="1-创建单文件组件"><a href="#1-创建单文件组件" class="headerlink" title="1. 创建单文件组件"></a>1. 创建单文件组件</h5><p>首先我们要创建一个组件，完成其内部样式和逻辑。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--message.vue--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;&#123; message &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;handleAction(&#x27;cancel&#x27;)&quot;</span>&gt;</span>&#123;&#123; cancelButtonText &#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;handleAction(&#x27;confirm&#x27;)&quot;</span>&gt;</span>&#123;&#123; confirmButtonText &#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span> <span class="attr">lang</span>=<span class="string">&quot;ts&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">const</span> props = withDefaults(defineProps&lt;MessageProps&gt;(), &#123;</span></span><br><span class="line"><span class="javascript">      <span class="attr">title</span>: <span class="string">&quot;提示&quot;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="attr">cancelButtonText</span>: <span class="string">&quot;取消&quot;</span>,</span></span><br><span class="line"><span class="javascript">      <span class="attr">confirmButtonText</span>: <span class="string">&quot;确定&quot;</span></span></span><br><span class="line"><span class="javascript">  &#125;);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">handleAction</span>(<span class="params">action: Action</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    props.onAction(action);</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">  <span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">150px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">background-color</span>: red;</span></span><br><span class="line"><span class="css">    <span class="attribute">position</span>: fixed;</span></span><br><span class="line"><span class="css">    <span class="attribute">top</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">left</span>: <span class="number">50%</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span></span><br><span class="line"><span class="css">    <span class="attribute">z-index</span>: <span class="number">999</span>;</span></span><br><span class="line"><span class="css">  &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里我们需要传入一些 props，类型可以写入 <code>message.d.ts</code> 文件中：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> MessageOptions &#123;</span><br><span class="line">    title?: <span class="built_in">string</span>;</span><br><span class="line">    message: <span class="built_in">string</span>;</span><br><span class="line">    confirmButtonText?: <span class="built_in">string</span>;</span><br><span class="line">    cancelButtonText?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> MessageProps <span class="keyword">extends</span> MessageOptions &#123;</span><br><span class="line">    <span class="attr">onAction</span>: <span class="function">(<span class="params">action: Action</span>) =&gt;</span> <span class="built_in">void</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> Action = <span class="string">&quot;confirm&quot;</span> | <span class="string">&quot;cancel&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p><code>onAction</code> 的作用是在用户点击按钮后，判断操作类型并执行相应逻辑。</p>
+<br/>
+
+<h5 id="2-创建命令函数"><a href="#2-创建命令函数" class="headerlink" title="2. 创建命令函数"></a>2. 创建命令函数</h5><h6 id="基于-createApp"><a href="#基于-createApp" class="headerlink" title="基于 createApp"></a>基于 createApp</h6><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// message.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> MessageComponent <span class="keyword">from</span> <span class="string">&quot;./message.vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">CustomMessage</span> (<span class="params">options: MessageOptions</span>): <span class="title">Promise</span>&lt;<span class="title">void</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> messageApp = createApp(MessageComponent, &#123;</span><br><span class="line">            ...options,</span><br><span class="line">            <span class="attr">onAction</span>: <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (action === <span class="string">&quot;confirm&quot;</span>) resolve();</span><br><span class="line">                <span class="keyword">else</span> reject();</span><br><span class="line">                app.unmount();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">const</span> container = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>);</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(container);</span><br><span class="line">        messageApp.mount(container);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ol>
+<li>这里 <code>messageApp</code> 不能直接挂载到 body，因为 body 下的 <code>#app</code> 也是通过 <code>createApp</code> 创建后挂载的，两者会产生冲突。</li>
+<li>组件内自定义组件生效，第三方组件库不生效，可通过以下方式解决：<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ElementPlus <span class="keyword">from</span> <span class="string">&quot;element-plus&quot;</span>;</span><br><span class="line"></span><br><span class="line">messageApp.use(ElementPlus);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h6 id="基于-createVNode-h"><a href="#基于-createVNode-h" class="headerlink" title="基于 createVNode/h"></a>基于 createVNode/h</h6><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// message.ts</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> MessageComponent <span class="keyword">from</span> <span class="string">&quot;./message.vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; h, render &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">CustomMessage</span> (<span class="params">options: MessageOptions</span>): <span class="title">Promise</span>&lt;<span class="title">void</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> vnode = h(MessageComponent, &#123;</span><br><span class="line">            ...options,</span><br><span class="line">            <span class="attr">onAction</span>: <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (action === <span class="string">&quot;confirm&quot;</span>) resolve();</span><br><span class="line">                <span class="keyword">else</span> reject();</span><br><span class="line">                <span class="comment">// 相当于执行 Element.remove()</span></span><br><span class="line">                render(<span class="literal">null</span>, <span class="built_in">document</span>.body);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        render(vnode, <span class="built_in">document</span>.body);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里需要注意的问题与上面相同，不同的是它无法使用第三方组件库。</p>
+<br/>
+
+<h5 id="3-使用"><a href="#3-使用" class="headerlink" title="3. 使用"></a>3. 使用</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;click&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span> <span class="attr">lang</span>=<span class="string">&quot;ts&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">import</span> &#123; CustomMessage &#125; <span class="keyword">from</span> <span class="string">&quot;./message&quot;</span>;</span></span><br><span class="line"><span class="javascript">  </span></span><br><span class="line"><span class="javascript">  </span></span><br><span class="line"><span class="javascript">  <span class="function"><span class="keyword">function</span> <span class="title">click</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      CustomMessage(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">title</span>: <span class="string">&quot;提示&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">message</span>: <span class="string">&quot;这是一个命令式组件&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">confirmButtonText</span>: <span class="string">&quot;确定&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">cancelButtonText</span>: <span class="string">&quot;取消&quot;</span></span></span><br><span class="line"><span class="javascript">      &#125;).then(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(<span class="string">&quot;点击确定&quot;</span>);</span></span><br><span class="line"><span class="javascript">      &#125;).catch(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(<span class="string">&quot;点击取消&quot;</span>);</span></span><br><span class="line"><span class="javascript">      &#125;);</span></span><br><span class="line"><span class="javascript">  &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br/>
+
+<h5 id="4-拓展"><a href="#4-拓展" class="headerlink" title="4. 拓展"></a>4. 拓展</h5><p>如果想要遵循高内聚原则，即把组件和命令函数都放在一个文件中，我们可以使用 <code>defineComponent</code> 方法来实现。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineComponent, h &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> MessageComponent = defineComponent(</span><br><span class="line">    <span class="function">(<span class="params">props: MessageProps</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> h(<span class="string">&quot;div&quot;</span>, &#123; <span class="attr">class</span>: <span class="string">&quot;box&quot;</span> &#125;, [h(...), h(...), h(...)])</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">props</span>: [<span class="string">&quot;title&quot;</span>, <span class="string">&quot;message&quot;</span>, <span class="string">&quot;cancelButtonText&quot;</span>, <span class="string">&quot;confirmButtonText&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><code>defineComponent</code> 方法的第一个参数要返回整个组件的虚拟 DOM，用 <code>h()</code> 方法的太过繁琐，我们可以用 tsx 来书写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import &#123; defineComponent &#125; from &quot;vue&quot;;</span><br><span class="line">import &#123; styled &#125; from &quot;@styils/vue&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const MessageComponent = defineComponent(</span><br><span class="line">    (props: MessageProps) =&gt; &#123;</span><br><span class="line">        const Box = styled(&quot;div&quot;, &#123;</span><br><span class="line">            width: &quot;200px&quot;,</span><br><span class="line">            height: &quot;150px&quot;,</span><br><span class="line">            backgroundColor: &quot;red&quot;,</span><br><span class="line">            position: &quot;fixed&quot;,</span><br><span class="line">            top: &quot;50%&quot;,</span><br><span class="line">            left: &quot;50%&quot;,</span><br><span class="line">            transform: &quot;translate(-50%, -50%)&quot;,</span><br><span class="line">            zIndex: 999</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">        return () =&gt; &#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;Box&gt;</span><br><span class="line">                    &lt;div&gt;&#123; props.title &#125;&lt;/div&gt;</span><br><span class="line">                    &#123; props.message &#125;</span><br><span class="line">                    &lt;button onClick=&#123; () =&gt; props.onAction(&#x27;cancel&#x27;) &#125;&gt;&#123; props.cancelButtonText &#125;&lt;/button&gt;</span><br><span class="line">                    &lt;button onClick=&#123; () =&gt; props.onAction(&#x27;confirm&#x27;) &#125;&gt;&#123; props.confirmButtonText &#125;&lt;/button&gt;</span><br><span class="line">                &lt;/Box&gt;</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        props: [&quot;title&quot;, &quot;message&quot;, &quot;cancelButtonText&quot;, &quot;confirmButtonText&quot;, &quot;onAction&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>觉得本文对你有用的话，不妨打个赏吧~</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Silence 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Silence 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Silence
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2023/07/23/Vue3/vue%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BB%84%E4%BB%B6/" title="vue 命令式组件">http://example.com/2023/07/23/Vue3/vue命令式组件/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/vue3/" rel="tag"><i class="fa fa-tag"></i> vue3</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/07/02/css/CSS%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0/" rel="prev" title="CSS 时间函数">
+                  <i class="fa fa-chevron-left"></i> CSS 时间函数
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Silence</span>
+</div>
+
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+  
+ 
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+ 
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"right"},"mobile":{"show":true},"react":{"opacity":1},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

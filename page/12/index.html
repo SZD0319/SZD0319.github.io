@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -232,6 +232,202 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/02/13/JS/JS%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/02/13/JS/JS%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">JS 基础</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-02-13 21:07:32" itemprop="dateCreated datePublished" datetime="2020-02-13T21:07:32+08:00">2020-02-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2023-06-04 22:14:22" itemprop="dateModified" datetime="2023-06-04T22:14:22+08:00">2023-06-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="JS-数组去重"><a href="#JS-数组去重" class="headerlink" title="JS 数组去重"></a>JS 数组去重</h3><h6 id="利用集合"><a href="#利用集合" class="headerlink" title="利用集合"></a>利用集合</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> new_array = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr))</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(new_array) <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="filter-indexOf"><a href="#filter-indexOf" class="headerlink" title="filter + indexOf"></a>filter + indexOf</h6><p>indexOf 返回的始终是元素第一次出现的位置。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> new_array = arr.filter(<span class="function">(<span class="params">val, idx</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> arr.indexOf(val) === idx</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(new_array) <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="JS-垃圾回收机制（GC）"><a href="#JS-垃圾回收机制（GC）" class="headerlink" title="JS 垃圾回收机制（GC）"></a>JS 垃圾回收机制（GC）</h3><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><p>垃圾回收机制（Garbage Collection)）简称 GC，所谓垃圾回收机制就是<strong>清理内存的方式</strong>。</p>
+<p>垃圾回收机制会定期（周期性）找出那些不再用到的内存（变量），然后释放其内存。不再用到的内存，没有及时释放，就叫做<strong>内存泄漏</strong>（memory leak）。</p>
+<p>在 JS 中，我们创建变量的时候，JS 引擎会自动给对象分配对应的内存空间，不需要我们手动分配。当代码执行完毕的时候，JS 引擎也会自动地将你的程序，所占用的内存清理掉。正是因为有垃圾回收机制，才导致了开发者有着不用关心内存管理的错误感觉。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/13/JS/JS%E5%9F%BA%E7%A1%80/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2019/05/13/Opencv/Opencv%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E8%A7%86%E9%A2%91%E8%8E%B7%E5%8F%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/05/13/Opencv/Opencv%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E8%A7%86%E9%A2%91%E8%8E%B7%E5%8F%96/" class="post-title-link" itemprop="url">Opencv(三)-视频获取</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-05-13 20:44:16" itemprop="dateCreated datePublished" datetime="2019-05-13T20:44:16+08:00">2019-05-13</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2023-02-13 22:47:38" itemprop="dateModified" datetime="2023-02-13T22:47:38+08:00">2023-02-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Opencv/" itemprop="url" rel="index"><span itemprop="name">Opencv</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="获取视频"><a href="#获取视频" class="headerlink" title="获取视频"></a>获取视频</h2><h4 id="1、cv2-VideoCapture"><a href="#1、cv2-VideoCapture" class="headerlink" title="1、cv2.VideoCapture()"></a>1、cv2.VideoCapture()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cap = cv2.VideoCapture(camera_idx)</span><br></pre></td></tr></table></figure>
+
+<p>用于获取视频。其中，camera_idx是o，表示打开笔记本的内置摄像头，参数是视频文件路径则打开视频。</p>
+<h4 id="2、cv2-namedWindow"><a href="#2、cv2-namedWindow" class="headerlink" title="2、cv2.namedWindow()"></a>2、cv2.namedWindow()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.namedWindow(window_name)</span><br></pre></td></tr></table></figure>
+
+<p>为窗口命名。参数为窗口标题，字符串。</p>
+<h4 id="3、cap-read"><a href="#3、cap-read" class="headerlink" title="3、cap.read()"></a>3、cap.read()</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ret, frame = cap.read()</span><br></pre></td></tr></table></figure>
+
+<p>读取一帧的数据。第一个返回值是布尔类型，判断是否读取到图片，第二个返回值是读取到的图片。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/05/13/Opencv/Opencv%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E8%A7%86%E9%A2%91%E8%8E%B7%E5%8F%96/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
