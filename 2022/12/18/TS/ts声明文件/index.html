@@ -25,17 +25,16 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","width":310,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
 
-<meta name="description" content="引入&#x2F;创建声明文件在使用 TypeScript 写程序的时候，可能会需要使用到 JavaScript 库，因为历史遗留问题，现在非常多的第三方库依然是用 JavaScript 进行编写，但是大多数情况下，库的所有者已经帮你写好了 TypeScript 声明文件，即 .d.ts 文件。">
+<meta name="description" content="TS 声明文件引入&#x2F;创建声明文件在使用 TypeScript 写程序的时候，可能会需要使用到 JavaScript 库，因为历史遗留问题，现在非常多的第三方库依然是用 JavaScript 进行编写，但是大多数情况下，库的所有者已经帮你写好了 TypeScript 声明文件，即 .d.ts 文件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ts 声明文件">
+<meta property="og:title" content="Typescript">
 <meta property="og:url" content="http://example.com/2022/12/18/TS/ts%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/index.html">
 <meta property="og:site_name" content="舞动的灵魂">
-<meta property="og:description" content="引入&#x2F;创建声明文件在使用 TypeScript 写程序的时候，可能会需要使用到 JavaScript 库，因为历史遗留问题，现在非常多的第三方库依然是用 JavaScript 进行编写，但是大多数情况下，库的所有者已经帮你写好了 TypeScript 声明文件，即 .d.ts 文件。">
+<meta property="og:description" content="TS 声明文件引入&#x2F;创建声明文件在使用 TypeScript 写程序的时候，可能会需要使用到 JavaScript 库，因为历史遗留问题，现在非常多的第三方库依然是用 JavaScript 进行编写，但是大多数情况下，库的所有者已经帮你写好了 TypeScript 声明文件，即 .d.ts 文件。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-18T04:35:14.000Z">
-<meta property="article:modified_time" content="2023-01-01T02:50:55.419Z">
+<meta property="article:modified_time" content="2023-07-30T11:01:02.964Z">
 <meta property="article:author" content="Silence">
-<meta property="article:tag" content="vue3">
 <meta property="article:tag" content="ts">
 <meta name="twitter:card" content="summary">
 
@@ -44,7 +43,7 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/12/18/TS/ts%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/","path":"2022/12/18/TS/ts声明文件/","title":"ts 声明文件"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/12/18/TS/ts%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/","path":"2022/12/18/TS/ts声明文件/","title":"Typescript"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 
@@ -57,7 +56,7 @@
             }
         }
     })();
-</script><title>ts 声明文件 | 舞动的灵魂</title>
+</script><title>Typescript | 舞动的灵魂</title>
   
 
 
@@ -162,7 +161,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E5%85%A5-%E5%88%9B%E5%BB%BA%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6"><span class="nav-text">引入&#x2F;创建声明文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%93%E5%B1%95"><span class="nav-text">拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#axios"><span class="nav-text">axios</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pinia"><span class="nav-text">pinia</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TS-%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6"><span class="nav-text">TS 声明文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%85%A5-%E5%88%9B%E5%BB%BA%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6"><span class="nav-text">引入&#x2F;创建声明文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%93%E5%B1%95"><span class="nav-text">拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#axios"><span class="nav-text">axios</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pinia"><span class="nav-text">pinia</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Typscript-%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-text">Typscript 工具类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TS-%E5%8E%9F%E7%94%9F%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-text">TS 原生工具类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Required"><span class="nav-text">Required</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Partial"><span class="nav-text">Partial</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Pick"><span class="nav-text">Pick</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Omit"><span class="nav-text">Omit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Exclude"><span class="nav-text">Exclude</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Extract"><span class="nav-text">Extract</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TS-%E6%8B%93%E5%B1%95%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-text">TS 拓展工具类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#vue-%E8%8E%B7%E5%8F%96%E7%BB%84%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-text">vue 获取组件类型</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,18 +176,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">117</span>
+          <span class="site-state-item-count">118</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">54</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -260,7 +259,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          ts 声明文件
+          Typescript
         </h1>
 
         <div class="post-meta-container">
@@ -281,7 +280,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2023-01-01 10:50:55" itemprop="dateModified" datetime="2023-01-01T10:50:55+08:00">2023-01-01</time>
+        <time title="修改时间：2023-07-30 19:01:02" itemprop="dateModified" datetime="2023-07-30T19:01:02+08:00">2023-07-30</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,7 +288,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Vue3/" itemprop="url" rel="index"><span itemprop="name">Vue3</span></a>
+          <a href="/categories/TS/" itemprop="url" rel="index"><span itemprop="name">TS</span></a>
         </span>
     </span>
 
@@ -310,7 +309,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="引入-创建声明文件"><a href="#引入-创建声明文件" class="headerlink" title="引入/创建声明文件"></a>引入/创建声明文件</h3><p>在使用 TypeScript 写程序的时候，可能会需要使用到 JavaScript 库，因为历史遗留问题，现在非常多的第三方库依然是用 JavaScript 进行编写，但是大多数情况下，库的所有者已经帮你写好了 TypeScript 声明文件，即 .d.ts 文件。</p>
+        <h3 id="TS-声明文件"><a href="#TS-声明文件" class="headerlink" title="TS 声明文件"></a>TS 声明文件</h3><h4 id="引入-创建声明文件"><a href="#引入-创建声明文件" class="headerlink" title="引入/创建声明文件"></a>引入/创建声明文件</h4><p>在使用 TypeScript 写程序的时候，可能会需要使用到 JavaScript 库，因为历史遗留问题，现在非常多的第三方库依然是用 JavaScript 进行编写，但是大多数情况下，库的所有者已经帮你写好了 TypeScript 声明文件，即 .d.ts 文件。</p>
 <span id="more"></span>
 
 <p>还有一些情况是库中并没有附带 ts 声明文件，但是可以通过：</p>
@@ -328,7 +327,7 @@
 <p>之后即可正常导入 wow.js 了。</p>
 <p>那如果想要在原有库的基础上拓展一些类型该怎么办呢？看下面两个例子。</p>
 <hr>
-<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h5 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h5><p>在使用 axios 库时，我们通常会在响应拦截器中返回 <code>AxiosResponse.data</code>，但是这样的话，在请求完成获取响应数据时会造成类型错误：</p>
+<h4 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h4><h5 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h5><p>在使用 axios 库时，我们通常会在响应拦截器中返回 <code>AxiosResponse.data</code>，但是这样的话，在请求完成获取响应数据时会造成类型错误：</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 响应拦截器</span></span><br><span class="line">request.interceptors.response.use(<span class="function">(<span class="params">response: AxiosResponse</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> response.data</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发起请求</span></span><br><span class="line">request(&#123;&#125;).then(<span class="function">(<span class="params">res: AxiosResponse</span>) =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>这里的 <code>res</code> 实际上是 <code>AxiosResponse.data</code>，但类型检查时它的类型仍然是 <code>AxiosResponse</code>，这就造成了错误。</p>
@@ -348,6 +347,46 @@
 
 <p>之后在创建仓库时可直接使用以上的接口。</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userInfo = defineStore(<span class="string">&quot;userInfo&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">state</span>: (): <span class="function"><span class="params">UserInfoState</span> =&gt;</span> (&#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="attr">age</span>: <span class="number">0</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Typscript-工具类"><a href="#Typscript-工具类" class="headerlink" title="Typscript 工具类"></a>Typscript 工具类</h3><h4 id="TS-原生工具类"><a href="#TS-原生工具类" class="headerlink" title="TS 原生工具类"></a>TS 原生工具类</h4><h5 id="Required"><a href="#Required" class="headerlink" title="Required"></a>Required</h5><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Required&lt;T&gt; = &#123;</span><br><span class="line">    [P <span class="keyword">in</span> keyof T]-?: T[P];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>将 T 中的可选类型变为必选类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">    age: <span class="built_in">number</span>;</span><br><span class="line">    address: <span class="built_in">string</span>;</span><br><span class="line">    email?: <span class="built_in">string</span>;</span><br><span class="line">    phonenumber?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> P = Required&lt;Person&gt;</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="keyword">type</span> P = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">    age: <span class="built_in">number</span>;</span><br><span class="line">    address: <span class="built_in">string</span>;</span><br><span class="line">    email: <span class="built_in">string</span>;</span><br><span class="line">    phonenumber: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+
+<h5 id="Partial"><a href="#Partial" class="headerlink" title="Partial"></a>Partial</h5><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Partial&lt;T&gt; = &#123;</span><br><span class="line">    [P <span class="keyword">in</span> keyof T]?: T[P];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>将 T 中的必选类型变为可选类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">    age: <span class="built_in">number</span>;</span><br><span class="line">    address: <span class="built_in">string</span>;</span><br><span class="line">    email?: <span class="built_in">string</span>;</span><br><span class="line">    phonenumber?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> P = Partial&lt;Person&gt;</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="keyword">type</span> P = &#123;</span><br><span class="line">    name?: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span>;</span><br><span class="line">    address?: <span class="built_in">string</span>;</span><br><span class="line">    email?: <span class="built_in">string</span>;</span><br><span class="line">    phonenumber?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+
+<h5 id="Pick"><a href="#Pick" class="headerlink" title="Pick"></a>Pick</h5><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Pick&lt;T, K <span class="keyword">extends</span> keyof T&gt; = &#123;</span><br><span class="line">    [P <span class="keyword">in</span> K]: T[P];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>根据给定的 T 中的属性 K 生成一个新的类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">    age: <span class="built_in">number</span>;</span><br><span class="line">    address: <span class="built_in">string</span>;</span><br><span class="line">    email?: <span class="built_in">string</span>;</span><br><span class="line">    phonenumber?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> P = Pick&lt;Person, <span class="string">&quot;name&quot;</span> | <span class="string">&quot;address&quot;</span>&gt;</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="keyword">type</span> P = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">    address: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+
+<h5 id="Omit"><a href="#Omit" class="headerlink" title="Omit"></a>Omit</h5><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Omit&lt;T, K <span class="keyword">extends</span> keyof <span class="built_in">any</span>&gt; = Pick&lt;T, Exclude&lt;keyof T, K&gt;&gt;;</span><br></pre></td></tr></table></figure>
+<p>根据 T 中不被包含在 K 中的属性生成一个新的类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">    age: <span class="built_in">number</span>;</span><br><span class="line">    address: <span class="built_in">string</span>;</span><br><span class="line">    email?: <span class="built_in">string</span>;</span><br><span class="line">    phonenumber?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> P = Omit&lt;Person, <span class="string">&quot;name&quot;</span> | <span class="string">&quot;address&quot;</span>&gt;</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="keyword">type</span> P = &#123;</span><br><span class="line">    <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">    email?: <span class="built_in">string</span>;</span><br><span class="line">    phonenumber?: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+
+<h5 id="Exclude"><a href="#Exclude" class="headerlink" title="Exclude"></a>Exclude</h5><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Exclude&lt;T, U&gt; = T <span class="keyword">extends</span> U ? <span class="built_in">never</span> : T;</span><br></pre></td></tr></table></figure>
+<p>T U 都是联合类型，根据 T 中不被 U 包含的类型生成一个新的类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> P = Exclude&lt;<span class="string">&quot;name&quot;</span> | <span class="string">&quot;email&quot;</span> | <span class="string">&quot;xxx&quot;</span>, <span class="string">&quot;name&quot;</span> | <span class="string">&quot;age&quot;</span> | <span class="string">&quot;address&quot;</span>&gt;</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="keyword">type</span> P = <span class="string">&quot;email&quot;</span> | <span class="string">&quot;xxx&quot;</span></span><br></pre></td></tr></table></figure>
+<br/>
+
+<h5 id="Extract"><a href="#Extract" class="headerlink" title="Extract"></a>Extract</h5><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Extract&lt;T, U&gt; = T <span class="keyword">extends</span> U ? T : <span class="built_in">never</span>;</span><br></pre></td></tr></table></figure>
+<p>T U 都是联合类型，根据 T 中被 U 包含的类型生成一个新的类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> P = Extract&lt;<span class="string">&quot;name&quot;</span> | <span class="string">&quot;email&quot;</span> | <span class="string">&quot;xxx&quot;</span>, <span class="string">&quot;name&quot;</span> | <span class="string">&quot;age&quot;</span> | <span class="string">&quot;address&quot;</span>&gt;</span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="keyword">type</span> P = <span class="string">&quot;name&quot;</span></span><br></pre></td></tr></table></figure>
+<br/>
+
+<h4 id="TS-拓展工具类"><a href="#TS-拓展工具类" class="headerlink" title="TS 拓展工具类"></a>TS 拓展工具类</h4><h5 id="vue-获取组件类型"><a href="#vue-获取组件类型" class="headerlink" title="vue 获取组件类型"></a>vue 获取组件类型</h5><p>我们在父组件中定义子组件的模板引用时，如果不设置模板引用的类型我们就无法获取子组件暴露的变量和方法的类型提示。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">child</span> <span class="attr">ref</span>=<span class="string">&quot;childRef&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> Child <span class="keyword">from</span> <span class="string">&quot;./child.vue&quot;</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> childRef = ref();</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以通过以下方法获取组件的类型：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> childRef = ref&lt;InstanceType&lt;<span class="keyword">typeof</span> Child&gt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>但是这样写类型太长不美观，我们可以将其封装成一个函数：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">getComponentRef</span>&lt;<span class="title">T</span> <span class="title">extends</span> <span class="title">abstract</span> <span class="title">new</span> (<span class="params">...args: <span class="built_in">any</span></span>) =&gt; <span class="title">any</span>&gt; (<span class="params">_component: T</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ref&lt;InstanceType&lt;T&gt;&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> childRef = getComponentRef(Child);</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -383,7 +422,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2022/12/18/TS/ts%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/" title="ts 声明文件">http://example.com/2022/12/18/TS/ts声明文件/</a>
+      <a href="http://example.com/2022/12/18/TS/ts%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6/" title="Typescript">http://example.com/2022/12/18/TS/ts声明文件/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -392,7 +431,6 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/vue3/" rel="tag"><i class="fa fa-tag"></i> vue3</a>
               <a href="/tags/ts/" rel="tag"><i class="fa fa-tag"></i> ts</a>
           </div>
 
