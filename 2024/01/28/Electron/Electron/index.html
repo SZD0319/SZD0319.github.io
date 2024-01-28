@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+  <link rel="mask-icon" href="/images/favicon.jpg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CRoboto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-fill-left.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","width":310,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+
+<meta name="description" content="Electron 继承了 Chromium 的多进程架构，主要包括主进程和渲染进程。每个 Electron 应用都有一个单一的主进程作为应用程序的入口点。主进程在 Node.js 环境中运行，这意味着它具有 require 模块和使用所有 Node.js API 的能力。主进程可以通过 Electron 的 app 模块来控制应用程序的生命周期，此外，应用程序的菜单、对话框、托盘图标等与操作系统相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Electron">
+<meta property="og:url" content="http://example.com/2024/01/28/Electron/Electron/index.html">
+<meta property="og:site_name" content="舞动的灵魂">
+<meta property="og:description" content="Electron 继承了 Chromium 的多进程架构，主要包括主进程和渲染进程。每个 Electron 应用都有一个单一的主进程作为应用程序的入口点。主进程在 Node.js 环境中运行，这意味着它具有 require 模块和使用所有 Node.js API 的能力。主进程可以通过 Electron 的 app 模块来控制应用程序的生命周期，此外，应用程序的菜单、对话框、托盘图标等与操作系统相">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-28T04:26:20.000Z">
+<meta property="article:modified_time" content="2024-01-28T04:32:34.672Z">
+<meta property="article:author" content="Silence">
+<meta property="article:tag" content="electron">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/01/28/Electron/Electron/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/01/28/Electron/Electron/","path":"2024/01/28/Electron/Electron/","title":"Electron"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('加密文，来试试你的运气吧！') !== ''){
+                alert('要不要再尝试一次呢~~');
+                history.back();
+            }
+        }
+    })();
+</script><title>Electron | 舞动的灵魂</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">舞动的灵魂</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-Electron-%E5%BA%94%E7%94%A8"><span class="nav-text">创建一个简单的 Electron 应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Electron-Vue3-TS-Vite"><span class="nav-text">Electron + Vue3 + TS + Vite</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%93%E5%8C%85"><span class="nav-text">打包</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Silence"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">Silence</p>
+  <div class="site-description" itemprop="description">万花丛中过，片叶不沾身</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:silence@gmail.com" title="E-Mail → mailto:silence@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://jcoffeezph.top/" title="https:&#x2F;&#x2F;jcoffeezph.top&#x2F;" rel="noopener" target="_blank">ForMe</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://qzmvc1.top/" title="https:&#x2F;&#x2F;qzmvc1.top&#x2F;" rel="noopener" target="_blank">QzmVc1</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/01/28/Electron/Electron/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Electron
+        </h1>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-01-28 12:26:20 / 修改时间：12:32:34" itemprop="dateCreated datePublished" datetime="2024-01-28T12:26:20+08:00">2024-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Electron/" itemprop="url" rel="index"><span itemprop="name">Electron</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Electron 继承了 Chromium 的多进程架构，主要包括主进程和渲染进程。<br>每个 Electron 应用都有一个单一的主进程作为应用程序的入口点。主进程在 Node.js 环境中运行，这意味着它具有 require 模块和使用所有 Node.js API 的能力。<br>主进程可以通过 Electron 的 app 模块来控制应用程序的生命周期，此外，应用程序的菜单、对话框、托盘图标等与操作系统相关的操作都由主进程控制。<br>主进程使用 BrowserWindow 模块创建和管理应用程序窗口，每个窗口都在一个单独的渲染进程中运行。<br>运行于渲染进程中的代码必须遵照 Web 标准，这也意味着渲染进程无权直接访问 Node.js API，但可以通过预加载脚本解决这一问题。</p>
+<span id="more"></span>
+
+<h3 id="创建一个简单的-Electron-应用"><a href="#创建一个简单的-Electron-应用" class="headerlink" title="创建一个简单的 Electron 应用"></a>创建一个简单的 Electron 应用</h3><p>新建一个名为 my-electron-app 的文件夹，在该文件夹下执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<p>然后，安装 electron：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i electron -D</span><br></pre></td></tr></table></figure>
+<p>接下来，要运行 Electron 项目，先修改 package.json 中的内容：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;main.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;electron .&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>main</code> 字段指定了 Electron 程序的入口文件（主进程入口点），这在 Electron 程序中是必须的，稍后会创建 main.js 文件。<br>执行以下命令来运行程序：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run start</span><br></pre></td></tr></table></figure>
+<p>在根目录下新建 index.html 文件，添加如下内容：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Security-Policy&quot;</span> <span class="attr">content</span>=<span class="string">&quot;default-src &#x27;self&#x27;; script-src &#x27;self&#x27;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>你好!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你好!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在根目录下新建 main.js 文件，添加如下内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; app, BrowserWindow &#125; = <span class="built_in">require</span>(<span class="string">&quot;electron&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> createWindow = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> win = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">        <span class="attr">width</span>: <span class="number">800</span>,</span><br><span class="line">        <span class="attr">height</span>: <span class="number">600</span></span><br><span class="line">    &#125;)</span><br><span class="line">    win.loadFile(<span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app.whenReady().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    createWindow()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>main.js 文件就是该应用的主进程入口文件，我们在主进程中创建了一个窗口，并将 index.html 加载到窗体中，当我们开启应用时，渲染进程就会将 index.html 文件的内容渲染到窗体中。<br>由于渲染进程运行在 Web 环境中，因此我们可以在 index.html 的 <code>&lt;body&gt;</code> 中添加一个 <code>&lt;script&gt;</code> 标签来引入脚本，以扩展程序的功能：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./renderer.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>renderer.js 其实就相当于 Vue 或 React 程序的入口文件。index.html 就相当于 Vue 或 React 项目打包后的 index.html。<br>这样看来，Electron 的渲染进程的代码完全可以通过 Vue 或 React 框架来开发，那么下面就介绍一下如何将 Electron 和 Vue 结合起来进行开发。</p>
+<hr>
+<h3 id="Electron-Vue3-TS-Vite"><a href="#Electron-Vue3-TS-Vite" class="headerlink" title="Electron + Vue3 + TS + Vite"></a>Electron + Vue3 + TS + Vite</h3><p>首先创建一个 Vue 项目：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create vue@latest</span><br></pre></td></tr></table></figure>
+<p>安装 Electron：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i electron -D</span><br></pre></td></tr></table></figure>
+<p>在根目录下创建 electron 文件夹，在文件夹下创建 main.ts 文件和 preload.ts 文件：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// preload.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; contextBridge, ipcRenderer &#125; <span class="keyword">from</span> <span class="string">&quot;electron&quot;</span>;</span><br><span class="line"></span><br><span class="line">contextBridge.exposeInMainWorld(<span class="string">&quot;myApi&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">node</span>: <span class="function">() =&gt;</span> process.versions.node,</span><br><span class="line">    <span class="attr">inputFile</span>: <span class="function">() =&gt;</span> ipcRenderer.invoke(<span class="string">&quot;input-file&quot;</span>),</span><br><span class="line">    <span class="attr">outputFile</span>: <span class="function">() =&gt;</span> ipcRenderer.invoke(<span class="string">&quot;output-file&quot;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; app, BrowserWindow, ipcMain, dialog &#125; <span class="keyword">from</span> <span class="string">&quot;electron&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; resolve &#125; <span class="keyword">from</span> <span class="string">&quot;path&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> createWindow = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> win = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">        <span class="attr">width</span>: <span class="number">1920</span>,</span><br><span class="line">        <span class="attr">height</span>: <span class="number">1080</span>,</span><br><span class="line">        <span class="attr">webPreferences</span>: &#123;</span><br><span class="line">            <span class="attr">preload</span>: resolve(__dirname, <span class="string">&quot;./preload.js&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    win.loadURL(<span class="string">&quot;http://localhost:5173&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app.whenReady().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    createWindow();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>这里导入预加载脚本用的是 <code>./preload.js</code> 而不是 <code>preload.ts</code>，这是 vite-plugin-electron 插件的作用，我们稍后介绍。</li>
+<li>在开发环境中，通过 <code>loadURL</code> 加载 Vue 服务比 <code>loadFile</code> 更加方便。</li>
+</ol>
+<p>由于 electron 文件夹在项目根目录下，ts 配置文件没有包含，所以需要修改 ts 配置文件，因为 main.ts 和 preload.ts 文件都运行在 node 环境，因此修改 tsconfig.node.json 文件：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;include&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;electron/**/*.ts&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，安装 vite-plugin-electron 插件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i vite-plugin-electron -D</span><br></pre></td></tr></table></figure>
+<p>在 vite.config.ts 中配置：</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> electronVite <span class="keyword">from</span> <span class="string">&quot;vite-plugin-electron/simple&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        electronVite(&#123;</span><br><span class="line">            <span class="attr">main</span>: &#123;</span><br><span class="line">                <span class="attr">entry</span>: <span class="string">&quot;electron/main.ts&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">preload</span>: &#123;</span><br><span class="line">                <span class="attr">input</span>: <span class="string">&quot;electron/preload.ts&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>该插件有以下作用：</p>
+<ol>
+<li>运行项目时可以同时运行 vue 程序和桌面程序；</li>
+<li>支持桌面程序热重载；</li>
+<li>可以通过配置将主进程文件和预加载文件进行 ts 编译和 babel 转义，得到可直接使用的 js 文件。</li>
+</ol>
+<p>启动项目时，该插件会在根目录下生成 dist-electron 文件夹，其中是转义后的 main.js 和 preload.js 文件。<br>这也解释了上面引入预加载脚本时为什么用 <code>preload.js</code> 而不是 <code>preload.ts</code>。<br>同样，Electron 的入口文件也应该是 dist-electron/main.js，修改 package.json:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;dist-electron/main.js&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动项目时就像启动普通的 Vue 项目即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<p>这时，Electron 程序和 Vue 程序都启动了。<br>如果想要在桌面程序中像在浏览器中一样进行调试，可以使用快捷键打开控制台：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + shift + I</span><br></pre></td></tr></table></figure>
+
+<h4 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h4><p>在打包之前，需要注意一下几个地方：<br>（1）路由须使用 Hash 模式。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createRouter, createWebHashHistory &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = createRouter(&#123;</span><br><span class="line">  <span class="attr">history</span>: createWebHashHistory(<span class="string">&quot;/&quot;</span>),</span><br><span class="line">  <span class="attr">routes</span>: [...]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+<p>（2）vite 的基本路径使用相对路径。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">    <span class="attr">base</span>: <span class="string">&quot;./&quot;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>（3）修改主进程入口文件，将窗口载入的资源指向 dist/index.html。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (app.isPackaged) &#123;</span><br><span class="line">    win.loadFile(path.join(__dirname, <span class="string">&quot;../dist/index.html&quot;</span>));</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    win.loadURL(<span class="string">&quot;http://localhost:5173&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>安装 Electron 打包工具 electron-builder：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i electron-builder -D</span><br></pre></td></tr></table></figure>
+<p>在 package.json 中添加打包指令：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;build&quot;</span>: <span class="string">&quot;vite build &amp;&amp; electron-builder&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继续在 package.json 中添加打包配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;build&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;productName&quot;</span>:<span class="string">&quot;解密工具&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;appId&quot;</span>: <span class="string">&quot;com.xxx.xxxxx&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;copyright&quot;</span>:<span class="string">&quot;xxxx&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;directories&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;output&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;win&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;public/favicon.ico&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>这里的 <code>icon</code> 图标至少是 256 ✖ 256，不然会报错中断打包，可以不写使用默认图标。<br>执行 <code>npm run build</code> 后，项目中输出了 build 文件夹，里面有直接可用的 exe 程序，但如果想要生成安装程序，需进行以下配置：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;build&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;productName&quot;</span>: <span class="string">&quot;解密工具&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;appId&quot;</span>: <span class="string">&quot;com.xxx.xxxxx&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;copyright&quot;</span>: <span class="string">&quot;xxxx&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;directories&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;output&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;win&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;target&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;target&quot;</span>: <span class="string">&quot;nsis&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;nsis&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;oneClick&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">&quot;allowElevation&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">&quot;allowToChangeInstallationDirectory&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">&quot;installerIcon&quot;</span>: <span class="string">&quot;public/favicon.ico&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;uninstallerIcon&quot;</span>: <span class="string">&quot;public/favicon.ico&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;installerHeaderIcon&quot;</span>: <span class="string">&quot;public/favicon.ico&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;createDesktopShortcut&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">&quot;createStartMenuShortcut&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">&quot;shortcutName&quot;</span>: <span class="string">&quot;解密工具&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>意思是需要使用 nsis 工具再将输出的文件夹打包成一个可安装的 exe 程序。<br><a target="_blank" rel="noopener" href="https://www.electron.build/">electron-builder 官网</a>。<br><a target="_blank" rel="noopener" href="https://www.electron.build/">nsis</a>。<br>如果打包过程报错：<br>（1）<strong>ERROR: Cannot create symbolic link : 无法创建符号链接</strong>，这需要我们以管理员身份去运行打包命令。<br>（2)<strong>node_modules\app-builder-bin\win\x64\app-builder.exe process failed ERR_ELECTRON_BUILDER_CANNOT_EXECUTE</strong>，这是网络问题导致的，再次尝试即可。<br>打包成功后，build 文件夹下会出现一个 Setup.exe 的程序，这就是安装程序。<br>下面附上 electron-builder 的较完整的配置项：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;build&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;productName&quot;</span>:<span class="string">&quot;xxxx&quot;</span>,<span class="comment">//项目名 这也是生成的exe文件的前缀名</span></span><br><span class="line">    <span class="attr">&quot;appId&quot;</span>: <span class="string">&quot;com.leon.xxxxx&quot;</span>,<span class="comment">//包名  </span></span><br><span class="line">    <span class="attr">&quot;copyright&quot;</span>:<span class="string">&quot;xxxx&quot;</span>,<span class="comment">//版权  信息</span></span><br><span class="line">    <span class="attr">&quot;directories&quot;</span>: &#123; <span class="comment">// 输出文件夹</span></span><br><span class="line">      <span class="attr">&quot;output&quot;</span>: <span class="string">&quot;build&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;nsis&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;oneClick&quot;</span>: <span class="literal">false</span>, <span class="comment">// 是否一键安装</span></span><br><span class="line">      <span class="attr">&quot;allowElevation&quot;</span>: <span class="literal">true</span>, <span class="comment">// 允许请求提升。 如果为false，则用户必须使用提升的权限重新启动安装程序。</span></span><br><span class="line">      <span class="attr">&quot;allowToChangeInstallationDirectory&quot;</span>: <span class="literal">true</span>, <span class="comment">// 允许修改安装目录</span></span><br><span class="line">      <span class="attr">&quot;installerIcon&quot;</span>: <span class="string">&quot;./build/icons/aaa.ico&quot;</span>,<span class="comment">// 安装图标</span></span><br><span class="line">      <span class="attr">&quot;uninstallerIcon&quot;</span>: <span class="string">&quot;./build/icons/bbb.ico&quot;</span>,<span class="comment">//卸载图标</span></span><br><span class="line">      <span class="attr">&quot;installerHeaderIcon&quot;</span>: <span class="string">&quot;./build/icons/aaa.ico&quot;</span>, <span class="comment">// 安装时头部图标</span></span><br><span class="line">      <span class="attr">&quot;createDesktopShortcut&quot;</span>: <span class="literal">true</span>, <span class="comment">// 创建桌面图标</span></span><br><span class="line">      <span class="attr">&quot;createStartMenuShortcut&quot;</span>: <span class="literal">true</span>,<span class="comment">// 创建开始菜单图标</span></span><br><span class="line">      <span class="attr">&quot;shortcutName&quot;</span>: <span class="string">&quot;xxxx&quot;</span>, <span class="comment">// 图标名称</span></span><br><span class="line">      <span class="attr">&quot;include&quot;</span>: <span class="string">&quot;build/script/installer.nsh&quot;</span>, <span class="comment">// 包含的自定义nsis脚本</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;publish&quot;</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">&quot;provider&quot;</span>: <span class="string">&quot;generic&quot;</span>, <span class="comment">// 服务器提供商 也可以是GitHub等等</span></span><br><span class="line">        <span class="attr">&quot;url&quot;</span>: <span class="string">&quot;http://xxxxx/&quot;</span> <span class="comment">// 服务器地址</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;files&quot;</span>: [</span><br><span class="line">      <span class="string">&quot;dist/electron/**/*&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">&quot;dmg&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;contents&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;x&quot;</span>: <span class="number">410</span>,</span><br><span class="line">          <span class="attr">&quot;y&quot;</span>: <span class="number">150</span>,</span><br><span class="line">          <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;link&quot;</span>,</span><br><span class="line">          <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/Applications&quot;</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;x&quot;</span>: <span class="number">130</span>,</span><br><span class="line">          <span class="attr">&quot;y&quot;</span>: <span class="number">150</span>,</span><br><span class="line">          <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;file&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;mac&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;build/icons/icon.icns&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;win&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;build/icons/aims.ico&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;target&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;target&quot;</span>: <span class="string">&quot;nsis&quot;</span>,</span><br><span class="line">          <span class="attr">&quot;arch&quot;</span>: [</span><br><span class="line">            <span class="string">&quot;ia32&quot;</span></span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;linux&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;icon&quot;</span>: <span class="string">&quot;build/icons&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>觉得本文对你有用的话，不妨打个赏吧~</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Silence 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Silence 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Silence
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2024/01/28/Electron/Electron/" title="Electron">http://example.com/2024/01/28/Electron/Electron/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/electron/" rel="tag"><i class="fa fa-tag"></i> electron</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/07/23/Vue3/vue%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BB%84%E4%BB%B6/" rel="prev" title="vue 命令式组件">
+                  <i class="fa fa-chevron-left"></i> vue 命令式组件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/28/Electron/Electron%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" rel="next" title="Electron进程间通信">
+                  Electron进程间通信 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Silence</span>
+</div>
+
+
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>-->
+
+
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+  
+ 
+	<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+ 
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"right"},"mobile":{"show":true},"react":{"opacity":1},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+

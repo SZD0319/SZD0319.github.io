@@ -172,18 +172,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-count">121</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">55</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -232,6 +232,287 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/01/python%E5%9F%BA%E7%A1%80/argparse%E6%A8%A1%E5%9D%97%E8%AE%B2%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/01/python%E5%9F%BA%E7%A1%80/argparse%E6%A8%A1%E5%9D%97%E8%AE%B2%E8%A7%A3/" class="post-title-link" itemprop="url">argparse模块讲解</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-01 19:38:13" itemprop="dateCreated datePublished" datetime="2021-09-01T19:38:13+08:00">2021-09-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-16 21:36:03" itemprop="dateModified" datetime="2021-10-16T21:36:03+08:00">2021-10-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>argsparse是python的命令行解析的标准模块，内置于python，不需要安装。这个库可以让我们直接在命令行中就可以向程序中传入参数并让程序运行。</p>
+<h3 id="传入一个参数"><a href="#传入一个参数" class="headerlink" title="传入一个参数"></a>传入一个参数</h3><p>我们先在桌面新建“arg学习”的文件夹，在该文件夹中新建demo.py文件，来看一个最简单的argsparse库的使用的例子。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line">parser = argparse.ArgumentParser(description=<span class="string">&#x27;命令行中传入一个数字&#x27;</span>)</span><br><span class="line"><span class="comment">#type是要传入的参数的数据类型  help是该参数的提示信息</span></span><br><span class="line">parser.add_argument(<span class="string">&#x27;integers&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&#x27;传入的数字&#x27;</span>)</span><br><span class="line"></span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line"><span class="comment">#获得传入的参数</span></span><br><span class="line"><span class="built_in">print</span>(args)</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/01/python%E5%9F%BA%E7%A1%80/argparse%E6%A8%A1%E5%9D%97%E8%AE%B2%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/28/Flask/%E5%B0%81%E8%A3%85Falsk%E6%8E%A5%E5%8F%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/28/Flask/%E5%B0%81%E8%A3%85Falsk%E6%8E%A5%E5%8F%A3/" class="post-title-link" itemprop="url">Falsk视图函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-28 14:35:39" itemprop="dateCreated datePublished" datetime="2021-08-28T14:35:39+08:00">2021-08-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-27 20:10:52" itemprop="dateModified" datetime="2022-02-27T20:10:52+08:00">2022-02-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我们来看一个 flask 视图函数示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request</span><br><span class="line"></span><br><span class="line">app = Flask(__name__) <span class="comment"># 注册一个app</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/test&#x27;</span>, methods=[<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;get&#x27;</span>]</span>) </span><span class="comment"># &#x27;/test&#x27;是访问路径， methods指定了请求的方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    data = request.get_json()[<span class="string">&#x27;data&#x27;</span>] <span class="comment"># 通过request获取传来的数据</span></span><br><span class="line">    <span class="keyword">return</span> data <span class="comment"># 对请求返回响应</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong>flask视图函数的返回值类型只能为：string, dict, tuple, Response instance, or WSGI callable。</p>
+<p>我们用 requests 来向接口发起请求：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">r = requests.post(<span class="string">&#x27;127.0.0.1:8802/test&#x27;</span>, data=&#123;<span class="string">&#x27;data&#x27;</span>:<span class="string">&#x27;hello world&#x27;</span>&#125;)</span><br><span class="line"><span class="built_in">print</span>(r.text) <span class="comment"># 输出 hello world</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/28/Flask/%E5%B0%81%E8%A3%85Falsk%E6%8E%A5%E5%8F%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/08/28/Python%E7%88%AC%E8%99%AB/Requests%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="Silence">
+      <meta itemprop="description" content="万花丛中过，片叶不沾身">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="舞动的灵魂">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/08/28/Python%E7%88%AC%E8%99%AB/Requests%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Requests的介绍与使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+
+          <div class="post-meta">
+  
+	
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-08-28 11:04:56" itemprop="dateCreated datePublished" datetime="2021-08-28T11:04:56+08:00">2021-08-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-16 21:39:13" itemprop="dateModified" datetime="2021-10-16T21:39:13+08:00">2021-10-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="1、模块说明"><a href="#1、模块说明" class="headerlink" title="1、模块说明"></a>1、模块说明</h3><p>requests是使用Apache2 licensed 许可证的HTTP库。</p>
+<p>用python编写。</p>
+<p>比urllib2模块更简洁。</p>
+<p>Request支持HTTP连接保持和连接池，支持使用cookie保持会话，支持文件上传，支持自动响应内容的编码，支持国际化的URL和POST数据自动编码。</p>
+<p>在python内置模块的基础上进行了高度的封装，从而使得python进行网络请求时，变得人性化，使用Requests可以轻而易举的完成浏览器可有的任何操作。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/28/Python%E7%88%AC%E8%99%AB/Requests%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -908,319 +1189,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/14/JS/JavaScrip%E6%95%B0%E7%BB%84API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/14/JS/JavaScrip%E6%95%B0%E7%BB%84API/" class="post-title-link" itemprop="url">JavaScrip数组API</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-08-14 14:48:35" itemprop="dateCreated datePublished" datetime="2020-08-14T14:48:35+08:00">2020-08-14</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:33:07" itemprop="dateModified" datetime="2021-10-16T21:33:07+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><h6 id="every"><a href="#every" class="headerlink" title="every() :"></a>every() :</h6><p>返回值为boolean类型，每次遍历的结果都为true则返回true，有任何一个返回不为true时，则返回false。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> flag = array.every(<span class="function"><span class="keyword">function</span> (<span class="params">element, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 不写return时返回undefined </span></span><br><span class="line">    <span class="keyword">if</span> (element &lt; <span class="number">5</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// flag结果为false，因为当index = 4时不满足，故最后结果为false；</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="filter"><a href="#filter" class="headerlink" title="filter() :"></a>filter() :</h6><p>返回值为数组，当遍历时的结果为true，则将该结果写入新数组中，最后返回该新数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = array.filter(<span class="function"><span class="keyword">function</span> (<span class="params">element, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element &gt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 最后newArr = [3, 4, 5]</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="foreach"><a href="#foreach" class="headerlink" title="foreach()"></a>foreach()</h6><p> 无返回值，纯数组操作。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">array.foreach(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, arr</span>) </span>&#123;</span><br><span class="line">    log.info(element)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// foreach方法最大的问题是无法跳出循环，哪怕是return了或者抛异常，它都会看作continue操作，直到执行完所有的遍历操作为止。</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/14/JS/JavaScrip%E6%95%B0%E7%BB%84API/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/08/14/JS/JavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/14/JS/JavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2API/" class="post-title-link" itemprop="url">JavaScript字符串API</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-08-14 14:26:56" itemprop="dateCreated datePublished" datetime="2020-08-14T14:26:56+08:00">2020-08-14</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:32:54" itemprop="dateModified" datetime="2021-10-16T21:32:54+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JS/" itemprop="url" rel="index"><span itemprop="name">JS</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h6 id="String-prototype-anchor"><a href="#String-prototype-anchor" class="headerlink" title="String.prototype.anchor()"></a>String.prototype.anchor()</h6><p>anchor()方法用于创建一个<a>html描元素</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;我是html内容&#x27;</span>.anchor(<span class="string">&#x27;我是name属性值&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(str) <span class="comment">// &quot;&lt;a name=&quot;我是name属性值&quot;&gt;我是html内容&lt;/a&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="String-prototype-bold"><a href="#String-prototype-bold" class="headerlink" title="String.prototype.bold()"></a>String.prototype.bold()</h6><p>bold()方法用于创建<b>html元素</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;aaa&#x27;</span>.bold()</span><br><span class="line"><span class="built_in">console</span>.log(str) <span class="comment">// &quot;&lt;b&gt;aaa&lt;/b&gt;&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="String-prototype-charAt"><a href="#String-prototype-charAt" class="headerlink" title="String.prototype.charAt()"></a>String.prototype.charAt()</h6><p>charAt()方法用于返回字符串指定位置的字符</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;amz&#x27;</span>.charAt() <span class="comment">// &#x27;a&#x27;  不传索引则默认为0</span></span><br><span class="line"><span class="string">&#x27;amz&#x27;</span>.charAt(<span class="number">1</span>) <span class="comment">// &#x27;m&#x27; </span></span><br></pre></td></tr></table></figure>
-
-<h6 id="String-prototype-concat"><a href="#String-prototype-concat" class="headerlink" title="String.prototype.concat()"></a>String.prototype.concat()</h6><p>concat()将多个字符串拼接在一起</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="string">&#x27;aaa&#x27;</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="string">&#x27;bbb&#x27;</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="string">&#x27;ccc&#x27;</span>.concat(a, b, <span class="string">&#x27;ddd&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// &#x27;cccaaabbbddd&#x27; hs</span></span><br></pre></td></tr></table></figure>
-
-<h6 id="String-prototype-endsWith"><a href="#String-prototype-endsWith" class="headerlink" title="String.prototype.endsWith()"></a>String.prototype.endsWith()</h6><p>endsWith()方法用于判断当前字符串是否以另一个给定字符串结尾</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;my name is amz&#x27;</span> </span><br><span class="line">name.endsWith(<span class="string">&#x27;z&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">name.endsWith(<span class="string">&#x27;mz&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">name.endsWith(<span class="string">&#x27;amz&#x27;</span>) <span class="comment">// true</span></span><br><span class="line">name.endsWith(<span class="string">&#x27;is&#x27;</span>) <span class="comment">// falsejs</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/14/JS/JavaScript%E5%AD%97%E7%AC%A6%E4%B8%B2API/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-      <meta itemprop="name" content="Silence">
-      <meta itemprop="description" content="万花丛中过，片叶不沾身">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="舞动的灵魂">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/29/Django/Django-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%87%E6%BB%A4%E5%99%A8filter/" class="post-title-link" itemprop="url">Django-数据库过滤器filter</a>
-        </h2>
-
-        <div class="post-meta-container">
-
-          <div class="post-meta">
-  
-	
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-29 14:47:33" itemprop="dateCreated datePublished" datetime="2020-07-29T14:47:33+08:00">2020-07-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-16 21:31:13" itemprop="dateModified" datetime="2021-10-16T21:31:13+08:00">2021-10-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在做django项目时，难免会需要对数据库中的数据进行筛选，django有自己的数据库过滤语法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">users = User.objects.<span class="built_in">filter</span>()</span><br></pre></td></tr></table></figure>
-
-<p>其中有多种参数：</p>
-<ul>
-<li><code>__contains </code>：包含， like ‘%aaa%’； <code>__icontains </code>：包含（ 忽略大小写） ilike ‘%aaa%’，但是对于sqlite来说，contains的作用效果等同于 icontains</li>
-<li><code>__exact</code> ：精确等于， like ‘aaa’ ；<code>iexact</code> 精确等于（忽略大小写） ilike ‘aaa’</li>
-<li><code>__gt</code> 大于</li>
-<li><code>__gte</code> 大于等于</li>
-<li><code>__lt</code> 小于</li>
-<li><code>__lte</code> 小于等于</li>
-<li><code>__in</code> 存在于一个list范围内</li>
-<li><code>__startswith</code> 以…开头</li>
-<li><code>__istartswith</code> 以…开头 忽略大小写</li>
-<li><code>__endswith </code>以…结尾</li>
-<li><code>__iendswith</code> 以…结尾，忽略大小写</li>
-<li><code>__range</code> 在…范围内</li>
-<li><code>__year</code> 日期字段的年份</li>
-<li><code>__month</code> 日期字段的月份</li>
-<li><code>__day </code>日期字段的日</li>
-<li><code>__isnull</code>=True/False 空查询</li>
-</ul>
-<p><strong>“Q() |” 或  ；“&amp;”与(逗号效果一样) ； “~”非(不等于)</strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models imports Q</span><br><span class="line"></span><br><span class="line">XXX.objects.<span class="built_in">filter</span>(Q(id__gt=<span class="number">3</span>)|Q(bread__gt=<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1232,7 +1202,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
