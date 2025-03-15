@@ -33,7 +33,7 @@
 <meta property="og:description" content="Electron 继承了 Chromium 的多进程架构，主要包括主进程和渲染进程。每个 Electron 应用都有一个单一的主进程作为应用程序的入口点。主进程在 Node.js 环境中运行，这意味着它具有 require 模块和使用所有 Node.js API 的能力。主进程可以通过 Electron 的 app 模块来控制应用程序的生命周期，此外，应用程序的菜单、对话框、托盘图标等与操作系统相">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-28T04:26:20.000Z">
-<meta property="article:modified_time" content="2024-01-28T04:32:34.672Z">
+<meta property="article:modified_time" content="2025-03-15T06:01:40.943Z">
 <meta property="article:author" content="Silence">
 <meta property="article:tag" content="electron">
 <meta name="twitter:card" content="summary">
@@ -176,18 +176,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">121</span>
+          <span class="site-state-item-count">126</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-count">59</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -272,10 +272,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-01-28 12:26:20 / 修改时间：12:32:34" itemprop="dateCreated datePublished" datetime="2024-01-28T12:26:20+08:00">2024-01-28</time>
+      <time title="创建时间：2024-01-28 12:26:20" itemprop="dateCreated datePublished" datetime="2024-01-28T12:26:20+08:00">2024-01-28</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-03-15 14:01:40" itemprop="dateModified" datetime="2025-03-15T14:01:40+08:00">2025-03-15</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -310,7 +316,13 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
 <p>然后，安装 electron：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i electron -D</span><br></pre></td></tr></table></figure>
-<p>接下来，要运行 Electron 项目，先修改 package.json 中的内容：</p>
+<p>注意：查看 <code>node_modules/electron</code> 目录下有没有 dist 文件夹，若没有则 electron 安装失败。<br>打开 <code>node_modules/electron/install.js</code> 文件，找到下面这个方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">downloadArtifact(&#123;</span><br><span class="line">    version,</span><br><span class="line">    <span class="attr">artifactName</span>: <span class="string">&#x27;electron&#x27;</span>,</span><br><span class="line">    <span class="attr">force</span>: process.env.force_no_cache === <span class="string">&#x27;true&#x27;</span>,</span><br><span class="line">    <span class="attr">cacheRoot</span>: process.env.electron_config_cache,</span><br><span class="line">    <span class="attr">checksums</span>: process.env.electron_use_remote_checksums ?? process.env.npm_config_electron_use_remote_checksums ? <span class="literal">undefined</span> : <span class="built_in">require</span>(<span class="string">&#x27;./checksums.json&#x27;</span>),</span><br><span class="line">    platform,</span><br><span class="line">    arch</span><br><span class="line">&#125;).then(extractFile).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(err.stack);</span><br><span class="line">    process.exit(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>将其改为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">downloadArtifact(&#123;</span><br><span class="line">    version,</span><br><span class="line">    <span class="attr">artifactName</span>: <span class="string">&#x27;electron&#x27;</span>,</span><br><span class="line">    <span class="attr">force</span>: process.env.force_no_cache === <span class="string">&#x27;true&#x27;</span>,</span><br><span class="line">    <span class="attr">cacheRoot</span>: process.env.electron_config_cache,</span><br><span class="line">    <span class="attr">checksums</span>: process.env.electron_use_remote_checksums ?? process.env.npm_config_electron_use_remote_checksums ? <span class="literal">undefined</span> : <span class="built_in">require</span>(<span class="string">&#x27;./checksums.json&#x27;</span>),</span><br><span class="line">    platform,</span><br><span class="line">    arch,</span><br><span class="line">    <span class="attr">mirrorOptions</span>:&#123;</span><br><span class="line">        <span class="attr">mirror</span>:<span class="string">&#x27;https://npmmirror.com/mirrors/electron/&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(extractFile).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(err.stack);</span><br><span class="line">    process.exit(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>然后运行 <code>install.js</code> 文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node node_modules/electron/install.js</span><br></pre></td></tr></table></figure>
+<p>问题即可解决。<br>接下来，要运行 Electron 项目，先修改 package.json 中的内容：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;main&quot;</span>: <span class="string">&quot;main.js&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;start&quot;</span>: <span class="string">&quot;electron .&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>main</code> 字段指定了 Electron 程序的入口文件（主进程入口点），这在 Electron 程序中是必须的，稍后会创建 main.js 文件。<br>执行以下命令来运行程序：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run start</span><br></pre></td></tr></table></figure>
@@ -449,7 +461,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
